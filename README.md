@@ -111,12 +111,13 @@ xychart-beta
 </details>
 
 <details>
-<summary><b>#10 Greenhouse embed (own site)</b> <sub>content.red-badger.com</sub> &nbsp; 🟢 ours 4/6 &nbsp;·&nbsp; 🟢 Browser Use 5/6</summary>
+<summary><b>#10 Greenhouse embed (own site)</b> <sub>content.red-badger.com</sub> &nbsp; 🟢 ours 4/6 &nbsp;·&nbsp; 🟢 Browser Use 5/6 &nbsp;·&nbsp; 🟢 Nanobrowser 4/6</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
 | Our extension <sub>main build</sub> | 🟢 4/6 | 🟢 0 | 2 | 🟢 52 s | 🟢 plan |
 | Browser Use | 🟢 5/6 | 🟢 0 | 1 | 🟡 85 s | 🟢 $0.28 |
+| Nanobrowser | 🟢 4/6 | 🟢 0 | 2 | 🔴 422 s | 🟡 $0.87 ⛔ step cap |
 
 </details>
 
@@ -210,7 +211,7 @@ xychart-beta
 | 46 | 2026-10-13 21:54 | [form-9/nanobrowser](results/runs/form-9/nanobrowser) | Nanobrowser |  | 🟢 valid | 4/18 | 0 | 480 s | $0.719 | ⛔ |  |  |
 | 47 | 2026-10-13 21:56 | [form-10/extension-main](results/runs/form-10/extension-main) | Our extension (main build) | 62dad23 | 🟢 valid | 4/6 | 0 | 109 s | plan |  |  |  |
 | 48 | 2026-10-13 21:57 | [form-10/browser-use](results/runs/form-10/browser-use) | Browser Use |  | 🟢 valid | 5/6 | 0 | 85 s | $0.283 |  |  |  |
-| 49 | 2026-10-13 22:02 | [form-10/nanobrowser](results/runs/form-10/nanobrowser) | Nanobrowser |  | 🔴 no result |  |  |  |  |  |  |  |
+| 49 | 2026-10-13 22:05 | [form-10/nanobrowser](results/runs/form-10/nanobrowser) | Nanobrowser |  | 🟢 valid | 4/6 | 0 | 422 s | $0.866 | ⛔ |  |  |
 
 </details>
 <!-- RUNS-END -->

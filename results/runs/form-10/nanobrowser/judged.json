@@ -1,0 +1,90 @@
+[
+ {
+  "question": "First Name*",
+  "type": "text",
+  "required": true,
+  "name": "first_name",
+  "value": "Ada",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches first name"
+ },
+ {
+  "question": "Last Name*",
+  "type": "text",
+  "required": true,
+  "name": "last_name",
+  "value": "Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches last name"
+ },
+ {
+  "question": "Email*",
+  "type": "text",
+  "required": true,
+  "name": "email",
+  "value": "[EMAIL]",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Email, shown redacted as a placeholder"
+ },
+ {
+  "question": "Country*",
+  "type": "text",
+  "required": true,
+  "name": "country",
+  "value": "Switzerland",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Switzerland matches location"
+ },
+ {
+  "question": "Phone",
+  "type": "text",
+  "required": true,
+  "name": "",
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Phone known but not filled"
+ },
+ {
+  "question": "Phone*",
+  "type": "tel",
+  "required": true,
+  "name": "phone",
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Phone known but not filled"
+ },
+ {
+  "question": "Attach",
+  "type": "file",
+  "required": false,
+  "name": "resume",
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file available but not attached"
+ },
+ {
+  "question": "Attach",
+  "type": "file",
+  "required": false,
+  "name": "cover_letter",
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Likely cover letter; none provided"
+ }
+]

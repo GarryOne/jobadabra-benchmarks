@@ -52,4 +52,4 @@
 | 46 | 2026-10-13 21:54 | [form-9/nanobrowser](runs/form-9/nanobrowser) | Nanobrowser |  | 🟢 valid | 4/18 | 0 | 480 s | $0.719 | ⛔ |  |  |
 | 47 | 2026-10-13 21:56 | [form-10/extension-main](runs/form-10/extension-main) | Our extension (main build) | 62dad23 | 🟢 valid | 4/6 | 0 | 109 s | plan |  |  |  |
 | 48 | 2026-10-13 21:57 | [form-10/browser-use](runs/form-10/browser-use) | Browser Use |  | 🟢 valid | 5/6 | 0 | 85 s | $0.283 |  |  |  |
-| 49 | 2026-10-13 22:02 | [form-10/nanobrowser](runs/form-10/nanobrowser) | Nanobrowser |  | 🔴 no result |  |  |  |  |  |  |  |
+| 49 | 2026-10-13 22:05 | [form-10/nanobrowser](runs/form-10/nanobrowser) | Nanobrowser |  | 🟢 valid | 4/6 | 0 | 422 s | $0.866 | ⛔ |  |  |

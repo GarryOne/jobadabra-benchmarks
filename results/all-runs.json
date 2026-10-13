@@ -769,18 +769,18 @@
  },
  {
   "run": "form-10/nanobrowser",
-  "when": "2026-10-13 22:02",
+  "when": "2026-10-13 22:05",
   "form": 10,
   "kind": "live",
   "tool": "nanobrowser",
   "build": "",
-  "status": "no result",
-  "requiredRight": "",
-  "wrong": "",
-  "seconds": "",
-  "usd": "",
-  "capped": "",
-  "submitPressed": "",
+  "status": "valid",
+  "requiredRight": "4/6",
+  "wrong": 0,
+  "seconds": 422,
+  "usd": 0.866,
+  "capped": true,
+  "submitPressed": false,
   "note": ""
  }
 ]
