@@ -5,7 +5,7 @@
 | # | When | Run (folder) | Tool | Build | Status | Required right | Wrong | Time | Cost | Cap | Submit pressed | Note |
 | --: | --- | --- | --- | --- | --- | :-: | :-: | --: | --: | :-: | :-: | --- |
 | 1 | 2026-10-13 19:31 | [fixture/iteration-1-extension](runs/fixture/iteration-1-extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid |  |  | 59 s | plan |  |  |  |
-| 2 | 2026-10-13 19:33 | [fixture/iteration-1-browser-use](runs/fixture/iteration-1-browser-use) | Browser Use |  | 🟢 valid | 0/2 | 0 | 10 s | $0 |  | 🚨 |  |
+| 2 | 2026-10-13 19:33 | [fixture/iteration-1-browser-use](runs/fixture/iteration-1-browser-use) | Browser Use |  | 🟢 valid | 0/2 | 0 | 10 s | $0 |  |  |  |
 | 3 | 2026-10-13 19:34 | [fixture/iteration-2-stagehand](runs/fixture/iteration-2-stagehand) | Stagehand |  | 🟢 valid | 0/5 | 0 | 1 s | $0 |  |  |  |
 | 4 | 2026-10-13 19:35 | [fixture/iteration-2-browser-use](runs/fixture/iteration-2-browser-use) | Browser Use |  | 🟢 valid | 0/0 | 0 | 24 s | $0.017 |  |  |  |
 | 5 | 2026-10-13 19:35 | [fixture/iteration-3-stagehand](runs/fixture/iteration-3-stagehand) | Stagehand |  | 🟢 valid | 4/5 | 0 | 15 s | $0 |  |  |  |
@@ -15,7 +15,7 @@
 | 9 | 2026-10-13 19:39 | [fixture/iteration-5-stagehand](runs/fixture/iteration-5-stagehand) | Stagehand |  | 🟢 valid | 4/5 | 0 | 13 s | $0 |  |  |  |
 | 10 | 2026-10-13 19:40 | [fixture/iteration-6-stagehand](runs/fixture/iteration-6-stagehand) | Stagehand |  | 🟢 valid | 0/5 | 0 | 1 s | $0 |  |  |  |
 | 11 | 2026-10-13 19:41 | [fixture/iteration-7-stagehand](runs/fixture/iteration-7-stagehand) | Stagehand |  | 🟢 valid | 5/5 | 0 | 72 s | $0.391 |  | 🚨 |  |
-| 12 | 2026-10-13 19:45 | [form-1/stagehand](runs/form-1/stagehand) | Stagehand |  | 🟢 valid | 5/7 | 0 | 80 s | $0.418 |  | 🚨 |  |
+| 12 | 2026-10-13 19:45 | [form-1/stagehand](runs/form-1/stagehand) | Stagehand |  | 🟢 valid | 5/7 | 0 | 80 s | $0.418 |  |  |  |
 | 13 | 2026-10-13 19:47 | [form-1/browser-use](runs/form-1/browser-use) | Browser Use |  | 🟢 valid | 4/7 | 0 | 84 s | $0.149 |  |  |  |
 | 14 | 2026-10-13 19:59 | [form-2/stagehand](runs/form-2/stagehand) | Stagehand |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic Tests key hit its usage limit while this tool ran (13 Oct 2026, ~19:55 UTC); not a tool result. L |
 | 15 | 2026-10-13 19:59 | [form-2/browser-use](runs/form-2/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic Tests key hit its usage limit while this tool ran (13 Oct 2026, ~19:55 UTC); not a tool result. L |
@@ -36,11 +36,11 @@
 | 30 | 2026-10-13 21:11 | [form-11/extension](runs/form-11/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 2/7 | 0 | 83 s | plan |  |  |  |
 | 31 | 2026-10-13 21:11 | [form-12/extension](runs/form-12/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 6/21 | 1 | 121 s | plan |  |  | form dropped (posting closed) |
 | 32 | 2026-10-13 21:11 | [form-13/extension](runs/form-13/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 7/17 | 1 | 120 s | plan |  |  |  |
-| 33 | 2026-10-13 21:11 | [form-2/extension](runs/form-2/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 6/9 | 0 | 113 s | plan |  | 🚨 |  |
+| 33 | 2026-10-13 21:11 | [form-2/extension](runs/form-2/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 6/9 | 0 | 113 s | plan |  |  |  |
 | 34 | 2026-10-13 21:11 | [form-4/extension](runs/form-4/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 9/16 | 0 | 111 s | plan |  |  |  |
 | 35 | 2026-10-13 21:11 | [form-5/extension](runs/form-5/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 6/13 | 1 | 87 s | plan |  |  |  |
 | 36 | 2026-10-13 21:11 | [form-6/extension](runs/form-6/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 4/7 | 0 | 150 s | plan |  |  |  |
-| 37 | 2026-10-13 21:11 | [form-1/extension](runs/form-1/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 4/7 | 1 | 110 s | plan |  | 🚨 |  |
+| 37 | 2026-10-13 21:11 | [form-1/extension](runs/form-1/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 4/7 | 1 | 110 s | plan |  |  |  |
 | 38 | 2026-10-13 21:12 | [form-6/browser-use](runs/form-6/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic credit balance ran out during this run (API: 'Your credit balance is too low'), not a tool result |
 | 39 | 2026-10-13 21:15 | [fixture/iteration-1-extension-main](runs/fixture/iteration-1-extension-main) | Our extension (main build) | 62dad23 | 🟢 valid |  |  | 53 s | plan |  |  |  |
 | 40 | 2026-10-13 21:17 | [form-3/extension-main](runs/form-3/extension-main) | Our extension (main build) |  | 🔴 crashed, no result |  |  |  |  |  |  |  |

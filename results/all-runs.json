@@ -28,7 +28,7 @@
   "seconds": 10.4,
   "usd": 0,
   "capped": "",
-  "submitPressed": true,
+  "submitPressed": false,
   "note": ""
  },
  {
@@ -188,7 +188,7 @@
   "seconds": 80.2,
   "usd": 0.418,
   "capped": "",
-  "submitPressed": true,
+  "submitPressed": false,
   "note": ""
  },
  {
@@ -524,7 +524,7 @@
   "seconds": 113.2,
   "usd": "plan",
   "capped": "",
-  "submitPressed": true,
+  "submitPressed": false,
   "note": ""
  },
  {
@@ -588,7 +588,7 @@
   "seconds": 110.4,
   "usd": "plan",
   "capped": "",
-  "submitPressed": true,
+  "submitPressed": false,
   "note": ""
  },
  {
