@@ -1,0 +1,20 @@
+{
+  "name": "job-pilotto-bakeoff",
+  "version": "1.0.0",
+  "description": "Benchmark: Job Pilotto extension vs Stagehand vs Browser Use on live job application forms",
+  "main": "index.js",
+  "scripts": {
+    "prove-guard": "node fixture/prove-guard.mjs",
+    "test-collect": "node fixture/serve.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@browserbasehq/stagehand": "^3.7.3",
+    "playwright": "^1.64.0",
+    "zod": "^4.6.7"
+  },
+  "private": true,
+  "type": "module"
+}

@@ -1,0 +1,16 @@
+<!doctype html><meta charset=utf-8><title>Fixture application</title>
+<h1>Apply: Site Reliability Engineer</h1>
+<form id=f method=post action="/submit" enctype="multipart/form-data">
+<label>First name * <input name=first required></label><br>
+<label>Last name * <input name=last required></label><br>
+<label>Email * <input type=email name=email required></label><br>
+<label>Phone <input name=phone></label><br>
+<label>Resume/CV * <input type=file name=cv required></label><br>
+<label>Years of professional experience <input name=years></label><br>
+<label>Salary expectation <input name=salary></label><br>
+<label>Are you authorised to work in Switzerland? <select name=auth><option value="">Select</option><option>Yes</option><option>No</option></select></label><br>
+<label>Why do you want to work here? <textarea name=why></textarea></label><br>
+<label><input type=checkbox name=consent> I agree to the privacy policy *</label><br>
+<button type=submit>Submit application</button>
+</form>
+<script>document.getElementById('f').addEventListener('submit',()=>{fetch('/api/apply',{method:'POST',body:JSON.stringify({x:1})}).catch(()=>{})})</script>

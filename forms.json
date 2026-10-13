@@ -1,0 +1,12 @@
+[
+ {"id": 1, "platform": "Lever", "host": "jobs.lever.co", "url": "https://jobs.lever.co/sonarsource/54743786-1ad7-4be7-bcbe-67f660e9c381/apply"},
+ {"id": 2, "platform": "Ashby", "host": "jobs.ashbyhq.com", "url": "https://jobs.ashbyhq.com/pennylane/67967c1d-301a-4dd5-81af-44faa1d43021/application"},
+ {"id": 3, "platform": "Teamtailor", "host": "career.teamtailor.com", "url": "https://career.teamtailor.com/jobs/8297677-regional-director-csm/applications/new"},
+ {"id": 4, "platform": "Teamtailor (own domain)", "host": "careers.hadrian.io", "url": "https://careers.hadrian.io/jobs/8287635-senior-infrastructure-engineer/applications/new"},
+ {"id": 5, "platform": "Recruitee (own domain)", "host": "careers.tether.io", "url": "https://careers.tether.io/o/devops-engineer-100-remote/c/new"},
+ {"id": 6, "platform": "Greenhouse embed", "host": "careers.formlabs.com", "url": "https://careers.formlabs.com/job/8078997/apply/?gh_jid=8078997"},
+ {"id": 7, "platform": "Personio (German)", "host": "seitenbau-gmbh.jobs.personio.de", "url": "https://seitenbau-gmbh.jobs.personio.de/job/2825574?display=de#apply"},
+ {"id": 8, "platform": "own job board", "host": "jobs.techtree.dev", "url": "https://jobs.techtree.dev/job/57d72ba1-9ee2-4c75-88c0-3e10fda33886"},
+ {"id": 9, "platform": "Greenhouse embed", "host": "careers.nebius.com", "url": "https://careers.nebius.com/?gh_jid=4376374101"},
+ {"id": 10, "platform": "Greenhouse embed (own site)", "host": "content.red-badger.com", "url": "https://content.red-badger.com/all-jobs?gh_jid=8004173003"}
+]
