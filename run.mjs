@@ -1,15 +1,15 @@
 // node run.mjs <stagehand|browser-use|extension> <form url> <out dir> [--no-judge]: one tool on one form, same start state, same guard, same scorer. Writes <out>/{start.png,end.png,fields.json,guard.jsonl,result.json,judged.json}.
 // Safety: every tool's browser has the Submit guard (lib/guard.mjs); live visits go through the repo's per-site ledger (guardLiveVisit); never Submit, no login. Prints only result lines, never a key.
-import fs from 'node:fs'; import path from 'node:path'; import {spawn, execFileSync} from 'node:child_process';
+import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'; import {spawn, execFileSync} from 'node:child_process';
 import {startAgentBrowser} from './lib/browser.mjs'; import {installGuard} from './lib/guard.mjs';
-import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {startNanobrowser} from './lib/nanobrowser.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize, MODEL, PRICE} from './lib/score.mjs';
+import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {startTrail} from './lib/trail.mjs'; import {startNanobrowser} from './lib/nanobrowser.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize, MODEL, PRICE} from './lib/score.mjs';
 
 // A crash inside a tool (an uncaught error in its own library) is that tool's result, not a lost run: the end page is still read and the metered tokens still counted.
 let fatal = '';
-process.on('uncaughtException', e => { fatal = String(e?.message || e).slice(0, 300); });
-process.on('unhandledRejection', e => { fatal = String(e?.message || e).slice(0, 300); });
+process.on('uncaughtException', e => { fatal = String(e?.message || e).slice(0, 300); console.error('FATAL (uncaught):', e?.stack || e); });   // never silent: a tool crash is a result, and its stack goes to the run log
+process.on('unhandledRejection', e => { fatal = String(e?.message || e).slice(0, 300); console.error('FATAL (unhandled rejection):', e?.stack || e); });
 const watchFatal = () => new Promise((_, reject) => { const t = setInterval(() => { if (fatal) { clearInterval(t); reject(new Error(fatal)); } }, 500); setTimeout(() => { clearInterval(t); reject(new Error('timeout: 8 minutes')); }, 8 * 60 * 1000).unref(); });
-const REPO = process.env.JP_REPO || path.join(process.env.HOME, 'job-pilotto', 'desktop', 'e2e');   // the Job Pilotto checkout: fake applicant, site ledger, the extension harness
+const REPO = process.env.JP_REPO || path.join(process.env.HOME, 'job-pilotto', 'desktop', 'e2e');   // the Job Pilotto checkout: fake applicant, site ledger, the extension harness (use a worktree on main, never the owner's primary checkout)
 const [tool, url, out] = process.argv.slice(2);
 if (!['stagehand', 'browser-use', 'extension', 'nanobrowser'].includes(tool) || !url || !out) { console.error('usage: run.mjs <stagehand|browser-use|extension> <url> <out dir>'); process.exit(2); }
 fs.mkdirSync(out, {recursive: true});
@@ -26,21 +26,27 @@ const formHost = new URL(url).hostname, navAllow = /^[\d.]+$/.test(formHost) ? [
 if (tool === 'extension') {
   const {runLiveRow} = await import(path.join(REPO, 'lib/live-row.mjs')); const {startRealExtension} = await import(path.join(REPO, 'lib/real-extension.mjs'));
   const browser = async options => {   // the harness's own browser + the guard + the end-state read before it closes
+    // The extension acts on https hosts only (manifest host_permissions); for a local http fixture a COPY of it also gets http://127.0.0.1 (the product's extension/ is not touched).
+    if (/^http:\/\/127\.0\.0\.1/.test(url)) {
+      const {EXTENSION_DIR} = await import(path.join(REPO, 'lib/extension.mjs')), copy = fs.mkdtempSync(path.join(os.tmpdir(), 'bakeoff-ext-')); fs.cpSync(EXTENSION_DIR, copy, {recursive: true});
+      const mf = path.join(copy, 'manifest.json'), m = JSON.parse(fs.readFileSync(mf, 'utf8')); m.host_permissions = [...m.host_permissions, 'http://127.0.0.1/*']; fs.writeFileSync(mf, JSON.stringify(m)); options = {...options, extensionDir: copy};
+    }
     const run = await startRealExtension(options);
     guard = await installGuard(run.context, {log: guardLog, localPorts: [options.appPort], navAllow: [...navAllow, '127.0.0.1']});
     run.page.once('domcontentloaded', () => run.page.screenshot({path: path.join(out, 'start.png'), fullPage: true}).catch(() => {}));
-    const close = run.close; run.close = async () => { await collectEnd(run.context, out).catch(error => fs.writeFileSync(path.join(out, 'collect-error.txt'), String(error))); await close(); };
+    const trail = startTrail(run.context); const close = run.close; run.close = async () => { await collectEnd(run.context, out, trail).catch(error => fs.writeFileSync(path.join(out, 'collect-error.txt'), String(error))); await close(); };
     return run;
   };
   const row = await runLiveRow({posting: {url, title: 'bake-off form', company: 'bake-off'}, captureDir: path.join(out, 'capture'), browser, seconds: 240, say: line => console.log(line)});
   Object.assign(result, {seconds: row.seconds, steps: (row.appLog.match(/^.*\bstep\b.*$/gim) || []).length, usd: row.ai?.usd ?? null, tokens: row.ai ? {in: row.ai.input, out: row.ai.output} : null, note: row.ai ? '' : 'AI via claude -p on the plan: no per-token price'});
 } else {
   guardLiveVisit(url, {who: 'bake-off ' + tool});   // the per-site daily limit, before anything starts (loopback is not counted)
-  const b = tool === 'nanobrowser' ? await startNanobrowser({key: key(), guardLog, navAllow}) : await startAgentBrowser({guardLog, navAllow}); guard = b.guard;
+  let trail = null;
+  const b = tool === 'nanobrowser' ? await startNanobrowser({key: key(), guardLog, navAllow}) : await startAgentBrowser({guardLog, navAllow}); guard = b.guard; trail = startTrail(b.context);
   try {
     await b.page.goto(url, {waitUntil: 'domcontentloaded', timeout: 45000}); await b.page.waitForTimeout(3000);
     await b.page.screenshot({path: path.join(out, 'start.png'), fullPage: true});
-    const task = instruction(applicant.text, url), t0 = Date.now();
+    const task = instruction(applicant.text, url, process.env.BAKEOFF_FLOW === '1'), t0 = Date.now();
     if (tool === 'nanobrowser') {
       // The same instruction; it has no file-upload action (a capability gap, said in the report): the CV field stays what the agent can make of it.
       const res = await Promise.race([b.run(task), watchFatal()]).catch(error => ({events: [], error: String(error.message || error)}));
@@ -72,10 +78,11 @@ if (tool === 'extension') {
       Object.assign(result, {capped: !bu.done && (bu.steps ?? 0) >= 40, steps: bu.steps ?? null, final: bu.final || bu.error || '', completed: !!bu.done, tokens, usd: tokens ? tokens.in * PRICE.in + tokens.out * PRICE.out : null, usdReportedByTool: bu.usage?.usd_reported ?? null});
     }
     result.seconds = Math.round((Date.now() - t0) / 100) / 10;
-    await collectEnd(b.context, out);
+    await collectEnd(b.context, out, trail);
   } finally { await b.close(); }
 }
 
+if (tool === 'extension') result.build = (() => { try { return execFileSync('git', ['-C', REPO, 'rev-parse', '--short', 'HEAD'], {encoding: 'utf8'}).trim(); } catch { return 'unknown'; } })();   // the extension's commit: JP_REPO decides which build runs (13 Oct 2026: the first results ran 62dad23, 57 commits behind main)
 result.submitPressed = guard.pressedSubmit().length > 0;
 result.navBlocked = guard.entries().filter(e => e.method === 'NAV').map(e => e.host);   // "pressed submit (blocked)" = a safety fail for the tool
 result.guard = {aborted: guard.aborted().map(e => `${e.method} ${e.host}${e.path} (${e.why})`), writesLetThrough: guard.entries().filter(e => e.allow).map(e => `${e.method} ${e.host} (${e.why})`)};

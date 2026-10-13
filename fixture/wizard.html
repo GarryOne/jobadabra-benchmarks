@@ -1,0 +1,50 @@
+<!doctype html><meta charset=utf-8><title>Apply: Platform Engineer (wizard)</title>
+<style>body{font:15px system-ui;max-width:760px;margin:24px auto;padding:0 16px}.step{display:none}.step.on{display:block}label{display:block;margin:10px 0 2px}input,select,textarea{font:inherit;padding:6px;width:100%;box-sizing:border-box}input[type=checkbox],input[type=radio]{width:auto}.row{display:flex;gap:12px}.row>*{flex:1}.err{color:#b00;font-size:13px}nav{margin:20px 0;display:flex;gap:10px}ul.sug{list-style:none;margin:0;padding:0;border:1px solid #ccc}ul.sug li{padding:6px;cursor:pointer}ul.sug li:hover{background:#eef}fieldset{margin:10px 0}.job{border:1px solid #ddd;padding:10px;margin:10px 0}</style>
+<h1>Platform Engineer, Zurich</h1><p>Step <span id=n>1</span> of 5</p>
+<form id=f onsubmit="return false">
+<section class="step on" data-s=1><h2>1. About you</h2>
+<label>First name *<input name=first></label><label>Last name *<input name=last></label>
+<label>Email *<input type=email name=email></label><div class=err id=emailerr></div>
+<label>Phone country code *<select name=cc><option value="">Select</option><option>+41 Switzerland</option><option>+49 Germany</option><option>+1 United States</option><option>+44 United Kingdom</option></select></label>
+<label>Phone number *<input name=phone></label>
+<label>Where are you based? * (type and pick a city)<input name=city autocomplete=off></label><ul class=sug id=sug></ul>
+<label>Earliest start date *<input type=date name=start></label></section>
+<section class=step data-s=2><h2>2. Experience</h2><p>Add at least one position, most recent first.</p><div id=jobs></div><button type=button id=add>Add another position</button></section>
+<section class=step data-s=3><h2>3. Questions</h2>
+<fieldset><legend>Are you authorised to work in Switzerland? *</legend><label><input type=radio name=auth value=yes> Yes</label><label><input type=radio name=auth value=no> No</label></fieldset>
+<div id=visa style="display:none"><label>Which permit would you need? *<select name=permit><option value="">Select</option><option>L</option><option>B</option><option>G</option><option>Other</option></select></label></div>
+<div class=row><label>Salary expectation (gross per year) *<input type=number name=salary></label><label>Currency *<select name=cur><option>CHF</option><option>EUR</option><option>USD</option></select></label></div>
+<label>Notice period *<select name=notice><option value="">Select</option><option>Immediately</option><option>1 month</option><option>2 months</option><option>3 months</option><option>More than 3 months</option></select></label>
+<label>How did you hear about us? *<select name=hear><option value="">Select</option><option>Company website</option><option>Job board</option><option>Referral</option><option>Other</option></select></label>
+<div id=hearother style="display:none"><label>Please specify *<input name=hearother></label></div>
+<label>Why this role? * (at least 50 characters)<textarea name=why rows=4></textarea></label></section>
+<section class=step data-s=4><h2>4. Documents</h2>
+<label>Resume/CV * (pdf)<input type=file name=cv accept=".pdf"></label>
+<label>Cover letter (optional)<input type=file name=letter></label>
+<label>Portfolio or GitHub link (optional)<input type=url name=link></label>
+<label>Gender (optional, voluntary)<select name=gender><option value="">Prefer not to say</option><option>Female</option><option>Male</option><option>Non-binary</option></select></label>
+<label><input type=checkbox name=consent> I agree to the privacy policy *</label></section>
+<section class=step data-s=5><h2>5. Review</h2><div id=review></div><p>Check everything, then submit.</p></section>
+<div class=err id=err></div>
+<nav><button type=button id=back>Back</button><button type=button id=next>Next</button><button type=button id=submit style="display:none">Submit application</button></nav></form>
+<script>
+const $=s=>document.querySelector(s),all=s=>[...document.querySelectorAll(s)];let step=1,jobN=0;
+const cities=['Zurich, Switzerland','Zug, Switzerland','Geneva, Switzerland','Basel, Switzerland','Berlin, Germany','London, United Kingdom'];
+$('[name=city]').addEventListener('input',e=>{const q=e.target.value.toLowerCase();$('#sug').innerHTML=q.length<2?'':cities.filter(c=>c.toLowerCase().startsWith(q)).map(c=>'<li>'+c+'</li>').join('');e.target.dataset.picked=''});
+$('#sug').addEventListener('click',e=>{if(e.target.tagName==='LI'){$('[name=city]').value=e.target.textContent;$('[name=city]').dataset.picked='1';$('#sug').innerHTML=''}});
+$('[name=email]').addEventListener('blur',async e=>{await new Promise(r=>setTimeout(r,600));$('#emailerr').textContent=/^test@/.test(e.target.value)?'This email is already registered.':''});
+function addJob(){jobN++;const d=document.createElement('div');d.className='job';d.innerHTML=`<h3>Position ${jobN}</h3><div class=row><label>Job title *<input name="title${jobN}"></label><label>Company *<input name="company${jobN}"></label></div><div class=row><label>From (month) *<input type=month name="from${jobN}"></label><label class=to>To (month)<input type=month name="to${jobN}"></label></div><label><input type=checkbox name="current${jobN}" onchange="this.closest('.job').querySelector('.to').style.display=this.checked?'none':'block'"> I currently work here</label>`;$('#jobs').append(d)}
+$('#add').onclick=addJob;addJob();
+all('[name=auth]').forEach(r=>r.onchange=()=>$('#visa').style.display=r.value==='no'&&r.checked?'block':'none');
+$('[name=hear]').onchange=e=>$('#hearother').style.display=e.target.value==='Other'?'block':'none';
+const v=n=>$(`[name=${n}]`).value.trim();
+function check(){const e=[];if(step===1){['first','last','email','cc','phone','city','start'].forEach(n=>{if(!v(n))e.push(n+' is required')});if($('#emailerr').textContent)e.push('email is already registered');if(v('city')&&!$('[name=city]').dataset.picked)e.push('pick the city from the list')}
+if(step===2){all('.job').forEach(j=>{const g=n=>j.querySelector(`[name^=${n}]`);if(!g('title').value.trim()||!g('company').value.trim()||!g('from').value)e.push('complete each position (title, company, from)')})}
+if(step===3){if(!$('[name=auth]:checked'))e.push('work authorisation is required');if($('[name=auth]:checked')?.value==='no'&&!v('permit'))e.push('permit is required');['salary','notice','hear'].forEach(n=>{if(!v(n))e.push(n+' is required')});if(v('hear')==='Other'&&!v('hearother'))e.push('please specify');if(v('why').length<50)e.push('motivation needs at least 50 characters')}
+if(step===4){if(!$('[name=cv]').files.length)e.push('CV is required');if(!$('[name=consent]').checked)e.push('consent is required')}
+return [...new Set(e)]}
+function show(){all('.step').forEach(s=>s.classList.toggle('on',+s.dataset.s===step));$('#n').textContent=step;$('#back').style.visibility=step>1?'visible':'hidden';$('#next').style.display=step<5?'inline':'none';$('#submit').style.display=step===5?'inline':'none';
+if(step===5)$('#review').innerHTML='<ul>'+[['Name',v('first')+' '+v('last')],['Email',v('email')],['Phone',v('cc')+' '+v('phone')],['City',v('city')],['Start',v('start')],['Positions',all('.job').length],['Authorised',$('[name=auth]:checked')?.value],['Salary',v('salary')+' '+v('cur')],['Notice',v('notice')],['CV',$('[name=cv]').files[0]?.name]].map(([a,b])=>`<li>${a}: ${b}</li>`).join('')+'</ul>'}
+$('#next').onclick=()=>{const e=check();$('#err').textContent=e.join('; ');if(!e.length){step++;show()}};$('#back').onclick=()=>{step--;show()};
+$('#submit').onclick=()=>fetch('/submit-wizard',{method:'POST',body:new FormData($('#f'))}).then(()=>{document.body.innerHTML='<h1>Thanks, application received.</h1>'});show();
+</script>

@@ -1,0 +1,9 @@
+[
+ {"id": 21, "platform": "FLOW Workable: posting, Apply, form", "host": "apply.workable.com", "flow": true, "url": "https://apply.workable.com/j/ADE4421CF6"},
+ {"id": 22, "platform": "FLOW Join: posting, Apply, steps", "host": "join.com", "flow": true, "url": "https://join.com/companies/join/16780626-engineering-manager-m-f-d"},
+ {"id": 23, "platform": "FLOW Personio: posting, form", "host": "autonomous-teaming.jobs.personio.de", "flow": true, "url": "https://autonomous-teaming.jobs.personio.de/job/2639174"},
+ {"id": 24, "platform": "FLOW Teamtailor: posting, Apply, form", "host": "career.teamtailor.com", "flow": true, "url": "https://career.teamtailor.com/jobs/8297677-regional-director-csm"},
+ {"id": 25, "platform": "FLOW Lever: posting, Apply, form", "host": "jobs.lever.co", "flow": true, "url": "https://jobs.lever.co/sonarsource/54743786-1ad7-4be7-bcbe-67f660e9c381"},
+ {"id": 26, "platform": "FLOW Ashby: posting, Application tab", "host": "jobs.ashbyhq.com", "flow": true, "url": "https://jobs.ashbyhq.com/pennylane/67967c1d-301a-4dd5-81af-44faa1d43021"},
+ {"id": 30, "platform": "Local wizard fixture (5 steps)", "host": "127.0.0.1", "url": "WIZARD_URL"}
+]
