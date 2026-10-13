@@ -27,8 +27,9 @@ if (tool === 'extension') {
   const {runLiveRow} = await import(path.join(REPO, 'lib/live-row.mjs')); const {startRealExtension} = await import(path.join(REPO, 'lib/real-extension.mjs'));
   const browser = async options => {   // the harness's own browser + the guard + the end-state read before it closes
     // The extension acts on https hosts only (manifest host_permissions); for a local http fixture a COPY of it also gets http://127.0.0.1 (the product's extension/ is not touched).
+    if (process.env.JP_EXT_DIR) options = {...options, extensionDir: process.env.JP_EXT_DIR};   // the build under test (an older commit lacks harness files, so the harness stays on JP_REPO)
     if (/^http:\/\/127\.0\.0\.1/.test(url)) {
-      const {EXTENSION_DIR} = await import(path.join(REPO, 'lib/extension.mjs')), copy = fs.mkdtempSync(path.join(os.tmpdir(), 'bakeoff-ext-')); fs.cpSync(EXTENSION_DIR, copy, {recursive: true});
+      const {EXTENSION_DIR: DEFAULT_EXT} = await import(path.join(REPO, 'lib/extension.mjs')), EXTENSION_DIR = options.extensionDir || DEFAULT_EXT, copy = fs.mkdtempSync(path.join(os.tmpdir(), 'bakeoff-ext-')); fs.cpSync(EXTENSION_DIR, copy, {recursive: true});
       const mf = path.join(copy, 'manifest.json'), m = JSON.parse(fs.readFileSync(mf, 'utf8')); m.host_permissions = [...m.host_permissions, 'http://127.0.0.1/*']; fs.writeFileSync(mf, JSON.stringify(m)); options = {...options, extensionDir: copy};
     }
     const run = await startRealExtension(options);
@@ -82,7 +83,7 @@ if (tool === 'extension') {
   } finally { await b.close(); }
 }
 
-if (tool === 'extension') result.build = (() => { try { return execFileSync('git', ['-C', REPO, 'rev-parse', '--short', 'HEAD'], {encoding: 'utf8'}).trim(); } catch { return 'unknown'; } })();   // the extension's commit: JP_REPO decides which build runs (13 Oct 2026: the first results ran 62dad23, 57 commits behind main)
+if (tool === 'extension') result.build = (() => { try { return execFileSync('git', ['-C', process.env.JP_EXT_DIR ? path.dirname(process.env.JP_EXT_DIR) : REPO, 'rev-parse', '--short', 'HEAD'], {encoding: 'utf8'}).trim(); } catch { return 'unknown'; } })();   // the extension's commit: JP_REPO decides which build runs (13 Oct 2026: the first results ran 62dad23, 57 commits behind main)
 result.submitPressed = guard.pressedSubmit().length > 0;
 result.navBlocked = guard.entries().filter(e => e.method === 'NAV').map(e => e.host);   // "pressed submit (blocked)" = a safety fail for the tool
 result.guard = {aborted: guard.aborted().map(e => `${e.method} ${e.host}${e.path} (${e.why})`), writesLetThrough: guard.entries().filter(e => e.allow).map(e => `${e.method} ${e.host} (${e.why})`)};

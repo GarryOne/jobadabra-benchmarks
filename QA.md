@@ -81,6 +81,18 @@ node qa.mjs bisect --good 62dad23 --bad 9a0416d --form 4
 
 It binary-searches the commits that touch `extension/` between the two builds (about 4 steps for 11 commits), one **site visit** per step. If the day's visits are used it stops cleanly and prints how to resume (steps already done are kept).
 
+### 4c. Bisect on a local fixture (no site visit, no daily limit)
+
+When a live form regressed, **reproduce the failure shape on a tiny local page** and bisect there (about 90 s a step, as often as you like):
+
+```bash
+node fixture/serve.mjs                       # prints the fixture's address; pages: /combo (suggest-only address box), /wizard (5 steps), / (plain form)
+export JP_REPO=~/job-pilotto/.claude/worktrees/<a worktree on recent main>/desktop/e2e   # the harness; only the extension under test varies
+node qa.mjs localbisect --good 62dad23 --bad 9a0416d --url http://127.0.0.1:<port>/combo
+```
+
+A step is *good* when the question fields were typed. The command first checks that the fixture really separates the two builds; if not, it says so and stops (the fixture does not reproduce your bug: change the fixture, not the verdict).
+
 ### 5. Accept a build as the new baseline
 
 ```bash
@@ -148,6 +160,57 @@ A regression that reproduces on a second run is a real finding: send the form, t
 
 ---
 
+## 🎓 Learnings: how to validate quickly and not fool yourself
+
+These come from the first day of using this as a QA (14 Oct 2026); each cost us time once.
+
+**1. Prove which build ran, every time.**
+Our first "main build" runs were not main: the runner's repo path was hard-coded, so they ran the primary checkout. The `build` field in `result.json` / `manifest.json` showed it. After any batch run, list the builds that actually ran and check there is exactly the sha you meant:
+
+```bash
+cat out/*/extension-b*/result.json | grep '"build"' | sort | uniq -c
+```
+
+Never test from the owner's primary checkout; use `qa.mjs run --build …` (its own worktree at one commit).
+
+**2. Two kinds of test, use both.**
+
+| | Live QA (`qa.mjs run`) | Local fixture (`fixture/*`, `localbisect`) |
+| --- | --- | --- |
+| Truth | the real site, the real page scripts | a look-alike of one failure shape |
+| Limits | 3 visits per host per day, pages change or close | none |
+| Speed | ~2 min a form | ~90 s a step, unlimited |
+| Use it to | **detect** a regression | **explain** it and find the commit |
+
+Detect live, explain locally. A regression found live is only a finding until a local fixture reproduces it.
+
+**3. Triage a regression in this order (cheapest first).**
+1. `qa.mjs compare`: which forms, how big?
+2. **Repeat once** on the same build: is it stable? (agents and pages vary)
+3. `BAKEOFF_READPOSTS=1` diagnosis run: is it only our guard blocking harmless writes (address autocomplete, upload presign)? If the stall remains, it is the build.
+4. `qa.mjs fields <form> <old> <new>`: the exact fields that differ (here: five answers not typed + one wrong street value).
+5. Read the two `app.log`s side by side, from the line where they diverge (here: after `Claude answered N of M` the old build logs `a menu showed no choice that matched`, the new one is silent for 40 s, then `dead end: silent`). **The first silent point names the code path.**
+6. Reproduce that path on a local fixture, then `localbisect`.
+7. Report with: the two builds, the fields table, both log lines, the first bad commit. No fix from QA.
+
+**4. Compare like with like.** Totals over *different* forms mislead (a tool that skipped the hard form looks better). The scoreboard now ranks only on the forms **every** tool ran. Per-form tables show the rest.
+
+**5. Know what you are timing.** The harness waits ~50 s after the last change before it stops; the extension's own working time is from the form opening to its last fill line (`lib/activetime.mjs`). Agents return when done. Never compare the first with the second.
+
+**6. Guard artifacts exist.** The write guard aborts *every* write to the form site, so a page's harmless POSTs (address suggestions, CV presign) fail for every tool and can break page features. Look at `guard.jsonl` when one form drops suddenly; use the diagnosis switch to separate artifact from regression, but keep it off for baselines.
+
+**7. Runs are cheap to corrupt; keep them clean.**
+- Kill leftover processes **by PID**: an orphaned old run can finish later and overwrite the new run's result folder. Check `pgrep -fl "^node (batch|run).mjs"` before starting a batch.
+- An API usage-limit or credit error mid-run makes the result INVALID (marked `INVALID.txt`, never counted): do not read it as a tool failure.
+- A crash handler must never be silent: stacks go to `run.log`.
+- Write the manifest (`manifest.json`) for every run so any run can be repeated on any build (`rerun.mjs`).
+
+**8. Make the fixture earn its keep.** Build a fixture only after you know the shape (from the logs and screenshots). Keep it tiny, give it labels a real form would have, and make the *broken* behaviour the only difference (here: an address box whose suggestion list never opens). Then the two builds either separate or they do not; if they do not, the fixture is wrong, not the verdict.
+
+**9. Before you trust a verdict:** build field correct · one process only · no INVALID marker · same forms compared · regression repeated once · the guard not the cause.
+
+---
+
 ## ➕ Adding a form to the QA set
 
 1. Pick a public, no-login application form (the form URL itself, not the posting) on a host not already in the set.
@@ -158,4 +221,4 @@ A regression that reproduces on a second run is a real finding: send the form, t
 
 ## 🗂️ Where things are
 
-`qa.mjs` the QA commands · `rerun.mjs` repeat a run · `batch.mjs` / `run.mjs` the runners · `report.mjs` the scoreboard · `publish-data.mjs` publish every run · `qa/baseline.json` the baseline · `results/` every run published (manifests, per-field verdicts, screenshots, page captures) · `ITERATIONS.md` how the benchmark was built.
+`qa.mjs` the QA commands (baseline, compare, fields, bisect, localbisect, run) · `rerun.mjs` repeat a run · `batch.mjs` / `run.mjs` the runners · `report.mjs` the scoreboard · `publish-data.mjs` publish every run · `qa/baseline.json` the baseline · `results/` every run published (manifests, per-field verdicts, screenshots, page captures) · `ITERATIONS.md` how the benchmark was built.

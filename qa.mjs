@@ -4,6 +4,7 @@
 //   node qa.mjs compare --tool A --against B          head to head: tool folder A against tool folder B (e.g. extension-b9a0416d against extension-b62dad23), no baseline file needed.
 //   node qa.mjs fields <form id> <toolA> <toolB>        the fields that differ between two runs of one form (value + verdict), for debugging a regression.
 //   node qa.mjs bisect --good <sha> --bad <sha> --form <id>   binary search over the commits that touch extension/ between a good and a bad build, one site visit per step; stops cleanly when the day's visits are used and prints how to resume.
+//   node qa.mjs localbisect --good <sha> --bad <sha> --url <local fixture url>   the same search on a LOCAL fixture (fixture/combo.html: a suggest-only address box): no site visit, no limit, ~90 s a step. A step is good when the question fields were typed.
 //   node qa.mjs run --build <git sha|ref> [--forms 1,4,5,11,13]   a worktree at that commit (linked packages like tools/worktree.sh), the extension on each form (plan: no per-token cost; the judge ~$0.015 a form), then compare. One visit per host per run (3 a day).
 // Regression = required right drops by 2 or more, or by 15 points of its share or more, or a wrong value appears that the baseline did not have. The baseline is data (qa/baseline.json), not a promise: re-freeze it when a better build is accepted.
 import fs from 'node:fs'; import {ensureWorktree} from './lib/worktree.mjs'; import path from 'node:path'; import {execFileSync, spawnSync} from 'node:child_process';
@@ -49,5 +50,19 @@ else if (mode === 'bisect') {
   while (lo < hi) { const mid = Math.floor((lo + hi) / 2), m = run(list[mid]); if (!m) { console.log(`stopped: no valid result for ${list[mid].slice(0, 8)} (site visits used today?). Resume tomorrow with the same command: finished steps are kept.`); process.exit(4); }
     const bad2 = regressed(base, m); console.log(`${list[mid].slice(0, 8)}: ${m.right}/${m.req}, ${m.wrong} wrong -> ${bad2 ? 'REGRESSED' : 'ok'}`); if (bad2) hi = mid; else lo = mid + 1; }
   console.log(`first regressing commit: ${list[lo]}\n${execFileSync('git', ['-C', repo, 'log', '-1', '--format=%h %s', list[lo]], {encoding: 'utf8'})}`);
+}
+else if (mode === 'localbisect') {
+  const repo = path.join(process.env.HOME, 'job-pilotto'), good = flag('good'), bad = flag('bad'), url = flag('url'), harness = process.env.JP_REPO;   // JP_REPO: a worktree on a recent main: the harness; only the extension under test comes from each commit
+  if (!url || !harness) { console.error('--url <fixture url>, and JP_REPO=<a recent worktree>/desktop/e2e'); process.exit(2); }
+  const isGood = sha => { const wt = ensureWorktree(sha), dir = path.join(out, `combo-b${wt.sha}`);
+    if (!fs.existsSync(path.join(dir, 'result.json'))) spawnSync('node', ['run.mjs', 'extension', url, dir, '--no-judge'], {cwd: here, stdio: 'ignore', env: {...process.env, JP_REPO: harness, JP_EXT_DIR: path.join(wt.tree, 'extension')}});
+    const f = rj(path.join(dir, 'fields.json')); if (!f) return null;
+    const typed = f.fields.filter(x => /aws|kubernetes|linkedin/i.test(x.question) && String(x.value).trim()).length; return {typed, good: typed >= 2, wt: wt.sha}; };
+  const list = execFileSync('git', ['-C', repo, 'rev-list', '--reverse', `${good}..${bad}`, '--', 'extension/'], {encoding: 'utf8'}).split('\n').filter(Boolean), g = isGood(good), b = isGood(bad);
+  console.log(`good ${good}: ${g?.typed}/3 questions typed | bad ${bad}: ${b?.typed}/3 | ${list.length} commits touch extension/`);
+  if (!g?.good || b?.good) { console.log('the fixture does not separate the two builds (the good one must type the questions and the bad one not): no bisect'); process.exit(3); }
+  let lo = 0, hi = list.length - 1;
+  while (lo < hi) { const mid = Math.floor((lo + hi) / 2), r = isGood(list[mid]); console.log(`${list[mid].slice(0, 8)}: ${r ? r.typed + '/3 typed -> ' + (r.good ? 'good' : 'BAD') : 'no result'}`); if (!r) process.exit(4); if (r.good) lo = mid + 1; else hi = mid; }
+  console.log(`first bad commit: ${execFileSync('git', ['-C', repo, 'log', '-1', '--format=%h %s', list[lo]], {encoding: 'utf8'}).trim()}`);
 }
 else { console.error('node qa.mjs baseline|compare|run (see the header)'); process.exit(2); }

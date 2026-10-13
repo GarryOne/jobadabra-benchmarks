@@ -1,0 +1,24 @@
+<!doctype html><meta charset=utf-8><title>Apply: Infrastructure Engineer (address box with no matching suggestion)</title>
+<style>body{font:15px system-ui;max-width:640px;margin:24px auto;padding:0 16px}label{display:block;margin:12px 0 2px}input,textarea{font:inherit;padding:6px;width:100%;box-sizing:border-box}.err{color:#b00;font-size:13px}</style>
+<h1>Senior Infrastructure Engineer</h1>
+<form id=f onsubmit="return false">
+<label>First name *<input name=first></label>
+<label>Last name *<input name=last></label>
+<label>Email *<input type=email name=email></label>
+<label>Phone *<input type=tel name=phone></label>
+<label>How many years of experience do you have with AWS? *<textarea name=aws rows=2></textarea></label>
+<label>How many years of experience do you have with Kubernetes and Docker? *<textarea name=k8s rows=2></textarea></label>
+<label>Could you please share your LinkedIn URL? *<input name=linkedin></label>
+<label id=al>Address *</label>
+<input id=addr name=address role=combobox aria-labelledby=al aria-autocomplete=list aria-expanded=false aria-controls=lb placeholder="Start typing your address" autocomplete=off>
+<ul id=lb role=listbox hidden></ul><div class=err id=aerr></div>
+<label>Upload CV *<input type=file name=cv></label>
+<label><input type=checkbox name=consent> I agree to the privacy policy *</label>
+<button type=submit>Submit application</button>
+</form>
+<script>
+// A suggest-only address box (the Hadrian shape): typing asks a service; it answers with no choice, so the list never opens. A value is only accepted when picked from the list.
+const a = document.getElementById('addr'), err = document.getElementById('aerr');
+a.addEventListener('input', async () => { err.textContent = ''; try { const r = await fetch('/location_suggestions/autocomplete', {method: 'POST', body: JSON.stringify({q: a.value})}); const j = await r.json(); if (!j.suggestions.length) err.textContent = 'No matching address found.'; } catch { err.textContent = 'Unable to fetch address suggestions. Please try again.'; } });
+document.querySelector('button').addEventListener('click', () => fetch('/submit', {method: 'POST', body: new FormData(document.getElementById('f'))}));
+</script>
