@@ -9,7 +9,7 @@ let fatal = '';
 process.on('uncaughtException', e => { fatal = String(e?.message || e).slice(0, 300); console.error('FATAL (uncaught):', e?.stack || e); });   // never silent: a tool crash is a result, and its stack goes to the run log
 process.on('unhandledRejection', e => { fatal = String(e?.message || e).slice(0, 300); console.error('FATAL (unhandled rejection):', e?.stack || e); });
 const watchFatal = () => new Promise((_, reject) => { const t = setInterval(() => { if (fatal) { clearInterval(t); reject(new Error(fatal)); } }, 500); setTimeout(() => { clearInterval(t); reject(new Error('timeout: 8 minutes')); }, 8 * 60 * 1000).unref(); });
-const REPO = process.env.JP_REPO || path.join(process.env.HOME, 'job-pilotto', 'desktop', 'e2e');   // the Job Pilotto checkout: fake applicant, site ledger, the extension harness (use a worktree on main, never the owner's primary checkout)
+const REPO = process.env.JP_REPO || path.join(process.env.HOME, 'job-pilotto', 'desktop', 'e2e');   // the Job Pilotto checkout: fake applicant, site ledger, the extension harness (use a worktree on main, never the owner's live checkout)
 const [tool, url, out] = process.argv.slice(2);
 if (!['stagehand', 'browser-use', 'extension', 'nanobrowser'].includes(tool) || !url || !out) { console.error('usage: run.mjs <stagehand|browser-use|extension> <url> <out dir>'); process.exit(2); }
 fs.mkdirSync(out, {recursive: true});
