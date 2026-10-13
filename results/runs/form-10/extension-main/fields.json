@@ -1,0 +1,74 @@
+{
+ "url": "https://job-boards.greenhouse.io/embed/job_app?for=redbadger&validityToken=iUsHx_1v-PrNz9dXp0nUlVFlL0zWZqhIhyA06sYzNplLce8WZERshQknPwsE4xLcCxOfRC_Ni-sPgttexZ0Q3lnXp2k-gXMLMLVR6CUv7UthMloFHRitdwkow3HhaUV1aSWSVo_hIH1q5-r0uB5QYdyJMWiNH9TSYNmZ_cdFxIAtSjCpmRHPz5tPKXnaAUWxq7JGSfxsP_N1H0hYPYVJ1l0VnX9PmIHTsUdqaF4IHj7POE3_Iif6ROOF8fHn0mePaxpw_8dyjkgIzABDJEQ24Sm1hLXlJy8SNSd_xYAUJ7ixZEn0d0bmde_W6wbbbKXMWVxBf0iq7OeT44Ezkz5uBw%3D%3D&token=8004173003#jobpilotto-fill=c5b26f44",
+ "title": "Job Application for Senior Platform Engineer at Red Badger",
+ "fields": [
+  {
+   "question": "First Name*",
+   "type": "text",
+   "required": true,
+   "name": "first_name",
+   "value": "Ada"
+  },
+  {
+   "question": "Last Name*",
+   "type": "text",
+   "required": true,
+   "name": "last_name",
+   "value": "Tester"
+  },
+  {
+   "question": "Email*",
+   "type": "text",
+   "required": true,
+   "name": "email",
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Country*",
+   "type": "text",
+   "required": true,
+   "name": "country",
+   "value": ""
+  },
+  {
+   "question": "Phone",
+   "type": "text",
+   "required": true,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "Phone*",
+   "type": "tel",
+   "required": true,
+   "name": "phone",
+   "value": "795550123"
+  },
+  {
+   "question": "Attach",
+   "type": "file",
+   "required": false,
+   "name": "resume",
+   "value": ""
+  },
+  {
+   "question": "Attach",
+   "type": "file",
+   "required": false,
+   "name": "cover_letter",
+   "value": ""
+  }
+ ],
+ "fileChips": [
+  "Resume/CV*cv.pdf",
+  "cv.pdf"
+ ],
+ "trailUrls": [
+  "https://content.red-badger.com/all-jobs?gh_jid=8004173003",
+  "https://job-boards.greenhouse.io/embed/job_app?for=redbadger&validityToken=iUsHx_1v-PrNz9dXp0nUlVFlL0zWZqhIhyA06sYzNplLce8WZERshQknPwsE4xLcCxOfRC_Ni-sPgttexZ0Q3lnXp2k-gXMLMLVR6CUv7UthMloFHRitdwkow3HhaUV1aSWSVo_hIH1q5-r0uB5QYdyJMWiNH9TSYNmZ_cdFxIAtSjCpmRHPz5tPKXnaAUWxq7JGSfxsP_N1H0hYPYVJ1l0VnX9PmIHTsUdqaF4IHj7POE3_Iif6ROOF8fHn0mePaxpw_8dyjkgIzABDJEQ24Sm1hLXlJy8SNSd_xYAUJ7ixZEn0d0bmde_W6wbbbKXMWVxBf0iq7OeT44Ezkz5uBw%3D%3D&token=8004173003",
+  "https://content.googleapis.com/static/proxy.html?usegapi=1&jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.gh7qIZtzO5w.O%2Fd%3D1%2Frs%3DAHpOoo84YKT1RVy0T6hcXi5rH3LooB1WCw%2Fm%3D__features__",
+  "https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LfmcbcpAAAAAChNTbhUShzUOAMj_wY9LQIvLFX0&co=aHR0cHM6Ly9qb2ItYm9hcmRzLmdyZWVuaG91c2UuaW86NDQz&hl=en&v=nY0xPItgwtlvjEjk2TqdwOQz&size=invisible&anchor-ms=20000&execute-ms=30000&cb=f5vq4lx1am75",
+  "about:blank",
+  "https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LfmcbcpAAAAAChNTbhUShzUOAMj_wY9LQIvLFX0&co=aHR0cHM6Ly9qb2ItYm9hcmRzLmdyZWVuaG91c2UuaW86NDQz&hl=en&v=nY0xPItgwtlvjEjk2TqdwOQz&size=invisible&anchor-ms=20000&execute-ms=30000&cb=c3025larzr5g"
+ ]
+}

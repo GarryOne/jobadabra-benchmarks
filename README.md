@@ -8,7 +8,7 @@
 > **TL;DR (13 Oct 2026): a tie, with a twist.** On 5 complete forms our extension fills **28 of 60** required fields correctly, Browser Use **25**, Stagehand **20**. All three leave about half of the required fields empty. Ours is also the fastest (48 s of its own work) and free on the plan; Stagehand costs ~$1.10 a form for the worst score. Nobody pressed *Submit* on a live form.
 
 > [!WARNING]
-> **The extension rows are the OLD build `62dad23`** (the primary checkout, 57 commits behind main). It lacks the fix that stops a contact detail going into a question. Re-runs on current main (`9a0416d`, own worktree) arrive as a second extension row. The agents' results are not affected, and every extension result now records its commit.
+> **Two extension builds were tested.** Old `62dad23` (the primary checkout, 57 commits behind main) and current main `9a0416d` (own worktree; every result records its commit). **Main is equal or better on 6 of 7 forms both ran, and has one regression: Hadrian 9/16 → 4/16** (the fill stalls on a suggest-only address combobox; bisect planned for 15 Oct). The agents' results are not affected.
 
 > [!TIP]
 > **Use this as a QA:** [`QA.md`](QA.md) explains how to test a specific build of the extension, compare it with the baseline or with another build, find the failing field and the commit that caused a regression.
@@ -22,8 +22,8 @@
 | :-: | --- | --- | :-: | :-: | :-: | :-: |
 | 🥇 | **Our extension** | 🟢 `▰▰▰▰▰▰▱▱▱▱` **4/7** · 57% | 🟢 0 | 🟡 66 s | 🟢 plan | 1 |
 | 🥈 | **Our extension** <sub>old build</sub> | 🟢 `▰▰▰▰▰▱▱▱▱▱` **28/60** · 47% | 🔴 3 | 🟢 48 s | 🟢 plan | 5 |
-| 🥉 | **Browser Use** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/60** · 42% | 🟢 1 | 🟡 92 s | 🟢 $0.18 | 5 |
-| 4️⃣ | **Our extension** <sub>main build</sub> | 🟡 `▰▰▰▰▱▱▱▱▱▱` **15/37** · 41% | 🟢 1 | 🟡 62 s | 🟢 plan | 3 |
+| 🥉 | **Our extension** <sub>main build</sub> | 🟡 `▰▰▰▰▱▱▱▱▱▱` **26/62** · 42% | 🟢 1 | 🟡 61 s | 🟢 plan | 5 |
+| 4️⃣ | **Browser Use** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/60** · 42% | 🟢 1 | 🟡 92 s | 🟢 $0.18 | 5 |
 | 5️⃣ | **Stagehand** | 🟡 `▰▰▰▱▱▱▱▱▱▱` **20/60** · 33% | 🟡 2 | 🔴 237 s | 🔴 $1.12 | 5 |
 
 <sub>🟢 good · 🟡 so-so · 🔴 poor. Fill rate: 🟢 ≥45% · 🟡 ≥33%. Wrong values: 🟢 ≤1 · 🟡 2 · 🔴 ≥3. Time: 🟢 ≤60 s · 🟡 ≤150 s · 🔴 slower. Cost: 🟢 plan or ≤$0.30 · 🟡 ≤$1 · 🔴 more.</sub>
@@ -31,9 +31,9 @@
 ```mermaid
 xychart-beta
   title "Required fields filled correctly (%)"
-  x-axis ["Our extension", "Our extension", "Browser Use", "Our extension", "Stagehand"]
+  x-axis ["Our extension", "Our extension", "Our extension", "Browser Use", "Stagehand"]
   y-axis "percent" 0 --> 100
-  bar [57, 47, 42, 41, 33]
+  bar [57, 47, 42, 42, 33]
 ```
 
 ### 🧾 Form by form
@@ -133,22 +133,24 @@ xychart-beta
 </details>
 
 <details>
-<summary><b>#10 Greenhouse embed (own site)</b> <sub>content.red-badger.com</sub> &nbsp; 🟢 ours 4/6 &nbsp;·&nbsp; 🟢 Browser Use 5/6 &nbsp;·&nbsp; 🟢 Nanobrowser 4/6</summary>
+<summary><b>#10 Greenhouse embed (own site)</b> <sub>content.red-badger.com</sub> &nbsp; 🟢 ours 4/6 &nbsp;·&nbsp; 🟢 ours 4/6 &nbsp;·&nbsp; 🟢 Browser Use 5/6 &nbsp;·&nbsp; 🟢 Nanobrowser 4/6</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
 | Our extension | 🟢 4/6 | 🟢 0 | 2 | 🟢 52 s | 🟢 plan |
+| Our extension <sub>main build</sub> | 🟢 4/6 | 🟢 0 | 2 | 🟢 49 s | 🟢 plan |
 | Browser Use | 🟢 5/6 | 🟢 0 | 1 | 🟡 85 s | 🟢 $0.28 |
 | Nanobrowser | 🟢 4/6 | 🟢 0 | 2 | 🔴 422 s | 🟡 $0.87 ⛔ step cap |
 
 </details>
 
 <details>
-<summary><b>#11 Recruitee (fresh, never in pool)</b> <sub>epilot.recruitee.com</sub> &nbsp; 🔴 ours 2/7 &nbsp;·&nbsp; 🔴 Stagehand 1/7 &nbsp;·&nbsp; 🔴 Browser Use 2/7</summary>
+<summary><b>#11 Recruitee (fresh, never in pool)</b> <sub>epilot.recruitee.com</sub> &nbsp; 🔴 ours 2/7 &nbsp;·&nbsp; 🔴 ours 2/7 &nbsp;·&nbsp; 🔴 Stagehand 1/7 &nbsp;·&nbsp; 🔴 Browser Use 2/7</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
 | Our extension <sub>old build</sub> | 🔴 2/7 | 🟢 0 | 5 | 🟢 29 s | 🟢 plan |
+| Our extension <sub>main build</sub> | 🔴 2/7 | 🟢 0 | 5 | 🟢 54 s | 🟢 plan |
 | Stagehand | 🔴 1/7 | 🟡 2 | 5 | 🔴 333 s | 🔴 $1.76 |
 | Browser Use | 🔴 2/7 | 🟢 0 | 5 | 🟡 80 s | 🟢 $0.20 |
 
@@ -161,11 +163,12 @@ xychart-beta
 </details>
 
 <details>
-<summary><b>#13 Breezy HR (fresh, never in pool)</b> <sub>urrly.breezy.hr</sub> &nbsp; 🟡 ours 7/17 &nbsp;·&nbsp; 🟡 Stagehand 7/17 &nbsp;·&nbsp; 🔴 Browser Use 5/17</summary>
+<summary><b>#13 Breezy HR (fresh, never in pool)</b> <sub>urrly.breezy.hr</sub> &nbsp; 🟡 ours 7/17 &nbsp;·&nbsp; 🟢 ours 9/18 &nbsp;·&nbsp; 🟡 Stagehand 7/17 &nbsp;·&nbsp; 🔴 Browser Use 5/17</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
 | Our extension <sub>old build</sub> | 🟡 7/17 | 🟢 1 | 9 | 🟡 67 s | 🟢 plan |
+| Our extension <sub>main build</sub> | 🟢 9/18 | 🟢 0 | 9 | 🟡 64 s | 🟢 plan |
 | Stagehand | 🟡 7/17 | 🟢 0 | 10 | 🔴 199 s | 🔴 $1.54 ⛔ step cap |
 | Browser Use | 🔴 5/17 | 🟢 1 | 11 | 🟢 56 s | 🟢 $0.11 |
 
@@ -181,7 +184,7 @@ xychart-beta
 
 <!-- RUNS-START -->
 <details>
-<summary><b>61 runs: click to open the full table</b></summary>
+<summary><b>64 runs: click to open the full table</b></summary>
 
 | # | When | Run (folder) | Tool | Build | Status | Required right | Wrong | Time | Cost | Cap | Submit pressed | Note |
 | --: | --- | --- | --- | --- | --- | :-: | :-: | --: | --: | :-: | :-: | --- |
@@ -222,30 +225,33 @@ xychart-beta
 | 35 | 2026-10-13 21:11 | [form-5/extension](results/runs/form-5/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 6/13 | 1 | 87 s | plan |  |  |  |
 | 36 | 2026-10-13 21:11 | [form-6/extension](results/runs/form-6/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 4/7 | 0 | 150 s | plan |  |  |  |
 | 37 | 2026-10-13 21:11 | [form-1/extension](results/runs/form-1/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 4/7 | 1 | 110 s | plan |  |  |  |
-| 38 | 2026-10-13 21:12 | [form-6/browser-use](results/runs/form-6/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic credit balance ran out during this run (API: 'Your credit balance is too low'), not a tool result |
-| 39 | 2026-10-13 21:15 | [fixture/iteration-1-extension-old2](results/runs/fixture/iteration-1-extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid |  |  | 53 s | plan |  |  |  |
-| 40 | 2026-10-13 21:17 | [form-3/extension-old2](results/runs/form-3/extension-old2) | Our extension (primary checkout, re-run) |  | 🔴 crashed, no result |  |  |  |  |  |  |  |
-| 41 | 2026-10-13 21:29 | [form-7/extension-old2](results/runs/form-7/extension-old2) | Our extension (primary checkout, re-run) | e00984f | 🟢 valid | 0/0 | 0 | 138 s | plan |  |  |  |
-| 42 | 2026-10-13 21:30 | [form-7/browser-use](results/runs/form-7/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic workspace usage limit was hit during this run (13 Oct 2026 ~23:30); not a tool result. |
-| 43 | 2026-10-13 21:31 | [form-7/nanobrowser](results/runs/form-7/nanobrowser) | Nanobrowser |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic workspace usage limit was hit during this run (13 Oct 2026 ~23:30); not a tool result. |
-| 44 | 2026-10-13 21:43 | [form-9/extension-old2](results/runs/form-9/extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid | 6/18 | 0 | 203 s | plan |  |  |  |
-| 45 | 2026-10-13 21:45 | [form-9/browser-use](results/runs/form-9/browser-use) | Browser Use |  | 🟢 valid | 6/18 | 0 | 106 s | $0.351 |  |  |  |
-| 46 | 2026-10-13 21:54 | [form-9/nanobrowser](results/runs/form-9/nanobrowser) | Nanobrowser |  | 🟢 valid | 4/18 | 0 | 480 s | $0.719 | ⛔ |  |  |
-| 47 | 2026-10-13 21:56 | [form-10/extension-old2](results/runs/form-10/extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid | 4/6 | 0 | 109 s | plan |  |  |  |
-| 48 | 2026-10-13 21:57 | [form-10/browser-use](results/runs/form-10/browser-use) | Browser Use |  | 🟢 valid | 5/6 | 0 | 85 s | $0.283 |  |  |  |
-| 49 | 2026-10-13 22:05 | [form-10/nanobrowser](results/runs/form-10/nanobrowser) | Nanobrowser |  | 🟢 valid | 4/6 | 0 | 422 s | $0.866 | ⛔ |  |  |
-| 50 | 2026-10-13 22:09 | [form-1/extension-old2](results/runs/form-1/extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid | 4/7 | 0 | 125 s | plan |  |  |  |
-| 51 | 2026-10-13 22:10 | [form-11/extension-old2](results/runs/form-11/extension-old2) | Our extension (primary checkout, re-run) |  | 🔴 no result |  |  |  |  |  |  |  |
-| 52 | 2026-10-13 22:10 | [form-2/extension-old2](results/runs/form-2/extension-old2) | Our extension (primary checkout, re-run) |  | 🔴 no result |  |  |  |  |  |  |  |
-| 53 | 2026-10-13 22:12 | [fixture/iteration-1-extmain2](results/runs/fixture/iteration-1-extmain2) | undefined | 9a0416d | 🟢 valid |  |  | 72 s | plan |  |  |  |
-| 54 | 2026-10-13 22:14 | [form-1/extension-main](results/runs/form-1/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 5/8 | 0 | 124 s | plan |  |  |  |
-| 55 | 2026-10-13 22:18 | [form-2/extension-main](results/runs/form-2/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 6/9 | 0 | 149 s | plan |  | 🚨 |  |
-| 56 | 2026-10-13 22:20 | [form-3/extension-main](results/runs/form-3/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 3/4 | 0 | 94 s | plan |  |  |  |
-| 57 | 2026-10-13 22:23 | [form-4/extension-main](results/runs/form-4/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 4/16 | 1 | 136 s | plan |  |  |  |
-| 58 | 2026-10-13 22:24 | [form-5/extension-main](results/runs/form-5/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 6/13 | 0 | 93 s | plan |  |  |  |
-| 59 | 2026-10-13 22:27 | [form-6/extension-main](results/runs/form-6/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 4/9 | 0 | 123 s | plan |  |  |  |
-| 60 | 2026-10-13 22:29 | [form-7/extension-main](results/runs/form-7/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 0/0 | 0 | 109 s | plan |  |  |  |
-| 61 | 2026-10-13 22:33 | [form-9/extension-main](results/runs/form-9/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 6/18 | 0 | 150 s | plan |  |  |  |
+| 38 | 2026-10-13 21:15 | [fixture/iteration-1-extension-old2](results/runs/fixture/iteration-1-extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid |  |  | 53 s | plan |  |  |  |
+| 39 | 2026-10-13 21:17 | [form-3/extension-old2](results/runs/form-3/extension-old2) | Our extension (primary checkout, re-run) |  | 🔴 crashed, no result |  |  |  |  |  |  |  |
+| 40 | 2026-10-13 21:29 | [form-7/extension-old2](results/runs/form-7/extension-old2) | Our extension (primary checkout, re-run) | e00984f | 🟢 valid | 0/0 | 0 | 138 s | plan |  |  |  |
+| 41 | 2026-10-13 21:30 | [form-7/browser-use](results/runs/form-7/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic workspace usage limit was hit during this run (13 Oct 2026 ~23:30); not a tool result. |
+| 42 | 2026-10-13 21:31 | [form-7/nanobrowser](results/runs/form-7/nanobrowser) | Nanobrowser |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic workspace usage limit was hit during this run (13 Oct 2026 ~23:30); not a tool result. |
+| 43 | 2026-10-13 21:43 | [form-9/extension-old2](results/runs/form-9/extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid | 6/18 | 0 | 203 s | plan |  |  |  |
+| 44 | 2026-10-13 21:45 | [form-9/browser-use](results/runs/form-9/browser-use) | Browser Use |  | 🟢 valid | 6/18 | 0 | 106 s | $0.351 |  |  |  |
+| 45 | 2026-10-13 21:54 | [form-9/nanobrowser](results/runs/form-9/nanobrowser) | Nanobrowser |  | 🟢 valid | 4/18 | 0 | 480 s | $0.719 | ⛔ |  |  |
+| 46 | 2026-10-13 21:56 | [form-10/extension-old2](results/runs/form-10/extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid | 4/6 | 0 | 109 s | plan |  |  |  |
+| 47 | 2026-10-13 21:57 | [form-10/browser-use](results/runs/form-10/browser-use) | Browser Use |  | 🟢 valid | 5/6 | 0 | 85 s | $0.283 |  |  |  |
+| 48 | 2026-10-13 22:05 | [form-10/nanobrowser](results/runs/form-10/nanobrowser) | Nanobrowser |  | 🟢 valid | 4/6 | 0 | 422 s | $0.866 | ⛔ |  |  |
+| 49 | 2026-10-13 22:09 | [form-1/extension-old2](results/runs/form-1/extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid | 4/7 | 0 | 125 s | plan |  |  |  |
+| 50 | 2026-10-13 22:10 | [form-11/extension-old2](results/runs/form-11/extension-old2) | Our extension (primary checkout, re-run) |  | 🔴 no result |  |  |  |  |  |  |  |
+| 51 | 2026-10-13 22:10 | [form-2/extension-old2](results/runs/form-2/extension-old2) | Our extension (primary checkout, re-run) |  | 🔴 no result |  |  |  |  |  |  |  |
+| 52 | 2026-10-13 22:12 | [fixture/iteration-1-extmain2](results/runs/fixture/iteration-1-extmain2) | undefined | 9a0416d | 🟢 valid |  |  | 72 s | plan |  |  |  |
+| 53 | 2026-10-13 22:14 | [form-1/extension-main](results/runs/form-1/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 5/8 | 0 | 124 s | plan |  |  |  |
+| 54 | 2026-10-13 22:18 | [form-2/extension-main](results/runs/form-2/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 6/9 | 0 | 149 s | plan |  | 🚨 |  |
+| 55 | 2026-10-13 22:20 | [form-3/extension-main](results/runs/form-3/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 3/4 | 0 | 94 s | plan |  |  |  |
+| 56 | 2026-10-13 22:23 | [form-4/extension-main](results/runs/form-4/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 4/16 | 1 | 136 s | plan |  |  |  |
+| 57 | 2026-10-13 22:24 | [form-5/extension-main](results/runs/form-5/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 6/13 | 0 | 93 s | plan |  |  |  |
+| 58 | 2026-10-13 22:27 | [form-6/extension-main](results/runs/form-6/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 4/9 | 0 | 123 s | plan |  |  |  |
+| 59 | 2026-10-13 22:29 | [form-7/extension-main](results/runs/form-7/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 0/0 | 0 | 109 s | plan |  |  |  |
+| 60 | 2026-10-13 22:33 | [form-9/extension-main](results/runs/form-9/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 6/18 | 0 | 150 s | plan |  |  |  |
+| 61 | 2026-10-13 22:35 | [form-10/extension-main](results/runs/form-10/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 4/6 | 0 | 123 s | plan |  |  |  |
+| 62 | 2026-10-13 22:38 | [form-11/extension-main](results/runs/form-11/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 2/7 | 0 | 116 s | plan |  |  |  |
+| 63 | 2026-10-13 22:41 | [form-13/extension-main](results/runs/form-13/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 9/18 | 0 | 122 s | plan |  |  |  |
+| 64 | 2026-10-13 22:41 | [form-6/browser-use](results/runs/form-6/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic credit balance ran out during this run (API: 'Your credit balance is too low'), not a tool result |
 
 </details>
 <!-- RUNS-END -->
