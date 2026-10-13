@@ -1,0 +1,69 @@
+{
+ "url": "https://jobs.ashbyhq.com/pennylane/67967c1d-301a-4dd5-81af-44faa1d43021/application#jobpilotto-fill=0f53d257",
+ "title": "Expert Support Technique et Comptable H/F @ Pennylane SAS",
+ "fields": [
+  {
+   "question": "Autofill from resume",
+   "type": "file",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Votre Prénom",
+   "type": "text",
+   "required": true,
+   "value": "Ada"
+  },
+  {
+   "question": "Votre Nom de famille",
+   "type": "text",
+   "required": true,
+   "value": "Tester"
+  },
+  {
+   "question": "Linkedin",
+   "type": "url",
+   "required": true,
+   "value": "https://www.linkedin.com/in/ada-tester"
+  },
+  {
+   "question": "CV",
+   "type": "file",
+   "required": true,
+   "value": "cv.pdf"
+  },
+  {
+   "question": "Email",
+   "type": "email",
+   "required": true,
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Téléphone",
+   "type": "tel",
+   "required": true,
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "Quelles sont vos motivations pour rejoindre Pennylane ?",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Quelle est votre localisation ? (Région seulement)",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Quelles sont vos attentes salariales ?",
+   "type": "text",
+   "required": true,
+   "value": ""
+  }
+ ],
+ "fileChips": [
+  "cv.pdf"
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "tool": "stagehand",
+ "url": "https://arpio.breezy.hr/p/05b9debfb6bb-senior-solutions-engineer/apply",
+ "model": "claude-sonnet-5-5",
+ "capped": true,
+ "steps": 9,
+ "final": "The application URL redirected to the Arpio company page, and the job page itself shows \"Position Closed - Sorry, this position is no longer accepting candidates.\" No application form exists, so no fields could be filled or CV uploaded. Nothing was submitted, and I did not apply to unrelated openings.",
+ "completed": false,
+ "tokens": {
+  "in": 41894,
+  "out": 773,
+  "cacheRead": 30668,
+  "cacheWrite": 7667,
+  "calls": 6
+ },
+ "usd": 0.11681910000000001,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 24.7,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST www.google-analytics.com/j/collect (non-GET to another host)",
+   "POST www.google-analytics.com/j/collect (non-GET to another host)",
+   "POST www.google-analytics.com/j/collect (non-GET to another host)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 0,
+  "right": 0,
+  "wrong": 0,
+  "emptyShouldFill": 0,
+  "emptyOk": 0,
+  "emptyRequired": 0,
+  "requiredTotal": 0
+ },
+ "judgeUsd": 0.0033199999999999996,
+ "fileChips": [],
+ "wallSeconds": 31
+}

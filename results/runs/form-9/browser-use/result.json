@@ -1,0 +1,63 @@
+{
+ "tool": "browser-use",
+ "url": "https://careers.nebius.com/?gh_jid=4376374101",
+ "model": "claude-sonnet-5-5",
+ "capped": false,
+ "steps": 22,
+ "final": "The application is only partly filled, and I did not submit it. The agent was terminated after repeated output-format failures. The remaining dropdowns were not answered.\n\nFilled and checked on the page:\n- First Name: Ada\n- Last Name: Tester\n- Email: ada.tester@example.test\n- Country (phone): Switzerland +41\n- Phone: the field shows \"079 555 01 23\". You gave +41 79 555 01 23, so the field has an extra leading 0 that may need correcting.\n- Location (City): Zurich, Switzerland, selected from the suggestions\n- Resume/CV: cv.pdf uploaded\n- LinkedIn Profile: https://www.linkedin.com/in/ada-tester\n\n",
+ "completed": true,
+ "tokens": {
+  "in": 158192,
+  "out": 3508
+ },
+ "usd": 0.351464,
+ "usdReportedByTool": 0.2105854,
+ "seconds": 106.3,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST region1.google-analytics.com/g/collect (non-GET to another host)",
+   "POST pagead2.googlesyndication.com/ccm/collect (non-GET to another host)",
+   "POST pagead2.googlesyndication.com/ccm/collect (non-GET to another host)",
+   "POST pagead2.googlesyndication.com/ccm/collect (non-GET to another host)",
+   "POST pagead2.googlesyndication.com/ccm/collect (non-GET to another host)",
+   "POST pagead2.googlesyndication.com/ccm/collect (non-GET to another host)",
+   "POST region1.google-analytics.com/g/collect (non-GET to another host)",
+   "POST region1.google-analytics.com/g/collect (non-GET to another host)",
+   "POST pagead2.googlesyndication.com/ccm/collect (non-GET to another host)",
+   "POST pagead2.googlesyndication.com/ccm/collect (non-GET to another host)",
+   "POST api.company-target.com/api/v3/ip.json (non-GET to another host)",
+   "POST o.clarity.ms/collect (non-GET to another host)",
+   "POST o.clarity.ms/collect (non-GET to another host)",
+   "POST o.clarity.ms/collect (non-GET to another host)",
+   "POST o.clarity.ms/collect (non-GET to another host)",
+   "POST region1.google-analytics.com/g/collect (non-GET to another host)",
+   "POST pagead2.googlesyndication.com/ccm/collect (non-GET to another host)",
+   "POST pagead2.googlesyndication.com/ccm/collect (non-GET to another host)",
+   "POST region1.google-analytics.com/g/collect (non-GET to another host)",
+   "POST c.spl.greenhouse.io/com.snowplowanalytics.snowplow/tp2 (non-GET to another host)",
+   "POST region1.google-analytics.com/g/collect (non-GET to another host)",
+   "POST region1.google-analytics.com/g/collect (non-GET to another host)",
+   "POST region1.google-analytics.com/g/collect (non-GET to another host)"
+  ],
+  "writesLetThrough": [
+   "POST grnhse-prod-jben-us-east-1.s3.amazonaws.com (storage upload)"
+  ]
+ },
+ "score": {
+  "fields": 23,
+  "right": 7,
+  "wrong": 0,
+  "emptyShouldFill": 11,
+  "emptyOk": 5,
+  "emptyRequired": 12,
+  "requiredTotal": 18
+ },
+ "judgeUsd": 0.018576000000000002,
+ "fileChips": [
+  "Resume/CV*cv.pdf",
+  "cv.pdf"
+ ],
+ "wallSeconds": 121
+}

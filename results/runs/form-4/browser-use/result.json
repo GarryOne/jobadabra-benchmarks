@@ -1,0 +1,40 @@
+{
+ "tool": "browser-use",
+ "url": "https://careers.hadrian.io/jobs/8287635-senior-infrastructure-engineer/applications/new",
+ "model": "claude-sonnet-5-5",
+ "capped": false,
+ "steps": 25,
+ "final": "I filled most of the application form but did not finish it. The CV upload failed, and I did not submit anything.\n\n**Filled in:**\n- Pay expectation: 'CHF 140,000–160,000 a year, gross'.\n- Location: 'Zurich, Switzerland'.\n- LinkedIn: https://www.linkedin.com/in/ada-tester.\n- Three experience-years questions, with the answers 'Senior SRE at Acme Cloud (2022–present) and Platform Engineer at Beta Systems (2018–2022)', '8 years running Kubernetes at scale on AWS (EKS)' and '8 years running Kubernetes on AWS at scale (EKS, IAM, networking)'.\n- First name 'Ada', last name 'Tester', email ada.tester@",
+ "completed": true,
+ "tokens": {
+  "in": 154301,
+  "out": 5481
+ },
+ "usd": 0.363412,
+ "usdReportedByTool": 0.2225334,
+ "seconds": 179.9,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST careers.hadrian.io/pageview (non-GET to the form site)",
+   "POST careers.hadrian.io/cookie-policy/accept (non-GET to the form site)",
+   "POST careers.hadrian.io/location_suggestions/autocomplete (non-GET to the form site)",
+   "POST careers.hadrian.io/uploads/presigned_data (non-GET to the form site)",
+   "POST careers.hadrian.io/uploads/presigned_data (non-GET to the form site)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 20,
+  "right": 11,
+  "wrong": 0,
+  "emptyShouldFill": 2,
+  "emptyOk": 7,
+  "emptyRequired": 5,
+  "requiredTotal": 16
+ },
+ "judgeUsd": 0.018356,
+ "fileChips": [],
+ "wallSeconds": 194
+}

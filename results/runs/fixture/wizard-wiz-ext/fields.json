@@ -1,0 +1,235 @@
+{
+ "url": "http://127.0.0.1:50867/wizard#jobpilotto-fill=feddd131",
+ "title": "Apply: Platform Engineer (wizard)",
+ "fields": [
+  {
+   "question": "First name *",
+   "type": "text",
+   "required": true,
+   "name": "first",
+   "value": "Ada"
+  },
+  {
+   "question": "Last name *",
+   "type": "text",
+   "required": true,
+   "name": "last",
+   "value": "Tester"
+  },
+  {
+   "question": "Email *",
+   "type": "email",
+   "required": true,
+   "name": "email",
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Phone country code *Select+41 Switzerland+49 Germany+1 United States+44 United Kingdom",
+   "type": "select-one",
+   "required": false,
+   "name": "cc",
+   "value": "+41 Switzerland",
+   "options": [
+    "Select",
+    "+41 Switzerland",
+    "+49 Germany",
+    "+1 United States",
+    "+44 United Kingdom"
+   ]
+  },
+  {
+   "question": "Phone number *",
+   "type": "text",
+   "required": true,
+   "name": "phone",
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "Where are you based? * (type and pick a city)",
+   "type": "text",
+   "required": false,
+   "name": "city",
+   "value": "Zurich"
+  },
+  {
+   "question": "Earliest start date *",
+   "type": "date",
+   "required": true,
+   "name": "start",
+   "value": ""
+  },
+  {
+   "question": "Job title *",
+   "type": "text",
+   "required": true,
+   "name": "title1",
+   "value": ""
+  },
+  {
+   "question": "Company *",
+   "type": "text",
+   "required": true,
+   "name": "company1",
+   "value": ""
+  },
+  {
+   "question": "From (month) *",
+   "type": "month",
+   "required": true,
+   "name": "from1",
+   "value": ""
+  },
+  {
+   "question": "To (month)",
+   "type": "month",
+   "required": false,
+   "name": "to1",
+   "value": ""
+  },
+  {
+   "question": "I currently work here",
+   "type": "checkbox",
+   "required": false,
+   "name": "current1",
+   "value": "",
+   "options": [
+    "I currently work here"
+   ]
+  },
+  {
+   "question": "Are you authorised to work in Switzerland? *",
+   "type": "radio",
+   "required": false,
+   "name": "auth",
+   "value": "",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Which permit would you need? *SelectLBGOther",
+   "type": "select-one",
+   "required": false,
+   "name": "permit",
+   "value": "",
+   "options": [
+    "Select",
+    "L",
+    "B",
+    "G",
+    "Other"
+   ]
+  },
+  {
+   "question": "Salary expectation (gross per year) *",
+   "type": "number",
+   "required": true,
+   "name": "salary",
+   "value": ""
+  },
+  {
+   "question": "Currency *CHFEURUSD",
+   "type": "select-one",
+   "required": false,
+   "name": "cur",
+   "value": "CHF",
+   "options": [
+    "CHF",
+    "EUR",
+    "USD"
+   ]
+  },
+  {
+   "question": "Notice period *SelectImmediately1 month2 months3 monthsMore than 3 months",
+   "type": "select-one",
+   "required": false,
+   "name": "notice",
+   "value": "",
+   "options": [
+    "Select",
+    "Immediately",
+    "1 month",
+    "2 months",
+    "3 months",
+    "More than 3 months"
+   ]
+  },
+  {
+   "question": "How did you hear about us? *SelectCompany websiteJob boardReferralOther",
+   "type": "select-one",
+   "required": false,
+   "name": "hear",
+   "value": "",
+   "options": [
+    "Select",
+    "Company website",
+    "Job board",
+    "Referral",
+    "Other"
+   ]
+  },
+  {
+   "question": "Please specify *",
+   "type": "text",
+   "required": true,
+   "name": "hearother",
+   "value": ""
+  },
+  {
+   "question": "Why this role? * (at least 50 characters)",
+   "type": "textarea",
+   "required": false,
+   "name": "why",
+   "value": ""
+  },
+  {
+   "question": "Resume/CV * (pdf)",
+   "type": "file",
+   "required": false,
+   "name": "cv",
+   "value": ""
+  },
+  {
+   "question": "Cover letter (optional)",
+   "type": "file",
+   "required": false,
+   "name": "letter",
+   "value": ""
+  },
+  {
+   "question": "Portfolio or GitHub link (optional)",
+   "type": "url",
+   "required": false,
+   "name": "link",
+   "value": ""
+  },
+  {
+   "question": "Gender (optional, voluntary)Prefer not to sayFemaleMaleNon-binary",
+   "type": "select-one",
+   "required": false,
+   "name": "gender",
+   "value": "Prefer not to say",
+   "options": [
+    "Prefer not to say",
+    "Female",
+    "Male",
+    "Non-binary"
+   ]
+  },
+  {
+   "question": "I agree to the privacy policy *",
+   "type": "checkbox",
+   "required": true,
+   "name": "consent",
+   "value": "",
+   "options": [
+    "I agree to the privacy policy *"
+   ]
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "http://127.0.0.1:50867/wizard"
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "tool": "browser-use",
+ "url": "https://arpio.breezy.hr/p/05b9debfb6bb-senior-solutions-engineer/apply",
+ "model": "claude-sonnet-5-5",
+ "capped": false,
+ "steps": 2,
+ "final": "",
+ "completed": false,
+ "tokens": {
+  "in": 19105,
+  "out": 289
+ },
+ "usd": 0.0411,
+ "usdReportedByTool": 0.0135994,
+ "seconds": 15.5,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST www.google-analytics.com/j/collect (non-GET to another host)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 0,
+  "right": 0,
+  "wrong": 0,
+  "emptyShouldFill": 0,
+  "emptyOk": 0,
+  "emptyRequired": 0,
+  "requiredTotal": 0
+ },
+ "judgeUsd": 0.0033199999999999996,
+ "fileChips": [],
+ "wallSeconds": 23
+}

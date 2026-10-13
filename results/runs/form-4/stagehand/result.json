@@ -1,0 +1,40 @@
+{
+ "tool": "stagehand",
+ "url": "https://careers.hadrian.io/jobs/8287635-senior-infrastructure-engineer/applications/new",
+ "model": "claude-sonnet-5-5",
+ "capped": false,
+ "steps": null,
+ "final": "Error: timeout: 8 minutes",
+ "completed": false,
+ "tokens": {
+  "in": 618244,
+  "out": 8037,
+  "cacheRead": 284530,
+  "cacheWrite": 7690,
+  "calls": 40
+ },
+ "usd": 1.392989,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 481.8,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST careers.hadrian.io/pageview (non-GET to the form site)",
+   "POST careers.hadrian.io/cookie-policy/accept (non-GET to the form site)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 20,
+  "right": 2,
+  "wrong": 0,
+  "emptyShouldFill": 11,
+  "emptyOk": 7,
+  "emptyRequired": 14,
+  "requiredTotal": 16
+ },
+ "judgeUsd": 0.018194000000000002,
+ "fileChips": [],
+ "wallSeconds": 496
+}

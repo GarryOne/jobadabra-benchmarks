@@ -1,0 +1,167 @@
+{
+ "url": "https://jobs.lever.co/sonarsource/54743786-1ad7-4be7-bcbe-67f660e9c381/apply#jobpilotto-fill=15540625",
+ "title": "Sonar - Account Based Marketing (ABM) Manager",
+ "fields": [
+  {
+   "question": "Resume/CV ✱cv.pdfATTACH RESUME/CVCouldn't auto-read resume.Analyzing resume...Success!",
+   "type": "file",
+   "required": false,
+   "value": "cv.pdf"
+  },
+  {
+   "question": "Full name✱",
+   "type": "text",
+   "required": true,
+   "value": "Ada Tester"
+  },
+  {
+   "question": "Email✱",
+   "type": "email",
+   "required": true,
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Phone ✱",
+   "type": "text",
+   "required": true,
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "Current location ✱No location found. Try entering a different locationLoading",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Current company",
+   "type": "text",
+   "required": false,
+   "value": "Acme Cloud"
+  },
+  {
+   "question": "LinkedIn URL✱",
+   "type": "text",
+   "required": true,
+   "value": "https://www.linkedin.com/in/ada-tester"
+  },
+  {
+   "question": "Please confirm that you are able to work in the office in which this role is advertised at minimum on Mondays, Tuesdays, and Thursdays (some teams are onsite Mon-Thurs)",
+   "type": "textarea",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "If you have additional details around your answer, please share below.",
+   "type": "textarea",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Would you now or at any time require employer sponsorship to work in the country this role is located?✱",
+   "type": "textarea",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "What is your current notice period?✱",
+   "type": "textarea",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "GenderSelect ...MaleFemaleDecline to self-identify",
+   "type": "select-one",
+   "required": false,
+   "value": "Decline to self-identify",
+   "options": [
+    "Select ...",
+    "Male",
+    "Female",
+    "Decline to self-identify"
+   ]
+  },
+  {
+   "question": "RaceSelect ...Hispanic or LatinoWhite (Not Hispanic or Latino)Black or African American (Not Hispanic or Latino)Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)Asian (Not Hispanic or Latino)American Indian or Alaska Native (Not Hispanic or Latino)Two or More Races (Not Hispanic or Latino)Decline to self-identifyHispanic or LatinoA person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race.White (Not Hispanic or Latino)A person having origins in any of the original peoples of Europe, the Middle East, or North Africa.Black or African American (Not Hispanic or Latino)A person having origins in any of the black racial groups of Africa.Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)A person having origins in any of the peoples of Hawaii, Guam, Samoa, or other Pacific Islands.Asian (Not Hispanic or Latino)A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian Subcontinent, including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.American Indian or Alaska Native (Not Hispanic or Latino)A person having origins in any of the original peoples of North and South America (including Central America), and who maintain tribal affiliation or community attachment.Two or More Races (Not Hispanic or Latino)All persons who identify with more than one of the above five races.",
+   "type": "select-one",
+   "required": false,
+   "value": "Decline to self-identify",
+   "options": [
+    "Select ...",
+    "Hispanic or Latino",
+    "White (Not Hispanic or Latino)",
+    "Black or African American (Not Hispanic or Latino)",
+    "Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)",
+    "Asian (Not Hispanic or Latino)",
+    "American Indian or Alaska Native (Not Hispanic or Latino)",
+    "Two or More Races (Not Hispanic or Latino)",
+    "Decline to self-identify"
+   ]
+  },
+  {
+   "question": "Veteran statusSelect ...I am a veteranI am not a veteranDecline to self-identify",
+   "type": "select-one",
+   "required": false,
+   "value": "Decline to self-identify",
+   "options": [
+    "Select ...",
+    "I am a veteran",
+    "I am not a veteran",
+    "Decline to self-identify"
+   ]
+  },
+  {
+   "question": "18-20",
+   "type": "radio",
+   "required": false,
+   "value": "",
+   "options": [
+    "18-20",
+    "21-29",
+    "30-39",
+    "40-49",
+    "50-59",
+    "60 or older"
+   ]
+  },
+  {
+   "question": "White / Caucasian",
+   "type": "checkbox",
+   "required": false,
+   "value": "",
+   "options": [
+    "White / Caucasian",
+    "Hispanic, Latino, or Spanish origin",
+    "Black or African American",
+    "Asian",
+    "Native Hawaiian or other Pacific Islander",
+    "Indigenous Peoples, First Nations, Native American, or Alaska Native",
+    "Middle Eastern or North African",
+    "Some other race, ethnicity, or origin"
+   ]
+  },
+  {
+   "question": "Female",
+   "type": "radio",
+   "required": false,
+   "value": "Male",
+   "options": [
+    "Female",
+    "Male",
+    "Non-binary",
+    "Prefer not to say"
+   ]
+  },
+  {
+   "question": "Yes, Sonar can contact me about future job opportunities for up to 2 yearsPrivacy policy",
+   "type": "checkbox",
+   "required": false,
+   "value": "",
+   "options": [
+    "Yes, Sonar can contact me about future job opportunities for up to 2 yearsPrivacy policy"
+   ]
+  }
+ ],
+ "fileChips": [
+  "cv.pdf"
+ ]
+}

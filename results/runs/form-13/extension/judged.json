@@ -1,0 +1,261 @@
+[
+ {
+  "question": "Full Name*",
+  "type": "file",
+  "required": true,
+  "value": "cv.pdf",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CV file name provided"
+ },
+ {
+  "question": "Full Name*",
+  "type": "text",
+  "required": true,
+  "value": "Ada Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches full name"
+ },
+ {
+  "question": "Full Name*",
+  "type": "email",
+  "required": true,
+  "value": "ada.tester@example.test",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Correct email"
+ },
+ {
+  "question": "Full Name*",
+  "type": "text",
+  "required": true,
+  "value": "+41 79 555 01 23",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Correct phone"
+ },
+ {
+  "question": "Full Name*",
+  "type": "checkbox",
+  "required": true,
+  "value": "",
+  "options": [
+   "on"
+  ],
+  "i": 4,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Required checkbox, likely consent, unchecked"
+ },
+ {
+  "question": "Desired Salary*",
+  "type": "select-one",
+  "required": true,
+  "value": "Swiss Franc (CHF)",
+  "options": [
+   "US Dollar ($)",
+   "Canadian Dollar ($)",
+   "Euro (€)",
+   "United Arab Emirates Dirham (د.إ.‏)",
+   "Afghan Afghani (؋)",
+   "Albanian Lek (Lek)",
+   "Armenian Dram (դր.)",
+   "Argentine Peso ($)",
+   "Australian Dollar ($)",
+   "Azerbaijani Manat (ман.)",
+   "Bosnia-Herzegovina Convertible Mark (KM)",
+   "Bangladeshi Taka (৳)",
+   "Bulgarian Lev (лв.)",
+   "Bahraini Dinar (د.ب.‏)",
+   "Burundian Franc (FBu)",
+   "Brunei Dollar ($)",
+   "Bolivian Boliviano (Bs)",
+   "Brazilian Real (R$)",
+   "Botswanan Pula (P)",
+   "Belarusian Ruble (руб.)",
+   "Belize Dollar ($)",
+   "Congolese Franc (FrCD)",
+   "Swiss Franc (CHF)",
+   "Chilean Peso ($)",
+   "Chinese Yuan (CN¥)",
+   "Colombian Peso ($)",
+   "Costa Rican Colón (₡)",
+   "Cape Verdean Escudo (CV$)",
+   "Czech Republic Koruna (Kč)",
+   "Djiboutian Franc (Fdj)",
+   "Danish Krone (kr)",
+   "Dominican Peso (RD$)",
+   "Algerian Dinar (د.ج.‏)",
+   "Estonian Kroon (kr)",
+   "Egyptian Pound (ج.م.‏)",
+   "Eritrean Nakfa (Nfk)",
+   "Ethiopian Birr (Br)",
+   "British Pound Sterling (£)",
+   "Georgian Lari (GEL)",
+   "Ghanaian Cedi (GH₵)"
+  ],
+  "i": 5,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CHF matches salary facts"
+ },
+ {
+  "question": "Desired Salary*",
+  "type": "text",
+  "required": true,
+  "value": "140000",
+  "i": 6,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Target range lower bound"
+ },
+ {
+  "question": "Desired Salary*",
+  "type": "select-one",
+  "required": true,
+  "value": "Yearly",
+  "options": [
+   "Hourly",
+   "Weekly",
+   "Monthly",
+   "Yearly"
+  ],
+  "i": 7,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Salary is yearly"
+ },
+ {
+  "question": "Work History*",
+  "type": "textarea",
+  "required": true,
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV jobs available but not filled"
+ },
+ {
+  "question": "Cover Letter",
+  "type": "textarea",
+  "required": false,
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional cover letter"
+ },
+ {
+  "question": "Full Name*",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 10,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Name known, left blank"
+ },
+ {
+  "question": "Do you have hands-on full-stack software engineering experience that includes both frontend and backend work from a job, internship, startup, open-source contribution, or substantial shipped project?*A response is required",
+  "type": "radio",
+  "required": true,
+  "value": "",
+  "options": [
+   "Yes",
+   "No"
+  ],
+  "i": 11,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Frontend experience not stated"
+ },
+ {
+  "question": "Do you have hands-on Python or Go experience?*A response is required",
+  "type": "radio",
+  "required": true,
+  "value": "",
+  "options": [
+   "Yes",
+   "No"
+  ],
+  "i": 12,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV lists Python and Go"
+ },
+ {
+  "question": "Have you built backend services, APIs, SDKs, data pipelines, or similar platform/data systems?*A response is required",
+  "type": "radio",
+  "required": true,
+  "value": "",
+  "options": [
+   "Yes",
+   "No"
+  ],
+  "i": 13,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Built Terraform platform, services"
+ },
+ {
+  "question": "Are you willing to complete a live coding assessment as part of the interview process?*A response is required",
+  "type": "radio",
+  "required": true,
+  "value": "",
+  "options": [
+   "Yes",
+   "No"
+  ],
+  "i": 14,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Coding assessment willingness unknown"
+ },
+ {
+  "question": "Are you available to work full-time during U.S. team hours?*A response is required",
+  "type": "radio",
+  "required": true,
+  "value": "",
+  "options": [
+   "Yes",
+   "No"
+  ],
+  "i": 15,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "US hours availability unknown"
+ },
+ {
+  "question": "Do you have experience with both Python and Go, AI/ML, health tech, wearables, biometric data, IoT, HIPAA, SOC 2, GDPR, or another compliance-aware technical environment?*A response is required",
+  "type": "radio",
+  "required": true,
+  "value": "",
+  "options": [
+   "Yes",
+   "No"
+  ],
+  "i": 16,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Python and Go in CV"
+ },
+ {
+  "question": "Are you currently based in Austin, San Antonio, or elsewhere in Texas?*A response is required",
+  "type": "radio",
+  "required": true,
+  "value": "Yes",
+  "options": [
+   "Yes",
+   "No"
+  ],
+  "i": 17,
+  "verdict": "wrong",
+  "answerable": true,
+  "note": "Based in Zurich, not Texas"
+ }
+]

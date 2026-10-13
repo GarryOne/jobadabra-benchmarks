@@ -1,0 +1,8 @@
+{"at":"2026-10-13T21:56:09.399Z","method":"POST","host":"px.ads.linkedin.com","path":"/wa/","bytes":516,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:56:09.404Z","method":"POST","host":"px.ads.linkedin.com","path":"/wa/","bytes":516,"ctype":"text/plain;charset=utf-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:56:09.649Z","method":"POST","host":"region1.analytics.google.com","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:56:09.649Z","method":"POST","host":"stats.g.doubleclick.net","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:56:10.816Z","method":"POST","host":"c.spl.greenhouse.io","path":"/com.snowplowanalytics.snowplow/tp2","bytes":2886,"ctype":"application/json; charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:56:22.404Z","method":"POST","host":"px.ads.linkedin.com","path":"/wa/","bytes":852,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:56:22.409Z","method":"POST","host":"px.ads.linkedin.com","path":"/wa/","bytes":852,"ctype":"text/plain;charset=utf-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:57:03.631Z","method":"POST","host":"grnhse-prod-jben-us-east-1.s3.amazonaws.com","path":"/","bytes":2244,"ctype":"multipart/form-data; boundary=----WebKit","allow":true,"why":"storage upload"}

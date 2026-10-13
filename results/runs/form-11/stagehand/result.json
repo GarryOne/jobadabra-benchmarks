@@ -1,0 +1,54 @@
+{
+ "tool": "stagehand",
+ "url": "https://epilot.recruitee.com/o/senior-product-engineer-frontend/c/new",
+ "model": "claude-sonnet-5-5",
+ "steps": 101,
+ "final": "The form is only partly filled and two fields hold wrong values. The CV upload, full name and phone number (Switzerland) are correct. The email field reads \"aOda.tester@example.test\" instead of \"ada.tester@example.test\", and the relocation answer reads \"Oapen to relocating within Europe; remote also works\" with a stray \"Oa\". Page lag stopped me from fixing them. The remaining questions were left e",
+ "completed": false,
+ "tokens": {
+  "in": 802552,
+  "out": 7829,
+  "cacheRead": 299442,
+  "cacheWrite": 7678,
+  "calls": 44
+ },
+ "usd": 1.7624773999999999,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 332.8,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST o4511234536570880.ingest.de.sentry.io/api/4511234572091472/envelope/ (non-GET to another host)",
+   "POST careers-analytics.recruitee.com/api/event (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST captcha-base.recruiteecdn.com/checksiteconfig (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST www.youtube.com/youtubei/v1/log_event (non-GET to the form site)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST careers-analytics.recruitee.com/api/event (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST www.youtube.com/youtubei/v1/log_event (non-GET to the form site)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST www.youtube.com/youtubei/v1/log_event (non-GET to the form site)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 13,
+  "right": 3,
+  "wrong": 2,
+  "emptyShouldFill": 3,
+  "emptyOk": 5,
+  "emptyRequired": 5,
+  "requiredTotal": 7
+ },
+ "judgeUsd": 0.009413999999999999,
+ "fileChips": [],
+ "wallSeconds": 341
+}

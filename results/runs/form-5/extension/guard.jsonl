@@ -1,0 +1,91 @@
+{"at":"2026-10-13T20:49:09.213Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":206,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:09.214Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:09.231Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:10.626Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:10.630Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":200,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:11.238Z","method":"POST","host":"o4511234536570880.ingest.de.sentry.io","path":"/api/4511234572091472/envelope/","bytes":471,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:11.239Z","method":"POST","host":"careers-analytics.recruitee.com","path":"/api/event","bytes":256,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:11.495Z","method":"POST","host":"embed-api-eu-west-1.ziggeo.com","path":"/v1/applications/r18e17cc1c012fad1230df993e5da0b5/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:11.604Z","method":"POST","host":"region1.analytics.google.com","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:11.605Z","method":"POST","host":"stats.g.doubleclick.net","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:11.754Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:12.400Z","method":"POST","host":"127.0.0.1","path":"/extension/visit-list","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:12.751Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:12.930Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:12.964Z","method":"POST","host":"captcha-base.recruiteecdn.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:13.078Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:13.080Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3381,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:13.191Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:13.224Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":564,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:13.588Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":200,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:13.648Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":134,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:13.856Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3405,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:14.022Z","method":"POST","host":"embed-api-eu-west-1.ziggeo.com","path":"/v1/applications/r18e17cc1c012fad1230df993e5da0b5/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:14.257Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":2106,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:16.159Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:16.199Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3405,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:16.484Z","method":"POST","host":"127.0.0.1","path":"/extension/answer","bytes":2933,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:16.509Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:16.527Z","method":"POST","host":"embed-api-eu-west-1.ziggeo.com","path":"/v1/applications/r18e17cc1c012fad1230df993e5da0b5/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:17.768Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3405,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:19.040Z","method":"POST","host":"embed-api-eu-west-1.ziggeo.com","path":"/v1/applications/r18e17cc1c012fad1230df993e5da0b5/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:19.811Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3405,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:21.497Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:21.559Z","method":"POST","host":"embed-api-eu-west-1.ziggeo.com","path":"/v1/applications/r18e17cc1c012fad1230df993e5da0b5/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:21.786Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3350,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:22.048Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3350,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:23.778Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":436,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:23.782Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3354,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:23.834Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":92,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:26.213Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3353,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:26.263Z","method":"POST","host":"127.0.0.1","path":"/extension/recipes","bytes":44,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:26.278Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:26.286Z","method":"POST","host":"127.0.0.1","path":"/extension/pick-upload","bytes":259,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:26.564Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:27.759Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3353,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:29.781Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3353,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:31.494Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:31.825Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3354,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:32.128Z","method":"POST","host":"careers-analytics.recruitee.com","path":"/api/event","bytes":270,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:32.129Z","method":"POST","host":"region1.analytics.google.com","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:32.613Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2805,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:32.622Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":157,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:33.107Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3224,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:33.793Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":180,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:33.802Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3224,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:33.817Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":109,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:33.817Z","method":"POST","host":"127.0.0.1","path":"/extension/run","bytes":7013,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:33.817Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":1451,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:33.827Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":72,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:33.881Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":1607,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:33.939Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":2833,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:33.939Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":3038,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:35.757Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3263,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:36.493Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:37.016Z","method":"POST","host":"region1.analytics.google.com","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:37.767Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3263,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:38.906Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:39.505Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":382,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:39.758Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:41.493Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:41.760Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:43.857Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:45.771Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:46.500Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:47.824Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:51.503Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:51.541Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:49:56.507Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:49:59.371Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:50:01.498Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:50:06.494Z","method":"POST","host":"api-eu-west-1.ziggeo.com","path":"/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart","bytes":1454,"ctype":"application/x-www-form-urlencoded","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:50:06.632Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:50:07.813Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:50:08.915Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:50:09.834Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:50:12.083Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:50:17.415Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:50:20.114Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:50:21.768Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:50:23.779Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:50:26.432Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3309,"ctype":"application/json","allow":true,"why":"stand-in app"}

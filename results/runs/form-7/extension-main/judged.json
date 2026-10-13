@@ -1,0 +1,143 @@
+[
+ {
+  "question": "Vorname",
+  "type": "text",
+  "required": false,
+  "name": "first_name",
+  "value": "Ada",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "First name matches"
+ },
+ {
+  "question": "Nachname",
+  "type": "text",
+  "required": false,
+  "name": "last_name",
+  "value": "Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Last name matches"
+ },
+ {
+  "question": "E-Mail* (erforderlich)",
+  "type": "email",
+  "required": false,
+  "name": "email",
+  "value": "ada.tester@example.test",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Email matches"
+ },
+ {
+  "question": "Telefon* (erforderlich)",
+  "type": "text",
+  "required": false,
+  "name": "phone",
+  "value": "+41 79 555 01 23",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Phone matches"
+ },
+ {
+  "question": "Verfügbar ab* (erforderlich)",
+  "type": "text",
+  "required": false,
+  "name": "available_from",
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Start date unknown"
+ },
+ {
+  "question": "Gehaltsvorstellung* (erforderlich)",
+  "type": "text",
+  "required": false,
+  "name": "salary_expectations",
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Salary target given: CHF 140-160k"
+ },
+ {
+  "question": "Wurde dir die Stelle von eine*r SEITENBAUer*in empfohlen? Wenn ja, von wem?",
+  "type": "text",
+  "required": false,
+  "name": "custom_attribute_2314403",
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No referral info; empty correct"
+ },
+ {
+  "question": "Deutschkenntnisse* (erforderlich)",
+  "type": "select-one",
+  "required": false,
+  "name": "custom_attribute_3097339",
+  "value": "B1",
+  "options": [
+   "Bitte auswählen",
+   "A1",
+   "A2",
+   "B1",
+   "B2",
+   "C1",
+   "C2 (Muttersprache)"
+  ],
+  "i": 7,
+  "verdict": "right",
+  "answerable": true,
+  "note": "German B1 matches"
+ },
+ {
+  "question": "Upload Lebenslauf",
+  "type": "file",
+  "required": false,
+  "name": "documents.cv",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file available but not uploaded"
+ },
+ {
+  "question": "Upload Anschreiben",
+  "type": "file",
+  "required": false,
+  "name": "documents.cover-letter",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No cover letter file provided"
+ },
+ {
+  "question": "Upload Arbeitszeugnis",
+  "type": "file",
+  "required": false,
+  "name": "documents.employment-reference",
+  "value": "",
+  "i": 10,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No reference letter available"
+ },
+ {
+  "question": "Upload Andere",
+  "type": "file",
+  "required": false,
+  "name": "documents.other",
+  "value": "",
+  "i": 11,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No other documents"
+ }
+]

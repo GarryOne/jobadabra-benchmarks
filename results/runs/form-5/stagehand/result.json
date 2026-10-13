@@ -1,0 +1,62 @@
+{
+ "tool": "stagehand",
+ "url": "https://careers.tether.io/o/devops-engineer-100-remote/c/new",
+ "model": "claude-sonnet-5-5",
+ "capped": false,
+ "steps": 33,
+ "final": "Filled full name, email, uploaded CV, country (Switzerland) and LinkedIn URL. An accidental LinkedIn entry in the IaC field was cleared (verified empty). Left other fields (CI/CD tools, C++ years, USD salary, useful links, etc.) empty since the facts don't answer them; the \"why Tether\" field showed an error widget and couldn't be filled. Did not submit.",
+ "completed": true,
+ "tokens": {
+  "in": 203197,
+  "out": 3344,
+  "cacheRead": 138060,
+  "cacheWrite": 7670,
+  "calls": 21
+ },
+ "usd": 0.486621,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 89.2,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST o4511234536570880.ingest.de.sentry.io/api/4511234572091472/envelope/ (non-GET to another host)",
+   "POST careers-analytics.recruitee.com/api/event (non-GET to another host)",
+   "POST embed-api-eu-west-1.ziggeo.com/v1/applications/r18e17cc1c012fad1230df993e5da0b5/session (non-GET to another host)",
+   "POST region1.analytics.google.com/g/collect (non-GET to another host)",
+   "POST stats.g.doubleclick.net/g/collect (non-GET to another host)",
+   "POST captcha-base.recruiteecdn.com/checksiteconfig (non-GET to another host)",
+   "POST embed-api-eu-west-1.ziggeo.com/v1/applications/r18e17cc1c012fad1230df993e5da0b5/session (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)",
+   "POST embed-api-eu-west-1.ziggeo.com/v1/applications/r18e17cc1c012fad1230df993e5da0b5/session (non-GET to another host)",
+   "POST embed-api-eu-west-1.ziggeo.com/v1/applications/r18e17cc1c012fad1230df993e5da0b5/session (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)",
+   "POST embed-api-eu-west-1.ziggeo.com/v1/applications/r18e17cc1c012fad1230df993e5da0b5/session (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)",
+   "POST careers-analytics.recruitee.com/api/event (non-GET to another host)",
+   "POST region1.analytics.google.com/g/collect (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)",
+   "POST region1.analytics.google.com/g/collect (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)",
+   "POST api-eu-west-1.ziggeo.com/embed/v1/applications/r18e17cc1c012fad1230df993e5da0b5/scitylana/kcart (non-GET to another host)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 14,
+  "right": 5,
+  "wrong": 0,
+  "emptyShouldFill": 4,
+  "emptyOk": 5,
+  "emptyRequired": 8,
+  "requiredTotal": 13
+ },
+ "judgeUsd": 0.009846,
+ "fileChips": [],
+ "wallSeconds": 97
+}

@@ -1,0 +1,3 @@
+{"at":"2026-10-13T19:59:35.169Z","method":"POST","host":"jobs.ashbyhq.com","path":"/api/non-user-graphql","bytes":2394,"ctype":"application/json","allow":true,"why":"graphql read"}
+{"at":"2026-10-13T19:59:35.171Z","method":"POST","host":"jobs.ashbyhq.com","path":"/api/non-user-graphql","bytes":1181,"ctype":"application/json","allow":true,"why":"graphql read"}
+{"at":"2026-10-13T19:59:35.425Z","method":"POST","host":"jobs.ashbyhq.com","path":"/api/non-user-graphql","bytes":1152,"ctype":"application/json","allow":true,"why":"graphql read"}

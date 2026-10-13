@@ -1,0 +1,51 @@
+{
+ "tool": "stagehand",
+ "url": "https://jobs.lever.co/sonarsource/54743786-1ad7-4be7-bcbe-67f660e9c381/apply",
+ "model": "claude-sonnet-5-5",
+ "steps": 23,
+ "final": "Uploaded the CV and filled full name, email, phone, current location (selected Zürich, CHE from the autocomplete) and LinkedIn URL, all confirmed in a screenshot. I left current company, the on-site policy questions, the sponsorship question (the facts only cover Switzerland and the EU, not the UK role location), notice period (unknown) and all optional demographic fields empty because the facts d",
+ "completed": true,
+ "tokens": {
+  "in": 173343,
+  "out": 3053,
+  "cacheRead": 107884,
+  "cacheWrite": 7706,
+  "calls": 16
+ },
+ "usd": 0.4180578,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 80.2,
+ "submitPressed": true,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST jobs.lever.co/cdn-cgi/challenge-platform/h/g/jsd/oneshot/4df4a60fa397/0.5614456273273181:1791 (non-GET to another host)",
+   "POST api.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api2.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api2.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api2.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api2.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST jobs.lever.co/parseResume (non-GET to the form site)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 18,
+  "right": 6,
+  "wrong": 0,
+  "emptyShouldFill": 3,
+  "emptyOk": 9,
+  "emptyRequired": 2,
+  "requiredTotal": 7
+ },
+ "judgeUsd": 0.01353,
+ "fileChips": [
+  "cv.pdf"
+ ],
+ "wallSeconds": 90
+}

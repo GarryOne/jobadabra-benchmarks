@@ -1,0 +1,258 @@
+[
+ {
+  "question": "Search",
+  "type": "text",
+  "required": false,
+  "name": "",
+  "value": "",
+  "i": 0,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Search box, not a real question"
+ },
+ {
+  "question": "First Name*",
+  "type": "text",
+  "required": true,
+  "name": "first_name",
+  "value": "Ada",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches first name"
+ },
+ {
+  "question": "Last Name*",
+  "type": "text",
+  "required": true,
+  "name": "last_name",
+  "value": "Tester",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches last name"
+ },
+ {
+  "question": "Email*",
+  "type": "text",
+  "required": true,
+  "name": "email",
+  "value": "ada.tester@example.test",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "Country*",
+  "type": "text",
+  "required": true,
+  "name": "country",
+  "value": "Switzerland",
+  "i": 4,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Switzerland matches location"
+ },
+ {
+  "question": "Phone",
+  "type": "text",
+  "required": true,
+  "name": "",
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Phone known but left empty"
+ },
+ {
+  "question": "Phone*",
+  "type": "tel",
+  "required": true,
+  "name": "phone",
+  "value": "079 555 01 23",
+  "i": 6,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Local format of same number"
+ },
+ {
+  "question": "Location (City)*",
+  "type": "text",
+  "required": true,
+  "name": "candidate-location",
+  "value": "Zurich",
+  "i": 7,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Zurich matches"
+ },
+ {
+  "question": "Location (City)*",
+  "type": "text",
+  "required": true,
+  "name": "",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "City known but left empty"
+ },
+ {
+  "question": "Attach",
+  "type": "file",
+  "required": false,
+  "name": "resume",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file available but not attached"
+ },
+ {
+  "question": "Attach",
+  "type": "file",
+  "required": false,
+  "name": "cover_letter",
+  "value": "",
+  "i": 10,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Likely cover letter, none provided"
+ },
+ {
+  "question": "LinkedIn Profile",
+  "type": "text",
+  "required": false,
+  "name": "question_5931076101",
+  "value": "https://www.linkedin.com/in/ada-tester",
+  "i": 11,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches LinkedIn"
+ },
+ {
+  "question": "Which languages do you speak?*",
+  "type": "text",
+  "required": true,
+  "name": "question_6779880101[]",
+  "value": "",
+  "i": 12,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "English, Spanish, German B1 known"
+ },
+ {
+  "question": "Which languages do you speak?*",
+  "type": "text",
+  "required": true,
+  "name": "",
+  "value": "",
+  "i": 13,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "English, Spanish, German B1 known"
+ },
+ {
+  "question": "Are you currently authorized to work in the country where this position is located, without requiring sponsorship, now or in the future?*",
+  "type": "text",
+  "required": true,
+  "name": "question_7093987101",
+  "value": "",
+  "i": 14,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "EU citizen, no sponsorship needed"
+ },
+ {
+  "question": "Are you currently authorized to work in the country where this position is located, without requiring sponsorship, now or in the future?*",
+  "type": "text",
+  "required": true,
+  "name": "",
+  "value": "",
+  "i": 15,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "EU citizen, no sponsorship needed"
+ },
+ {
+  "question": "Do you currently reside in the location specified for this role?*",
+  "type": "text",
+  "required": true,
+  "name": "question_7093993101",
+  "value": "",
+  "i": 16,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Lives in Zurich"
+ },
+ {
+  "question": "Do you currently reside in the location specified for this role?*",
+  "type": "text",
+  "required": true,
+  "name": "",
+  "value": "",
+  "i": 17,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Lives in Zurich"
+ },
+ {
+  "question": "Have you ever been employed by Nebius before?*",
+  "type": "text",
+  "required": true,
+  "name": "question_8262251101",
+  "value": "",
+  "i": 18,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Nebius employment not in facts"
+ },
+ {
+  "question": "Have you ever been employed by Nebius before?*",
+  "type": "text",
+  "required": true,
+  "name": "",
+  "value": "",
+  "i": 19,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Nebius employment not in facts"
+ },
+ {
+  "question": "I have read Nebius’s Candidates Privacy Policy.*",
+  "type": "text",
+  "required": true,
+  "name": "question_9817492101",
+  "value": "",
+  "i": 20,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Privacy consent should be confirmed"
+ },
+ {
+  "question": "I have read Nebius’s Candidates Privacy Policy.*",
+  "type": "text",
+  "required": true,
+  "name": "",
+  "value": "",
+  "i": 21,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Privacy consent should be confirmed"
+ },
+ {
+  "question": "By checking this box, I agree to allow Nebius to retain my data for future opportunities for employment for up to 720 days after the conclusion of consideration of my current application for employment.",
+  "type": "checkbox",
+  "required": false,
+  "name": "gdpr_retention_consent_given",
+  "value": "",
+  "options": [
+   "By checking this box, I agree to allow Nebius to retain my data for future opportunities for employment for up to 720 days after the conclusion of consideration of my current application for employment."
+  ],
+  "i": 22,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional data retention consent"
+ }
+]

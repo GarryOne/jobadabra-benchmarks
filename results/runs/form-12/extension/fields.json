@@ -1,0 +1,216 @@
+{
+ "url": "https://arpio.breezy.hr/p/c5bf177ee200-senior-technical-customer-success-manager/apply#jobpilotto-fill=9431621a",
+ "title": "Senior Technical Customer Success Manager",
+ "fields": [
+  {
+   "question": "Full Name*",
+   "type": "file",
+   "required": true,
+   "value": "cv.pdf"
+  },
+  {
+   "question": "Full Name*",
+   "type": "text",
+   "required": true,
+   "value": "Ada Tester"
+  },
+  {
+   "question": "Full Name*",
+   "type": "email",
+   "required": true,
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Full Name*",
+   "type": "text",
+   "required": true,
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "Full Name*",
+   "type": "checkbox",
+   "required": true,
+   "value": "",
+   "options": [
+    "on"
+   ]
+  },
+  {
+   "question": "Full Name*",
+   "type": "text",
+   "required": true,
+   "value": "Musterstrasse 12"
+  },
+  {
+   "question": "Desired Salary*",
+   "type": "select-one",
+   "required": true,
+   "value": "US Dollar ($)",
+   "options": [
+    "US Dollar ($)",
+    "Canadian Dollar ($)",
+    "Euro (€)",
+    "United Arab Emirates Dirham (د.إ.‏)",
+    "Afghan Afghani (؋)",
+    "Albanian Lek (Lek)",
+    "Armenian Dram (դր.)",
+    "Argentine Peso ($)",
+    "Australian Dollar ($)",
+    "Azerbaijani Manat (ман.)",
+    "Bosnia-Herzegovina Convertible Mark (KM)",
+    "Bangladeshi Taka (৳)",
+    "Bulgarian Lev (лв.)",
+    "Bahraini Dinar (د.ب.‏)",
+    "Burundian Franc (FBu)",
+    "Brunei Dollar ($)",
+    "Bolivian Boliviano (Bs)",
+    "Brazilian Real (R$)",
+    "Botswanan Pula (P)",
+    "Belarusian Ruble (руб.)",
+    "Belize Dollar ($)",
+    "Congolese Franc (FrCD)",
+    "Swiss Franc (CHF)",
+    "Chilean Peso ($)",
+    "Chinese Yuan (CN¥)",
+    "Colombian Peso ($)",
+    "Costa Rican Colón (₡)",
+    "Cape Verdean Escudo (CV$)",
+    "Czech Republic Koruna (Kč)",
+    "Djiboutian Franc (Fdj)",
+    "Danish Krone (kr)",
+    "Dominican Peso (RD$)",
+    "Algerian Dinar (د.ج.‏)",
+    "Estonian Kroon (kr)",
+    "Egyptian Pound (ج.م.‏)",
+    "Eritrean Nakfa (Nfk)",
+    "Ethiopian Birr (Br)",
+    "British Pound Sterling (£)",
+    "Georgian Lari (GEL)",
+    "Ghanaian Cedi (GH₵)"
+   ]
+  },
+  {
+   "question": "Desired Salary*",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Desired Salary*",
+   "type": "select-one",
+   "required": true,
+   "value": "Yearly",
+   "options": [
+    "Hourly",
+    "Weekly",
+    "Monthly",
+    "Yearly"
+   ]
+  },
+  {
+   "question": "Work History*",
+   "type": "textarea",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Cover Letter",
+   "type": "textarea",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Full Name*",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Please provide your LinkedIn Profile link*",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "YesNo",
+   "type": "checkbox",
+   "required": true,
+   "value": "",
+   "options": [
+    "on",
+    "on"
+   ]
+  },
+  {
+   "question": "YesNo",
+   "type": "checkbox",
+   "required": true,
+   "value": "",
+   "options": [
+    "on",
+    "on"
+   ]
+  },
+  {
+   "question": "Hybrid, 2-3 days in the Durham, NC OfficeNo, I prefer a remote work arrangement",
+   "type": "checkbox",
+   "required": true,
+   "value": "",
+   "options": [
+    "on",
+    "on"
+   ]
+  },
+  {
+   "question": "What is your desired salary range?*",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Provide your city and state of residence*",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "What inspired you to apply to this position?*",
+   "type": "textarea",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "How did you hear about this role?*A response is required",
+   "type": "radio",
+   "required": true,
+   "value": "",
+   "options": [
+    "Recruiter Outreach",
+    "LinkedIn/Indeed/Other Job Board",
+    "Employee Referral",
+    "Other"
+   ]
+  },
+  {
+   "question": "YesNo",
+   "type": "checkbox",
+   "required": true,
+   "value": "",
+   "options": [
+    "on",
+    "on"
+   ]
+  },
+  {
+   "question": "YesDecline to respd",
+   "type": "checkbox",
+   "required": true,
+   "value": "",
+   "options": [
+    "on",
+    "on"
+   ]
+  }
+ ],
+ "fileChips": []
+}

@@ -1,0 +1,104 @@
+{
+ "url": "https://seitenbau-gmbh.jobs.personio.de/job/2825574/apply?display=de",
+ "title": "DevOps & Cloud Engineer (m/w/d) - Konstanz, Berlin oder remote | Jobs bei Karriere - SEITENBAU",
+ "fields": [
+  {
+   "question": "Vorname",
+   "type": "text",
+   "required": false,
+   "name": "first_name",
+   "value": ""
+  },
+  {
+   "question": "Nachname",
+   "type": "text",
+   "required": false,
+   "name": "last_name",
+   "value": ""
+  },
+  {
+   "question": "E-Mail* (erforderlich)",
+   "type": "email",
+   "required": false,
+   "name": "email",
+   "value": ""
+  },
+  {
+   "question": "Telefon* (erforderlich)",
+   "type": "text",
+   "required": false,
+   "name": "phone",
+   "value": ""
+  },
+  {
+   "question": "Verfügbar ab* (erforderlich)",
+   "type": "text",
+   "required": false,
+   "name": "available_from",
+   "value": ""
+  },
+  {
+   "question": "Gehaltsvorstellung* (erforderlich)",
+   "type": "text",
+   "required": false,
+   "name": "salary_expectations",
+   "value": ""
+  },
+  {
+   "question": "Wurde dir die Stelle von eine*r SEITENBAUer*in empfohlen? Wenn ja, von wem?",
+   "type": "text",
+   "required": false,
+   "name": "custom_attribute_2314403",
+   "value": ""
+  },
+  {
+   "question": "Deutschkenntnisse* (erforderlich)",
+   "type": "select-one",
+   "required": false,
+   "name": "custom_attribute_3097339",
+   "value": "Bitte auswählen",
+   "options": [
+    "Bitte auswählen",
+    "A1",
+    "A2",
+    "B1",
+    "B2",
+    "C1",
+    "C2 (Muttersprache)"
+   ]
+  },
+  {
+   "question": "Upload Lebenslauf",
+   "type": "file",
+   "required": false,
+   "name": "documents.cv",
+   "value": ""
+  },
+  {
+   "question": "Upload Anschreiben",
+   "type": "file",
+   "required": false,
+   "name": "documents.cover-letter",
+   "value": ""
+  },
+  {
+   "question": "Upload Arbeitszeugnis",
+   "type": "file",
+   "required": false,
+   "name": "documents.employment-reference",
+   "value": ""
+  },
+  {
+   "question": "Upload Andere",
+   "type": "file",
+   "required": false,
+   "name": "documents.other",
+   "value": ""
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "https://seitenbau-gmbh.jobs.personio.de/job/2825574/apply?display=de",
+  "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch/qb4m1/0x4AAAAAAFBBQbuedvRUtYMX/auto/fbE/new/normal?lang=auto&offlabel_show_privacy=true&offlabel_show_help=true"
+ ]
+}

@@ -1,0 +1,1 @@
+[2026-10-13T19:56:07.262Z] ERROR: No object generated: response did not match schema. |       "name": "AI_TypeValidationError",

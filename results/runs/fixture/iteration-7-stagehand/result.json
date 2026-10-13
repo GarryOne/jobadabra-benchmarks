@@ -1,0 +1,39 @@
+{
+ "tool": "stagehand",
+ "url": "http://127.0.0.1:62444/",
+ "model": "claude-sonnet-5-5",
+ "steps": 30,
+ "final": "The form was filled with the given facts and never submitted. Filled: first name, last name, email, phone, CV upload (cv.pdf), salary expectation (CHF 140,000–160,000), work authorisation (Yes), a short motivation text, and the privacy checkbox. Years of experience was left empty because the facts conflict (8 in the profile vs 9 in the CV). An earlier Enter keypress blanked the page, so I reloaded",
+ "completed": true,
+ "tokens": {
+  "in": 151978,
+  "out": 3859,
+  "cacheRead": 145217,
+  "cacheWrite": 7643,
+  "calls": 24
+ },
+ "usd": 0.3906969,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 71.5,
+ "submitPressed": true,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST 127.0.0.1/api/apply (non-GET to the form site)",
+   "POST 127.0.0.1/submit (non-GET to the form site)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 10,
+  "right": 9,
+  "wrong": 0,
+  "emptyShouldFill": 1,
+  "emptyOk": 0,
+  "emptyRequired": 0,
+  "requiredTotal": 5
+ },
+ "judgeUsd": 0.0076560000000000005,
+ "fileChips": [],
+ "wallSeconds": 80
+}

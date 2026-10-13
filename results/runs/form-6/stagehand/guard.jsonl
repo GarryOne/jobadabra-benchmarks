@@ -1,0 +1,6 @@
+{"at":"2026-10-13T21:02:51.102Z","method":"POST","host":"wcs.naver.com","path":"/b","bytes":419,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:02:51.160Z","method":"POST","host":"app.termly.io","path":"/api/v1/snippets/websites/aea7be20-4f35-4b58-bb49-c12e6859766e/statistics","bytes":127,"ctype":"application/json","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:02:51.312Z","method":"POST","host":"careers.formlabs.com","path":"/api/telemetry/v1/logs/","bytes":804,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T21:02:52.305Z","method":"POST","host":"c.spl.greenhouse.io","path":"/com.snowplowanalytics.snowplow/tp2","bytes":2814,"ctype":"application/json; charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:02:59.931Z","method":"POST","host":"us.consent.api.termly.io","path":"/v1/websites/aea7be20-4f35-4b58-bb49-c12e6859766e/cookie-consent","bytes":307,"ctype":"application/json","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T21:03:11.328Z","method":"POST","host":"grnhse-prod-jben-us-east-1.s3.amazonaws.com","path":"/","bytes":2244,"ctype":"multipart/form-data; boundary=----WebKit","allow":true,"why":"storage upload"}

@@ -1,0 +1,111 @@
+{
+ "url": "https://seitenbau-gmbh.jobs.personio.de/job/2825574/apply?display=de#jobpilotto-fill=cf174917",
+ "title": "DevOps & Cloud Engineer (m/w/d) - Konstanz, Berlin oder remote | Jobs bei Karriere - SEITENBAU",
+ "fields": [
+  {
+   "question": "Vorname",
+   "type": "text",
+   "required": false,
+   "name": "first_name",
+   "value": "Ada"
+  },
+  {
+   "question": "Nachname",
+   "type": "text",
+   "required": false,
+   "name": "last_name",
+   "value": "Tester"
+  },
+  {
+   "question": "E-Mail* (erforderlich)",
+   "type": "email",
+   "required": false,
+   "name": "email",
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Telefon* (erforderlich)",
+   "type": "text",
+   "required": false,
+   "name": "phone",
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "Verfügbar ab* (erforderlich)",
+   "type": "text",
+   "required": false,
+   "name": "available_from",
+   "value": ""
+  },
+  {
+   "question": "Gehaltsvorstellung* (erforderlich)",
+   "type": "text",
+   "required": false,
+   "name": "salary_expectations",
+   "value": ""
+  },
+  {
+   "question": "Wurde dir die Stelle von eine*r SEITENBAUer*in empfohlen? Wenn ja, von wem?",
+   "type": "text",
+   "required": false,
+   "name": "custom_attribute_2314403",
+   "value": ""
+  },
+  {
+   "question": "Deutschkenntnisse* (erforderlich)",
+   "type": "select-one",
+   "required": false,
+   "name": "custom_attribute_3097339",
+   "value": "B1",
+   "options": [
+    "Bitte auswählen",
+    "A1",
+    "A2",
+    "B1",
+    "B2",
+    "C1",
+    "C2 (Muttersprache)"
+   ]
+  },
+  {
+   "question": "Upload Lebenslauf",
+   "type": "file",
+   "required": false,
+   "name": "documents.cv",
+   "value": ""
+  },
+  {
+   "question": "Upload Anschreiben",
+   "type": "file",
+   "required": false,
+   "name": "documents.cover-letter",
+   "value": ""
+  },
+  {
+   "question": "Upload Arbeitszeugnis",
+   "type": "file",
+   "required": false,
+   "name": "documents.employment-reference",
+   "value": ""
+  },
+  {
+   "question": "Upload Andere",
+   "type": "file",
+   "required": false,
+   "name": "documents.other",
+   "value": ""
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "https://seitenbau-gmbh.jobs.personio.de/job/2825574?display=de",
+  "https://seitenbau-gmbh.jobs.personio.de/job/2825574/apply?display=de",
+  "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch/l28d4/0x4AAAAAAFBBQbuedvRUtYMX/auto/fbE/new/normal?lang=auto&offlabel_show_privacy=true&offlabel_show_help=true",
+  "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch0ub6lGSRLxHtwJHOGoSpci6LHts4OYy8U4kpBteZEdA-1791926839-1.3.1.1-3HDmxR1frVQ7AGpZ_asSOWRuPZ5vNQCSbYKliYVlfQc/l28d4/0x4AAAAAAFBBQbuedvRUtYMX/auto/fbE/failure_retry/normal?lang=auto&offlabel_show_privacy=true&offlabel_show_help=true",
+  "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rchksDfn2sme8a55ULoJ8YNy9PBfL7H33orQD5AqTgE.jo-1791926855-1.3.1.1-2c.Zee1t_4_0HR05_IOhLEYxieFm2zleK5y5_SN4nE8/l28d4/0x4AAAAAAFBBQbuedvRUtYMX/auto/fbE/failure_retry/normal?lang=auto&offlabel_show_privacy=true&offlabel_show_help=true",
+  "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rchKAyD_q3FZKMA4RJGDRXiMEybOQpb9FzcACBYITZd1UE-1791926871-1.3.1.1-gul4GahVx6GcJGEWe8dD3NXmUY6Gg_NLdej3iaNYsto/l28d4/0x4AAAAAAFBBQbuedvRUtYMX/auto/fbE/failure_retry/normal?lang=auto&offlabel_show_privacy=true&offlabel_show_help=true",
+  "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch9UPZJWG.DNhhf6P4z58mvvCUkTxBZ0M02biH26fIadY-1791926887-1.3.1.1-WukT0cFDjdThEytPfI8OCtKlE1ngZ2ehKr7Pt3E.Ry0/l28d4/0x4AAAAAAFBBQbuedvRUtYMX/auto/fbE/failure_retry/normal?lang=auto&offlabel_show_privacy=true&offlabel_show_help=true",
+  "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rchLtC1cAHd.2C5QlUYCvULO85S49nKGTMTNpuBeJevIXY-1791926903-1.3.1.1-OWHYZ9zsXajwTD4vTB.lhI2um8RIh2ROz2vfaFmAZTs/l28d4/0x4AAAAAAFBBQbuedvRUtYMX/auto/fbE/failure_retry/normal?lang=auto&offlabel_show_privacy=true&offlabel_show_help=true",
+  "https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/av0/rch6BaGkgsCtdn3DZmM_8gH1NCCW.VKwL_Ucc8Ky1d.jOs-1791926919-1.3.1.1-FpM0AYTIJafhdCHvBlHBN2Ge1jVsJfafuwNJuOvq5fI/l28d4/0x4AAAAAAFBBQbuedvRUtYMX/auto/fbE/failure_retry/normal?lang=auto&offlabel_show_privacy=true&offlabel_show_help=true"
+ ]
+}

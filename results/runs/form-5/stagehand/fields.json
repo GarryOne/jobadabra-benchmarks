@@ -1,0 +1,91 @@
+{
+ "url": "https://careers.tether.io/o/devops-engineer-100-remote/c/new",
+ "title": "Tether Operations Limited - DevOps Engineer (100% remote) - Application",
+ "fields": [
+  {
+   "question": "Full name *",
+   "type": "text",
+   "required": true,
+   "value": "Ada Tester"
+  },
+  {
+   "question": "Email address *",
+   "type": "email",
+   "required": true,
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "CV or resume *",
+   "type": "file",
+   "required": true,
+   "value": "cv.pdf"
+  },
+  {
+   "question": "Questions",
+   "type": "file",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Why are you interested in working at Tether? *",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Which CI/CD tools have you used most extensively? *",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "How many years of experience do you have working with C++ build systems such as CMake or similar tools? *",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Have you managed multi-language build pipelines (e.g., JavaScript, TypeScript, and C++)? *",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Have you automated mobile (iOS/Android) or desktop build and publication workflows? *",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "How many years of experience do you have with Infrastructure as Code (IaC) tools such as Terraform, Ansible, AWS CDK, or CloudFormation? *",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Considering this is a remote role, from which country will you be working? *",
+   "type": "text",
+   "required": true,
+   "value": "Switzerland"
+  },
+  {
+   "question": "What's your expected annual salary for this role? (in USD) *",
+   "type": "number",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Linkedin profile *",
+   "type": "text",
+   "required": true,
+   "value": "https://www.linkedin.com/in/ada-tester"
+  },
+  {
+   "question": "Useful links (e.g. GitHub) *",
+   "type": "text",
+   "required": true,
+   "value": ""
+  }
+ ],
+ "fileChips": []
+}

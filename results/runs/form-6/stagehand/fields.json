@@ -1,0 +1,76 @@
+{
+ "url": "https://careers.formlabs.com/job/8078997/apply/?gh_jid=8078997",
+ "title": "Software Engineer, Test Infrastructure & Reliability | Formlabs",
+ "fields": [
+  {
+   "question": "First Name*",
+   "type": "text",
+   "required": true,
+   "value": "Ada"
+  },
+  {
+   "question": "Last Name*",
+   "type": "text",
+   "required": true,
+   "value": "Tester"
+  },
+  {
+   "question": "Preferred First Name",
+   "type": "text",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Email*",
+   "type": "text",
+   "required": true,
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Country*",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Phone*",
+   "type": "tel",
+   "required": true,
+   "value": "795550123"
+  },
+  {
+   "question": "Attach",
+   "type": "file",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Are you legally authorized to work for Formlabs in Hungary?*",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "What are your compensation expectations? (gross monthly forint)*",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "This is a hybrid role that requires onsite work in the Budapest office at least 3 days a week, is that something you're comfortable with?",
+   "type": "text",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "LinkedIn Profile",
+   "type": "text",
+   "required": false,
+   "value": "https://www.linkedin.com/in/ada-tester"
+  }
+ ],
+ "fileChips": [
+  "Resume/CV*cv.pdf",
+  "cv.pdf"
+ ]
+}

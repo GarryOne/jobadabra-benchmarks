@@ -1,0 +1,37 @@
+{
+ "tool": "browser-use",
+ "url": "http://127.0.0.1:62444/",
+ "model": "claude-sonnet-5-5",
+ "steps": 7,
+ "final": "I did not fill in the application form, so the task is not done. The browser is on a blank page (about:blank) with no form fields. My one real action was an attempt to open the LinkedIn URL (https://www.linkedin.com/in/ada-tester). It failed with 'site unavailable'. My next five steps failed because I produced invalid output. I filled in no fields, uploaded no CV and did not submit anything. The CV file is available at /Users/mac/job-pilotto/desktop/e2e/fixtures/cv.pdf, but I did not upload it. To retry, reopen the application form page in the browser and run the task again.",
+ "completed": true,
+ "tokens": {
+  "in": 5343,
+  "out": 598
+ },
+ "usd": 0.016666,
+ "usdReportedByTool": 0.045781,
+ "seconds": 24,
+ "submitPressed": false,
+ "navBlocked": [
+  "www.linkedin.com"
+ ],
+ "guard": {
+  "aborted": [
+   "NAV www.linkedin.com (navigation outside the form site)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 0,
+  "right": 0,
+  "wrong": 0,
+  "emptyShouldFill": 0,
+  "emptyOk": 0,
+  "emptyRequired": 0,
+  "requiredTotal": 0
+ },
+ "judgeUsd": 0.0033199999999999996,
+ "fileChips": [],
+ "wallSeconds": 29
+}

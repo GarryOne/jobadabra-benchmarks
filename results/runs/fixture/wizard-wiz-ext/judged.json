@@ -1,0 +1,327 @@
+[
+ {
+  "question": "First name *",
+  "type": "text",
+  "required": true,
+  "name": "first",
+  "value": "Ada",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches first name"
+ },
+ {
+  "question": "Last name *",
+  "type": "text",
+  "required": true,
+  "name": "last",
+  "value": "Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches last name"
+ },
+ {
+  "question": "Email *",
+  "type": "email",
+  "required": true,
+  "name": "email",
+  "value": "ada.tester@example.test",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "Phone country code *Select+41 Switzerland+49 Germany+1 United States+44 United Kingdom",
+  "type": "select-one",
+  "required": false,
+  "name": "cc",
+  "value": "+41 Switzerland",
+  "options": [
+   "Select",
+   "+41 Switzerland",
+   "+49 Germany",
+   "+1 United States",
+   "+44 United Kingdom"
+  ],
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "+41 matches Swiss phone"
+ },
+ {
+  "question": "Phone number *",
+  "type": "text",
+  "required": true,
+  "name": "phone",
+  "value": "+41 79 555 01 23",
+  "i": 4,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches phone"
+ },
+ {
+  "question": "Where are you based? * (type and pick a city)",
+  "type": "text",
+  "required": false,
+  "name": "city",
+  "value": "Zurich",
+  "i": 5,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Zurich matches location"
+ },
+ {
+  "question": "Earliest start date *",
+  "type": "date",
+  "required": true,
+  "name": "start",
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Start date unknown"
+ },
+ {
+  "question": "Job title *",
+  "type": "text",
+  "required": true,
+  "name": "title1",
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV: Senior SRE"
+ },
+ {
+  "question": "Company *",
+  "type": "text",
+  "required": true,
+  "name": "company1",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV: Acme Cloud"
+ },
+ {
+  "question": "From (month) *",
+  "type": "month",
+  "required": true,
+  "name": "from1",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV: from 2022"
+ },
+ {
+  "question": "To (month)",
+  "type": "month",
+  "required": false,
+  "name": "to1",
+  "value": "",
+  "i": 10,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Current job, no end date"
+ },
+ {
+  "question": "I currently work here",
+  "type": "checkbox",
+  "required": false,
+  "name": "current1",
+  "value": "",
+  "options": [
+   "I currently work here"
+  ],
+  "i": 11,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Present at Acme Cloud"
+ },
+ {
+  "question": "Are you authorised to work in Switzerland? *",
+  "type": "radio",
+  "required": false,
+  "name": "auth",
+  "value": "",
+  "options": [
+   "Yes",
+   "No"
+  ],
+  "i": 12,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "EU citizen, authorised: Yes"
+ },
+ {
+  "question": "Which permit would you need? *SelectLBGOther",
+  "type": "select-one",
+  "required": false,
+  "name": "permit",
+  "value": "",
+  "options": [
+   "Select",
+   "L",
+   "B",
+   "G",
+   "Other"
+  ],
+  "i": 13,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No permit needed"
+ },
+ {
+  "question": "Salary expectation (gross per year) *",
+  "type": "number",
+  "required": true,
+  "name": "salary",
+  "value": "",
+  "i": 14,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Target CHF 140-160k"
+ },
+ {
+  "question": "Currency *CHFEURUSD",
+  "type": "select-one",
+  "required": false,
+  "name": "cur",
+  "value": "CHF",
+  "options": [
+   "CHF",
+   "EUR",
+   "USD"
+  ],
+  "i": 15,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CHF fits salary facts"
+ },
+ {
+  "question": "Notice period *SelectImmediately1 month2 months3 monthsMore than 3 months",
+  "type": "select-one",
+  "required": false,
+  "name": "notice",
+  "value": "",
+  "options": [
+   "Select",
+   "Immediately",
+   "1 month",
+   "2 months",
+   "3 months",
+   "More than 3 months"
+  ],
+  "i": 16,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Notice period unknown"
+ },
+ {
+  "question": "How did you hear about us? *SelectCompany websiteJob boardReferralOther",
+  "type": "select-one",
+  "required": false,
+  "name": "hear",
+  "value": "",
+  "options": [
+   "Select",
+   "Company website",
+   "Job board",
+   "Referral",
+   "Other"
+  ],
+  "i": 17,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Not in facts"
+ },
+ {
+  "question": "Please specify *",
+  "type": "text",
+  "required": true,
+  "name": "hearother",
+  "value": "",
+  "i": 18,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Not in facts"
+ },
+ {
+  "question": "Why this role? * (at least 50 characters)",
+  "type": "textarea",
+  "required": false,
+  "name": "why",
+  "value": "",
+  "i": 19,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Can write from profile/CV"
+ },
+ {
+  "question": "Resume/CV * (pdf)",
+  "type": "file",
+  "required": false,
+  "name": "cv",
+  "value": "",
+  "i": 20,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file provided"
+ },
+ {
+  "question": "Cover letter (optional)",
+  "type": "file",
+  "required": false,
+  "name": "letter",
+  "value": "",
+  "i": 21,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No cover letter file"
+ },
+ {
+  "question": "Portfolio or GitHub link (optional)",
+  "type": "url",
+  "required": false,
+  "name": "link",
+  "value": "",
+  "i": 22,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No GitHub/portfolio in facts"
+ },
+ {
+  "question": "Gender (optional, voluntary)Prefer not to sayFemaleMaleNon-binary",
+  "type": "select-one",
+  "required": false,
+  "name": "gender",
+  "value": "Prefer not to say",
+  "options": [
+   "Prefer not to say",
+   "Female",
+   "Male",
+   "Non-binary"
+  ],
+  "i": 23,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Sensible default choice"
+ },
+ {
+  "question": "I agree to the privacy policy *",
+  "type": "checkbox",
+  "required": true,
+  "name": "consent",
+  "value": "",
+  "options": [
+   "I agree to the privacy policy *"
+  ],
+  "i": 24,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Consent should be ticked"
+ }
+]

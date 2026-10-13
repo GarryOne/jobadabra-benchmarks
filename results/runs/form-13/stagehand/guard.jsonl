@@ -1,0 +1,10 @@
+{"at":"2026-10-13T20:26:14.753Z","method":"POST","host":"sessions.bugsnag.com","path":"/","bytes":521,"ctype":"application/json","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:26:14.825Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:26:15.028Z","method":"POST","host":"www.google-analytics.com","path":"/j/collect","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:26:17.344Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:26:19.821Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/debugger","bytes":293,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:26:19.857Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:26:22.375Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:26:23.605Z","method":"POST","host":"app.breezy.hr","path":"/api/portal/urrly/upload","bytes":185,"ctype":"multipart/form-data; boundary=----WebKit","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:26:24.882Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:26:46.782Z","method":"POST","host":"app.breezy.hr","path":"/api/portal/urrly/upload","bytes":185,"ctype":"multipart/form-data; boundary=----WebKit","allow":false,"why":"non-GET to another host"}

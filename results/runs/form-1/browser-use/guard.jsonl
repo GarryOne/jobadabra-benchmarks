@@ -1,0 +1,12 @@
+{"at":"2026-10-13T19:45:42.580Z","method":"POST","host":"jobs.lever.co","path":"/cdn-cgi/challenge-platform/h/g/jsd/oneshot/4df4a60fa397/0.5614456273273181:1791","bytes":16547,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:45:43.265Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:45:43.270Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:45:43.288Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:45:43.288Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:45:43.294Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:45:43.294Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:45:43.301Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:45:43.301Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:45:43.305Z","method":"POST","host":"hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:45:43.307Z","method":"POST","host":"hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:46:21.287Z","method":"POST","host":"jobs.lever.co","path":"/parseResume","bytes":319,"ctype":"multipart/form-data; boundary=----WebKit","allow":false,"why":"non-GET to the form site"}

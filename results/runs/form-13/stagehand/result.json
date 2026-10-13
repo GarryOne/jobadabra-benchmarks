@@ -1,0 +1,48 @@
+{
+ "tool": "stagehand",
+ "url": "https://urrly.breezy.hr/p/5378f623edd4-junior-mid-level-full-stack-platform-engineer/apply",
+ "model": "claude-sonnet-5-5",
+ "capped": true,
+ "steps": 91,
+ "final": "Filled name, email, phone and desired salary (CHF 140000 yearly), and attempted the CV upload (reported success but unconfirmed on the page). The page's text inputs were glitchy, so typed work-history entries came out garbled and were deleted. The Experience Summary still contains garbled duplicated text. Education, the screening radio questions and the cover letter were not filled. The form was n",
+ "completed": false,
+ "tokens": {
+  "in": 692516,
+  "out": 8030,
+  "cacheRead": 300534,
+  "cacheWrite": 7706,
+  "calls": 44
+ },
+ "usd": 1.5447038000000002,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 199.4,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST sessions.bugsnag.com/ (non-GET to another host)",
+   "POST embed-api.ziggeo.com/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session (non-GET to another host)",
+   "POST www.google-analytics.com/j/collect (non-GET to another host)",
+   "POST embed-api.ziggeo.com/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session (non-GET to another host)",
+   "POST embed-api.ziggeo.com/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/debugger (non-GET to another host)",
+   "POST embed-api.ziggeo.com/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session (non-GET to another host)",
+   "POST embed-api.ziggeo.com/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session (non-GET to another host)",
+   "POST app.breezy.hr/api/portal/urrly/upload (non-GET to another host)",
+   "POST embed-api.ziggeo.com/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session (non-GET to another host)",
+   "POST app.breezy.hr/api/portal/urrly/upload (non-GET to another host)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 18,
+  "right": 7,
+  "wrong": 0,
+  "emptyShouldFill": 7,
+  "emptyOk": 4,
+  "emptyRequired": 10,
+  "requiredTotal": 17
+ },
+ "judgeUsd": 0.017986000000000002,
+ "fileChips": [],
+ "wallSeconds": 214
+}

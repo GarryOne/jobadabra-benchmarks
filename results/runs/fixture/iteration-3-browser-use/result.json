@@ -1,0 +1,33 @@
+{
+ "tool": "browser-use",
+ "url": "http://127.0.0.1:62444/",
+ "model": "claude-sonnet-5-5",
+ "steps": 11,
+ "final": "The form is only partly filled, and I stopped before finishing because I failed 5 times in a row and the agent was terminated. Nothing was submitted.\n\nFilled and visible in the final page state:\n- First name: Ada\n- Last name: Tester\n- Email: ada.tester@example.test\n- Phone: +41 79 555 01 23\n- Resume/CV: uploaded /Users/mac/job-pilotto/desktop/e2e/fixtures/cv.pdf (the page shows cv.pdf)\n\nNot done:\n- \"Are you authorised to work in Switzerland?\" is still on \"Select\". The facts say EU citizen, no sponsorship needed in Switzerland or the EU, so it should be set to \"Yes\".\n- \"Years of professional ex",
+ "completed": true,
+ "tokens": {
+  "in": 54017,
+  "out": 2309
+ },
+ "usd": 0.131124,
+ "usdReportedByTool": 0.0852884,
+ "seconds": 91,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 10,
+  "right": 5,
+  "wrong": 0,
+  "emptyShouldFill": 4,
+  "emptyOk": 1,
+  "emptyRequired": 1,
+  "requiredTotal": 5
+ },
+ "judgeUsd": 0.007788,
+ "fileChips": [],
+ "wallSeconds": 97
+}

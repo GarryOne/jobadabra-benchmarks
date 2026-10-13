@@ -49,10 +49,10 @@ if (tool === 'extension') {
     const task = instruction(applicant.text, url, process.env.BAKEOFF_FLOW === '1'), t0 = Date.now();
     if (tool === 'nanobrowser') {
       // The same instruction; it has no file-upload action (a capability gap, said in the report): the CV field stays what the agent can make of it.
-      const res = await Promise.race([b.run(task), watchFatal()]).catch(error => ({events: [], error: String(error.message || error)}));
-      const last = [...(res.events || [])].reverse().find(e => String(e.state).startsWith('task.')) || {}, steps = (res.events || []).filter(e => e.state === 'step.start').length, u = b.proxy.usage;
+      const res = await Promise.race([b.run(task, {maxMs: 7 * 60 * 1000}), watchFatal()]).catch(error => ({events: [], error: String(error.message || error)}));
+      fs.writeFileSync(path.join(out, 'events.json'), JSON.stringify(res.events || [])); const last = [...(res.events || [])].reverse().find(e => String(e.state).startsWith('task.')) || {}, steps = (res.events || []).filter(e => e.state === 'step.start').length, u = b.proxy.usage;
       const tokens = {in: u.in, out: u.out, cacheRead: u.cacheRead, cacheWrite: u.cacheWrite, calls: u.calls};
-      Object.assign(result, {capped: last.state === 'task.fail' && /max.?steps|maximum/i.test(JSON.stringify(last.data || '')) || (!last.state && !res.error), steps, final: String(res.error || JSON.stringify(last.data || last.state || 'no final event')).slice(0, 400), completed: last.state === 'task.ok', tokens,
+      Object.assign(result, {capped: last.state === 'task.fail' && /max.?steps|maximum/i.test(JSON.stringify(last.data || '')) || !!res.timedOut || (!last.state && !res.error) || /timeout/.test(res.error || ''), steps, final: String(res.error || JSON.stringify(last.data || last.state || 'no final event')).slice(0, 400), completed: last.state === 'task.ok', tokens,
         usd: tokens.in * PRICE.in + tokens.out * PRICE.out + tokens.cacheRead * PRICE.in * 0.1 + tokens.cacheWrite * PRICE.in * 1.25, usdNote: 'tokens counted at the API (local pass-through) x Sonnet 5.5 price'});
     } else if (tool === 'stagehand') {
       const {Stagehand} = await import('@browserbasehq/stagehand'); const {tool: aiTool} = await import('ai'); const {z} = await import('zod');

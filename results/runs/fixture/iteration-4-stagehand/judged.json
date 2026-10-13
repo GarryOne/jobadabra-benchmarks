@@ -1,0 +1,110 @@
+[
+ {
+  "question": "First name *",
+  "type": "text",
+  "required": true,
+  "value": "Ada",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "matches first name"
+ },
+ {
+  "question": "Last name *",
+  "type": "text",
+  "required": true,
+  "value": "Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "matches last name"
+ },
+ {
+  "question": "Email *",
+  "type": "email",
+  "required": true,
+  "value": "ada.tester@example.test",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "matches email"
+ },
+ {
+  "question": "Phone",
+  "type": "text",
+  "required": false,
+  "value": "+41 79 555 01 23",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "matches phone"
+ },
+ {
+  "question": "Resume/CV *",
+  "type": "file",
+  "required": true,
+  "value": "cv.pdf",
+  "i": 4,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CV file name provided"
+ },
+ {
+  "question": "Years of professional experience",
+  "type": "text",
+  "required": false,
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "8–9 years stated in facts, missed"
+ },
+ {
+  "question": "Salary expectation",
+  "type": "text",
+  "required": false,
+  "value": "CHF 140,000–160,000",
+  "i": 6,
+  "verdict": "right",
+  "answerable": true,
+  "note": "matches target salary range"
+ },
+ {
+  "question": "Are you authorised to work in Switzerland? SelectYesNo",
+  "type": "select-one",
+  "required": false,
+  "value": "Yes",
+  "options": [
+   "Select",
+   "Yes",
+   "No"
+  ],
+  "i": 7,
+  "verdict": "right",
+  "answerable": true,
+  "note": "EU citizen, authorised"
+ },
+ {
+  "question": "Why do you want to work here?",
+  "type": "textarea",
+  "required": false,
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "no company-specific motivation in facts"
+ },
+ {
+  "question": "I agree to the privacy policy *",
+  "type": "checkbox",
+  "required": true,
+  "value": "",
+  "options": [
+   "I agree to the privacy policy *"
+  ],
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "required consent checkbox left unchecked"
+ }
+]

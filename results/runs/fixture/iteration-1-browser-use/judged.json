@@ -1,0 +1,22 @@
+[
+ {
+  "question": "Email",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 0,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Email known, left empty"
+ },
+ {
+  "question": "Password (6+ characters)",
+  "type": "password",
+  "required": true,
+  "value": "",
+  "i": 1,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Password not in facts"
+ }
+]

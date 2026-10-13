@@ -1,0 +1,111 @@
+{"at":"2026-10-13T20:13:24.426Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:24.427Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":206,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:24.514Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:24.623Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:26.039Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:26.042Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":198,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:26.607Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":188,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:26.888Z","method":"POST","host":"www.google-analytics.com","path":"/j/collect","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:13:28.085Z","method":"POST","host":"127.0.0.1","path":"/extension/visit-list","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:28.088Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:28.090Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":198,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:28.619Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":134,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:28.621Z","method":"POST","host":"127.0.0.1","path":"/extension/dismiss-popup","bytes":52,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:33.078Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":488,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:45.318Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:45.325Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":213,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:45.405Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":219,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:46.202Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:46.671Z","method":"POST","host":"www.google-analytics.com","path":"/j/collect","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:13:46.906Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:46.970Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":355,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:47.235Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":187,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:47.594Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:47.653Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":198,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:47.836Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":150,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:47.883Z","method":"POST","host":"maps.googleapis.com","path":"/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/GetViewportInfo","bytes":231,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:13:48.838Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":577,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:53.960Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:53.982Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":213,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:54.493Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:54.568Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":226,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:54.963Z","method":"POST","host":"sessions.bugsnag.com","path":"/","bytes":518,"ctype":"application/json","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:13:55.098Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:13:55.505Z","method":"POST","host":"www.google-analytics.com","path":"/j/collect","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:13:55.528Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:55.744Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":541,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:55.864Z","method":"POST","host":"maps.googleapis.com","path":"/maps_api_js_slo/log","bytes":2272,"ctype":"application/x-www-form-urlencoded;charse","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:13:56.031Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4300,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:56.042Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:56.052Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":198,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:56.574Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4299,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:56.584Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":149,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:56.732Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":2533,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:56.857Z","method":"POST","host":"maps.googleapis.com","path":"/maps_api_js_slo/log","bytes":2272,"ctype":"application/x-www-form-urlencoded;charse","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:13:57.676Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:57.676Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4299,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:13:57.699Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:13:58.801Z","method":"POST","host":"maps.googleapis.com","path":"/maps_api_js_slo/log","bytes":2272,"ctype":"application/x-www-form-urlencoded;charse","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:13:58.958Z","method":"POST","host":"127.0.0.1","path":"/extension/answer","bytes":10951,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:00.209Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:14:01.314Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4293,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:01.358Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":427,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:01.725Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":56,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:01.730Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4297,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:01.773Z","method":"POST","host":"127.0.0.1","path":"/extension/recipes","bytes":31,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:02.413Z","method":"POST","host":"maps.googleapis.com","path":"/maps_api_js_slo/log","bytes":2700,"ctype":"application/x-www-form-urlencoded;charse","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:14:02.430Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:02.621Z","method":"POST","host":"app.breezy.hr","path":"/api/portal/arpio/upload","bytes":1836,"ctype":"multipart/form-data; boundary=----WebKit","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:14:02.718Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:14:03.691Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3825,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:03.693Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":158,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:05.225Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:14:05.679Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:07.729Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:09.712Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:10.749Z","method":"POST","host":"maps.googleapis.com","path":"/maps_api_js_slo/log","bytes":2700,"ctype":"application/x-www-form-urlencoded;charse","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:14:11.670Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:13.879Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:15.654Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:17.662Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:19.658Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:21.655Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:23.675Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:23.949Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:25.675Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:26.201Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":2939,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:26.253Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":70,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:26.255Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":2176,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:26.259Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":184,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:26.268Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":4786,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:26.270Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":6550,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:26.312Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":189,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:26.645Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:27.843Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:27.967Z","method":"POST","host":"maps.googleapis.com","path":"/maps_api_js_slo/log","bytes":2700,"ctype":"application/x-www-form-urlencoded;charse","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:14:29.652Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3877,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:31.000Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":348,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:31.679Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:33.720Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:35.678Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:37.665Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:39.660Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:41.727Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:43.661Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:45.658Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:47.704Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:51.711Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:53.965Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:53.991Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:56.312Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:14:57.812Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:15:00.992Z","method":"POST","host":"maps.googleapis.com","path":"/maps_api_js_slo/log","bytes":2700,"ctype":"application/x-www-form-urlencoded;charse","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T20:15:01.768Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:15:03.785Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:15:05.939Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:15:07.655Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:15:09.818Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:15:11.706Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:15:13.664Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:15:15.661Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T20:15:17.663Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3891,"ctype":"application/json","allow":true,"why":"stand-in app"}

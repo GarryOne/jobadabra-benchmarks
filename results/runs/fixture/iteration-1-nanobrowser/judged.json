@@ -1,0 +1,110 @@
+[
+ {
+  "question": "First name *",
+  "type": "text",
+  "required": true,
+  "value": "Ada",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches first name"
+ },
+ {
+  "question": "Last name *",
+  "type": "text",
+  "required": true,
+  "value": "Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches last name"
+ },
+ {
+  "question": "Email *",
+  "type": "email",
+  "required": true,
+  "value": "",
+  "i": 2,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Email known but missing"
+ },
+ {
+  "question": "Phone",
+  "type": "text",
+  "required": false,
+  "value": "+41 79 555 01 23",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches phone"
+ },
+ {
+  "question": "Resume/CV *",
+  "type": "file",
+  "required": true,
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file available but not uploaded"
+ },
+ {
+  "question": "Years of professional experience",
+  "type": "text",
+  "required": false,
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Facts say 8 years (CV says 9)"
+ },
+ {
+  "question": "Salary expectation",
+  "type": "text",
+  "required": false,
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Target CHF 140-160k given"
+ },
+ {
+  "question": "Are you authorised to work in Switzerland? SelectYesNo",
+  "type": "select-one",
+  "required": false,
+  "value": "Yes",
+  "options": [
+   "Select",
+   "Yes",
+   "No"
+  ],
+  "i": 7,
+  "verdict": "right",
+  "answerable": true,
+  "note": "EU citizen, authorised in Switzerland"
+ },
+ {
+  "question": "Why do you want to work here?",
+  "type": "textarea",
+  "required": false,
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No company-specific facts; optional"
+ },
+ {
+  "question": "I agree to the privacy policy *",
+  "type": "checkbox",
+  "required": true,
+  "value": "",
+  "options": [
+   "I agree to the privacy policy *"
+  ],
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Consent checkbox unchecked, should be checked"
+ }
+]

@@ -1,0 +1,179 @@
+{
+ "url": "https://careers.nebius.com/job?gh_jid=4376374101",
+ "title": "Careers at Nebius",
+ "fields": [
+  {
+   "question": "Search",
+   "type": "text",
+   "required": false,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "First Name*",
+   "type": "text",
+   "required": true,
+   "name": "first_name",
+   "value": "Ada"
+  },
+  {
+   "question": "Last Name*",
+   "type": "text",
+   "required": true,
+   "name": "last_name",
+   "value": "Tester"
+  },
+  {
+   "question": "Email*",
+   "type": "text",
+   "required": true,
+   "name": "email",
+   "value": "[EMAIL]"
+  },
+  {
+   "question": "Country*",
+   "type": "text",
+   "required": true,
+   "name": "country",
+   "value": ""
+  },
+  {
+   "question": "Phone",
+   "type": "text",
+   "required": true,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "Phone*",
+   "type": "tel",
+   "required": true,
+   "name": "phone",
+   "value": "795550123"
+  },
+  {
+   "question": "Location (City)*",
+   "type": "text",
+   "required": true,
+   "name": "candidate-location",
+   "value": ""
+  },
+  {
+   "question": "Location (City)*",
+   "type": "text",
+   "required": true,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "Attach",
+   "type": "file",
+   "required": false,
+   "name": "resume",
+   "value": ""
+  },
+  {
+   "question": "Attach",
+   "type": "file",
+   "required": false,
+   "name": "cover_letter",
+   "value": ""
+  },
+  {
+   "question": "LinkedIn Profile",
+   "type": "text",
+   "required": false,
+   "name": "question_5931076101",
+   "value": "https://www.linkedin.com/in/ada-tester"
+  },
+  {
+   "question": "Which languages do you speak?*",
+   "type": "text",
+   "required": true,
+   "name": "question_6779880101[]",
+   "value": ""
+  },
+  {
+   "question": "Which languages do you speak?*",
+   "type": "text",
+   "required": true,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "Are you currently authorized to work in the country where this position is located, without requiring sponsorship, now or in the future?*",
+   "type": "text",
+   "required": true,
+   "name": "question_7093987101",
+   "value": ""
+  },
+  {
+   "question": "Are you currently authorized to work in the country where this position is located, without requiring sponsorship, now or in the future?*",
+   "type": "text",
+   "required": true,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "Do you currently reside in the location specified for this role?*",
+   "type": "text",
+   "required": true,
+   "name": "question_7093993101",
+   "value": ""
+  },
+  {
+   "question": "Do you currently reside in the location specified for this role?*",
+   "type": "text",
+   "required": true,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "Have you ever been employed by Nebius before?*",
+   "type": "text",
+   "required": true,
+   "name": "question_8262251101",
+   "value": ""
+  },
+  {
+   "question": "Have you ever been employed by Nebius before?*",
+   "type": "text",
+   "required": true,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "I have read Nebius’s Candidates Privacy Policy.*",
+   "type": "text",
+   "required": true,
+   "name": "question_9817492101",
+   "value": ""
+  },
+  {
+   "question": "I have read Nebius’s Candidates Privacy Policy.*",
+   "type": "text",
+   "required": true,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "By checking this box, I agree to allow Nebius to retain my data for future opportunities for employment for up to 720 days after the conclusion of consideration of my current application for employment.",
+   "type": "checkbox",
+   "required": false,
+   "name": "gdpr_retention_consent_given",
+   "value": "",
+   "options": [
+    "By checking this box, I agree to allow Nebius to retain my data for future opportunities for employment for up to 720 days after the conclusion of consideration of my current application for employment."
+   ]
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "https://careers.nebius.com/job?gh_jid=4376374101",
+  "https://s.company-target.com/s/sync?exc=lr",
+  "about:blank",
+  "https://job-boards.greenhouse.io/embed/job_app?for=nebius&validityToken=DP6tiZUMPuwGLSahCX9aTP9UyJDnZN-ewTHSsPg9Tbup6-CODlcJmGJbOYPlJUTQR_J2HaIMGhMa3AV96hSV4Xf_eYEEj2Z-bxxb09MMx6IHQ_O-h0AWd3px6jBxs_VUk-SUtX9Ma-nTK5lieNPnyMwRyfdMBylJ2sHKOyhe58wwjC-2wmCPi8D0Ev1qVDXL9WMVHbu2xWZVLrxCKaYiYAmlAZUHQml4m8DxseuEywOIQjlswgO0Ej9yiDgkcGhGT3ln5oGcRHeNHw23YoKOpSJLuZfCkKttWqZ-du_TKTxTKXI5j8abNgwREzEDBROin-C64g0esnIZ8rSg6fZJxg%3D%3D&token=4376374101",
+  "https://content.googleapis.com/static/proxy.html?usegapi=1&jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.gh7qIZtzO5w.O%2Fd%3D1%2Frs%3DAHpOoo84YKT1RVy0T6hcXi5rH3LooB1WCw%2Fm%3D__features__",
+  "https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LfmcbcpAAAAAChNTbhUShzUOAMj_wY9LQIvLFX0&co=aHR0cHM6Ly9qb2ItYm9hcmRzLmdyZWVuaG91c2UuaW86NDQz&hl=en&v=nY0xPItgwtlvjEjk2TqdwOQz&size=invisible&anchor-ms=20000&execute-ms=30000&cb=oeryfrxvus6e"
+ ]
+}

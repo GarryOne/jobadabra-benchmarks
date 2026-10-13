@@ -1,0 +1,19 @@
+{
+ "url": "https://www.linkedin.com/authwall?trk=gf&trkInfo=AQHxaxWtcbat9gAAAaE2wQmYWQShzI2N3cfbF1ZWIrS26dT5Z9rDQVZwBEaWlI7aMPpqLRctP1RmKcnv_PDw2AKyHZ2ls9q-6UGzziyp2R-THRt6C_eO5kdcI0wEnQAoHF7JX2U=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fada-tester",
+ "title": "Sign Up | LinkedIn",
+ "fields": [
+  {
+   "question": "Email",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Password (6+ characters)",
+   "type": "password",
+   "required": true,
+   "value": ""
+  }
+ ],
+ "fileChips": []
+}

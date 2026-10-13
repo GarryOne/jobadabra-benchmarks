@@ -1,0 +1,7 @@
+{"at":"2026-10-13T19:30:32.389Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":206,"allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:30:32.425Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:30:32.427Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:30:32.451Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:30:33.935Z","method":"POST","host":"127.0.0.1","path":"/extension/visit-list","bytes":2,"allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:30:33.968Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:31:01.963Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"allow":true,"why":"stand-in app"}

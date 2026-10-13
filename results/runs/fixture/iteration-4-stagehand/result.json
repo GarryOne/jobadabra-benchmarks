@@ -1,0 +1,33 @@
+{
+ "tool": "stagehand",
+ "url": "http://127.0.0.1:62444/",
+ "model": "claude-sonnet-5-5",
+ "steps": 6,
+ "final": "Failed to execute task: messages.1.content.4: Invalid `signature` in `thinking` block. The block is bound to a different conversation. Remove the block, or set `thinking.block_binding.prefix_mismatch_behavior` to \"drop_block\". That setting requires the `thinking-binding-controls-2026-08-01` value in the `anthropic-beta` header. Content before this block differs from when it was created, first at `",
+ "completed": false,
+ "tokens": {
+  "in": 0,
+  "out": 0
+ },
+ "usd": 0,
+ "usdNote": "tokens from the agent result x Sonnet 5.5 price",
+ "seconds": 13.3,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 10,
+  "right": 7,
+  "wrong": 0,
+  "emptyShouldFill": 2,
+  "emptyOk": 1,
+  "emptyRequired": 1,
+  "requiredTotal": 5
+ },
+ "judgeUsd": 0.009358,
+ "fileChips": [],
+ "wallSeconds": 21
+}

@@ -1,0 +1,33 @@
+{
+ "tool": "stagehand",
+ "url": "http://127.0.0.1:62444/",
+ "model": "claude-sonnet-5-5",
+ "steps": null,
+ "final": "ExperimentalNotConfiguredError: Feature \"Agent MCP integrations and custom tools\" is an experimental feature, and cannot be configured when disableAPI: false.\n    Please set experimental: true and disableAPI: true in the stagehand constructor to use this feature.\n    If you wish to use the Stagehand",
+ "completed": false,
+ "tokens": {
+  "in": 0,
+  "out": 0
+ },
+ "usd": 0,
+ "usdNote": "tokens from the agent result x Sonnet 5.5 price",
+ "seconds": 0.9,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 10,
+  "right": 0,
+  "wrong": 0,
+  "emptyShouldFill": 9,
+  "emptyOk": 1,
+  "emptyRequired": 5,
+  "requiredTotal": 5
+ },
+ "judgeUsd": 0.010746,
+ "fileChips": [],
+ "wallSeconds": 10
+}

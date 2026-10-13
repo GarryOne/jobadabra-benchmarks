@@ -1,0 +1,112 @@
+[
+ {
+  "question": "First Name*",
+  "type": "text",
+  "required": true,
+  "value": "Ada",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches first name"
+ },
+ {
+  "question": "Last Name*",
+  "type": "text",
+  "required": true,
+  "value": "Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches last name"
+ },
+ {
+  "question": "Preferred First Name",
+  "type": "text",
+  "required": false,
+  "value": "",
+  "i": 2,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional, no preferred name given"
+ },
+ {
+  "question": "Email*",
+  "type": "text",
+  "required": true,
+  "value": "ada.tester@example.test",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "Country*",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Location is Switzerland"
+ },
+ {
+  "question": "Phone*",
+  "type": "tel",
+  "required": true,
+  "value": "795550123",
+  "i": 5,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Number matches, country code likely separate"
+ },
+ {
+  "question": "Attach",
+  "type": "file",
+  "required": false,
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file available but not attached"
+ },
+ {
+  "question": "Are you legally authorized to work for Formlabs in Hungary?*",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "EU citizen, authorized to work in Hungary"
+ },
+ {
+  "question": "What are your compensation expectations? (gross monthly forint)*",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Facts in CHF yearly, not HUF monthly"
+ },
+ {
+  "question": "This is a hybrid role that requires onsite work in the Budapest office at least 3 days a week, is that something you're comfortable with?",
+  "type": "text",
+  "required": false,
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Open to hybrid and relocating in Europe"
+ },
+ {
+  "question": "LinkedIn Profile",
+  "type": "text",
+  "required": false,
+  "value": "https://www.linkedin.com/in/ada-tester",
+  "i": 10,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches LinkedIn"
+ }
+]

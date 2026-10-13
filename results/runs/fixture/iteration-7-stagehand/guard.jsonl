@@ -1,0 +1,2 @@
+{"at":"2026-10-13T19:41:06.267Z","method":"POST","host":"127.0.0.1","path":"/api/apply","bytes":7,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T19:41:06.269Z","method":"POST","host":"127.0.0.1","path":"/submit","bytes":1079,"ctype":"multipart/form-data; boundary=----WebKit","allow":false,"why":"non-GET to the form site"}

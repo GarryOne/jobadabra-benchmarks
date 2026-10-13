@@ -1,0 +1,75 @@
+{
+ "url": "http://127.0.0.1:62444/#jobpilotto-fill=e3bfe608",
+ "title": "Fixture application",
+ "fields": [
+  {
+   "question": "First name *",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Last name *",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Email *",
+   "type": "email",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Phone",
+   "type": "text",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Resume/CV *",
+   "type": "file",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Years of professional experience",
+   "type": "text",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Salary expectation",
+   "type": "text",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Are you authorised to work in Switzerland? SelectYesNo",
+   "type": "select-one",
+   "required": false,
+   "value": "",
+   "options": [
+    "Select",
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Why do you want to work here?",
+   "type": "textarea",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "I agree to the privacy policy *",
+   "type": "checkbox",
+   "required": true,
+   "value": "",
+   "options": [
+    "I agree to the privacy policy *"
+   ]
+  }
+ ],
+ "fileChips": []
+}

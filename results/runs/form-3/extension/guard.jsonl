@@ -1,0 +1,24 @@
+{"at":"2026-10-13T19:59:51.388Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:51.395Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":206,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:51.396Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:51.528Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:52.530Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":281,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:52.546Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":204,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:53.269Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":194,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:53.646Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":204,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:53.648Z","method":"POST","host":"pagead2.googlesyndication.com","path":"/ccm/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:59:54.483Z","method":"POST","host":"pagead2.googlesyndication.com","path":"/ccm/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:59:54.551Z","method":"POST","host":"region1.google-analytics.com","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:59:54.613Z","method":"POST","host":"career.teamtailor.com","path":"/pageview","bytes":495,"ctype":"application/json;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T19:59:54.670Z","method":"POST","host":"region1.google-analytics.com","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:59:54.671Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1484,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:54.675Z","method":"POST","host":"127.0.0.1","path":"/extension/visit-list","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:54.676Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":304,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:54.679Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":204,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:54.925Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":134,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:54.934Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1484,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:55.360Z","method":"POST","host":"server-side-tagging-umcinymqxa-uc.a.run.app","path":"/g/collect","bytes":502,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T19:59:55.874Z","method":"POST","host":"career.teamtailor.com","path":"/cookie-policy/accept","bytes":67,"ctype":"application/json;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T19:59:56.604Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1484,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:56.795Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":173,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T19:59:57.312Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":1233,"ctype":"application/json","allow":true,"why":"stand-in app"}

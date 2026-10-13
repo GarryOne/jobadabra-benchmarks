@@ -1,0 +1,47 @@
+{
+ "tool": "nanobrowser",
+ "url": "http://127.0.0.1:62444/",
+ "model": "claude-sonnet-5-5",
+ "capped": false,
+ "steps": 9,
+ "final": "{\"taskId\":\"bakeoff-1\",\"step\":5,\"maxSteps\":40,\"details\":\"I partly filled the form and did not submit it. I couldn't upload the CV, so the required Resume/CV field is still empty.\\n\\nFilled:\\n- First name: Ada\\n- Last name: Tester\\n- Phone: +41 79 555 01 23\\n- Authorised to work in Switzerland: Yes (EU citizen)\\n\\nLeft empty:\\n- Resume/CV: I couldn't upload it. Please upload /Users/mac/job-pilotto/d",
+ "completed": true,
+ "tokens": {
+  "in": 91723,
+  "out": 4557,
+  "cacheRead": 0,
+  "cacheWrite": 0,
+  "calls": 9
+ },
+ "usd": 0.229016,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 79.9,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [],
+  "writesLetThrough": [
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)"
+  ]
+ },
+ "score": {
+  "fields": 10,
+  "right": 4,
+  "wrong": 0,
+  "emptyShouldFill": 5,
+  "emptyOk": 1,
+  "emptyRequired": 3,
+  "requiredTotal": 5
+ },
+ "judgeUsd": 0.00773,
+ "fileChips": [],
+ "wallSeconds": 99
+}

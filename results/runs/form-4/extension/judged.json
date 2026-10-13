@@ -1,0 +1,208 @@
+[
+ {
+  "question": "Desired start date*Required",
+  "type": "date",
+  "required": true,
+  "value": "",
+  "i": 0,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Start date unknown"
+ },
+ {
+  "question": "Desired pay*Required",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 1,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Target CHF 140-160k known"
+ },
+ {
+  "question": "Referred by",
+  "type": "text",
+  "required": false,
+  "value": "",
+  "i": 2,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No referrer in facts"
+ },
+ {
+  "question": "Where are you currently based?*Required",
+  "type": "text",
+  "required": true,
+  "value": "Zurich, Switzerland",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Zurich matches"
+ },
+ {
+  "question": "Have you worked in a startup environment before? How many years?*Required",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Startup experience not stated"
+ },
+ {
+  "question": "Could you please share your LinkedIn URL?*Required",
+  "type": "text",
+  "required": true,
+  "value": "https://www.linkedin.com/in/ada-tester",
+  "i": 5,
+  "verdict": "right",
+  "answerable": true,
+  "note": "LinkedIn matches"
+ },
+ {
+  "question": "How many years of experience do you have as an Infrastructure Engineer/Platform Engineer/DevOps Engineer/SRE, or a similar role? Please, elaborate.*Required",
+  "type": "textarea",
+  "required": true,
+  "value": "8 years as an SRE and Platform Engineer: Senior SRE at Acme Cloud (2022–present) and Platform Engineer at Beta Systems (2018–2022), running Kubernetes on AWS at scale with strong observability and incident response.",
+  "i": 6,
+  "verdict": "right",
+  "answerable": true,
+  "note": "8 years, roles match profile"
+ },
+ {
+  "question": "How many years of experience do you have with Kubernetes and Docker? Please, elaborate.*Required",
+  "type": "textarea",
+  "required": true,
+  "value": "8 years running Kubernetes in production on AWS (EKS), with Argo CD for delivery and Prometheus, Grafana and OpenTelemetry for observability.",
+  "i": 7,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Kubernetes 8 years supported; Docker unmentioned"
+ },
+ {
+  "question": "How many years of experience do you have with AWS?*Required",
+  "type": "textarea",
+  "required": true,
+  "value": "8 years with AWS, mainly EKS, IAM and networking.",
+  "i": 8,
+  "verdict": "right",
+  "answerable": true,
+  "note": "AWS 8 years supported"
+ },
+ {
+  "question": "How many years of experience do you have with Terraform?*Required",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Terraform is a listed skill; years inferable"
+ },
+ {
+  "question": "First name*Required",
+  "type": "text",
+  "required": true,
+  "value": "Ada",
+  "i": 10,
+  "verdict": "right",
+  "answerable": true,
+  "note": "First name correct"
+ },
+ {
+  "question": "Last name*Required",
+  "type": "text",
+  "required": true,
+  "value": "Tester",
+  "i": 11,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Last name correct"
+ },
+ {
+  "question": "Email*Required",
+  "type": "email",
+  "required": true,
+  "value": "ada.tester@example.test",
+  "i": 12,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Email correct"
+ },
+ {
+  "question": "Phone*Required",
+  "type": "tel",
+  "required": true,
+  "value": "+41 79 555 01 23",
+  "i": 13,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Phone correct"
+ },
+ {
+  "question": "Address*Required",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 14,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Street and postal code available"
+ },
+ {
+  "question": "Upload CV*Required",
+  "type": "file",
+  "required": true,
+  "value": "",
+  "i": 15,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file path provided"
+ },
+ {
+  "question": "Additional files",
+  "type": "file",
+  "required": false,
+  "value": "",
+  "i": 16,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional, no extra files"
+ },
+ {
+  "question": "Cover letter",
+  "type": "textarea",
+  "required": false,
+  "value": "",
+  "i": 17,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional cover letter, not required"
+ },
+ {
+  "question": "Required.By submitting this application, I agree that I have read the Privacy Policy and confirm that Hadrian store my personal details to be able to process my job application.*",
+  "type": "checkbox",
+  "required": true,
+  "value": "",
+  "options": [
+   "Required.By submitting this application, I agree that I have read the Privacy Policy and confirm that Hadrian store my personal details to be able to process my job application.*"
+  ],
+  "i": 18,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Consent checkbox left unchecked"
+ },
+ {
+  "question": "Yes, Hadrian can contact me directly about specific future job opportunities.",
+  "type": "checkbox",
+  "required": false,
+  "value": "",
+  "options": [
+   "Yes, Hadrian can contact me directly about specific future job opportunities."
+  ],
+  "i": 19,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional future contact consent"
+ }
+]

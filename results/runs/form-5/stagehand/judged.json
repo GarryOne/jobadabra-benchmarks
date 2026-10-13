@@ -1,0 +1,142 @@
+[
+ {
+  "question": "Full name *",
+  "type": "text",
+  "required": true,
+  "value": "Ada Tester",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches full name"
+ },
+ {
+  "question": "Email address *",
+  "type": "email",
+  "required": true,
+  "value": "ada.tester@example.test",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "CV or resume *",
+  "type": "file",
+  "required": true,
+  "value": "cv.pdf",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CV file name provided"
+ },
+ {
+  "question": "Questions",
+  "type": "file",
+  "required": false,
+  "value": "",
+  "i": 3,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional file, no facts"
+ },
+ {
+  "question": "Why are you interested in working at Tether? *",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No facts about Tether motivation"
+ },
+ {
+  "question": "Which CI/CD tools have you used most extensively? *",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Argo CD is in the skills facts"
+ },
+ {
+  "question": "How many years of experience do you have working with C++ build systems such as CMake or similar tools? *",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No C++ build system facts"
+ },
+ {
+  "question": "Have you managed multi-language build pipelines (e.g., JavaScript, TypeScript, and C++)? *",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No multi-language pipeline facts"
+ },
+ {
+  "question": "Have you automated mobile (iOS/Android) or desktop build and publication workflows? *",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No mobile/desktop build facts"
+ },
+ {
+  "question": "How many years of experience do you have with Infrastructure as Code (IaC) tools such as Terraform, Ansible, AWS CDK, or CloudFormation? *",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Terraform experience is in the CV facts"
+ },
+ {
+  "question": "Considering this is a remote role, from which country will you be working? *",
+  "type": "text",
+  "required": true,
+  "value": "Switzerland",
+  "i": 10,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Based in Switzerland"
+ },
+ {
+  "question": "What's your expected annual salary for this role? (in USD) *",
+  "type": "number",
+  "required": true,
+  "value": "",
+  "i": 11,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Salary target given in CHF; USD needs conversion"
+ },
+ {
+  "question": "Linkedin profile *",
+  "type": "text",
+  "required": true,
+  "value": "https://www.linkedin.com/in/ada-tester",
+  "i": 12,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches LinkedIn"
+ },
+ {
+  "question": "Useful links (e.g. GitHub) *",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 13,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "LinkedIn is available as a link"
+ }
+]

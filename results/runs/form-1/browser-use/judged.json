@@ -1,0 +1,232 @@
+[
+ {
+  "question": "Resume/CV ✱cv.pdfATTACH RESUME/CVCouldn't auto-read resume.Analyzing resume...Success!",
+  "type": "file",
+  "required": false,
+  "value": "cv.pdf",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CV file name provided"
+ },
+ {
+  "question": "Full name✱",
+  "type": "text",
+  "required": true,
+  "value": "Ada Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches full name"
+ },
+ {
+  "question": "Email✱",
+  "type": "email",
+  "required": true,
+  "value": "ada.tester@example.test",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "Phone ✱",
+  "type": "text",
+  "required": true,
+  "value": "+41 79 555 01 23",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches phone"
+ },
+ {
+  "question": "Current location ✱No location found. Try entering a different locationLoading",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Zurich, Switzerland known; missed"
+ },
+ {
+  "question": "Current company",
+  "type": "text",
+  "required": false,
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Current company Acme Cloud in CV"
+ },
+ {
+  "question": "LinkedIn URL✱",
+  "type": "text",
+  "required": true,
+  "value": "https://www.linkedin.com/in/ada-tester",
+  "i": 6,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches LinkedIn"
+ },
+ {
+  "question": "Please confirm that you are able to work in the office in which this role is advertised at minimum on Mondays, Tuesdays, and Thursdays (some teams are onsite Mon-Thurs)",
+  "type": "textarea",
+  "required": false,
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Office days not stated; work mode on-site ok"
+ },
+ {
+  "question": "If you have additional details around your answer, please share below.",
+  "type": "textarea",
+  "required": false,
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional details, nothing needed"
+ },
+ {
+  "question": "Would you now or at any time require employer sponsorship to work in the country this role is located?✱",
+  "type": "textarea",
+  "required": true,
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "EU citizen, no sponsorship needed"
+ },
+ {
+  "question": "What is your current notice period?✱",
+  "type": "textarea",
+  "required": true,
+  "value": "",
+  "i": 10,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Notice period unknown"
+ },
+ {
+  "question": "GenderSelect ...MaleFemaleDecline to self-identify",
+  "type": "select-one",
+  "required": false,
+  "value": "",
+  "options": [
+   "Select ...",
+   "Male",
+   "Female",
+   "Decline to self-identify"
+  ],
+  "i": 11,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Gender not in facts"
+ },
+ {
+  "question": "RaceSelect ...Hispanic or LatinoWhite (Not Hispanic or Latino)Black or African American (Not Hispanic or Latino)Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)Asian (Not Hispanic or Latino)American Indian or Alaska Native (Not Hispanic or Latino)Two or More Races (Not Hispanic or Latino)Decline to self-identifyHispanic or LatinoA person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race.White (Not Hispanic or Latino)A person having origins in any of the original peoples of Europe, the Middle East, or North Africa.Black or African American (Not Hispanic or Latino)A person having origins in any of the black racial groups of Africa.Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)A person having origins in any of the peoples of Hawaii, Guam, Samoa, or other Pacific Islands.Asian (Not Hispanic or Latino)A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian Subcontinent, including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.American Indian or Alaska Native (Not Hispanic or Latino)A person having origins in any of the original peoples of North and South America (including Central America), and who maintain tribal affiliation or community attachment.Two or More Races (Not Hispanic or Latino)All persons who identify with more than one of the above five races.",
+  "type": "select-one",
+  "required": false,
+  "value": "",
+  "options": [
+   "Select ...",
+   "Hispanic or Latino",
+   "White (Not Hispanic or Latino)",
+   "Black or African American (Not Hispanic or Latino)",
+   "Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)",
+   "Asian (Not Hispanic or Latino)",
+   "American Indian or Alaska Native (Not Hispanic or Latino)",
+   "Two or More Races (Not Hispanic or Latino)",
+   "Decline to self-identify"
+  ],
+  "i": 12,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Race not in facts"
+ },
+ {
+  "question": "Veteran statusSelect ...I am a veteranI am not a veteranDecline to self-identify",
+  "type": "select-one",
+  "required": false,
+  "value": "",
+  "options": [
+   "Select ...",
+   "I am a veteran",
+   "I am not a veteran",
+   "Decline to self-identify"
+  ],
+  "i": 13,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Veteran status not in facts"
+ },
+ {
+  "question": "What is your age range?",
+  "type": "radio",
+  "required": false,
+  "value": "",
+  "options": [
+   "18-20",
+   "21-29",
+   "30-39",
+   "40-49",
+   "50-59",
+   "60 or older"
+  ],
+  "i": 14,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Age not in facts"
+ },
+ {
+  "question": "I identify my ethnicity asSelect all that apply",
+  "type": "checkbox",
+  "required": false,
+  "value": "",
+  "options": [
+   "White / Caucasian",
+   "Hispanic, Latino, or Spanish origin",
+   "Black or African American",
+   "Asian",
+   "Native Hawaiian or other Pacific Islander",
+   "Indigenous Peoples, First Nations, Native American, or Alaska Native",
+   "Middle Eastern or North African",
+   "Some other race, ethnicity, or origin"
+  ],
+  "i": 15,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Ethnicity not in facts"
+ },
+ {
+  "question": "What gender do you identify as?",
+  "type": "radio",
+  "required": false,
+  "value": "",
+  "options": [
+   "Female",
+   "Male",
+   "Non-binary",
+   "Prefer not to say"
+  ],
+  "i": 16,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Gender not in facts"
+ },
+ {
+  "question": "Yes, Sonar can contact me about future job opportunities for up to 2 yearsPrivacy policy",
+  "type": "checkbox",
+  "required": false,
+  "value": "",
+  "options": [
+   "Yes, Sonar can contact me about future job opportunities for up to 2 yearsPrivacy policy"
+  ],
+  "i": 17,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional consent, leaving empty is fine"
+ }
+]

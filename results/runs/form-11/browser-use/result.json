@@ -1,0 +1,49 @@
+{
+ "tool": "browser-use",
+ "url": "https://epilot.recruitee.com/o/senior-product-engineer-frontend/c/new",
+ "model": "claude-sonnet-5-5",
+ "steps": 12,
+ "final": "The application is only partly filled, and I did not submit it. I stopped because I failed 5 times in a row to produce a valid action, so only the `done` tool was left.\n\nFilled and checked on the page (https://epilot.recruitee.com/o/senior-product-engineer-frontend/c/new):\n- Full name: Ada Tester\n- Email address: ada.tester@example.test\n- Phone number: +41 79 555 01 23, with the country selector showing Switzerland\n- CV: cv.pdf uploaded from /Users/mac/job-pilotto/desktop/e2e/fixtures/cv.pdf\n\nNot filled:\n- Cover letter: left empty. The facts include no cover letter, only a style note.\n- \"Pleas",
+ "completed": true,
+ "tokens": {
+  "in": 88275,
+  "out": 2062
+ },
+ "usd": 0.19716999999999998,
+ "usdReportedByTool": 0.1387932,
+ "seconds": 79.8,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST o4511234536570880.ingest.de.sentry.io/api/4511234572091472/envelope/ (non-GET to another host)",
+   "POST careers-analytics.recruitee.com/api/event (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST captcha-base.recruiteecdn.com/checksiteconfig (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST www.youtube.com/youtubei/v1/log_event (non-GET to the form site)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)",
+   "POST www.youtube.com/youtubei/v1/log_event (non-GET to the form site)",
+   "POST careers-analytics.recruitee.com/api/event (non-GET to another host)",
+   "POST jnn-pa.googleapis.com/$rpc/google.internal.waa.v1.Waa/GenerateIT (non-GET to another host)"
+  ],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 13,
+  "right": 4,
+  "wrong": 0,
+  "emptyShouldFill": 4,
+  "emptyOk": 5,
+  "emptyRequired": 5,
+  "requiredTotal": 7
+ },
+ "judgeUsd": 0.009096,
+ "fileChips": [],
+ "wallSeconds": 88
+}

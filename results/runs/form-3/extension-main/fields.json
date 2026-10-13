@@ -1,0 +1,76 @@
+{
+ "url": "https://career.teamtailor.com/jobs/8297677-regional-director-csm/applications/new#jobpilotto-fill=b791991c",
+ "title": "Regional Director CSM - Teamtailor",
+ "fields": [
+  {
+   "question": "First name*Required",
+   "type": "text",
+   "required": true,
+   "value": "Ada"
+  },
+  {
+   "question": "Last name*Required",
+   "type": "text",
+   "required": true,
+   "value": "Tester"
+  },
+  {
+   "question": "Email*Required",
+   "type": "email",
+   "required": true,
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Phone",
+   "type": "tel",
+   "required": false,
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "Upload CV",
+   "type": "file",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Additional files",
+   "type": "file",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Cover letter",
+   "type": "textarea",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Required.By submitting this application, I confirm that I have read the Privacy Policy and I understand that Teamtailor will process my personal data as described in it.*",
+   "type": "checkbox",
+   "required": true,
+   "value": "",
+   "options": [
+    "Required.By submitting this application, I confirm that I have read the Privacy Policy and I understand that Teamtailor will process my personal data as described in it.*"
+   ]
+  },
+  {
+   "question": "I consent to Teamtailor considering me for, and contacting me about, future vacancies in the Teamtailor group.If you change your mind and want to withdraw your consent, you can do so by logging into your profile on Connect and updating the relevant setting under \"Data&Privacy\".",
+   "type": "checkbox",
+   "required": false,
+   "value": "",
+   "options": [
+    "I consent to Teamtailor considering me for, and contacting me about, future vacancies in the Teamtailor group.If you change your mind and want to withdraw your consent, you can do so by logging into your profile on Connect and updating the relevant setting under \"Data&Privacy\"."
+   ]
+  },
+  {
+   "question": "Teamtailor can use my phone number for recruiting-related communication via SMS.",
+   "type": "checkbox",
+   "required": false,
+   "value": "",
+   "options": [
+    "Teamtailor can use my phone number for recruiting-related communication via SMS."
+   ]
+  }
+ ],
+ "fileChips": []
+}

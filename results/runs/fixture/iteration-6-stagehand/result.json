@@ -1,0 +1,36 @@
+{
+ "tool": "stagehand",
+ "url": "http://127.0.0.1:62444/",
+ "model": "claude-sonnet-5-5",
+ "steps": 0,
+ "final": "Failed to execute task: To turn thinking off on this model, send \"thinking\": {\"type\": \"between_tools\"} instead of {\"type\": \"disabled\"}. The model does not think before responding. The short updates it writes between tool calls come back as thinking blocks.",
+ "completed": false,
+ "tokens": {
+  "in": 0,
+  "out": 0,
+  "cacheRead": 0,
+  "cacheWrite": 0,
+  "calls": 1
+ },
+ "usd": 0,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 1.4,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 10,
+  "right": 0,
+  "wrong": 0,
+  "emptyShouldFill": 9,
+  "emptyOk": 1,
+  "emptyRequired": 5,
+  "requiredTotal": 5
+ },
+ "judgeUsd": 0.007746,
+ "fileChips": [],
+ "wallSeconds": 9
+}

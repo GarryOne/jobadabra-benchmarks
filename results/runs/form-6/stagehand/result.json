@@ -1,0 +1,48 @@
+{
+ "tool": "stagehand",
+ "url": "https://careers.formlabs.com/job/8078997/apply/?gh_jid=8078997",
+ "model": "claude-sonnet-5-5",
+ "capped": false,
+ "steps": 64,
+ "final": "Filled first name, last name, email, phone (+41 / 795550123), uploaded cv.pdf, answered the EU work authorization question with Yes (EU citizen), and entered the LinkedIn URL. An initial mis-typed LinkedIn URL in the authorization combobox was cleared and the dropdown correctly set to Yes. Left preferred first name, cover letter, forint compensation (facts only give CHF) and the Budapest hybrid on",
+ "completed": true,
+ "tokens": {
+  "in": 504710,
+  "out": 5826,
+  "cacheRead": 238049,
+  "cacheWrite": 7679,
+  "calls": 35
+ },
+ "usd": 1.1344873,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 125.2,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST wcs.naver.com/b (non-GET to another host)",
+   "POST app.termly.io/api/v1/snippets/websites/aea7be20-4f35-4b58-bb49-c12e6859766e/statistics (non-GET to another host)",
+   "POST careers.formlabs.com/api/telemetry/v1/logs/ (non-GET to the form site)",
+   "POST c.spl.greenhouse.io/com.snowplowanalytics.snowplow/tp2 (non-GET to another host)",
+   "POST us.consent.api.termly.io/v1/websites/aea7be20-4f35-4b58-bb49-c12e6859766e/cookie-consent (non-GET to another host)"
+  ],
+  "writesLetThrough": [
+   "POST grnhse-prod-jben-us-east-1.s3.amazonaws.com (storage upload)"
+  ]
+ },
+ "score": {
+  "fields": 11,
+  "right": 5,
+  "wrong": 0,
+  "emptyShouldFill": 4,
+  "emptyOk": 2,
+  "emptyRequired": 3,
+  "requiredTotal": 7
+ },
+ "judgeUsd": 0.01162,
+ "fileChips": [
+  "Resume/CV*cv.pdf",
+  "cv.pdf"
+ ],
+ "wallSeconds": 146
+}

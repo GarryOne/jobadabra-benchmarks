@@ -1,0 +1,88 @@
+{
+ "url": "https://epilot.recruitee.com/o/senior-product-engineer-frontend/c/new",
+ "title": "epilot GmbH - Senior/Staff Product Engineer (Frontend) (m/f/d) - Application",
+ "fields": [
+  {
+   "question": "Full name *",
+   "type": "text",
+   "required": true,
+   "value": "Ada Tester"
+  },
+  {
+   "question": "Email address *",
+   "type": "email",
+   "required": true,
+   "value": "aOda.tester@example.test"
+  },
+  {
+   "question": "Phone number",
+   "type": "tel",
+   "required": false,
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "CV or resume",
+   "type": "file",
+   "required": false,
+   "value": "cv.pdf"
+  },
+  {
+   "question": "Cover letter",
+   "type": "file",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Please tell us your earliest possible date of availability. *",
+   "type": "text",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Please let us know your salary expectations (in €).",
+   "type": "text",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Are you interested to relocate or remote work only?",
+   "type": "text",
+   "required": false,
+   "value": "Oapen to relocating within Europe; remote also works"
+  },
+  {
+   "question": "Where did you find us?",
+   "type": "text",
+   "required": false,
+   "value": ""
+  },
+  {
+   "question": "Why do you want to start at epilot? *",
+   "type": "textarea",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "What achievement in your career are you particularly proud of? Why? *",
+   "type": "textarea",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Which of our engineering principles appeals to you the most and why? *",
+   "type": "textarea",
+   "required": true,
+   "value": ""
+  },
+  {
+   "question": "Legal Agreements",
+   "type": "checkbox",
+   "required": true,
+   "value": "",
+   "options": [
+    "false"
+   ]
+  }
+ ],
+ "fileChips": []
+}

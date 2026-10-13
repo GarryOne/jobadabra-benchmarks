@@ -1,0 +1,33 @@
+{
+ "tool": "browser-use",
+ "url": "http://127.0.0.1:62444/",
+ "model": "claude-sonnet-5-5",
+ "steps": 4,
+ "final": "I filled in the application form and did not submit it. Filled: first name Ada, last name Tester, email ada.tester@example.test, phone +41 79 555 01 23, CV uploaded from /Users/mac/job-pilotto/desktop/e2e/fixtures/cv.pdf, salary expectation 'CHF 140,000–160,000' (the target range, which the facts mark as an estimate), and authorised to work in Switzerland = Yes (EU citizen). Left empty: years of professional experience (the facts conflict: 8 in the profile, 9 in the CV), 'Why do you want to work here?' (no facts answer it), and the privacy policy consent checkbox (the facts don't say the appli",
+ "completed": true,
+ "tokens": {
+  "in": 67156,
+  "out": 3839
+ },
+ "usd": 0.172702,
+ "usdReportedByTool": 0.08899750000000001,
+ "seconds": 46.5,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [],
+  "writesLetThrough": []
+ },
+ "score": {
+  "fields": 10,
+  "right": 7,
+  "wrong": 0,
+  "emptyShouldFill": 2,
+  "emptyOk": 1,
+  "emptyRequired": 1,
+  "requiredTotal": 5
+ },
+ "judgeUsd": 0.009588,
+ "fileChips": [],
+ "wallSeconds": 55
+}

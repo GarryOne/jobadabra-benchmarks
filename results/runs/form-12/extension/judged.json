@@ -1,0 +1,299 @@
+[
+ {
+  "question": "Full Name*",
+  "type": "file",
+  "required": true,
+  "value": "cv.pdf",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CV file name given"
+ },
+ {
+  "question": "Full Name*",
+  "type": "text",
+  "required": true,
+  "value": "Ada Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches full name"
+ },
+ {
+  "question": "Full Name*",
+  "type": "email",
+  "required": true,
+  "value": "ada.tester@example.test",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "Full Name*",
+  "type": "text",
+  "required": true,
+  "value": "+41 79 555 01 23",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches phone"
+ },
+ {
+  "question": "Full Name*",
+  "type": "checkbox",
+  "required": true,
+  "value": "",
+  "options": [
+   "on"
+  ],
+  "i": 4,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Unclear checkbox, facts silent"
+ },
+ {
+  "question": "Full Name*",
+  "type": "text",
+  "required": true,
+  "value": "Musterstrasse 12",
+  "i": 5,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches street address"
+ },
+ {
+  "question": "Desired Salary*",
+  "type": "select-one",
+  "required": true,
+  "value": "US Dollar ($)",
+  "options": [
+   "US Dollar ($)",
+   "Canadian Dollar ($)",
+   "Euro (€)",
+   "United Arab Emirates Dirham (د.إ.‏)",
+   "Afghan Afghani (؋)",
+   "Albanian Lek (Lek)",
+   "Armenian Dram (դր.)",
+   "Argentine Peso ($)",
+   "Australian Dollar ($)",
+   "Azerbaijani Manat (ман.)",
+   "Bosnia-Herzegovina Convertible Mark (KM)",
+   "Bangladeshi Taka (৳)",
+   "Bulgarian Lev (лв.)",
+   "Bahraini Dinar (د.ب.‏)",
+   "Burundian Franc (FBu)",
+   "Brunei Dollar ($)",
+   "Bolivian Boliviano (Bs)",
+   "Brazilian Real (R$)",
+   "Botswanan Pula (P)",
+   "Belarusian Ruble (руб.)",
+   "Belize Dollar ($)",
+   "Congolese Franc (FrCD)",
+   "Swiss Franc (CHF)",
+   "Chilean Peso ($)",
+   "Chinese Yuan (CN¥)",
+   "Colombian Peso ($)",
+   "Costa Rican Colón (₡)",
+   "Cape Verdean Escudo (CV$)",
+   "Czech Republic Koruna (Kč)",
+   "Djiboutian Franc (Fdj)",
+   "Danish Krone (kr)",
+   "Dominican Peso (RD$)",
+   "Algerian Dinar (د.ج.‏)",
+   "Estonian Kroon (kr)",
+   "Egyptian Pound (ج.م.‏)",
+   "Eritrean Nakfa (Nfk)",
+   "Ethiopian Birr (Br)",
+   "British Pound Sterling (£)",
+   "Georgian Lari (GEL)",
+   "Ghanaian Cedi (GH₵)"
+  ],
+  "i": 6,
+  "verdict": "wrong",
+  "answerable": true,
+  "note": "Default USD; facts say CHF"
+ },
+ {
+  "question": "Desired Salary*",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Salary target CHF 140-160k known"
+ },
+ {
+  "question": "Desired Salary*",
+  "type": "select-one",
+  "required": true,
+  "value": "Yearly",
+  "options": [
+   "Hourly",
+   "Weekly",
+   "Monthly",
+   "Yearly"
+  ],
+  "i": 8,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Yearly matches annual salary"
+ },
+ {
+  "question": "Work History*",
+  "type": "textarea",
+  "required": true,
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV work history available"
+ },
+ {
+  "question": "Cover Letter",
+  "type": "textarea",
+  "required": false,
+  "value": "",
+  "i": 10,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional; no letter content provided"
+ },
+ {
+  "question": "Full Name*",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 11,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Labeled Full Name, left blank"
+ },
+ {
+  "question": "Please provide your LinkedIn Profile link*",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 12,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "LinkedIn URL known"
+ },
+ {
+  "question": "YesNo",
+  "type": "checkbox",
+  "required": true,
+  "value": "",
+  "options": [
+   "on",
+   "on"
+  ],
+  "i": 13,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Unclear yes/no question"
+ },
+ {
+  "question": "YesNo",
+  "type": "checkbox",
+  "required": true,
+  "value": "",
+  "options": [
+   "on",
+   "on"
+  ],
+  "i": 14,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Unclear yes/no question"
+ },
+ {
+  "question": "Hybrid, 2-3 days in the Durham, NC OfficeNo, I prefer a remote work arrangement",
+  "type": "checkbox",
+  "required": true,
+  "value": "",
+  "options": [
+   "on",
+   "on"
+  ],
+  "i": 15,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Work mode open; no stated preference"
+ },
+ {
+  "question": "What is your desired salary range?*",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 16,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Salary range known"
+ },
+ {
+  "question": "Provide your city and state of residence*",
+  "type": "text",
+  "required": true,
+  "value": "",
+  "i": 17,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Zurich, Switzerland known"
+ },
+ {
+  "question": "What inspired you to apply to this position?*",
+  "type": "textarea",
+  "required": true,
+  "value": "",
+  "i": 18,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Motivation not in facts"
+ },
+ {
+  "question": "How did you hear about this role?*A response is required",
+  "type": "radio",
+  "required": true,
+  "value": "",
+  "options": [
+   "Recruiter Outreach",
+   "LinkedIn/Indeed/Other Job Board",
+   "Employee Referral",
+   "Other"
+  ],
+  "i": 19,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Source not in facts"
+ },
+ {
+  "question": "YesNo",
+  "type": "checkbox",
+  "required": true,
+  "value": "",
+  "options": [
+   "on",
+   "on"
+  ],
+  "i": 20,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Unclear yes/no question"
+ },
+ {
+  "question": "YesDecline to respd",
+  "type": "checkbox",
+  "required": true,
+  "value": "",
+  "options": [
+   "on",
+   "on"
+  ],
+  "i": 21,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Demographic question, not in facts"
+ }
+]
