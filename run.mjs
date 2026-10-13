@@ -2,7 +2,7 @@
 // Safety: every tool's browser has the Submit guard (lib/guard.mjs); live visits go through the repo's per-site ledger (guardLiveVisit); never Submit, no login. Prints only result lines, never a key.
 import fs from 'node:fs'; import path from 'node:path'; import {spawn, execFileSync} from 'node:child_process';
 import {startAgentBrowser} from './lib/browser.mjs'; import {installGuard} from './lib/guard.mjs';
-import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize, MODEL, PRICE} from './lib/score.mjs';
+import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {startNanobrowser} from './lib/nanobrowser.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize, MODEL, PRICE} from './lib/score.mjs';
 
 // A crash inside a tool (an uncaught error in its own library) is that tool's result, not a lost run: the end page is still read and the metered tokens still counted.
 let fatal = '';
@@ -11,7 +11,7 @@ process.on('unhandledRejection', e => { fatal = String(e?.message || e).slice(0,
 const watchFatal = () => new Promise((_, reject) => { const t = setInterval(() => { if (fatal) { clearInterval(t); reject(new Error(fatal)); } }, 500); setTimeout(() => { clearInterval(t); reject(new Error('timeout: 8 minutes')); }, 8 * 60 * 1000).unref(); });
 const REPO = process.env.JP_REPO || path.join(process.env.HOME, 'job-pilotto', 'desktop', 'e2e');   // the Job Pilotto checkout: fake applicant, site ledger, the extension harness
 const [tool, url, out] = process.argv.slice(2);
-if (!['stagehand', 'browser-use', 'extension'].includes(tool) || !url || !out) { console.error('usage: run.mjs <stagehand|browser-use|extension> <url> <out dir>'); process.exit(2); }
+if (!['stagehand', 'browser-use', 'extension', 'nanobrowser'].includes(tool) || !url || !out) { console.error('usage: run.mjs <stagehand|browser-use|extension> <url> <out dir>'); process.exit(2); }
 fs.mkdirSync(out, {recursive: true});
 const guardLog = path.join(out, 'guard.jsonl'); fs.writeFileSync(guardLog, '');
 const key = () => execFileSync('security', ['find-generic-password', '-a', 'job-pilotto', '-s', 'job-pilotto.anthropic.e2e_key', '-w'], {encoding: 'utf8'}).trim();
@@ -36,12 +36,19 @@ if (tool === 'extension') {
   Object.assign(result, {seconds: row.seconds, steps: (row.appLog.match(/^.*\bstep\b.*$/gim) || []).length, usd: row.ai?.usd ?? null, tokens: row.ai ? {in: row.ai.input, out: row.ai.output} : null, note: row.ai ? '' : 'AI via claude -p on the plan: no per-token price'});
 } else {
   guardLiveVisit(url, {who: 'bake-off ' + tool});   // the per-site daily limit, before anything starts (loopback is not counted)
-  const b = await startAgentBrowser({guardLog, navAllow}); guard = b.guard;
+  const b = tool === 'nanobrowser' ? await startNanobrowser({key: key(), guardLog, navAllow}) : await startAgentBrowser({guardLog, navAllow}); guard = b.guard;
   try {
     await b.page.goto(url, {waitUntil: 'domcontentloaded', timeout: 45000}); await b.page.waitForTimeout(3000);
     await b.page.screenshot({path: path.join(out, 'start.png'), fullPage: true});
     const task = instruction(applicant.text, url), t0 = Date.now();
-    if (tool === 'stagehand') {
+    if (tool === 'nanobrowser') {
+      // The same instruction; it has no file-upload action (a capability gap, said in the report): the CV field stays what the agent can make of it.
+      const res = await Promise.race([b.run(task), watchFatal()]).catch(error => ({events: [], error: String(error.message || error)}));
+      const last = [...(res.events || [])].reverse().find(e => String(e.state).startsWith('task.')) || {}, steps = (res.events || []).filter(e => e.state === 'step.start').length, u = b.proxy.usage;
+      const tokens = {in: u.in, out: u.out, cacheRead: u.cacheRead, cacheWrite: u.cacheWrite, calls: u.calls};
+      Object.assign(result, {capped: last.state === 'task.fail' && /max.?steps|maximum/i.test(JSON.stringify(last.data || '')) || (!last.state && !res.error), steps, final: String(res.error || JSON.stringify(last.data || last.state || 'no final event')).slice(0, 400), completed: last.state === 'task.ok', tokens,
+        usd: tokens.in * PRICE.in + tokens.out * PRICE.out + tokens.cacheRead * PRICE.in * 0.1 + tokens.cacheWrite * PRICE.in * 1.25, usdNote: 'tokens counted at the API (local pass-through) x Sonnet 5.5 price'});
+    } else if (tool === 'stagehand') {
       const {Stagehand} = await import('@browserbasehq/stagehand'); const {tool: aiTool} = await import('ai'); const {z} = await import('zod');
       const proxy = await startAnthropicProxy(key());   // thinking off + exact token metering (lib/anthropic-proxy.mjs)
       const model = {modelName: `anthropic/${MODEL}`, apiKey: 'proxy-held', baseURL: proxy.url};

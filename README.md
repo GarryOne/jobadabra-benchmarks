@@ -40,6 +40,7 @@ Hand-filled page (e.g. Simplify): paste `simplify/console-snippet.js` in DevTool
 
 - Stagehand latest (v4) has no agent loop, so v3.7.3. `lib/anthropic-proxy.mjs`: thinking off + drop old thinking blocks (else the API rejects it after ~6 steps) + exact token metering. A small CV-upload tool (it has none).
 - Browser Use 0.13.11: one-line patch (`lib/bu_agent.py`), Sonnet 5.5 refuses a forced tool choice.
+- Nanobrowser v0.2.0 (4th tool, `lib/nanobrowser.mjs`): unpacked pinned release in `~/bakeoff-tools/nb-0.2.0` (`gh release download v0.2.0 -R nanobrowser/nanobrowser`), its Anthropic client pointed at the metering pass-through (a one-string patch of a copy), settings seeded in chrome.storage (Sonnet 5.5, max 40 steps), task started over its side-panel port. It has no file-upload action, so the CV field stays empty (a capability gap, reported as such). `BAKEOFF_TOOLS=nanobrowser node batch.mjs ...` runs it on a later day (site limit: 3 visits per host per day).
 
 ## Known limits
 
