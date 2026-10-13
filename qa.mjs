@@ -4,7 +4,7 @@
 //   node qa.mjs compare --tool A --against B          head to head: tool folder A against tool folder B (e.g. extension-b9a0416d against extension-b62dad23), no baseline file needed.
 //   node qa.mjs fields <form id> <toolA> <toolB>        the fields that differ between two runs of one form (value + verdict), for debugging a regression.
 //   node qa.mjs bisect --good <sha> --bad <sha> --form <id>   binary search over the commits that touch extension/ between a good and a bad build, one site visit per step; stops cleanly when the day's visits are used and prints how to resume.
-//   node qa.mjs localbisect --good <sha> --bad <sha> --url <local fixture url>   the same search on a LOCAL fixture (fixture/combo.html: a suggest-only address box): no site visit, no limit, ~90 s a step. A step is good when the question fields were typed.
+//   node qa.mjs localbisect --good <sha> --bad <sha> --url <local fixture url> [--runs 3]   the same search on a LOCAL fixture (fixture/combo.html: a suggest-only address box): no site visit, no limit, ~90 s a step. A step is good when the question fields were typed.
 //   node qa.mjs run --build <git sha|ref> [--forms 1,4,5,11,13]   a worktree at that commit (linked packages like tools/worktree.sh), the extension on each form (plan: no per-token cost; the judge ~$0.015 a form), then compare. One visit per host per run (3 a day).
 // Regression = required right drops by 2 or more, or by 15 points of its share or more, or a wrong value appears that the baseline did not have. The baseline is data (qa/baseline.json), not a promise: re-freeze it when a better build is accepted.
 import fs from 'node:fs'; import {ensureWorktree} from './lib/worktree.mjs'; import path from 'node:path'; import {execFileSync, spawnSync} from 'node:child_process';
@@ -54,7 +54,9 @@ else if (mode === 'bisect') {
 else if (mode === 'localbisect') {
   const repo = path.join(process.env.HOME, 'job-pilotto'), good = flag('good'), bad = flag('bad'), url = flag('url'), harness = process.env.JP_REPO;   // JP_REPO: a worktree on a recent main: the harness; only the extension under test comes from each commit
   if (!url || !harness) { console.error('--url <fixture url>, and JP_REPO=<a recent worktree>/desktop/e2e'); process.exit(2); }
-  const isGood = sha => { const wt = ensureWorktree(sha), dir = path.join(out, `combo-b${wt.sha}`);
+  const RUNS = Number(flag('runs', '3'));   // a timing-dependent bug shows only in some runs: good = every run typed the questions, bad = any run lost them (14 Oct 2026: main passed 2 of 3)
+  const isGood = sha => { const runs = []; for (let i = 1; i <= RUNS; i++) { const r = isGoodOnce(sha, i); if (!r) return null; runs.push(r); if (!r.good) break; } return {typed: Math.min(...runs.map(r => r.typed)), good: runs.every(r => r.good), runs: runs.length, wt: runs[0].wt}; };
+  const isGoodOnce = (sha, i) => { const wt = ensureWorktree(sha), dir = path.join(out, `combo-b${wt.sha}-${i}`);
     if (!fs.existsSync(path.join(dir, 'result.json'))) spawnSync('node', ['run.mjs', 'extension', url, dir, '--no-judge'], {cwd: here, stdio: 'ignore', env: {...process.env, JP_REPO: harness, JP_EXT_DIR: path.join(wt.tree, 'extension')}});
     const f = rj(path.join(dir, 'fields.json')); if (!f) return null;
     const typed = f.fields.filter(x => /aws|kubernetes|linkedin/i.test(x.question) && String(x.value).trim()).length; return {typed, good: typed >= 2, wt: wt.sha}; };

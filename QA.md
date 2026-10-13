@@ -88,7 +88,7 @@ When a live form regressed, **reproduce the failure shape on a tiny local page**
 ```bash
 node fixture/serve.mjs                       # prints the fixture's address; pages: /combo (suggest-only address box), /wizard (5 steps), / (plain form)
 export JP_REPO=~/job-pilotto/.claude/worktrees/<a worktree on recent main>/desktop/e2e   # the harness; only the extension under test varies
-node qa.mjs localbisect --good 62dad23 --bad 9a0416d --url http://127.0.0.1:<port>/combo
+node qa.mjs localbisect --good 62dad23 --bad 9a0416d --url http://127.0.0.1:<port>/combo --runs 3   # timing bugs: 3 runs per build
 ```
 
 A step is *good* when the question fields were typed. The command first checks that the fixture really separates the two builds; if not, it says so and stops (the fixture does not reproduce your bug: change the fixture, not the verdict).
@@ -208,6 +208,23 @@ Detect live, explain locally. A regression found live is only a finding until a 
 **8. Make the fixture earn its keep.** Build a fixture only after you know the shape (from the logs and screenshots). Keep it tiny, give it labels a real form would have, and make the *broken* behaviour the only difference (here: an address box whose suggestion list never opens). Then the two builds either separate or they do not; if they do not, the fixture is wrong, not the verdict.
 
 **9. Before you trust a verdict:** build field correct · one process only · no INVALID marker · same forms compared · regression repeated once · the guard not the cause.
+
+**10. Timing bugs need repeats, not one run per build.** The Hadrian stall shows only when Claude's answers arrive after the fill has started, and mostly on a busy machine: main passed 2 of 3 runs on the same page. A single-run bisect would have blamed the wrong commit or none. Rules: a build is *bad* if any run loses the answers, *good* only after N clean runs that include the trigger (late answers); `localbisect` does this (`--runs 3`, the default), and `flaky-probe.mjs <url> <runs> <sha>…` counts failures per build. Make the trigger deterministic when you can (the offline replay's late-answer pad: `JOB_PILOTTO_MODEL_MEMO_LATENCY_PAD_MS`).
+
+**11. Old commits lack today's harness.** An old commit's `desktop/e2e` misses files the runner needs (`applicant-seed.mjs` did not exist at `62dad23`). Keep the harness on a recent worktree (`JP_REPO`) and swap only the extension under test (`JP_EXT_DIR=<worktree at the old commit>/extension`). Worktrees made by `qa.mjs` are named with 8 characters of the sha (`bakeoff-at-62dad235`): use the path the tool prints, never type it.
+
+**12. Read facts from `origin/main`, not from the owner's checkout.** The primary checkout is the owner's live app and lags main (57 commits on 14 Oct). A comparison built from its files (workflows, replay features) was wrong on four rows. `git fetch` then `git show origin/main:<file>`.
+
+**13. Check the standing rules before proposing a check.** A proposed scheduled live check broke the owner's rule "live site visits by hand only, never scheduled". Read the rule files (and the coordinator's notes) first.
+
+### 🛡️ Preventing this class of bug (what the Hadrian hunt taught)
+
+- **Late answers by default** in replays and fixtures: a build that only works when the AI answers first passes every instant-answer test.
+- **Fail on silence:** a "dead end: silent" (no progress for ~40 s mid-fill) should fail a test run, not just be logged.
+- **Score values, not "no crash":** here nothing errored, the answers were simply never typed; expected values per field make that a failure.
+- **Repeat timing-sensitive cases** (or run them in a deliberately slow mode).
+- **Safety switches are flow-core changes:** the Stop button (`5afa5a8`) touched `flow.js`, `read-gen.js` and the debugger attach; changes like that get the full replay with late answers before merging.
+- **Before a release:** `qa.mjs compare` against the baseline, by hand.
 
 ---
 
