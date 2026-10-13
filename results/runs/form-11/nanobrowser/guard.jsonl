@@ -16,3 +16,9 @@
 {"at":"2026-10-13T23:08:40.346Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
 {"at":"2026-10-13T23:09:11.496Z","method":"POST","host":"www.youtube.com","path":"/youtubei/v1/log_event","bytes":1655,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
 {"at":"2026-10-13T23:09:14.616Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":29250,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:09:33.928Z","method":"POST","host":"careers-analytics.recruitee.com","path":"/api/event","bytes":254,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:09:38.004Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:09:42.554Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":30112,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:09:51.859Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":18736,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:09:56.474Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":31950,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:10:23.988Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":32545,"ctype":"application/json","allow":true,"why":"stand-in app"}
