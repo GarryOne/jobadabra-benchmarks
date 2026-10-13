@@ -10,6 +10,9 @@
 > [!WARNING]
 > **The extension rows are the OLD build `62dad23`** (the primary checkout, 57 commits behind main). It lacks the fix that stops a contact detail going into a question. Re-runs on current main (`9a0416d`, own worktree) arrive as a second extension row. The agents' results are not affected, and every extension result now records its commit.
 
+> [!TIP]
+> **Use this as a QA:** [`QA.md`](QA.md) explains how to test a specific build of the extension, compare it with the baseline or with another build, find the failing field and the commit that caused a regression.
+
 ---
 
 ## 🏆 Scoreboard
