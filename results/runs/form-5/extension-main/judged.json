@@ -1,0 +1,167 @@
+[
+ {
+  "question": "Full name *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.name",
+  "value": "Ada Tester",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches full name"
+ },
+ {
+  "question": "Email address *",
+  "type": "email",
+  "required": true,
+  "name": "candidate.email",
+  "value": "ada.tester@example.test",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "CV or resume *",
+  "type": "file",
+  "required": true,
+  "name": "candidate.cv",
+  "value": "cv.pdf",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CV file name provided"
+ },
+ {
+  "question": "Questions",
+  "type": "file",
+  "required": false,
+  "name": "",
+  "value": "",
+  "i": 3,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional extra upload, no file"
+ },
+ {
+  "question": "Upload a file",
+  "type": "file",
+  "required": false,
+  "name": "",
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional extra upload, no file"
+ },
+ {
+  "question": "Why are you interested in working at Tether? *",
+  "type": "text",
+  "required": true,
+  "name": "input-candidate.openQuestionAnswers.7486953.content-10",
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Motivation not in facts; cover letter style only"
+ },
+ {
+  "question": "Which CI/CD tools have you used most extensively? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7486860.content",
+  "value": "Argo CD",
+  "i": 6,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Argo CD is in skills"
+ },
+ {
+  "question": "How many years of experience do you have working with C++ build systems such as CMake or similar tools? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7486861.content",
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No C++ or CMake experience stated"
+ },
+ {
+  "question": "Have you managed multi-language build pipelines (e.g., JavaScript, TypeScript, and C++)? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7486862.content",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Multi-language pipelines not mentioned"
+ },
+ {
+  "question": "Have you automated mobile (iOS/Android) or desktop build and publication workflows? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7486863.content",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Mobile/desktop build automation not mentioned"
+ },
+ {
+  "question": "How many years of experience do you have with Infrastructure as Code (IaC) tools such as Terraform, Ansible, AWS CDK, or CloudFormation? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7486864.content",
+  "value": "",
+  "i": 10,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Terraform listed; years derivable from CV"
+ },
+ {
+  "question": "Considering this is a remote role, from which country will you be working? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7482740.content",
+  "value": "Switzerland",
+  "i": 11,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Based in Switzerland"
+ },
+ {
+  "question": "What's your expected annual salary for this role? (in USD) *",
+  "type": "number",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7482741.content",
+  "value": "",
+  "i": 12,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Salary target in CHF given; USD conversion estimate"
+ },
+ {
+  "question": "Linkedin profile *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7482742.content",
+  "value": "https://www.linkedin.com/in/ada-tester",
+  "i": 13,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches LinkedIn URL"
+ },
+ {
+  "question": "Useful links (e.g. GitHub) *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7482743.content",
+  "value": "",
+  "i": 14,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "LinkedIn could serve; no GitHub given"
+ }
+]

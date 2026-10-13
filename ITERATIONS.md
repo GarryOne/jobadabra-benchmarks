@@ -26,6 +26,9 @@ Every step, including the ones that failed. Raw data for each run is in [`result
 | 20 | **Wizard fixture** (5 steps, repeatable section, conditional fields, typeahead, date picker, async check, uploads) | A script drives it end to end: the trail merge keeps earlier steps' answers; Submit aborted. Our ext fills 8 of 11 required fields. | `lib/trail.mjs`; extractor distinguishes repeated sections by field name. |
 | 21 | **Live: Personio (German)** | Ext on main 5 right, no required flags found on this form. Agents' runs hit the workspace **usage limit** again: invalid. | Marked INVALID; limit raised to $60. |
 | 22 | **Live: nebius (Greenhouse)** | Ext main 7/18, Browser Use 7/18, Nanobrowser 5/18 (hit my 8-minute limit, $0.72). | Nanobrowser's timeout recorded as "capped", events kept. |
-| 23 | **Live: red-badger (Greenhouse)** | in progress at the time of writing | |
+| 23 | **Live: red-badger (Greenhouse)** | Ext 4/6, Browser Use 5/6 ($0.28), Nanobrowser 4/6 ($0.87, 422 s). | — |
+| 24 | **Publishing everything** (owner: "we don't need to miss any run") | All runs, failures included, with raw data and screenshots; an owner-data scan of what tools typed (clean). | `publish-data.mjs`, `results/`, this log. |
+| 25 | **The $5 cap** (owner, 23:25) | Enforced in code (stop at $4.60, every result after the start time counts). | `batch.mjs` budget stop. |
+| 26 | **Mistake found: the "main build" runs were not on main** | The re-runs I labelled "main build" (forms 1, 7, 9, 10, Lever) ran the primary checkout's code: the repo path was hard-coded in `run.mjs`. The `build` field in each result recorded the truth (62dad23; form 7: e00984f, the primary had moved). | `JP_REPO` honoured (verified: build 9a0416d on the fixture); the old runs renamed "primary checkout, re-run" and kept; real main-build runs started. |
 
 *Budget:* the owner approved $9, then $10 more, then replaced it with **$5 from 23:25** (code stop at $4.60). *Safety:* 0 live submits in all runs; the guard stopped the only real Submit attempt (on a local test form).

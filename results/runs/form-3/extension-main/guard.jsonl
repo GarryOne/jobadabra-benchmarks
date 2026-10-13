@@ -1,66 +1,50 @@
-{"at":"2026-10-13T21:16:38.173Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:38.174Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":206,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:38.408Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:38.420Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:39.356Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":280,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:39.367Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":203,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:39.434Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":194,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:39.729Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":203,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:40.145Z","method":"POST","host":"pagead2.googlesyndication.com","path":"/ccm/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
-{"at":"2026-10-13T21:16:40.514Z","method":"POST","host":"pagead2.googlesyndication.com","path":"/ccm/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
-{"at":"2026-10-13T21:16:40.558Z","method":"POST","host":"career.teamtailor.com","path":"/pageview","bytes":495,"ctype":"application/json;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:16:40.560Z","method":"POST","host":"region1.google-analytics.com","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
-{"at":"2026-10-13T21:16:40.566Z","method":"POST","host":"region1.google-analytics.com","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
-{"at":"2026-10-13T21:16:40.620Z","method":"POST","host":"127.0.0.1","path":"/extension/visit-list","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:40.670Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":302,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:40.671Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":203,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:40.723Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1483,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:40.897Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":134,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:41.012Z","method":"POST","host":"server-side-tagging-umcinymqxa-uc.a.run.app","path":"/g/collect","bytes":502,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
-{"at":"2026-10-13T21:16:41.178Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1483,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:41.231Z","method":"POST","host":"career.teamtailor.com","path":"/cookie-policy/accept","bytes":67,"ctype":"application/json;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:16:42.852Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1483,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:42.884Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":173,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:43.386Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":1233,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:43.450Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1486,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:43.551Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":113,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:43.553Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":475,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:43.630Z","method":"POST","host":"127.0.0.1","path":"/extension/recipes","bytes":45,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:43.924Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:43.928Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:43.950Z","method":"POST","host":"127.0.0.1","path":"/extension/pick-upload","bytes":120,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:43.962Z","method":"POST","host":"127.0.0.1","path":"/extension/answer","bytes":1360,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:44.314Z","method":"POST","host":"career.teamtailor.com","path":"/uploads/presigned_data","bytes":21,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:16:44.798Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1153,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:44.826Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":157,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:45.448Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1185,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:46.207Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":192,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:46.220Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":130,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:46.222Z","method":"POST","host":"127.0.0.1","path":"/extension/run","bytes":5260,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:46.223Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":905,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:46.247Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":76,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:46.248Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":966,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:46.257Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":2354,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:46.260Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":2276,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:46.273Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":280,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:49.809Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:51.698Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:53.401Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:55.395Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:57.704Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:16:59.396Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:01.410Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:03.406Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:05.490Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:07.405Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:07.433Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":302,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:09.439Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:12.935Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:17.416Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:19.413Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:21.398Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:23.473Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:25.451Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:27.530Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:29.435Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:17:31.935Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:13.609Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:13.610Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":206,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:13.715Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:13.845Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:15.460Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":280,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:15.470Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":203,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:16.797Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":384,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:16.804Z","method":"POST","host":"pagead2.googlesyndication.com","path":"/ccm/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:18:18.398Z","method":"POST","host":"pagead2.googlesyndication.com","path":"/ccm/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:18:18.404Z","method":"POST","host":"region1.google-analytics.com","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:18:18.706Z","method":"POST","host":"career.teamtailor.com","path":"/pageview","bytes":495,"ctype":"application/json;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:18:18.745Z","method":"POST","host":"region1.google-analytics.com","path":"/g/collect","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:18:19.608Z","method":"POST","host":"server-side-tagging-umcinymqxa-uc.a.run.app","path":"/g/collect","bytes":504,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:18:19.610Z","method":"POST","host":"127.0.0.1","path":"/extension/visit-list","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:19.612Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1483,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:19.612Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":302,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:19.615Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":203,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:20.110Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":134,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:20.220Z","method":"POST","host":"career.teamtailor.com","path":"/cookie-policy/accept","bytes":67,"ctype":"application/json;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:18:21.734Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":173,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:21.739Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1482,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:21.987Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":1233,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:23.640Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:23.641Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1482,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:23.670Z","method":"POST","host":"127.0.0.1","path":"/extension/answer","bytes":1360,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:31.031Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1482,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:31.216Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":479,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:31.440Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":113,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:31.912Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1485,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:31.918Z","method":"POST","host":"127.0.0.1","path":"/extension/recipes","bytes":45,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:32.052Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:33.650Z","method":"POST","host":"127.0.0.1","path":"/extension/pick-upload","bytes":120,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:41.655Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1485,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:42.108Z","method":"POST","host":"career.teamtailor.com","path":"/uploads/presigned_data","bytes":21,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:18:42.776Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1152,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:42.822Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":157,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:42.885Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":302,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:43.928Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1184,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:43.958Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":192,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:43.959Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":130,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:43.960Z","method":"POST","host":"127.0.0.1","path":"/extension/run","bytes":5277,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:43.960Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":906,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:44.037Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":76,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:44.043Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":966,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:44.096Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":2276,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:44.099Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":2355,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:49.726Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1185,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:18:49.741Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":280,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:19:12.774Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1265,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:19:12.812Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":302,"ctype":"application/json","allow":true,"why":"stand-in app"}

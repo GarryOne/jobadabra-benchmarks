@@ -1,0 +1,22 @@
+{
+ "schema": 1,
+ "backfilled": true,
+ "note": "written afterwards from the form list and the result; the guard/reader/scorer hashes, instruction text and applicant hash of this run were not recorded (guard rules changed during 13 Oct 2026, see ITERATIONS.md)",
+ "tool": "extension",
+ "url": "https://career.teamtailor.com/jobs/8297677-regional-director-csm/applications/new",
+ "flow": false,
+ "model": "the extension's own (claude -p on the plan)",
+ "maxSteps": null,
+ "toolVersion": "",
+ "extension": {
+  "commit": "62dad23",
+  "version": "",
+  "jpRepo": ""
+ },
+ "build": "62dad23",
+ "flags": {
+  "readPosts": false,
+  "flow": false
+ },
+ "finishedAt": "2026-10-13T21:17:31.935Z"
+}

@@ -1,0 +1,92 @@
+{"at":"2026-10-13T22:12:48.197Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:48.202Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":206,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:48.216Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:48.217Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:49.547Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":276,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:49.550Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:49.602Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":186,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:49.608Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2527,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:50.838Z","method":"POST","host":"jobs.lever.co","path":"/cdn-cgi/challenge-platform/h/g/jsd/oneshot/4df4a60fa397/0.3242151466041613:1791","bytes":16627,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:12:51.970Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2526,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:52.132Z","method":"POST","host":"127.0.0.1","path":"/extension/visit-list","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:52.245Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":299,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:52.629Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:12:52.630Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:12:52.639Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:12:52.765Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:12:52.765Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:12:52.850Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:12:52.850Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:12:52.901Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:12:52.916Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:12:52.991Z","method":"POST","host":"hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:12:53.002Z","method":"POST","host":"hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:13:07.150Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2526,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:07.152Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":134,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:07.628Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2526,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:07.645Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":144,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:07.885Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":3242,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:09.624Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:09.625Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2526,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:09.687Z","method":"POST","host":"127.0.0.1","path":"/extension/answer","bytes":9637,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:15.255Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2530,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:15.293Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":469,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:15.332Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":108,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:15.351Z","method":"POST","host":"127.0.0.1","path":"/extension/recipes","bytes":32,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:15.591Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:15.600Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2529,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:15.634Z","method":"POST","host":"jobs.lever.co","path":"/parseResume","bytes":1970,"ctype":"multipart/form-data; boundary=----WebKit","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:13:16.401Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2034,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:16.424Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":158,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:17.736Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2219,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:17.777Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":299,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:20.439Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2219,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:22.046Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2219,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:23.749Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2220,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:25.788Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2220,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:27.601Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2220,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:29.728Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2220,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:31.618Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2220,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:32.405Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2566,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:33.607Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2195,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:34.094Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2195,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:34.181Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":184,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:35.602Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2566,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:35.614Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":343,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:35.624Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":6785,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:38.230Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2610,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:41.432Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2610,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:41.756Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2610,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:44.414Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2610,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:45.584Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":8055,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:47.114Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2610,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:47.592Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":299,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:49.635Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2610,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:49.657Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":112,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:50.373Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2565,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:50.378Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":126,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:50.382Z","method":"POST","host":"127.0.0.1","path":"/extension/run","bytes":14431,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:50.383Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":1720,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:50.424Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":1205,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:50.595Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":68,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:50.596Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":2723,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:50.679Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":6785,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:50.738Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":177,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:50.836Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":3310,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:57.441Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2601,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:57.442Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":6785,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:57.449Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":191,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:13:57.477Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":234,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:02.598Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:03.921Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:05.760Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:08.053Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:17.111Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:17.589Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":299,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:19.464Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:19.730Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:21.691Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:35.888Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:37.609Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:39.601Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:14:41.578Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":2602,"ctype":"application/json","allow":true,"why":"stand-in app"}

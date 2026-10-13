@@ -11,9 +11,9 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
-    "@browserbasehq/stagehand": "^3.7.3",
-    "playwright": "^1.64.0",
-    "zod": "^4.6.7"
+    "@browserbasehq/stagehand": "3.7.3",
+    "playwright": "1.64.0",
+    "zod": "4.6.7"
   },
   "private": true,
   "type": "module"

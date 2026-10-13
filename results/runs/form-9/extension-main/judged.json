@@ -63,7 +63,7 @@
   "i": 5,
   "verdict": "empty",
   "answerable": true,
-  "note": "Phone is known"
+  "note": "Phone known, left empty"
  },
  {
   "question": "Phone*",
@@ -74,7 +74,7 @@
   "i": 6,
   "verdict": "right",
   "answerable": true,
-  "note": "Number matches, country code likely separate"
+  "note": "Phone digits match, country code likely separate"
  },
  {
   "question": "Location (City)*",
@@ -85,7 +85,7 @@
   "i": 7,
   "verdict": "right",
   "answerable": true,
-  "note": "Zurich is correct"
+  "note": "Zurich matches"
  },
  {
   "question": "Location (City)*",
@@ -96,7 +96,7 @@
   "i": 8,
   "verdict": "empty",
   "answerable": true,
-  "note": "Duplicate city field left empty"
+  "note": "Duplicate city field empty"
  },
  {
   "question": "Attach",
@@ -107,7 +107,7 @@
   "i": 9,
   "verdict": "empty",
   "answerable": true,
-  "note": "CV file available but not attached"
+  "note": "CV file not attached"
  },
  {
   "question": "Attach",
@@ -118,7 +118,7 @@
   "i": 10,
   "verdict": "empty",
   "answerable": false,
-  "note": "Likely cover letter, none provided"
+  "note": "Likely cover letter, no file given"
  },
  {
   "question": "LinkedIn Profile",
@@ -140,7 +140,7 @@
   "i": 12,
   "verdict": "right",
   "answerable": true,
-  "note": "English is true, list incomplete"
+  "note": "English is correct, though incomplete"
  },
  {
   "question": "Which languages do you speak?*",
@@ -151,7 +151,7 @@
   "i": 13,
   "verdict": "empty",
   "answerable": true,
-  "note": "Languages are known"
+  "note": "Languages known, left empty"
  },
  {
   "question": "Are you currently authorized to work in the country where this position is located, without requiring sponsorship, now or in the future?*",
@@ -183,8 +183,8 @@
   "value": "",
   "i": 16,
   "verdict": "empty",
-  "answerable": true,
-  "note": "Resides in Zurich"
+  "answerable": false,
+  "note": "Role location unknown"
  },
  {
   "question": "Do you currently reside in the location specified for this role?*",
@@ -194,8 +194,8 @@
   "value": "",
   "i": 17,
   "verdict": "empty",
-  "answerable": true,
-  "note": "Resides in Zurich"
+  "answerable": false,
+  "note": "Role location unknown"
  },
  {
   "question": "Have you ever been employed by Nebius before?*",
@@ -206,7 +206,7 @@
   "i": 18,
   "verdict": "empty",
   "answerable": false,
-  "note": "Nebius history not in facts"
+  "note": "Facts don't mention Nebius"
  },
  {
   "question": "Have you ever been employed by Nebius before?*",
@@ -217,7 +217,7 @@
   "i": 19,
   "verdict": "empty",
   "answerable": false,
-  "note": "Nebius history not in facts"
+  "note": "Facts don't mention Nebius"
  },
  {
   "question": "I have read Nebius’s Candidates Privacy Policy.*",
@@ -228,7 +228,7 @@
   "i": 20,
   "verdict": "empty",
   "answerable": true,
-  "note": "Privacy acknowledgement is a fixed choice"
+  "note": "Consent acknowledgement should be checked"
  },
  {
   "question": "I have read Nebius’s Candidates Privacy Policy.*",
@@ -239,7 +239,7 @@
   "i": 21,
   "verdict": "empty",
   "answerable": true,
-  "note": "Privacy acknowledgement is a fixed choice"
+  "note": "Consent acknowledgement should be checked"
  },
  {
   "question": "By checking this box, I agree to allow Nebius to retain my data for future opportunities for employment for up to 720 days after the conclusion of consideration of my current application for employment.",
@@ -253,6 +253,6 @@
   "i": 22,
   "verdict": "empty",
   "answerable": false,
-  "note": "Optional data retention consent"
+  "note": "Optional data-retention consent, not in facts"
  }
 ]

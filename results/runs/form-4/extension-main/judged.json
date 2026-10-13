@@ -1,0 +1,228 @@
+[
+ {
+  "question": "Desired start date*Required",
+  "type": "date",
+  "required": true,
+  "name": "candidate[answers_attributes][0][date]",
+  "value": "",
+  "i": 0,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Start date unknown in facts"
+ },
+ {
+  "question": "Desired pay*Required",
+  "type": "text",
+  "required": true,
+  "name": "candidate[answers_attributes][1][text]",
+  "value": "",
+  "i": 1,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Target CHF 140-160k available"
+ },
+ {
+  "question": "Referred by",
+  "type": "text",
+  "required": false,
+  "name": "candidate[answers_attributes][2][text]",
+  "value": "",
+  "i": 2,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No referrer in facts"
+ },
+ {
+  "question": "Where are you currently based?*Required",
+  "type": "text",
+  "required": true,
+  "name": "candidate[answers_attributes][3][text]",
+  "value": "",
+  "i": 3,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Zurich, Switzerland"
+ },
+ {
+  "question": "Have you worked in a startup environment before? How many years?*Required",
+  "type": "text",
+  "required": true,
+  "name": "candidate[answers_attributes][4][text]",
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Startup experience not stated"
+ },
+ {
+  "question": "Could you please share your LinkedIn URL?*Required",
+  "type": "text",
+  "required": true,
+  "name": "candidate[answers_attributes][5][text]",
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "LinkedIn URL provided"
+ },
+ {
+  "question": "How many years of experience do you have as an Infrastructure Engineer/Platform Engineer/DevOps Engineer/SRE, or a similar role? Please, elaborate.*Required",
+  "type": "textarea",
+  "required": true,
+  "name": "candidate[answers_attributes][6][text]",
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "8-9 years SRE/platform experience"
+ },
+ {
+  "question": "How many years of experience do you have with Kubernetes and Docker? Please, elaborate.*Required",
+  "type": "textarea",
+  "required": true,
+  "name": "candidate[answers_attributes][7][text]",
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Kubernetes 8 years stated"
+ },
+ {
+  "question": "How many years of experience do you have with AWS?*Required",
+  "type": "textarea",
+  "required": true,
+  "name": "candidate[answers_attributes][8][text]",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "AWS EKS experience stated"
+ },
+ {
+  "question": "How many years of experience do you have with Terraform?*Required",
+  "type": "text",
+  "required": true,
+  "name": "candidate[answers_attributes][9][text]",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Terraform use stated in CV"
+ },
+ {
+  "question": "First name*Required",
+  "type": "text",
+  "required": true,
+  "name": "candidate[first_name]",
+  "value": "Ada",
+  "i": 10,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches first name"
+ },
+ {
+  "question": "Last name*Required",
+  "type": "text",
+  "required": true,
+  "name": "candidate[last_name]",
+  "value": "Tester",
+  "i": 11,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches last name"
+ },
+ {
+  "question": "Email*Required",
+  "type": "email",
+  "required": true,
+  "name": "candidate[email]",
+  "value": "ada.tester@example.test",
+  "i": 12,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "Phone*Required",
+  "type": "tel",
+  "required": true,
+  "name": "candidate[phone]",
+  "value": "+41 79 555 01 23",
+  "i": 13,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches phone"
+ },
+ {
+  "question": "Address*Required",
+  "type": "text",
+  "required": true,
+  "name": "candidate[location][query]",
+  "value": "Mus",
+  "i": 14,
+  "verdict": "wrong",
+  "answerable": true,
+  "note": "Truncated 'Mus', not full address"
+ },
+ {
+  "question": "Upload CV*Required",
+  "type": "file",
+  "required": true,
+  "name": "candidate_resume_remote_url",
+  "value": "",
+  "i": 15,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file available, not uploaded"
+ },
+ {
+  "question": "Additional files",
+  "type": "file",
+  "required": false,
+  "name": "candidate_file_remote_url",
+  "value": "",
+  "i": 16,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No additional files"
+ },
+ {
+  "question": "Cover letter",
+  "type": "textarea",
+  "required": false,
+  "name": "candidate[job_applications_attributes][0][cover_letter]",
+  "value": "",
+  "i": 17,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional; no cover letter provided"
+ },
+ {
+  "question": "Required.By submitting this application, I agree that I have read the Privacy Policy and confirm that Hadrian store my personal details to be able to process my job application.*",
+  "type": "checkbox",
+  "required": true,
+  "name": "candidate[consent_given]",
+  "value": "",
+  "options": [
+   "Required.By submitting this application, I agree that I have read the Privacy Policy and confirm that Hadrian store my personal details to be able to process my job application.*"
+  ],
+  "i": 18,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Required consent left unchecked"
+ },
+ {
+  "question": "Yes, Hadrian can contact me directly about specific future job opportunities.",
+  "type": "checkbox",
+  "required": false,
+  "name": "candidate[consent_given_future_jobs]",
+  "value": "",
+  "options": [
+   "Yes, Hadrian can contact me directly about specific future job opportunities."
+  ],
+  "i": 19,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional marketing consent, not in facts"
+ }
+]

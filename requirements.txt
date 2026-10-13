@@ -1,2 +1,2 @@
 browser-use==0.13.11
-playwright
+playwright==1.63.0

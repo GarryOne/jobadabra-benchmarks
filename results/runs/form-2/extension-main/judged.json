@@ -1,0 +1,112 @@
+[
+ {
+  "question": "Autofill from resume",
+  "type": "file",
+  "required": false,
+  "name": "",
+  "value": "",
+  "i": 0,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Autofill upload; CV file available, left empty"
+ },
+ {
+  "question": "Votre Prénom",
+  "type": "text",
+  "required": true,
+  "name": "_systemfield_name",
+  "value": "Ada",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "First name matches"
+ },
+ {
+  "question": "Votre Nom de famille",
+  "type": "text",
+  "required": true,
+  "name": "81d5faca-5962-46d7-9d26-6a92551f597c",
+  "value": "Tester",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Last name matches"
+ },
+ {
+  "question": "Linkedin",
+  "type": "url",
+  "required": true,
+  "name": "a765b175-232b-4938-8daf-e6d3facf4ade",
+  "value": "https://www.linkedin.com/in/ada-tester",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "LinkedIn matches"
+ },
+ {
+  "question": "CV",
+  "type": "file",
+  "required": true,
+  "name": "_systemfield_resume",
+  "value": "cv.pdf",
+  "i": 4,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CV file name provided"
+ },
+ {
+  "question": "Email",
+  "type": "email",
+  "required": true,
+  "name": "_systemfield_email",
+  "value": "ada.tester@example.test",
+  "i": 5,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Email matches"
+ },
+ {
+  "question": "Téléphone",
+  "type": "tel",
+  "required": true,
+  "name": "86b77fb4-7f96-4bfa-80f3-c7f03a618515",
+  "value": "+41 79 555 01 23",
+  "i": 6,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Phone matches"
+ },
+ {
+  "question": "Quelles sont vos motivations pour rejoindre Pennylane ?",
+  "type": "text",
+  "required": true,
+  "name": "94cd2c93-6bbf-47d9-af12-eb1fedba643c",
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Motivation for Pennylane not in facts"
+ },
+ {
+  "question": "Quelle est votre localisation ? (Région seulement)",
+  "type": "text",
+  "required": true,
+  "name": "ab655566-8d8e-471f-856b-5e1241acb57c",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Location Zurich, Switzerland is known"
+ },
+ {
+  "question": "Quelles sont vos attentes salariales ?",
+  "type": "text",
+  "required": true,
+  "name": "e2fd76ac-032a-429e-b630-1baff5d6c1cc",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Salary target CHF 140-160k is known"
+ }
+]

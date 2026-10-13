@@ -1,0 +1,18 @@
+{
+ "schema": 1,
+ "backfilled": true,
+ "note": "written afterwards from the form list and the result; the guard/reader/scorer hashes, instruction text and applicant hash of this run were not recorded (guard rules changed during 13 Oct 2026, see ITERATIONS.md)",
+ "tool": "browser-use",
+ "url": "https://content.red-badger.com/all-jobs?gh_jid=8004173003",
+ "flow": false,
+ "model": "claude-sonnet-5-5",
+ "maxSteps": 40,
+ "toolVersion": "0.13.11",
+ "extension": null,
+ "build": "",
+ "flags": {
+  "readPosts": false,
+  "flow": false
+ },
+ "finishedAt": "2026-10-13T21:57:40.511Z"
+}

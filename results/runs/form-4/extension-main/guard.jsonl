@@ -1,0 +1,61 @@
+{"at":"2026-10-13T22:20:20.529Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:20.530Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":206,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:20.533Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:20.548Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:21.631Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:21.638Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":201,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:21.721Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3409,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:21.721Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":191,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:22.011Z","method":"POST","host":"careers.hadrian.io","path":"/pageview","bytes":503,"ctype":"application/json;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:20:22.172Z","method":"POST","host":"127.0.0.1","path":"/extension/visit-list","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:22.173Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":201,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:22.204Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:23.125Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":322,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:23.154Z","method":"POST","host":"careers.hadrian.io","path":"/cookie-policy/accept","bytes":67,"ctype":"application/json;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:20:23.225Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4004,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:24.078Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4004,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:24.093Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":173,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:24.604Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":2095,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:25.711Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:25.711Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4004,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:49.055Z","method":"POST","host":"127.0.0.1","path":"/extension/answer","bytes":3179,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:49.071Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":493,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:49.719Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":119,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:49.754Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4008,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:49.936Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:49.936Z","method":"POST","host":"127.0.0.1","path":"/extension/recipes","bytes":59,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:51.704Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:51.724Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4007,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:51.733Z","method":"POST","host":"127.0.0.1","path":"/extension/pick-upload","bytes":140,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:55.398Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":4007,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:55.460Z","method":"POST","host":"careers.hadrian.io","path":"/uploads/presigned_data","bytes":21,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:20:55.930Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3508,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:55.974Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":158,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:57.724Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3770,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:20:59.841Z","method":"POST","host":"careers.hadrian.io","path":"/location_suggestions/autocomplete","bytes":83,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:21:00.388Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3683,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:06.289Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3683,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:06.815Z","method":"POST","host":"careers.hadrian.io","path":"/location_suggestions/autocomplete","bytes":83,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:21:17.036Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3684,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:17.688Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3684,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:18.185Z","method":"POST","host":"careers.hadrian.io","path":"/location_suggestions/autocomplete","bytes":70,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:21:19.844Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:23.582Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:37.115Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:37.131Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":240,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:37.168Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":3182,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:37.594Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":225,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:38.382Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:40.926Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:42.141Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:42.209Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":319,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:49.069Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:49.847Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:51.695Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:21:57.675Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:22:02.226Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:22:03.830Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:22:05.905Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:22:07.712Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:22:19.767Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":3771,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:22:19.789Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":196,"ctype":"application/json","allow":true,"why":"stand-in app"}

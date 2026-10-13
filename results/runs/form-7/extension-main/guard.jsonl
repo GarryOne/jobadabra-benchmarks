@@ -1,109 +1,83 @@
-{"at":"2026-10-13T21:26:59.961Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":206,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:00.356Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:00.498Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:01.613Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":261,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:01.628Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":213,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:01.984Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":204,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:02.030Z","method":"POST","host":"127.0.0.1","path":"/extension/visit-list","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:02.033Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":283,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:02.092Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":283,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:03.373Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":734,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:03.436Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":636,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:18.558Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:18.559Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":230,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:18.797Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":250,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:18.798Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":264,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:18.938Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":289,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:18.939Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":289,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.000Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":264,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.000Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":264,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.058Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":289,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.067Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":289,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.069Z","method":"POST","host":"127.0.0.1","path":"/extension/misses","bytes":666,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.072Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":586,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.089Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1299,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.722Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":550,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.723Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1298,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.757Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":223,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.807Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":1510,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:19.849Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4247,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:27:20.135Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4514,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:27:20.372Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:20.595Z","method":"POST","host":"127.0.0.1","path":"/extension/answer","bytes":1778,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:20.666Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4546,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:27:22.865Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1298,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:23.031Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":425,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:23.068Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1302,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:23.491Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":94,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:23.567Z","method":"POST","host":"127.0.0.1","path":"/extension/recipes","bytes":60,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:25.034Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:25.085Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1302,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:25.102Z","method":"POST","host":"127.0.0.1","path":"/extension/pick-upload","bytes":140,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:29.248Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1302,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:29.349Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":289,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:31.217Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1302,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:31.292Z","method":"POST","host":"seitenbau-gmbh.jobs.personio.de","path":"/api/v1/documents","bytes":1836,"ctype":"multipart/form-data; boundary=----WebKit","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:27:31.764Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1141,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:31.781Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":157,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:32.862Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1426,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:32.879Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":192,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:32.956Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":111,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:32.957Z","method":"POST","host":"127.0.0.1","path":"/extension/run","bytes":11362,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:32.957Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":915,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:33.047Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1442,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:33.095Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":86,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:33.095Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":982,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:33.120Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":155,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:33.434Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":2869,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:33.441Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":2486,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:33.627Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":365,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:35.637Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1443,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:35.771Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4610,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:27:36.044Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4898,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:27:36.566Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4919,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:27:44.391Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":406,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:46.385Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:47.122Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:49.637Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:50.987Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:51.605Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4620,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:27:51.903Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4908,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:27:52.422Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4930,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:27:52.427Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":2869,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:53.005Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:53.068Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":406,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:58.512Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:27:59.263Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":289,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:01.588Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:03.835Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:07.602Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:07.608Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4610,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:07.897Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4887,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:08.418Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4908,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:11.582Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:13.302Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:16.077Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":257,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:16.099Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":2638,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:16.127Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":225,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:17.885Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:20.979Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:21.588Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":325,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:23.355Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:23.500Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4620,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:23.778Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4908,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:24.311Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4930,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:29.256Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:29.498Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":289,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:39.494Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:39.575Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4610,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:39.915Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4898,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:40.495Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4919,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:48.997Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:55.593Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:55.714Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4620,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:55.992Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4898,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:56.509Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/23060485:1791922522:y-SPS-Y1M-AEoIkJnhQyjEwe4","bytes":4919,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
-{"at":"2026-10-13T21:28:58.960Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:28:59.269Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":289,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:29:01.220Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
-{"at":"2026-10-13T21:29:03.328Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1489,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:47.802Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:47.829Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":206,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:47.866Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:47.867Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":163,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:48.905Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":262,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:48.909Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":214,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:49.107Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":204,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:49.231Z","method":"POST","host":"127.0.0.1","path":"/extension/visit-list","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:49.260Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":285,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:49.344Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":285,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:49.516Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":616,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:49.943Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":134,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:27:50.475Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":636,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:17.094Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:17.097Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":285,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:17.112Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":231,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:17.560Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":250,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:17.560Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":266,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:17.854Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":266,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:17.855Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":266,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:17.864Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":387,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:17.948Z","method":"POST","host":"127.0.0.1","path":"/extension/misses","bytes":666,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:17.948Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1275,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:18.064Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":266,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:18.152Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":291,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:18.190Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":214,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:18.373Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":291,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:18.455Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":351,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:18.490Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1299,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:18.662Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4247,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:28:18.745Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":223,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:18.907Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":1510,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:18.961Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4524,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:28:19.485Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4546,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:28:19.922Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:19.922Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1299,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:19.961Z","method":"POST","host":"127.0.0.1","path":"/extension/answer","bytes":1778,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:21.916Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1303,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:21.963Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":425,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:23.867Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":94,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:23.871Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1303,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:23.938Z","method":"POST","host":"127.0.0.1","path":"/extension/recipes","bytes":60,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:24.720Z","method":"POST","host":"127.0.0.1","path":"/extension/aliases","bytes":2,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:24.748Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1303,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:24.784Z","method":"POST","host":"127.0.0.1","path":"/extension/pick-upload","bytes":140,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:28.832Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1303,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:29.354Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1143,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:29.356Z","method":"POST","host":"seitenbau-gmbh.jobs.personio.de","path":"/api/v1/documents","bytes":1836,"ctype":"multipart/form-data; boundary=----WebKit","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:28:29.862Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":157,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:29.906Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1071,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:30.971Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1204,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:30.986Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":192,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.018Z","method":"POST","host":"127.0.0.1","path":"/extension/event","bytes":111,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.018Z","method":"POST","host":"127.0.0.1","path":"/extension/run","bytes":11399,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.030Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":1054,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.087Z","method":"POST","host":"127.0.0.1","path":"/extension/controls","bytes":86,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.089Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":982,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.095Z","method":"POST","host":"127.0.0.1","path":"/extension/page-kind","bytes":155,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.096Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":2370,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.105Z","method":"POST","host":"127.0.0.1","path":"/extension/account-judge","bytes":2869,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.117Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":165,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.302Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":365,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:31.994Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1223,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:34.583Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4620,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:28:34.886Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4898,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:28:35.404Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4919,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:28:36.839Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1223,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:36.889Z","method":"POST","host":"127.0.0.1","path":"/extension/log","bytes":258,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:46.465Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1251,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:47.111Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":291,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:50.303Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1251,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:28:50.460Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4620,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:28:50.726Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4919,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:28:51.242Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4930,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:29:06.217Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1251,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:29:06.397Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4620,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:29:06.687Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4908,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:29:07.204Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4930,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:29:17.108Z","method":"POST","host":"127.0.0.1","path":"/extension/tabs","bytes":291,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:29:22.131Z","method":"POST","host":"127.0.0.1","path":"/extension/review","bytes":1251,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:29:22.307Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4620,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:29:22.632Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4908,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T22:29:23.164Z","method":"POST","host":"challenges.cloudflare.com","path":"/cdn-cgi/challenge-platform/h/g/fo/1718302781:1791926118:ziJmBPdIfPjdLu8MvrFtGiK","bytes":4930,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to the form site"}

@@ -1,11 +1,23 @@
 [
  {
+  "question": "Name* (erforderlich)",
+  "type": "select-one",
+  "required": false,
+  "name": "",
+  "value": "",
+  "options": [],
+  "i": 0,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Name select, likely salutation; facts lack it"
+ },
+ {
   "question": "Vorname",
   "type": "text",
   "required": false,
   "name": "first_name",
   "value": "Ada",
-  "i": 0,
+  "i": 1,
   "verdict": "right",
   "answerable": true,
   "note": "First name matches"
@@ -16,7 +28,7 @@
   "required": false,
   "name": "last_name",
   "value": "Tester",
-  "i": 1,
+  "i": 2,
   "verdict": "right",
   "answerable": true,
   "note": "Last name matches"
@@ -27,7 +39,7 @@
   "required": false,
   "name": "email",
   "value": "ada.tester@example.test",
-  "i": 2,
+  "i": 3,
   "verdict": "right",
   "answerable": true,
   "note": "Email matches"
@@ -38,7 +50,7 @@
   "required": false,
   "name": "phone",
   "value": "+41 79 555 01 23",
-  "i": 3,
+  "i": 4,
   "verdict": "right",
   "answerable": true,
   "note": "Phone matches"
@@ -49,7 +61,7 @@
   "required": false,
   "name": "available_from",
   "value": "",
-  "i": 4,
+  "i": 5,
   "verdict": "empty",
   "answerable": false,
   "note": "Start date unknown"
@@ -60,10 +72,10 @@
   "required": false,
   "name": "salary_expectations",
   "value": "",
-  "i": 5,
+  "i": 6,
   "verdict": "empty",
   "answerable": true,
-  "note": "Salary target given: CHF 140-160k"
+  "note": "Target CHF 140-160k is in facts"
  },
  {
   "question": "Wurde dir die Stelle von eine*r SEITENBAUer*in empfohlen? Wenn ja, von wem?",
@@ -71,10 +83,10 @@
   "required": false,
   "name": "custom_attribute_2314403",
   "value": "",
-  "i": 6,
+  "i": 7,
   "verdict": "empty",
   "answerable": false,
-  "note": "No referral info; empty correct"
+  "note": "No referral info; empty is correct"
  },
  {
   "question": "Deutschkenntnisse* (erforderlich)",
@@ -91,7 +103,7 @@
    "C1",
    "C2 (Muttersprache)"
   ],
-  "i": 7,
+  "i": 8,
   "verdict": "right",
   "answerable": true,
   "note": "German B1 matches"
@@ -102,10 +114,10 @@
   "required": false,
   "name": "documents.cv",
   "value": "",
-  "i": 8,
+  "i": 9,
   "verdict": "empty",
   "answerable": true,
-  "note": "CV file available but not uploaded"
+  "note": "CV file should be uploaded"
  },
  {
   "question": "Upload Anschreiben",
@@ -113,7 +125,7 @@
   "required": false,
   "name": "documents.cover-letter",
   "value": "",
-  "i": 9,
+  "i": 10,
   "verdict": "empty",
   "answerable": false,
   "note": "No cover letter file provided"
@@ -124,7 +136,7 @@
   "required": false,
   "name": "documents.employment-reference",
   "value": "",
-  "i": 10,
+  "i": 11,
   "verdict": "empty",
   "answerable": false,
   "note": "No reference letter available"
@@ -135,7 +147,7 @@
   "required": false,
   "name": "documents.other",
   "value": "",
-  "i": 11,
+  "i": 12,
   "verdict": "empty",
   "answerable": false,
   "note": "No other documents"

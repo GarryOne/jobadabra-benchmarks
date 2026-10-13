@@ -1,0 +1,85 @@
+{
+ "url": "https://jobs.ashbyhq.com/pennylane/67967c1d-301a-4dd5-81af-44faa1d43021/application#jobpilotto-fill=b1a7d3a0",
+ "title": "Expert Support Technique et Comptable H/F @ Pennylane SAS",
+ "fields": [
+  {
+   "question": "Autofill from resume",
+   "type": "file",
+   "required": false,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "Votre Prénom",
+   "type": "text",
+   "required": true,
+   "name": "_systemfield_name",
+   "value": "Ada"
+  },
+  {
+   "question": "Votre Nom de famille",
+   "type": "text",
+   "required": true,
+   "name": "81d5faca-5962-46d7-9d26-6a92551f597c",
+   "value": "Tester"
+  },
+  {
+   "question": "Linkedin",
+   "type": "url",
+   "required": true,
+   "name": "a765b175-232b-4938-8daf-e6d3facf4ade",
+   "value": "https://www.linkedin.com/in/ada-tester"
+  },
+  {
+   "question": "CV",
+   "type": "file",
+   "required": true,
+   "name": "_systemfield_resume",
+   "value": "cv.pdf"
+  },
+  {
+   "question": "Email",
+   "type": "email",
+   "required": true,
+   "name": "_systemfield_email",
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Téléphone",
+   "type": "tel",
+   "required": true,
+   "name": "86b77fb4-7f96-4bfa-80f3-c7f03a618515",
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "Quelles sont vos motivations pour rejoindre Pennylane ?",
+   "type": "text",
+   "required": true,
+   "name": "94cd2c93-6bbf-47d9-af12-eb1fedba643c",
+   "value": ""
+  },
+  {
+   "question": "Quelle est votre localisation ? (Région seulement)",
+   "type": "text",
+   "required": true,
+   "name": "ab655566-8d8e-471f-856b-5e1241acb57c",
+   "value": ""
+  },
+  {
+   "question": "Quelles sont vos attentes salariales ?",
+   "type": "text",
+   "required": true,
+   "name": "e2fd76ac-032a-429e-b630-1baff5d6c1cc",
+   "value": ""
+  }
+ ],
+ "fileChips": [
+  "cv.pdf"
+ ],
+ "trailUrls": [
+  "https://jobs.ashbyhq.com/pennylane/67967c1d-301a-4dd5-81af-44faa1d43021/application",
+  "https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LezdY0tAAAAAEnollNLCAI0z1VDGwM7AzGrU4XZ&co=aHR0cHM6Ly9qb2JzLmFzaGJ5aHEuY29tOjQ0Mw..&hl=en&v=nY0xPItgwtlvjEjk2TqdwOQz&size=invisible&anchor-ms=20000&execute-ms=30000&cb=8k9cvhdxqirf",
+  "about:blank",
+  "https://www.recaptcha.net/recaptcha/enterprise/bframe?hl=en&v=nY0xPItgwtlvjEjk2TqdwOQz&k=6LezdY0tAAAAAEnollNLCAI0z1VDGwM7AzGrU4XZ&bft=0dAFcWeA7pXMJeXf-WcD7AJgiIkYxHWJiP8d4ElNj7SH4-5WMFhTZczo5LQXNQq8ciQtE06onUtaDxk0O0N8Ca6nm-6cjrKGI8vg"
+ ]
+}

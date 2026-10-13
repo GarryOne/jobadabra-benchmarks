@@ -1,0 +1,88 @@
+{
+ "url": "http://127.0.0.1:62444/#jobpilotto-fill=dd918f38",
+ "title": "Fixture application",
+ "fields": [
+  {
+   "question": "First name *",
+   "type": "text",
+   "required": true,
+   "name": "first",
+   "value": "Ada"
+  },
+  {
+   "question": "Last name *",
+   "type": "text",
+   "required": true,
+   "name": "last",
+   "value": "Tester"
+  },
+  {
+   "question": "Email *",
+   "type": "email",
+   "required": true,
+   "name": "email",
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Phone",
+   "type": "text",
+   "required": false,
+   "name": "phone",
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "Resume/CV *",
+   "type": "file",
+   "required": true,
+   "name": "cv",
+   "value": "cv.pdf"
+  },
+  {
+   "question": "Years of professional experience",
+   "type": "text",
+   "required": false,
+   "name": "years",
+   "value": "8"
+  },
+  {
+   "question": "Salary expectation",
+   "type": "text",
+   "required": false,
+   "name": "salary",
+   "value": "CHF 150,000"
+  },
+  {
+   "question": "Are you authorised to work in Switzerland? SelectYesNo",
+   "type": "select-one",
+   "required": false,
+   "name": "auth",
+   "value": "Yes",
+   "options": [
+    "Select",
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Why do you want to work here?",
+   "type": "textarea",
+   "required": false,
+   "name": "why",
+   "value": ""
+  },
+  {
+   "question": "I agree to the privacy policy *",
+   "type": "checkbox",
+   "required": true,
+   "name": "consent",
+   "value": "",
+   "options": [
+    "I agree to the privacy policy *"
+   ]
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "http://127.0.0.1:62444/"
+ ]
+}

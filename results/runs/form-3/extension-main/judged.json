@@ -1,0 +1,121 @@
+[
+ {
+  "question": "First name*Required",
+  "type": "text",
+  "required": true,
+  "name": "candidate[first_name]",
+  "value": "Ada",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches first name"
+ },
+ {
+  "question": "Last name*Required",
+  "type": "text",
+  "required": true,
+  "name": "candidate[last_name]",
+  "value": "Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches last name"
+ },
+ {
+  "question": "Email*Required",
+  "type": "email",
+  "required": true,
+  "name": "candidate[email]",
+  "value": "ada.tester@example.test",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "Phone",
+  "type": "tel",
+  "required": false,
+  "name": "candidate[phone]",
+  "value": "+41 79 555 01 23",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches phone"
+ },
+ {
+  "question": "Cover letter",
+  "type": "textarea",
+  "required": false,
+  "name": "candidate[job_applications_attributes][0][cover_letter]",
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Cover letter could be written from facts"
+ },
+ {
+  "question": "Required.By submitting this application, I confirm that I have read the Privacy Policy and I understand that Teamtailor will process my personal data as described in it.*",
+  "type": "checkbox",
+  "required": true,
+  "name": "candidate[consent_given]",
+  "value": "",
+  "options": [
+   "Required.By submitting this application, I confirm that I have read the Privacy Policy and I understand that Teamtailor will process my personal data as described in it.*"
+  ],
+  "i": 5,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Required privacy consent left unchecked"
+ },
+ {
+  "question": "I consent to Teamtailor considering me for, and contacting me about, future vacancies in the Teamtailor group.If you change your mind and want to withdraw your consent, you can do so by logging into your profile on Connect and updating the relevant setting under \"Data&Privacy\".",
+  "type": "checkbox",
+  "required": false,
+  "name": "candidate[consent_given_future_jobs]",
+  "value": "",
+  "options": [
+   "I consent to Teamtailor considering me for, and contacting me about, future vacancies in the Teamtailor group.If you change your mind and want to withdraw your consent, you can do so by logging into your profile on Connect and updating the relevant setting under \"Data&Privacy\"."
+  ],
+  "i": 6,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional consent, not covered by facts"
+ },
+ {
+  "question": "Teamtailor can use my phone number for recruiting-related communication via SMS.",
+  "type": "checkbox",
+  "required": false,
+  "name": "candidate[consent_given_sms]",
+  "value": "",
+  "options": [
+   "Teamtailor can use my phone number for recruiting-related communication via SMS."
+  ],
+  "i": 7,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional SMS consent, not in facts"
+ },
+ {
+  "question": "Upload CV",
+  "type": "file",
+  "required": false,
+  "name": "candidate_resume_remote_url",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file available but not uploaded"
+ },
+ {
+  "question": "Additional files",
+  "type": "file",
+  "required": false,
+  "name": "candidate_file_remote_url",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Additional files optional, none given"
+ }
+]

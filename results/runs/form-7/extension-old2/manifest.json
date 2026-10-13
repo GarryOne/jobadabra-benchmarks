@@ -1,0 +1,22 @@
+{
+ "schema": 1,
+ "backfilled": true,
+ "note": "written afterwards from the form list and the result; the guard/reader/scorer hashes, instruction text and applicant hash of this run were not recorded (guard rules changed during 13 Oct 2026, see ITERATIONS.md)",
+ "tool": "extension",
+ "url": "https://seitenbau-gmbh.jobs.personio.de/job/2825574?display=de#apply",
+ "flow": false,
+ "model": "the extension's own (claude -p on the plan)",
+ "maxSteps": null,
+ "toolVersion": "",
+ "extension": {
+  "commit": "e00984f",
+  "version": "",
+  "jpRepo": ""
+ },
+ "build": "e00984f",
+ "flags": {
+  "readPosts": false,
+  "flow": false
+ },
+ "finishedAt": "2026-10-13T21:29:42.516Z"
+}

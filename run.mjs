@@ -2,7 +2,7 @@
 // Safety: every tool's browser has the Submit guard (lib/guard.mjs); live visits go through the repo's per-site ledger (guardLiveVisit); never Submit, no login. Prints only result lines, never a key.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'; import {spawn, execFileSync} from 'node:child_process';
 import {startAgentBrowser} from './lib/browser.mjs'; import {installGuard} from './lib/guard.mjs';
-import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {startTrail} from './lib/trail.mjs'; import {startNanobrowser} from './lib/nanobrowser.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize, MODEL, PRICE} from './lib/score.mjs';
+import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {writeManifest} from './lib/manifest.mjs'; import {startTrail} from './lib/trail.mjs'; import {startNanobrowser} from './lib/nanobrowser.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize, MODEL, PRICE} from './lib/score.mjs';
 
 // A crash inside a tool (an uncaught error in its own library) is that tool's result, not a lost run: the end page is still read and the metered tokens still counted.
 let fatal = '';
@@ -94,4 +94,5 @@ if (!process.argv.includes('--no-judge') && fs.existsSync(path.join(out, 'fields
 }
 result.wallSeconds = Math.round((Date.now() - started) / 1000);
 fs.writeFileSync(path.join(out, 'result.json'), JSON.stringify(result, null, 1));
+writeManifest({tool, url, out, instructionText: instruction(applicant.text, url, process.env.BAKEOFF_FLOW === '1'), applicantText: applicant.text, repoE2e: REPO, result, startedAt: new Date(started).toISOString(), flow: process.env.BAKEOFF_FLOW === '1'});   // everything needed to repeat this run (lib/manifest.mjs)
 console.log(`RESULT ${tool}: ${JSON.stringify({score: result.score, seconds: result.seconds, steps: result.steps, usd: result.usd, submitPressed: result.submitPressed, aborted: result.guard.aborted.length})}`);

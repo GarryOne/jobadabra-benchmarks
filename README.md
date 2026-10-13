@@ -17,94 +17,113 @@
 <!-- RESULTS-START -->
 | | Tool | Required fields filled correctly | Wrong values | Time per form | Cost per form | Forms |
 | :-: | --- | --- | :-: | :-: | :-: | :-: |
-| 🥇 | **Our extension** <sub>old build</sub> | 🟢 `▰▰▰▰▰▱▱▱▱▱` **28/60** · 47% | 🔴 3 | 🟢 48 s | 🟢 plan | 5 |
-| 🥈 | **Browser Use** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/60** · 42% | 🟢 1 | 🟡 92 s | 🟢 $0.18 | 5 |
-| 🥉 | **Stagehand** | 🟡 `▰▰▰▱▱▱▱▱▱▱` **20/60** · 33% | 🟡 2 | 🔴 237 s | 🔴 $1.12 | 5 |
+| 🥇 | **Our extension** | 🟢 `▰▰▰▰▰▰▱▱▱▱` **4/7** · 57% | 🟢 0 | 🟡 66 s | 🟢 plan | 1 |
+| 🥈 | **Our extension** <sub>old build</sub> | 🟢 `▰▰▰▰▰▱▱▱▱▱` **28/60** · 47% | 🔴 3 | 🟢 48 s | 🟢 plan | 5 |
+| 🥉 | **Browser Use** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/60** · 42% | 🟢 1 | 🟡 92 s | 🟢 $0.18 | 5 |
+| 4️⃣ | **Our extension** <sub>main build</sub> | 🟡 `▰▰▰▰▱▱▱▱▱▱` **15/37** · 41% | 🟢 1 | 🟡 62 s | 🟢 plan | 3 |
+| 5️⃣ | **Stagehand** | 🟡 `▰▰▰▱▱▱▱▱▱▱` **20/60** · 33% | 🟡 2 | 🔴 237 s | 🔴 $1.12 | 5 |
 
 <sub>🟢 good · 🟡 so-so · 🔴 poor. Fill rate: 🟢 ≥45% · 🟡 ≥33%. Wrong values: 🟢 ≤1 · 🟡 2 · 🔴 ≥3. Time: 🟢 ≤60 s · 🟡 ≤150 s · 🔴 slower. Cost: 🟢 plan or ≤$0.30 · 🟡 ≤$1 · 🔴 more.</sub>
 
 ```mermaid
 xychart-beta
   title "Required fields filled correctly (%)"
-  x-axis ["Our extension", "Browser Use", "Stagehand"]
+  x-axis ["Our extension", "Our extension", "Browser Use", "Our extension", "Stagehand"]
   y-axis "percent" 0 --> 100
-  bar [47, 42, 33]
+  bar [57, 47, 42, 41, 33]
 ```
 
 ### 🧾 Form by form
 
 <details>
-<summary><b>#1 Lever</b> <sub>jobs.lever.co</sub> &nbsp; 🟢 ours 4/7 &nbsp;·&nbsp; 🟢 Stagehand 5/7 &nbsp;·&nbsp; 🟢 Browser Use 4/7</summary>
+<summary><b>#1 Lever</b> <sub>jobs.lever.co</sub> &nbsp; 🟢 ours 4/7 &nbsp;·&nbsp; 🟢 ours 4/7 &nbsp;·&nbsp; 🟢 ours 5/8 &nbsp;·&nbsp; 🟢 Stagehand 5/7 &nbsp;·&nbsp; 🟢 Browser Use 4/7</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
 | Our extension <sub>old build</sub> | 🟢 4/7 | 🟢 1 | 3 | 🟢 55 s | 🟢 plan |
+| Our extension | 🟢 4/7 | 🟢 0 | 3 | 🟡 66 s | 🟢 plan |
+| Our extension <sub>main build</sub> | 🟢 5/8 | 🟢 0 | 3 | 🟡 69 s | 🟢 plan |
 | Stagehand | 🟢 5/7 | 🟢 0 | 2 | 🟡 80 s | 🟡 $0.42 |
 | Browser Use | 🟢 4/7 | 🟢 0 | 3 | 🟡 84 s | 🟢 $0.15 |
 
 </details>
 
 <details>
-<summary><b>#2 Ashby</b> <sub>jobs.ashbyhq.com</sub> &nbsp; 🟢 ours 6/9</summary>
+<summary><b>#2 Ashby</b> <sub>jobs.ashbyhq.com</sub> &nbsp; 🟢 ours 6/9 &nbsp;·&nbsp; 🟢 ours 6/9</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
 | Our extension <sub>old build</sub> | 🟢 6/9 | 🟢 0 | 3 | 🟢 60 s | 🟢 plan |
+| Our extension <sub>main build</sub> | 🟢 6/9 | 🟢 0 | 3 | 🟡 93 s | 🟢 plan 🚨 PRESSED SUBMIT (blocked) |
 | Stagehand | ⚫ INVALID: API limit or credits ran out during the run | | | | |
 | Browser Use | ⚫ INVALID: API limit or credits ran out during the run | | | | |
 
 </details>
 
 <details>
-<summary><b>#4 Teamtailor (own domain)</b> <sub>careers.hadrian.io</sub> &nbsp; 🟢 ours 9/16 &nbsp;·&nbsp; 🔴 Stagehand 2/16 &nbsp;·&nbsp; 🟢 Browser Use 11/16</summary>
+<summary><b>#3 Teamtailor</b> <sub>career.teamtailor.com</sub> &nbsp; 🟢 ours 3/4</summary>
+
+| Tool | Required right | Wrong | Required empty | Time | Cost |
+| --- | :-: | :-: | :-: | :-: | :-: |
+| Our extension <sub>main build</sub> | 🟢 3/4 | 🟢 0 | 1 | 🟢 30 s | 🟢 plan |
+
+</details>
+
+<details>
+<summary><b>#4 Teamtailor (own domain)</b> <sub>careers.hadrian.io</sub> &nbsp; 🟢 ours 9/16 &nbsp;·&nbsp; 🔴 ours 4/16 &nbsp;·&nbsp; 🔴 Stagehand 2/16 &nbsp;·&nbsp; 🟢 Browser Use 11/16</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
 | Our extension <sub>old build</sub> | 🟢 9/16 | 🟢 0 | 7 | 🟢 59 s | 🟢 plan |
+| Our extension <sub>main build</sub> | 🔴 4/16 | 🟢 1 | 11 | 🟡 81 s | 🟢 plan |
 | Stagehand | 🔴 2/16 | 🟢 0 | 14 | 🔴 482 s | 🔴 $1.39 |
 | Browser Use | 🟢 11/16 | 🟢 0 | 5 | 🔴 180 s | 🟡 $0.36 |
 
 </details>
 
 <details>
-<summary><b>#5 Recruitee (own domain)</b> <sub>careers.tether.io</sub> &nbsp; 🟢 ours 6/13 &nbsp;·&nbsp; 🟡 Stagehand 5/13 &nbsp;·&nbsp; 🔴 Browser Use 3/13</summary>
+<summary><b>#5 Recruitee (own domain)</b> <sub>careers.tether.io</sub> &nbsp; 🟢 ours 6/13 &nbsp;·&nbsp; 🟢 ours 6/13 &nbsp;·&nbsp; 🟡 Stagehand 5/13 &nbsp;·&nbsp; 🔴 Browser Use 3/13</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
 | Our extension <sub>old build</sub> | 🟢 6/13 | 🟢 1 | 6 | 🟢 30 s | 🟢 plan |
+| Our extension <sub>main build</sub> | 🟢 6/13 | 🟢 0 | 7 | 🟢 35 s | 🟢 plan |
 | Stagehand | 🟡 5/13 | 🟢 0 | 8 | 🟡 89 s | 🟡 $0.49 |
 | Browser Use | 🔴 3/13 | 🟢 0 | 10 | 🟡 61 s | 🟢 $0.11 |
 
 </details>
 
 <details>
-<summary><b>#6 Greenhouse embed</b> <sub>careers.formlabs.com</sub> &nbsp; 🟢 ours 4/7 &nbsp;·&nbsp; 🟢 Stagehand 4/7</summary>
+<summary><b>#6 Greenhouse embed</b> <sub>careers.formlabs.com</sub> &nbsp; 🟢 ours 4/7 &nbsp;·&nbsp; 🟡 ours 4/9 &nbsp;·&nbsp; 🟢 Stagehand 4/7</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
 | Our extension <sub>old build</sub> | 🟢 4/7 | 🟢 0 | 3 | 🟡 88 s | 🟢 plan |
+| Our extension <sub>main build</sub> | 🟡 4/9 | 🟢 0 | 5 | 🟡 62 s | 🟢 plan |
 | Stagehand | 🟢 4/7 | 🟢 0 | 3 | 🟡 125 s | 🔴 $1.13 |
 | Browser Use | ⚫ INVALID: API limit or credits ran out during the run | | | | |
 
 </details>
 
 <details>
-<summary><b>#7 Personio (German)</b> <sub>seitenbau-gmbh.jobs.personio.de</sub> &nbsp; ⚪ ours n/a</summary>
+<summary><b>#7 Personio (German)</b> <sub>seitenbau-gmbh.jobs.personio.de</sub> &nbsp; ⚪ ours n/a &nbsp;·&nbsp; ⚪ ours n/a</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension <sub>main build</sub> | ⚪ n/a (no required flags found) | 🟢 0 | - | 🟡 81 s | 🟢 plan |
+| Our extension | ⚪ n/a (no required flags found) | 🟢 0 | - | 🟡 81 s | 🟢 plan |
+| Our extension <sub>main build</sub> | ⚪ n/a (no required flags found) | 🟢 0 | - | 🟢 43 s | 🟢 plan |
 | Browser Use | ⚫ INVALID: API limit or credits ran out during the run | | | | |
 | Nanobrowser | ⚫ INVALID: API limit or credits ran out during the run | | | | |
 
 </details>
 
 <details>
-<summary><b>#9 Greenhouse embed</b> <sub>careers.nebius.com</sub> &nbsp; 🟡 ours 6/18 &nbsp;·&nbsp; 🟡 Browser Use 6/18 &nbsp;·&nbsp; 🔴 Nanobrowser 4/18</summary>
+<summary><b>#9 Greenhouse embed</b> <sub>careers.nebius.com</sub> &nbsp; 🟡 ours 6/18 &nbsp;·&nbsp; 🟡 ours 6/18 &nbsp;·&nbsp; 🟡 Browser Use 6/18 &nbsp;·&nbsp; 🔴 Nanobrowser 4/18</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension <sub>main build</sub> | 🟡 6/18 | 🟢 0 | 12 | 🟡 148 s | 🟢 plan |
+| Our extension | 🟡 6/18 | 🟢 0 | 12 | 🟡 148 s | 🟢 plan |
+| Our extension <sub>main build</sub> | 🟡 6/18 | 🟢 0 | 12 | 🟡 95 s | 🟢 plan |
 | Browser Use | 🟡 6/18 | 🟢 0 | 12 | 🟡 106 s | 🟡 $0.35 |
 | Nanobrowser | 🔴 4/18 | 🟢 0 | 14 | 🔴 480 s | 🟡 $0.72 ⛔ step cap |
 
@@ -115,7 +134,7 @@ xychart-beta
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension <sub>main build</sub> | 🟢 4/6 | 🟢 0 | 2 | 🟢 52 s | 🟢 plan |
+| Our extension | 🟢 4/6 | 🟢 0 | 2 | 🟢 52 s | 🟢 plan |
 | Browser Use | 🟢 5/6 | 🟢 0 | 1 | 🟡 85 s | 🟢 $0.28 |
 | Nanobrowser | 🟢 4/6 | 🟢 0 | 2 | 🔴 422 s | 🟡 $0.87 ⛔ step cap |
 
@@ -149,7 +168,7 @@ xychart-beta
 
 </details>
 
-**⏳ Not run yet:** #3 Teamtailor · #8 own job board
+**⏳ Not run yet:** #8 own job board
 
 <!-- RESULTS-END -->
 
@@ -159,7 +178,7 @@ xychart-beta
 
 <!-- RUNS-START -->
 <details>
-<summary><b>49 runs: click to open the full table</b></summary>
+<summary><b>61 runs: click to open the full table</b></summary>
 
 | # | When | Run (folder) | Tool | Build | Status | Required right | Wrong | Time | Cost | Cap | Submit pressed | Note |
 | --: | --- | --- | --- | --- | --- | :-: | :-: | --: | --: | :-: | :-: | --- |
@@ -201,17 +220,29 @@ xychart-beta
 | 36 | 2026-10-13 21:11 | [form-6/extension](results/runs/form-6/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 4/7 | 0 | 150 s | plan |  |  |  |
 | 37 | 2026-10-13 21:11 | [form-1/extension](results/runs/form-1/extension) | Our extension (old build 62dad23) | 62dad23 | 🟢 valid | 4/7 | 1 | 110 s | plan |  |  |  |
 | 38 | 2026-10-13 21:12 | [form-6/browser-use](results/runs/form-6/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic credit balance ran out during this run (API: 'Your credit balance is too low'), not a tool result |
-| 39 | 2026-10-13 21:15 | [fixture/iteration-1-extension-main](results/runs/fixture/iteration-1-extension-main) | Our extension (main build) | 62dad23 | 🟢 valid |  |  | 53 s | plan |  |  |  |
-| 40 | 2026-10-13 21:17 | [form-3/extension-main](results/runs/form-3/extension-main) | Our extension (main build) |  | 🔴 crashed, no result |  |  |  |  |  |  |  |
-| 41 | 2026-10-13 21:29 | [form-7/extension-main](results/runs/form-7/extension-main) | Our extension (main build) | e00984f | 🟢 valid | 0/0 | 0 | 138 s | plan |  |  |  |
+| 39 | 2026-10-13 21:15 | [fixture/iteration-1-extension-old2](results/runs/fixture/iteration-1-extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid |  |  | 53 s | plan |  |  |  |
+| 40 | 2026-10-13 21:17 | [form-3/extension-old2](results/runs/form-3/extension-old2) | Our extension (primary checkout, re-run) |  | 🔴 crashed, no result |  |  |  |  |  |  |  |
+| 41 | 2026-10-13 21:29 | [form-7/extension-old2](results/runs/form-7/extension-old2) | Our extension (primary checkout, re-run) | e00984f | 🟢 valid | 0/0 | 0 | 138 s | plan |  |  |  |
 | 42 | 2026-10-13 21:30 | [form-7/browser-use](results/runs/form-7/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic workspace usage limit was hit during this run (13 Oct 2026 ~23:30); not a tool result. |
 | 43 | 2026-10-13 21:31 | [form-7/nanobrowser](results/runs/form-7/nanobrowser) | Nanobrowser |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic workspace usage limit was hit during this run (13 Oct 2026 ~23:30); not a tool result. |
-| 44 | 2026-10-13 21:43 | [form-9/extension-main](results/runs/form-9/extension-main) | Our extension (main build) | 62dad23 | 🟢 valid | 6/18 | 0 | 203 s | plan |  |  |  |
+| 44 | 2026-10-13 21:43 | [form-9/extension-old2](results/runs/form-9/extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid | 6/18 | 0 | 203 s | plan |  |  |  |
 | 45 | 2026-10-13 21:45 | [form-9/browser-use](results/runs/form-9/browser-use) | Browser Use |  | 🟢 valid | 6/18 | 0 | 106 s | $0.351 |  |  |  |
 | 46 | 2026-10-13 21:54 | [form-9/nanobrowser](results/runs/form-9/nanobrowser) | Nanobrowser |  | 🟢 valid | 4/18 | 0 | 480 s | $0.719 | ⛔ |  |  |
-| 47 | 2026-10-13 21:56 | [form-10/extension-main](results/runs/form-10/extension-main) | Our extension (main build) | 62dad23 | 🟢 valid | 4/6 | 0 | 109 s | plan |  |  |  |
+| 47 | 2026-10-13 21:56 | [form-10/extension-old2](results/runs/form-10/extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid | 4/6 | 0 | 109 s | plan |  |  |  |
 | 48 | 2026-10-13 21:57 | [form-10/browser-use](results/runs/form-10/browser-use) | Browser Use |  | 🟢 valid | 5/6 | 0 | 85 s | $0.283 |  |  |  |
 | 49 | 2026-10-13 22:05 | [form-10/nanobrowser](results/runs/form-10/nanobrowser) | Nanobrowser |  | 🟢 valid | 4/6 | 0 | 422 s | $0.866 | ⛔ |  |  |
+| 50 | 2026-10-13 22:09 | [form-1/extension-old2](results/runs/form-1/extension-old2) | Our extension (primary checkout, re-run) | 62dad23 | 🟢 valid | 4/7 | 0 | 125 s | plan |  |  |  |
+| 51 | 2026-10-13 22:10 | [form-11/extension-old2](results/runs/form-11/extension-old2) | Our extension (primary checkout, re-run) |  | 🔴 no result |  |  |  |  |  |  |  |
+| 52 | 2026-10-13 22:10 | [form-2/extension-old2](results/runs/form-2/extension-old2) | Our extension (primary checkout, re-run) |  | 🔴 no result |  |  |  |  |  |  |  |
+| 53 | 2026-10-13 22:12 | [fixture/iteration-1-extmain2](results/runs/fixture/iteration-1-extmain2) | undefined | 9a0416d | 🟢 valid |  |  | 72 s | plan |  |  |  |
+| 54 | 2026-10-13 22:14 | [form-1/extension-main](results/runs/form-1/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 5/8 | 0 | 124 s | plan |  |  |  |
+| 55 | 2026-10-13 22:18 | [form-2/extension-main](results/runs/form-2/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 6/9 | 0 | 149 s | plan |  | 🚨 |  |
+| 56 | 2026-10-13 22:20 | [form-3/extension-main](results/runs/form-3/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 3/4 | 0 | 94 s | plan |  |  |  |
+| 57 | 2026-10-13 22:23 | [form-4/extension-main](results/runs/form-4/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 4/16 | 1 | 136 s | plan |  |  |  |
+| 58 | 2026-10-13 22:24 | [form-5/extension-main](results/runs/form-5/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 6/13 | 0 | 93 s | plan |  |  |  |
+| 59 | 2026-10-13 22:27 | [form-6/extension-main](results/runs/form-6/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 4/9 | 0 | 123 s | plan |  |  |  |
+| 60 | 2026-10-13 22:29 | [form-7/extension-main](results/runs/form-7/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 0/0 | 0 | 109 s | plan |  |  |  |
+| 61 | 2026-10-13 22:33 | [form-9/extension-main](results/runs/form-9/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 6/18 | 0 | 150 s | plan |  |  |  |
 
 </details>
 <!-- RUNS-END -->
@@ -309,6 +340,32 @@ The last two are re-checked on main.
 - **Scale:** 5 complete forms is small; agents vary run to run (Browser Use scored 5 and 7 on the same practice form).
 - **Budget:** the owner capped the rest at **$5** (code stop at $4.60); the API workspace limit is currently reached, so model-calling runs wait.
 
+## 🧪 QA mode: this benchmark as a regression baseline
+
+The extension's results per form are a **baseline** (`qa/baseline.json`, frozen from the old build `62dad23`). Any new build is checked against it:
+
+```bash
+node qa.mjs run --build <git sha>          # a worktree at that commit, the extension on each form, then the comparison
+node qa.mjs compare --tool extension-main  # compare results already collected
+node qa.mjs baseline --tool extension-main # accept a build as the new baseline
+```
+
+A form **regresses** when its required fields right drop by 2 or more (or 15 points of its share), or a wrong value appears that the baseline did not have. The command exits non-zero on any regression. Cost: the plan plus ~$0.015 of judging per form; one site visit per host (3 per day).
+
+> [!NOTE]
+> **First catch:** main `9a0416d` against the baseline: Lever 🟢 better (wrong gender radio fixed), Ashby 🟢 same, Tether 🟢 better, Teamtailor/formlabs 🟢 same, **Hadrian 🔻 REGRESSION (9/16 → 4/16, a new wrong value)**. It reproduced in a second run, with the page's address service allowed through.
+
+## 🔁 Repeat any run, on any build
+
+Every run now has a `manifest.json` (`results/runs/…/manifest.json`): the form URL, the tool and its exact version, the model, the **extension commit and version**, hashes of the guard, field reader and scorer, the instruction text and the applicant facts, and the flags. Earlier runs got a backfilled manifest that says what is unknown.
+
+```bash
+node rerun.mjs 4 extension --build 62dad23   # Hadrian again, on the old build (a new site visit)
+node rerun.mjs 13 stagehand                  # the same inputs again
+```
+
+Reruns hit the live site (which changes and has a 3-a-day limit). For an **exact** repeat, `results/captures/*.tar.gz` holds the page snapshots the extension saw; the Job Pilotto replay tool (`row.mjs <case folder> [--old <extension dir>]`) re-runs any build on them offline, with no site visit.
+
 ## ▶️ Run it
 
 ```bash
@@ -319,6 +376,7 @@ node batch.mjs forms.json 2,3,4 3.0                         # forms by id, budge
 BAKEOFF_TOOLS=extension-main,nanobrowser node batch.mjs …   # the main-build extension / a later-day tool
 node report.mjs readme | notion | md                        # the scoreboard
 node update-readme.mjs README.md                            # refresh the block above
+node publish-data.mjs <repo dir>                            # publish every run: results/, captures, manifests
 npm run prove-guard                                         # the safety proof on a local form (no model, no live site)
 ```
 

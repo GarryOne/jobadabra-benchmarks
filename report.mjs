@@ -1,8 +1,8 @@
 // node report.mjs [md|notion]: the whole bake-off in one view from out/<id>/<tool>/{result,judged,guard}: totals per tool over the COMPLETE forms (every tool valid), then one row block per form.
 // Counting as summary.mjs: required right / total, wrong values, required empty, time, cost, step cap; "answerable" by majority across the tools; INVALID/dropped marked.
 import fs from 'node:fs'; import path from 'node:path'; import {submitLike} from './lib/guard.mjs'; import {activeSeconds} from './lib/activetime.mjs';
-const mode = process.argv[2] || 'md', here = import.meta.dirname, out = path.join(here, 'out'), TOOLS = ['extension', 'extension-main', 'stagehand', 'browser-use', 'nanobrowser'];
-const NAME = {extension: 'Our extension (old build 62dad23)', 'extension-main': 'Our extension (main build)', stagehand: 'Stagehand', 'browser-use': 'Browser Use', nanobrowser: 'Nanobrowser'};
+const mode = process.argv[2] || 'md', here = import.meta.dirname, out = path.join(here, 'out'), TOOLS = ['extension', 'extension-old2', 'extension-main', 'stagehand', 'browser-use', 'nanobrowser'];
+const NAME = {extension: 'Our extension (old build 62dad23)', 'extension-old2': 'Our extension (primary checkout, re-run)', 'extension-main': 'Our extension (main build)', stagehand: 'Stagehand', 'browser-use': 'Browser Use', nanobrowser: 'Nanobrowser'};
 const forms = [...JSON.parse(fs.readFileSync(path.join(here, 'forms.json'), 'utf8')), ...JSON.parse(fs.readFileSync(path.join(here, 'forms-fresh.json'), 'utf8'))];
 const read = (id, t, f) => { try { return JSON.parse(fs.readFileSync(path.join(out, String(id), t, f), 'utf8')); } catch { return null; } };
 const data = forms.map(form => {
@@ -45,9 +45,25 @@ if (mode === 'readme') {
   const pend = data.filter(d => !d.dropped && !TOOLS.some(t => d.tools[t])).map(d => `#${d.form.id} ${d.form.platform}`);
   console.log(`**⏳ Not run yet:** ${pend.join(' · ')}`);
 } else if (mode === 'notion') {
-  const tr = cells => `<tr>${cells.map(c => `<td>${String(c).replace(/\$/g, '\\$')}</td>`).join('')}</tr>`;
-  console.log(`<table fit-page-width="true" header-row="true">\n${tr(th)}\n${totRows.map(tr).join('\n')}\n</table>\nTotals: each row over the forms where that tool and both agents have valid results (forms per row in the last column).\n`);
-  console.log(`<table fit-page-width="true" header-row="true">\n${tr(['#', 'Form', 'Note', ...TOOLS.map(t => NAME[t])])}\n${formRows.map(tr).join('\n')}\n</table>\nNot yet run: ${pending.join('; ')}.`);
+  // Notion: colour cards in columns, colour-filled table cells (td color), emoji medals; same thresholds as the README.
+  const bar = (n, m) => { const k = m ? Math.round(10 * n / m) : 0; return '▰'.repeat(k) + '▱'.repeat(10 - k); }, e = x => String(x).replace(/\$/g, '\\$');
+  const cFill = p => p >= 45 ? 'green_bg' : p >= 33 ? 'yellow_bg' : 'red_bg', cWrong = n => n <= 1 ? 'green_bg' : n === 2 ? 'yellow_bg' : 'red_bg', cTime = s => s <= 60 ? 'green_bg' : s <= 150 ? 'yellow_bg' : 'red_bg', cCost = u => (u == null || u <= 0.3) ? 'green_bg' : u <= 1 ? 'yellow_bg' : 'red_bg';
+  const MEDAL = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣'], short = t => NAME[t].replace(/ \(.*\)/, ''), tag = t => t === 'extension' ? ' (old build)' : t === 'extension-main' ? ' (main build)' : '';
+  const td = (txt, color) => `<td${color ? ` color="${color}"` : ''}>${e(txt)}</td>`;
+  const rows = TOOLS.map(t => [t, tot(t)]).filter(([, x]) => x).sort((p, q) => q[1].reqRight / q[1].req - p[1].reqRight / p[1].req);
+  console.log(`<columns>\n${rows.map(([t, x], i) => { const p = Math.round(100 * x.reqRight / x.req); return `\t<column>\n\t\t<callout icon="${MEDAL[i]}" color="${cFill(p)}">\n\t\t\t**${short(t)}**${tag(t)}\n\t\t\t# ${x.reqRight}/${x.req}\n\t\t\t${bar(x.reqRight, x.req)} ${p}% required fields right\n\t\t\t${x.wrong} wrong · ${x.sec} s · ${x.usd === 'plan' ? 'plan' : e('$' + (Number(x.usd.slice(1)) / x.forms).toFixed(2)) + ' a form'}\n\t\t</callout>\n\t</column>`; }).join('\n')}\n</columns>\n`);
+  console.log(`<table fit-page-width="true" header-row="true">\n<tr><td></td><td>Tool</td><td>Required right</td><td>Wrong</td><td>Time</td><td>Cost per form</td><td>Forms</td></tr>`);
+  rows.forEach(([t, x], i) => { const p = Math.round(100 * x.reqRight / x.req), usd = x.usd === 'plan' ? null : Number(x.usd.slice(1)) / x.forms; console.log(`<tr>${td(MEDAL[i])}${td(short(t) + tag(t))}${td(`${x.reqRight}/${x.req} · ${p}%`, cFill(p))}${td(x.wrong, cWrong(x.wrong))}${td(x.sec + ' s', cTime(x.sec))}${td(usd == null ? 'plan' : '$' + usd.toFixed(2), cCost(usd))}${td(x.forms)}</tr>`); });
+  console.log(`</table>\n🟢 good · 🟡 so-so · 🔴 poor. Fill rate 🟢 ≥45% 🟡 ≥33% · wrong 🟢 ≤1 🟡 2 🔴 ≥3 · time 🟢 ≤60 s 🟡 ≤150 s · cost 🟢 plan or ≤\\$0.30 🟡 ≤\\$1.\n`);
+  console.log('## 🧾 Form by form\n');
+  for (const d of data.filter(d => d.dropped || TOOLS.some(t => d.tools[t]))) {
+    const valids = TOOLS.filter(t => d.tools[t] && !d.tools[t].invalid), head = d.dropped ? '⚫ dropped: posting closed' : valids.map(t => { const x = d.tools[t]; return x.req ? `${cFill(Math.round(100 * x.reqRight / x.req)) === 'green_bg' ? '🟢' : cFill(Math.round(100 * x.reqRight / x.req)) === 'yellow_bg' ? '🟡' : '🔴'} ${short(t).replace('Our extension', 'ours')}${t === 'extension' ? ' (old)' : t === 'extension-main' ? ' (main)' : ''} ${x.reqRight}/${x.req}` : `⚪ ${short(t)} n/a`; }).join('  ·  ');
+    console.log(`<details>\n<summary>**#${d.form.id} ${d.form.platform}** (${d.form.host})  ${e(head)}</summary>`);
+    if (!d.dropped) { console.log(`\t<table fit-page-width="true" header-row="true">\n\t<tr><td>Tool</td><td>Required right</td><td>Wrong</td><td>Required empty</td><td>Time</td><td>Cost</td></tr>`); for (const t of TOOLS.filter(t => d.tools[t])) { const x = d.tools[t]; console.log(x.invalid ? `\t<tr>${td(short(t) + tag(t))}<td colspan="5" color="gray_bg">INVALID: API limit or credits ran out during the run</td></tr>` : `\t<tr>${td(short(t) + tag(t))}${x.req ? td(`${x.reqRight}/${x.req}`, cFill(Math.round(100 * x.reqRight / x.req))) : td('n/a (no required flags found)', 'gray_bg')}${td(x.wrong, cWrong(x.wrong))}${td(x.req ? x.reqEmpty : '-')}${td(Math.round(x.sec) + ' s', cTime(x.sec))}${td((x.usd == null ? 'plan' : '$' + x.usd.toFixed(2)) + (x.capped ? ' ⛔ step cap' : '') + (x.submit ? ' 🚨 PRESSED SUBMIT (blocked)' : ''), cCost(x.usd))}</tr>`); } console.log('\t</table>'); }
+    console.log('</details>');
+  }
+  const pend = data.filter(d => !d.dropped && !TOOLS.some(t => d.tools[t])).map(d => `#${d.form.id} ${d.form.platform}`);
+  console.log(`\n⏳ **Not run yet:** ${pend.join(' · ')}`);
 } else {
   const line = c => `| ${c.join(' | ')} |`;
   console.log(`${line(th)}\n${line(th.map(() => '---'))}\n${totRows.map(line).join('\n')}\n\nTotals: each row over the forms where that tool and both agents have valid results (forms per row in the last column).\n`);

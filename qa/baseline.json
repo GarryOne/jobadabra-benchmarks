@@ -1,0 +1,70 @@
+{
+ "tool": "extension",
+ "frozen": "2026-10-13",
+ "forms": {
+  "1": {
+   "right": 4,
+   "req": 7,
+   "wrong": 1,
+   "seconds": 110.4,
+   "build": "62dad23",
+   "dir": "out/lever/extension"
+  },
+  "2": {
+   "right": 6,
+   "req": 9,
+   "wrong": 0,
+   "seconds": 113.2,
+   "build": "62dad23",
+   "dir": "out/2/extension"
+  },
+  "4": {
+   "right": 9,
+   "req": 16,
+   "wrong": 0,
+   "seconds": 110.7,
+   "build": "62dad23",
+   "dir": "out/4/extension"
+  },
+  "5": {
+   "right": 6,
+   "req": 13,
+   "wrong": 1,
+   "seconds": 86.6,
+   "build": "62dad23",
+   "dir": "out/5/extension"
+  },
+  "6": {
+   "right": 4,
+   "req": 7,
+   "wrong": 0,
+   "seconds": 149.6,
+   "build": "62dad23",
+   "dir": "out/6/extension"
+  },
+  "11": {
+   "right": 2,
+   "req": 7,
+   "wrong": 0,
+   "seconds": 83,
+   "build": "62dad23",
+   "dir": "out/11/extension"
+  },
+  "12": {
+   "right": 6,
+   "req": 21,
+   "wrong": 1,
+   "seconds": 120.9,
+   "build": "62dad23",
+   "dir": "out/12/extension"
+  },
+  "13": {
+   "right": 7,
+   "req": 17,
+   "wrong": 1,
+   "seconds": 119.9,
+   "build": "62dad23",
+   "dir": "out/13/extension"
+  }
+ }
+}
