@@ -20,7 +20,7 @@ async def main():
     started = time.time()
     result = {'tool': 'browser-use', 'error': ''}
     try:
-        history = await agent.run(max_steps=30)
+        history = await agent.run(max_steps=40)
         result.update(steps=history.number_of_steps(), final=(history.final_result() or '')[:600], done=history.is_done(), successful=history.is_successful())
     except Exception as error:  # a crash is a result, not a stop
         result['error'] = f'{type(error).__name__}: {error}'[:400]

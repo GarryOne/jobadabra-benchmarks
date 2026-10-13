@@ -52,9 +52,9 @@ if (tool === 'extension') {
         for (const page of b.context.pages().reverse()) for (const frame of page.frames()) { const inputs = frame.locator('input[type=file]'); if (await inputs.count() > index) { await inputs.nth(index).setInputFiles(CV_PDF); return 'uploaded cv.pdf'; } }
         return 'no file input found'; }});
       const agent = sh.agent({tools: {uploadCv}, model});
-      let res = {}; try { res = await Promise.race([agent.execute({instruction: task, maxSteps: 30}), watchFatal()]); } catch (error) { res = {error: String(error).slice(0, 300)}; }
+      let res = {}; try { res = await Promise.race([agent.execute({instruction: task, maxSteps: 40}), watchFatal()]); } catch (error) { res = {error: String(error).slice(0, 300)}; }
       const u = proxy.usage, tokens = {in: u.in, out: u.out, cacheRead: u.cacheRead, cacheWrite: u.cacheWrite, calls: u.calls}; proxy.close();
-      Object.assign(result, {steps: res.actions?.length ?? null, final: String(res.message || res.error || '').slice(0, 400), completed: !!res.completed, tokens, usd: tokens.in * PRICE.in + tokens.out * PRICE.out + tokens.cacheRead * PRICE.in * 0.1 + tokens.cacheWrite * PRICE.in * 1.25, usdNote: 'tokens counted at the API (local pass-through) x Sonnet 5.5 price'});
+      Object.assign(result, {capped: !res.completed && !res.error, steps: res.actions?.length ?? null, final: String(res.message || res.error || '').slice(0, 400), completed: !!res.completed, tokens, usd: tokens.in * PRICE.in + tokens.out * PRICE.out + tokens.cacheRead * PRICE.in * 0.1 + tokens.cacheWrite * PRICE.in * 1.25, usdNote: 'tokens counted at the API (local pass-through) x Sonnet 5.5 price'});
       await sh.close().catch(() => {});
     } else {
       const instrFile = path.join(out, 'instruction.txt'); fs.writeFileSync(instrFile, task);
@@ -62,7 +62,7 @@ if (tool === 'extension') {
       await new Promise(resolve => { const p = spawn(path.join(import.meta.dirname, 'venv/bin/python'), [path.join(import.meta.dirname, 'lib/bu_agent.py'), b.cdpUrl, instrFile, CV_PDF, outJson, navAllow.join(',')], {env: {...process.env, ANTHROPIC_API_KEY: key(), ANONYMIZED_TELEMETRY: 'false'}, stdio: ['ignore', fs.openSync(path.join(out, 'bu.log'), 'w'), fs.openSync(path.join(out, 'bu.err'), 'w')]}); p.on('close', resolve); });
       const bu = fs.existsSync(outJson) ? JSON.parse(fs.readFileSync(outJson, 'utf8')) : {error: 'no result file; see bu.log'};
       const tokens = bu.usage ? {in: bu.usage.in, out: bu.usage.out} : null;
-      Object.assign(result, {steps: bu.steps ?? null, final: bu.final || bu.error || '', completed: !!bu.done, tokens, usd: tokens ? tokens.in * PRICE.in + tokens.out * PRICE.out : null, usdReportedByTool: bu.usage?.usd_reported ?? null});
+      Object.assign(result, {capped: !bu.done && (bu.steps ?? 0) >= 40, steps: bu.steps ?? null, final: bu.final || bu.error || '', completed: !!bu.done, tokens, usd: tokens ? tokens.in * PRICE.in + tokens.out * PRICE.out : null, usdReportedByTool: bu.usage?.usd_reported ?? null});
     }
     result.seconds = Math.round((Date.now() - t0) / 100) / 10;
     await collectEnd(b.context, out);
