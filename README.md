@@ -21,25 +21,26 @@
 | | Tool | Required fields filled correctly | Wrong values | Time per form | Cost per form | Forms |
 | :-: | --- | --- | :-: | :-: | :-: | :-: |
 | 🥇 | **Our extension** | 🟢 `▰▰▰▰▰▰▱▱▱▱` **4/7** · 57% | 🟢 0 | 🟡 66 s | 🟢 plan | 1 |
-| 🥈 | **Our extension** <sub>old build</sub> | 🟢 `▰▰▰▰▰▱▱▱▱▱` **28/60** · 47% | 🔴 3 | 🟢 48 s | 🟢 plan | 5 |
-| 🥉 | **Our extension** <sub>main build</sub> | 🟡 `▰▰▰▰▱▱▱▱▱▱` **26/62** · 42% | 🟢 1 | 🟡 61 s | 🟢 plan | 5 |
-| 4️⃣ | **Browser Use** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/60** · 42% | 🟢 1 | 🟡 92 s | 🟢 $0.18 | 5 |
-| 5️⃣ | **Stagehand** | 🟡 `▰▰▰▱▱▱▱▱▱▱` **20/60** · 33% | 🟡 2 | 🔴 237 s | 🔴 $1.12 | 5 |
+| 🥈 | **Nanobrowser** | 🟢 `▰▰▰▰▰▱▱▱▱▱` **18/38** · 47% | 🔴 4 | 🔴 338 s | 🟡 $0.58 | 3 |
+| 🥉 | **Our extension** <sub>old build</sub> | 🟢 `▰▰▰▰▰▱▱▱▱▱` **28/60** · 47% | 🔴 3 | 🟢 48 s | 🟢 plan | 5 |
+| 4️⃣ | **Our extension** <sub>main build</sub> | 🟡 `▰▰▰▰▱▱▱▱▱▱` **26/62** · 42% | 🟢 1 | 🟡 61 s | 🟢 plan | 5 |
+| 5️⃣ | **Browser Use** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/60** · 42% | 🟢 1 | 🟡 92 s | 🟢 $0.18 | 5 |
+| undefined | **Stagehand** | 🟡 `▰▰▰▱▱▱▱▱▱▱` **20/60** · 33% | 🟡 2 | 🔴 237 s | 🔴 $1.12 | 5 |
 
 <sub>🟢 good · 🟡 so-so · 🔴 poor. Fill rate: 🟢 ≥45% · 🟡 ≥33%. Wrong values: 🟢 ≤1 · 🟡 2 · 🔴 ≥3. Time: 🟢 ≤60 s · 🟡 ≤150 s · 🔴 slower. Cost: 🟢 plan or ≤$0.30 · 🟡 ≤$1 · 🔴 more.</sub>
 
 ```mermaid
 xychart-beta
   title "Required fields filled correctly (%)"
-  x-axis ["Our extension", "Our extension", "Our extension", "Browser Use", "Stagehand"]
+  x-axis ["Our extension", "Nanobrowser", "Our extension", "Our extension", "Browser Use", "Stagehand"]
   y-axis "percent" 0 --> 100
-  bar [57, 47, 42, 42, 33]
+  bar [57, 47, 47, 42, 42, 33]
 ```
 
 ### 🧾 Form by form
 
 <details>
-<summary><b>#1 Lever</b> <sub>jobs.lever.co</sub> &nbsp; 🟢 ours 4/7 &nbsp;·&nbsp; 🟢 ours 4/7 &nbsp;·&nbsp; 🟢 ours 5/8 &nbsp;·&nbsp; 🟢 Stagehand 5/7 &nbsp;·&nbsp; 🟢 Browser Use 4/7</summary>
+<summary><b>#1 Lever</b> <sub>jobs.lever.co</sub> &nbsp; 🟢 ours 4/7 &nbsp;·&nbsp; 🟢 ours 4/7 &nbsp;·&nbsp; 🟢 ours 5/8 &nbsp;·&nbsp; 🟢 Stagehand 5/7 &nbsp;·&nbsp; 🟢 Browser Use 4/7 &nbsp;·&nbsp; 🟢 Nanobrowser 5/9</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
@@ -48,6 +49,7 @@ xychart-beta
 | Our extension <sub>main build</sub> | 🟢 5/8 | 🟢 0 | 3 | 🟡 69 s | 🟢 plan |
 | Stagehand | 🟢 5/7 | 🟢 0 | 2 | 🟡 80 s | 🟡 $0.42 |
 | Browser Use | 🟢 4/7 | 🟢 0 | 3 | 🟡 84 s | 🟢 $0.15 |
+| Nanobrowser | 🟢 5/9 | 🔴 3 | 1 | 🔴 413 s | 🟡 $0.47 |
 
 </details>
 
@@ -73,7 +75,7 @@ xychart-beta
 </details>
 
 <details>
-<summary><b>#4 Teamtailor (own domain)</b> <sub>careers.hadrian.io</sub> &nbsp; 🟢 ours 9/16 &nbsp;·&nbsp; 🔴 ours 4/16 &nbsp;·&nbsp; 🔴 Stagehand 2/16 &nbsp;·&nbsp; 🟢 Browser Use 11/16</summary>
+<summary><b>#4 Teamtailor (own domain)</b> <sub>careers.hadrian.io</sub> &nbsp; 🟢 ours 9/16 &nbsp;·&nbsp; 🔴 ours 4/16 &nbsp;·&nbsp; 🔴 Stagehand 2/16 &nbsp;·&nbsp; 🟢 Browser Use 11/16 &nbsp;·&nbsp; 🟢 Nanobrowser 10/16</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
@@ -81,11 +83,12 @@ xychart-beta
 | Our extension <sub>main build</sub> | 🔴 4/16 | 🟢 1 | 11 | 🟡 81 s | 🟢 plan |
 | Stagehand | 🔴 2/16 | 🟢 0 | 14 | 🔴 482 s | 🔴 $1.39 |
 | Browser Use | 🟢 11/16 | 🟢 0 | 5 | 🔴 180 s | 🟡 $0.36 |
+| Nanobrowser | 🟢 10/16 | 🟢 0 | 6 | 🔴 329 s | 🟡 $0.80 |
 
 </details>
 
 <details>
-<summary><b>#5 Recruitee (own domain)</b> <sub>careers.tether.io</sub> &nbsp; 🟢 ours 6/13 &nbsp;·&nbsp; 🟢 ours 6/13 &nbsp;·&nbsp; 🟡 Stagehand 5/13 &nbsp;·&nbsp; 🔴 Browser Use 3/13</summary>
+<summary><b>#5 Recruitee (own domain)</b> <sub>careers.tether.io</sub> &nbsp; 🟢 ours 6/13 &nbsp;·&nbsp; 🟢 ours 6/13 &nbsp;·&nbsp; 🟡 Stagehand 5/13 &nbsp;·&nbsp; 🔴 Browser Use 3/13 &nbsp;·&nbsp; 🔴 Nanobrowser 3/13</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
@@ -93,6 +96,7 @@ xychart-beta
 | Our extension <sub>main build</sub> | 🟢 6/13 | 🟢 0 | 7 | 🟢 35 s | 🟢 plan |
 | Stagehand | 🟡 5/13 | 🟢 0 | 8 | 🟡 89 s | 🟡 $0.49 |
 | Browser Use | 🔴 3/13 | 🟢 0 | 10 | 🟡 61 s | 🟢 $0.11 |
+| Nanobrowser | 🔴 3/13 | 🟢 1 | 9 | 🔴 271 s | 🟡 $0.46 |
 
 </details>
 
@@ -184,7 +188,7 @@ xychart-beta
 
 <!-- RUNS-START -->
 <details>
-<summary><b>64 runs: click to open the full table</b></summary>
+<summary><b>68 runs: click to open the full table</b></summary>
 
 | # | When | Run (folder) | Tool | Build | Status | Required right | Wrong | Time | Cost | Cap | Submit pressed | Note |
 | --: | --- | --- | --- | --- | --- | :-: | :-: | --: | --: | :-: | :-: | --- |
@@ -251,7 +255,11 @@ xychart-beta
 | 61 | 2026-10-13 22:35 | [form-10/extension-main](results/runs/form-10/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 4/6 | 0 | 123 s | plan |  |  |  |
 | 62 | 2026-10-13 22:38 | [form-11/extension-main](results/runs/form-11/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 2/7 | 0 | 116 s | plan |  |  |  |
 | 63 | 2026-10-13 22:41 | [form-13/extension-main](results/runs/form-13/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 9/18 | 0 | 122 s | plan |  |  |  |
-| 64 | 2026-10-13 22:41 | [form-6/browser-use](results/runs/form-6/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic credit balance ran out during this run (API: 'Your credit balance is too low'), not a tool result |
+| 64 | 2026-10-13 22:42 | [form-6/browser-use](results/runs/form-6/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) | 3/9 | 0 | 52 s | $0.103 |  |  | INVALID: the Anthropic credit balance ran out during this run (API: 'Your credit balance is too low'), not a tool result |
+| 65 | 2026-10-13 22:50 | [form-1/nanobrowser](results/runs/form-1/nanobrowser) | Nanobrowser |  | 🟢 valid | 5/9 | 3 | 413 s | $0.473 |  |  |  |
+| 66 | 2026-10-13 22:57 | [form-4/nanobrowser](results/runs/form-4/nanobrowser) | Nanobrowser |  | 🟢 valid | 10/16 | 0 | 329 s | $0.797 |  |  |  |
+| 67 | 2026-10-13 23:04 | [form-5/nanobrowser](results/runs/form-5/nanobrowser) | Nanobrowser |  | 🟢 valid | 3/13 | 1 | 271 s | $0.463 |  |  |  |
+| 68 | 2026-10-13 23:09 | [form-11/nanobrowser](results/runs/form-11/nanobrowser) | Nanobrowser |  | 🔴 no result |  |  |  |  |  |  |  |
 
 </details>
 <!-- RUNS-END -->

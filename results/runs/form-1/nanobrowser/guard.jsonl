@@ -1,0 +1,28 @@
+{"at":"2026-10-13T22:43:12.491Z","method":"POST","host":"jobs.lever.co","path":"/cdn-cgi/challenge-platform/h/g/jsd/oneshot/4df4a60fa397/0.3352826258211936:1791","bytes":16579,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:13.382Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:13.383Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:13.412Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:13.463Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:13.483Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:13.485Z","method":"POST","host":"api.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:13.486Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:13.654Z","method":"POST","host":"api2.hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:13.655Z","method":"POST","host":"hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:13.660Z","method":"POST","host":"hcaptcha.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T22:43:16.391Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":13618,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:45:03.989Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":28932,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:47:17.060Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":29488,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:47:28.965Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":30172,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:47:33.572Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":18332,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:47:39.525Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":32012,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:47:44.142Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":32012,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:48:06.830Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":32904,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:49:10.815Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":22302,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:49:16.008Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":35857,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:49:20.438Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":36402,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:49:31.741Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":37009,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:49:37.181Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":25373,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:49:44.261Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":38851,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:49:48.594Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":39110,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:49:55.411Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":42529,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T22:50:02.601Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":33333,"ctype":"application/json","allow":true,"why":"stand-in app"}

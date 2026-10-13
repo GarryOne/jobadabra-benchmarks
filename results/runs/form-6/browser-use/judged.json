@@ -1,0 +1,156 @@
+[
+ {
+  "question": "First Name*",
+  "type": "text",
+  "required": true,
+  "name": "first_name",
+  "value": "Ada",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches first name"
+ },
+ {
+  "question": "Last Name*",
+  "type": "text",
+  "required": true,
+  "name": "last_name",
+  "value": "Tester",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches last name"
+ },
+ {
+  "question": "Preferred First Name",
+  "type": "text",
+  "required": false,
+  "name": "preferred_name",
+  "value": "",
+  "i": 2,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No preferred name given"
+ },
+ {
+  "question": "Email*",
+  "type": "text",
+  "required": true,
+  "name": "email",
+  "value": "ada.tester@example.test",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "Country*",
+  "type": "text",
+  "required": true,
+  "name": "country",
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Switzerland is known"
+ },
+ {
+  "question": "Phone",
+  "type": "text",
+  "required": true,
+  "name": "",
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Phone number is in facts"
+ },
+ {
+  "question": "Phone*",
+  "type": "tel",
+  "required": true,
+  "name": "phone",
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Phone number is in facts"
+ },
+ {
+  "question": "Attach",
+  "type": "file",
+  "required": false,
+  "name": "resume",
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file should be uploaded"
+ },
+ {
+  "question": "Attach",
+  "type": "file",
+  "required": false,
+  "name": "cover_letter",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Likely cover letter; none provided"
+ },
+ {
+  "question": "Are you legally authorized to work for Formlabs in Hungary?*",
+  "type": "text",
+  "required": true,
+  "name": "question_68196196",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "EU citizen, authorized"
+ },
+ {
+  "question": "Are you legally authorized to work for Formlabs in Hungary?*",
+  "type": "text",
+  "required": true,
+  "name": "",
+  "value": "",
+  "i": 10,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "EU citizen, authorized"
+ },
+ {
+  "question": "What are your compensation expectations? (gross monthly forint)*",
+  "type": "text",
+  "required": true,
+  "name": "question_68196197",
+  "value": "",
+  "i": 11,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Facts give CHF annual, not HUF monthly"
+ },
+ {
+  "question": "This is a hybrid role that requires onsite work in the Budapest office at least 3 days a week, is that something you're comfortable with?",
+  "type": "text",
+  "required": false,
+  "name": "question_68196198",
+  "value": "",
+  "i": 12,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Open to hybrid, on-site, relocation"
+ },
+ {
+  "question": "LinkedIn Profile",
+  "type": "text",
+  "required": false,
+  "name": "question_68196199",
+  "value": "",
+  "i": 13,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "LinkedIn URL is in facts"
+ }
+]

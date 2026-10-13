@@ -1,0 +1,18 @@
+{"at":"2026-10-13T23:07:41.242Z","method":"POST","host":"o4511234536570880.ingest.de.sentry.io","path":"/api/4511234572091472/envelope/","bytes":471,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:07:41.257Z","method":"POST","host":"careers-analytics.recruitee.com","path":"/api/event","bytes":240,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:07:41.643Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:07:41.879Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:07:42.290Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:07:42.399Z","method":"POST","host":"captcha-base.recruiteecdn.com","path":"/checksiteconfig","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:07:42.846Z","method":"POST","host":"www.youtube.com","path":"/youtubei/v1/log_event","bytes":10360,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T23:07:43.260Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:07:44.458Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":13611,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:07:45.059Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:07:48.229Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:07:53.986Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:08:08.663Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:08:09.083Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":29228,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:08:13.494Z","method":"POST","host":"www.youtube.com","path":"/youtubei/v1/log_event","bytes":3140,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T23:08:40.346Z","method":"POST","host":"jnn-pa.googleapis.com","path":"/$rpc/google.internal.waa.v1.Waa/GenerateIT","bytes":2004,"ctype":"application/json+protobuf","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:09:11.496Z","method":"POST","host":"www.youtube.com","path":"/youtubei/v1/log_event","bytes":1655,"ctype":"application/json","allow":false,"why":"non-GET to the form site"}
+{"at":"2026-10-13T23:09:14.616Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":29250,"ctype":"application/json","allow":true,"why":"stand-in app"}

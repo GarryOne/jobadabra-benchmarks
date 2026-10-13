@@ -1,0 +1,67 @@
+{
+ "tool": "nanobrowser",
+ "url": "https://jobs.lever.co/sonarsource/54743786-1ad7-4be7-bcbe-67f660e9c381/apply",
+ "model": "claude-sonnet-5-5",
+ "capped": false,
+ "steps": 17,
+ "final": "{\"taskId\":\"bakeoff-1\",\"step\":12,\"maxSteps\":40,\"details\":\"I filled part of the application. I did not submit it, and the CV is not uploaded.\\n\\nFilled:\\n- Name: Ada Tester\\n- Phone: +41 79 555 01 23\\n- Location: Zurich, Switzerland (typed in, but I did not pick a suggestion from the autocomplete list)\\n- LinkedIn: https://www.linkedin.com/in/ada-tester\\n- Sponsorship question: EU citizen, no sponso",
+ "completed": true,
+ "tokens": {
+  "in": 199609,
+  "out": 7333,
+  "cacheRead": 0,
+  "cacheWrite": 0,
+  "calls": 17
+ },
+ "usd": 0.47254799999999997,
+ "usdNote": "tokens counted at the API (local pass-through) x Sonnet 5.5 price",
+ "seconds": 412.7,
+ "submitPressed": false,
+ "navBlocked": [],
+ "guard": {
+  "aborted": [
+   "POST jobs.lever.co/cdn-cgi/challenge-platform/h/g/jsd/oneshot/4df4a60fa397/0.3352826258211936:1791 (non-GET to another host)",
+   "POST api.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api2.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api2.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api2.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST api2.hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST hcaptcha.com/checksiteconfig (non-GET to another host)",
+   "POST hcaptcha.com/checksiteconfig (non-GET to another host)"
+  ],
+  "writesLetThrough": [
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)",
+   "POST 127.0.0.1 (stand-in app)"
+  ]
+ },
+ "score": {
+  "fields": 20,
+  "right": 5,
+  "wrong": 3,
+  "emptyShouldFill": 3,
+  "emptyOk": 9,
+  "emptyRequired": 1,
+  "requiredTotal": 9
+ },
+ "judgeUsd": 0.015158000000000001,
+ "fileChips": [],
+ "wallSeconds": 458
+}

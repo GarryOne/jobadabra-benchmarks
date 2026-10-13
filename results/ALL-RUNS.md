@@ -1,6 +1,6 @@
 # Every run, in order
 
-64 runs: 49 on live forms, 15 on the local fixture forms (development iterations). Nothing is left out: invalid, crashed and recovered runs are listed with their status. Times are local (UTC+2). "plan" = our extension on the plan (no per-token price).
+68 runs: 53 on live forms, 15 on the local fixture forms (development iterations). Nothing is left out: invalid, crashed and recovered runs are listed with their status. Times are local (UTC+2). "plan" = our extension on the plan (no per-token price).
 
 | # | When | Run (folder) | Tool | Build | Status | Required right | Wrong | Time | Cost | Cap | Submit pressed | Note |
 | --: | --- | --- | --- | --- | --- | :-: | :-: | --: | --: | :-: | :-: | --- |
@@ -67,4 +67,8 @@
 | 61 | 2026-10-13 22:35 | [form-10/extension-main](runs/form-10/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 4/6 | 0 | 123 s | plan |  |  |  |
 | 62 | 2026-10-13 22:38 | [form-11/extension-main](runs/form-11/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 2/7 | 0 | 116 s | plan |  |  |  |
 | 63 | 2026-10-13 22:41 | [form-13/extension-main](runs/form-13/extension-main) | Our extension (main build) | 9a0416d | 🟢 valid | 9/18 | 0 | 122 s | plan |  |  |  |
-| 64 | 2026-10-13 22:41 | [form-6/browser-use](runs/form-6/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) |  |  |  |  |  |  | INVALID: the Anthropic credit balance ran out during this run (API: 'Your credit balance is too low'), not a tool result |
+| 64 | 2026-10-13 22:42 | [form-6/browser-use](runs/form-6/browser-use) | Browser Use |  | ⚫ INVALID (API limit/credits) | 3/9 | 0 | 52 s | $0.103 |  |  | INVALID: the Anthropic credit balance ran out during this run (API: 'Your credit balance is too low'), not a tool result |
+| 65 | 2026-10-13 22:50 | [form-1/nanobrowser](runs/form-1/nanobrowser) | Nanobrowser |  | 🟢 valid | 5/9 | 3 | 413 s | $0.473 |  |  |  |
+| 66 | 2026-10-13 22:57 | [form-4/nanobrowser](runs/form-4/nanobrowser) | Nanobrowser |  | 🟢 valid | 10/16 | 0 | 329 s | $0.797 |  |  |  |
+| 67 | 2026-10-13 23:04 | [form-5/nanobrowser](runs/form-5/nanobrowser) | Nanobrowser |  | 🟢 valid | 3/13 | 1 | 271 s | $0.463 |  |  |  |
+| 68 | 2026-10-13 23:09 | [form-11/nanobrowser](runs/form-11/nanobrowser) | Nanobrowser |  | 🔴 no result |  |  |  |  |  |  |  |
