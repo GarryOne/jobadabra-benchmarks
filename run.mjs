@@ -25,6 +25,18 @@ const formHost = new URL(url).hostname, navAllow = /^[\d.]+$/.test(formHost) ? [
 
 if (tool === 'extension') {
   const {runLiveRow} = await import(path.join(REPO, 'lib/live-row.mjs')); const {startRealExtension} = await import(path.join(REPO, 'lib/real-extension.mjs'));
+  // BAKEOFF_REPLAY=<a record dir from an earlier live run>: the same form offline (owner, 14 Oct 2026: "record the 5 headline forms once, then replay; compare with live first").
+  // A live run keeps its network record in <out>/net/ (local only: real site responses, never published). The AI answers only from the live run's kept answers.
+  const replayDir = process.env.BAKEOFF_REPLAY, replayed = replayDir ? {record: JSON.parse(fs.readFileSync(path.join(replayDir, 'record.json'), 'utf8')), bodies: new Map(fs.readdirSync(path.join(replayDir, 'bodies')).map(hash => [hash, fs.readFileSync(path.join(replayDir, 'bodies', hash))]))} : null;
+  const {netReplay} = await import(path.join(REPO, 'lib/net-record.mjs')); const {seedRandom} = await import(path.join(REPO, 'lib/seeded-random.mjs'));
+  const {forceScrollbar} = await import(path.join(REPO, 'lib/scrollbar.mjs')); const {shiftDate, zoneOf} = await import(path.join(REPO, 'lib/replay-date.mjs'));
+  if (replayed) {
+    if (zoneOf(replayed.record)) process.env.TZ = zoneOf(replayed.record);
+    fs.mkdirSync(path.join(out, 'capture'), {recursive: true});
+    fs.copyFileSync(path.join(replayDir, 'model-memo.json'), path.join(out, 'capture', 'model-memo.json'));
+    Object.assign(process.env, {JOB_PILOTTO_SITE_LEDGER_DIR: path.join(out, 'ledger'), JOB_PILOTTO_MODEL_MEMO_HITS: path.join(out, 'hits.txt'), JOB_PILOTTO_MODEL_MEMO_LATENCY_CAP_MS: '20000'});
+    delete process.env.JP_NET_RECORD_DIR;
+  } else process.env.JP_NET_RECORD_DIR ||= path.join(out, 'net');
   const browser = async options => {   // the harness's own browser + the guard + the end-state read before it closes
     // The extension acts on https hosts only (manifest host_permissions); for a local http fixture a COPY of it also gets http://127.0.0.1 (the product's extension/ is not touched).
     if (process.env.JP_EXT_DIR) options = {...options, extensionDir: process.env.JP_EXT_DIR};   // the build under test (an older commit lacks harness files, so the harness stays on JP_REPO)
@@ -32,13 +44,30 @@ if (tool === 'extension') {
       const {EXTENSION_DIR: DEFAULT_EXT} = await import(path.join(REPO, 'lib/extension.mjs')), EXTENSION_DIR = options.extensionDir || DEFAULT_EXT, copy = fs.mkdtempSync(path.join(os.tmpdir(), 'bakeoff-ext-')); fs.cpSync(EXTENSION_DIR, copy, {recursive: true});
       const mf = path.join(copy, 'manifest.json'), m = JSON.parse(fs.readFileSync(mf, 'utf8')); m.host_permissions = [...m.host_permissions, 'http://127.0.0.1/*']; fs.writeFileSync(mf, JSON.stringify(m)); options = {...options, extensionDir: copy};
     }
+    if (replayed) {   // offline: every request served from the live run's network record, as desktop/e2e/replay-net.mjs sets its browser up (no site is reached, so no guard and no visit)
+      const run = await startRealExtension({...options, offline: true, timezoneId: zoneOf(replayed.record)});
+      await run.context.addInitScript(() => { if (navigator.serviceWorker) navigator.serviceWorker.register = async () => {}; });
+      await seedRandom(run.context, replayed.record.seed);
+      await run.context.addInitScript({path: path.join(REPO, 'lib', 'upload-events.js')});
+      await forceScrollbar(run.context, Number.isFinite(replayed.record.scrollbar) ? replayed.record.scrollbar : undefined);
+      await shiftDate(run.context, replayed.record.startMs);
+      guard = {aborted: () => [], pressedSubmit: () => [], entries: () => []};   // nothing leaves the machine offline: the replay's own log says which requests it served
+      await netReplay(run.context,{entries: replayed.record.entries, bodies: replayed.bodies}, {say: line => console.log(`replay: ${line}`)});
+      const trail = startTrail(run.context); const close = run.close; run.close = async () => { await collectEnd(run.context, out, trail).catch(error => fs.writeFileSync(path.join(out, 'collect-error.txt'), String(error))); await close(); };
+      return run;
+    }
     const run = await startRealExtension(options);
     guard = await installGuard(run.context, {log: guardLog, localPorts: [options.appPort], navAllow: [...navAllow, '127.0.0.1']});
     run.page.once('domcontentloaded', () => run.page.screenshot({path: path.join(out, 'start.png'), fullPage: true}).catch(() => {}));
     const trail = startTrail(run.context); const close = run.close; run.close = async () => { await collectEnd(run.context, out, trail).catch(error => fs.writeFileSync(path.join(out, 'collect-error.txt'), String(error))); await close(); };
     return run;
   };
-  const row = await runLiveRow({posting: {url, title: 'bake-off form', company: 'bake-off'}, captureDir: path.join(out, 'capture'), browser, seconds: 240, say: line => console.log(line)});
+  // The watch: the live run's own length + 90 s, 120-300 s (desktop/e2e/replay-net.mjs replaySeconds: an offline replay starts later and drifts behind).
+  const replaySeconds = text => { const times = String(text).split('\n').map(line => Date.parse(line.slice(0, 24))).filter(Number.isFinite); return times.length > 1 ? Math.min(300, Math.max(120, Math.round((times.at(-1) - times[0]) / 1000) + 90)) : 120; };
+  const liveLog = replayed ? fs.readFileSync(path.join(replayDir, 'app.log'), 'utf8') : '';
+  if (replayed) { const {ELIGIBILITY_ENV, recordedEligibility} = await import(path.join(REPO, 'lib/pool-eligibility.mjs')); if (recordedEligibility(replayed.record, liveLog) === 'off') process.env[ELIGIBILITY_ENV] = 'off'; }
+  const replayAt = replayed ? {posting: {url: replayed.record.entries.find(entry => entry.type === 'document')?.url || replayed.record.url, title: '', company: ''}, ask: false, seconds: replaySeconds(liveLog)} : {};
+  const row = await runLiveRow({posting: {url, title: 'bake-off form', company: 'bake-off'}, captureDir: path.join(out, 'capture'), browser, seconds: 240, say: line => console.log(line), ...replayAt});
   Object.assign(result, {seconds: row.seconds, steps: (row.appLog.match(/^.*\bstep\b.*$/gim) || []).length, usd: row.ai?.usd ?? null, tokens: row.ai ? {in: row.ai.input, out: row.ai.output} : null, note: row.ai ? '' : 'AI via claude -p on the plan: no per-token price'});
 } else {
   guardLiveVisit(url, {who: 'bake-off ' + tool});   // the per-site daily limit, before anything starts (loopback is not counted)

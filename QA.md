@@ -124,6 +124,13 @@ node row.mjs /tmp/hadrian-capture --old <other extension dir>  # another build o
 
 It shows time, number of AI asks and where the run ended, but **not** the filled values; for field accuracy use a live run (recipe 1).
 
+### Recipe: record once, replay a form offline (14 Oct 2026, ⚠️ not yet trusted for build-to-build verdicts)
+- Every live extension run now keeps the form's network record in `<out>/net/<name>-<ts>/` (the repo's `desktop/e2e/lib/net-record.mjs`). Local only: real site responses, never published (`publish-data.mjs` copies named files only).
+- Replay it, with fields read and judged like a live run:
+  `BAKEOFF_REPLAY=<out>/net/<dir> JP_REPO=<worktree>/desktop/e2e node run.mjs extension <form url> <new out dir>`
+- Offline: no site reached, no ledger visit; the AI answers only from the live run's kept answers (a new build that asks something new = "not in the row's kept answers" in its app.log: needs a fresh live record).
+- Proof so far: form 12 (Breezy), same build e6ede59: replay = live on all 23 fields, 7/7 asks hit. Not proven: other forms, a different build on an old record, catching a known regression.
+
 ---
 
 ## 🧑‍⚖️ Reading the verdict
