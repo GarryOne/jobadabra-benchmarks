@@ -1,0 +1,37 @@
+{"at":"2026-10-13T23:15:54.405Z","method":"POST","host":"sessions.bugsnag.com","path":"/","bytes":518,"ctype":"application/json","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:15:54.504Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:15:54.950Z","method":"POST","host":"www.google-analytics.com","path":"/j/collect","bytes":0,"ctype":"text/plain","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:15:57.038Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:15:58.643Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":13632,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:15:59.410Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/debugger","bytes":280,"ctype":"text/plain;charset=UTF-8","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:15:59.547Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:16:02.062Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:16:04.578Z","method":"POST","host":"embed-api.ziggeo.com","path":"/v1/applications/037484c4dfff0ad949a9dd76d6564a3c/session","bytes":0,"ctype":"","allow":false,"why":"non-GET to another host"}
+{"at":"2026-10-13T23:16:22.534Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":28571,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:16:28.429Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":31803,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:16:34.518Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":29269,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:16:39.890Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":17819,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:16:44.480Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":31125,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:16:48.656Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":34435,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:16:57.811Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":32111,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:05.947Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":23469,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:10.569Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":36788,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:16.026Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":34177,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:20.419Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":37526,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:24.941Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":22801,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:29.282Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":36304,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:33.346Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":39603,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:38.285Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":37105,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:44.280Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":25393,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:48.335Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":39066,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:52.834Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":42341,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:17:57.446Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":39789,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:18:02.836Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":28005,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:18:07.420Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":41553,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:18:16.450Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":41954,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:18:23.300Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":45119,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:18:28.497Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":30971,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:18:32.851Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":45022,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:18:45.006Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":45715,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:18:53.268Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":46235,"ctype":"application/json","allow":true,"why":"stand-in app"}
+{"at":"2026-10-13T23:19:03.571Z","method":"POST","host":"127.0.0.1","path":"/v1/messages","bytes":35278,"ctype":"application/json","allow":true,"why":"stand-in app"}

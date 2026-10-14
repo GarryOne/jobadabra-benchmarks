@@ -1,0 +1,107 @@
+{
+ "url": "https://epilot.recruitee.com/o/senior-product-engineer-frontend/c/new",
+ "title": "epilot GmbH - Senior/Staff Product Engineer (Frontend) (m/f/d) - Application",
+ "fields": [
+  {
+   "question": "Full name *",
+   "type": "text",
+   "required": true,
+   "name": "candidate.name",
+   "value": "Ada Tester"
+  },
+  {
+   "question": "Email address *",
+   "type": "email",
+   "required": true,
+   "name": "candidate.email",
+   "value": "[EMAIL]"
+  },
+  {
+   "question": "Phone number",
+   "type": "tel",
+   "required": false,
+   "name": "candidate.phone",
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "CV or resume",
+   "type": "file",
+   "required": false,
+   "name": "candidate.cv",
+   "value": ""
+  },
+  {
+   "question": "Cover letter",
+   "type": "file",
+   "required": false,
+   "name": "candidate.coverLetterFile",
+   "value": ""
+  },
+  {
+   "question": "Please tell us your earliest possible date of availability. *",
+   "type": "text",
+   "required": true,
+   "name": "candidate.openQuestionAnswers.2593511.content",
+   "value": ""
+  },
+  {
+   "question": "Please let us know your salary expectations (in €).",
+   "type": "text",
+   "required": false,
+   "name": "candidate.openQuestionAnswers.2593512.content",
+   "value": ""
+  },
+  {
+   "question": "Are you interested to relocate or remote work only?",
+   "type": "text",
+   "required": false,
+   "name": "candidate.openQuestionAnswers.2593513.content",
+   "value": ""
+  },
+  {
+   "question": "Where did you find us?",
+   "type": "text",
+   "required": false,
+   "name": "candidate.openQuestionAnswers.2593514.content",
+   "value": ""
+  },
+  {
+   "question": "Why do you want to start at epilot? *",
+   "type": "textarea",
+   "required": true,
+   "name": "candidate.openQuestionAnswers.3352052.content",
+   "value": ""
+  },
+  {
+   "question": "What achievement in your career are you particularly proud of? Why? *",
+   "type": "textarea",
+   "required": true,
+   "name": "candidate.openQuestionAnswers.3352053.content",
+   "value": ""
+  },
+  {
+   "question": "Which of our engineering principles appeals to you the most and why? *",
+   "type": "textarea",
+   "required": true,
+   "name": "candidate.openQuestionAnswers.4536168.content",
+   "value": ""
+  },
+  {
+   "question": "Legal Agreements",
+   "type": "checkbox",
+   "required": true,
+   "name": "candidate.agreements.0.consent",
+   "value": "",
+   "options": [
+    "false"
+   ]
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "https://epilot.recruitee.com/o/senior-product-engineer-frontend/c/new",
+  "https://www.youtube.com/embed/TpPh_s8AgVc",
+  "https://captcha-assets.recruiteecdn.com/captcha/v1/3ad63385dd7b1ba4c723b064fea46f9badeef72b/static/hcaptcha-enclave.html",
+  "https://captcha-assets.recruiteecdn.com/captcha/v1/3ad63385dd7b1ba4c723b064fea46f9badeef72b/static/hcaptcha.html"
+ ]
+}

@@ -1,0 +1,148 @@
+[
+ {
+  "question": "Full name *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.name",
+  "value": "Ada Tester",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches full name"
+ },
+ {
+  "question": "Email address *",
+  "type": "email",
+  "required": true,
+  "name": "candidate.email",
+  "value": "[EMAIL]",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Email filled (redacted placeholder)"
+ },
+ {
+  "question": "Phone number",
+  "type": "tel",
+  "required": false,
+  "name": "candidate.phone",
+  "value": "+41 79 555 01 23",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches phone"
+ },
+ {
+  "question": "CV or resume",
+  "type": "file",
+  "required": false,
+  "name": "candidate.cv",
+  "value": "",
+  "i": 3,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file path available, not uploaded"
+ },
+ {
+  "question": "Cover letter",
+  "type": "file",
+  "required": false,
+  "name": "candidate.coverLetterFile",
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No cover letter provided in facts"
+ },
+ {
+  "question": "Please tell us your earliest possible date of availability. *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.2593511.content",
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Start date unknown"
+ },
+ {
+  "question": "Please let us know your salary expectations (in €).",
+  "type": "text",
+  "required": false,
+  "name": "candidate.openQuestionAnswers.2593512.content",
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Salary target given in CHF"
+ },
+ {
+  "question": "Are you interested to relocate or remote work only?",
+  "type": "text",
+  "required": false,
+  "name": "candidate.openQuestionAnswers.2593513.content",
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Open to relocation within Europe and remote"
+ },
+ {
+  "question": "Where did you find us?",
+  "type": "text",
+  "required": false,
+  "name": "candidate.openQuestionAnswers.2593514.content",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Source not in facts"
+ },
+ {
+  "question": "Why do you want to start at epilot? *",
+  "type": "textarea",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.3352052.content",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Company-specific motivation not in facts"
+ },
+ {
+  "question": "What achievement in your career are you particularly proud of? Why? *",
+  "type": "textarea",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.3352053.content",
+  "value": "",
+  "i": 10,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV bullets give achievements"
+ },
+ {
+  "question": "Which of our engineering principles appeals to you the most and why? *",
+  "type": "textarea",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.4536168.content",
+  "value": "",
+  "i": 11,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Preference on principles not in facts"
+ },
+ {
+  "question": "Legal Agreements",
+  "type": "checkbox",
+  "required": true,
+  "name": "candidate.agreements.0.consent",
+  "value": "",
+  "options": [
+   "false"
+  ],
+  "i": 12,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Consent checkbox left unchecked"
+ }
+]

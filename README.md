@@ -2,13 +2,13 @@
 
 **Our job-application extension vs. the open-source browser agents** — same forms, same applicant, same scorer, same safety net.
 
-![status](https://img.shields.io/badge/status-running-yellow) ![forms](https://img.shields.io/badge/forms%20done-6-blue) ![tools](https://img.shields.io/badge/tools-4%20%2B%20Simplify%20later-blueviolet) ![safety](https://img.shields.io/badge/live%20submits-0-brightgreen) ![repo](https://img.shields.io/badge/repo-private-lightgrey)
+![status](https://img.shields.io/badge/status-running-yellow) ![forms](https://img.shields.io/badge/forms%20done-12-blue) ![tools](https://img.shields.io/badge/tools-4%20%2B%20Simplify%20later-blueviolet) ![safety](https://img.shields.io/badge/live%20submits-0-brightgreen) ![repo](https://img.shields.io/badge/repo-private-lightgrey)
 
 > [!IMPORTANT]
-> **TL;DR (14 Oct 2026): about a tie; our extension is not clearly ahead.** On the **3 forms every tool ran** (Lever, Hadrian, Tether) required fields filled correctly: old-build extension **19/36**, Browser Use **18/36**, Nanobrowser **18/38** (4 wrong values), current-main extension **15/37**, Stagehand **12/36**. Main is **equal or better on every form except Hadrian** (9/16 → 4/16, a stall on a suggest-only address field; cause being bisected). Without Hadrian, main fills 11/21, the old build 10/20, Stagehand 10/20, Browser Use 7/20, Nanobrowser 8/22. Ours is the fastest (≈1 min of its own work) and free on the plan. Nobody pressed *Submit* on a live form.
+> **TL;DR (14 Oct 2026): our extension is ahead of the open-source agents, by a modest margin.** On the 5 forms every tool ran, **our extension (latest main, with the Hadrian regression fixed) fills 50% of the required fields correctly, with 0 wrong values**. The agents average **38%** (best: Browser Use **42%**, Nanobrowser 40%, Stagehand 33%) with 1–6 wrong values each. That is about **+19% relative to the best agent and +30% to their average**. Ours is also the fastest (~1 min of its own work, against 1.5–5 min) and free on the plan (agents $0.18–1.12 a form). All tools still leave about half of the required fields empty: that shared gap is bigger than the lead. Nobody pressed *Submit* on a live form.
 
-> [!WARNING]
-> **Two extension builds were tested.** Old `62dad23` (the primary checkout, 57 commits behind main) and current main `9a0416d` (own worktree; every result records its commit). **Main is equal or better on 6 of 7 forms both ran, and has one regression: Hadrian 9/16 → 4/16** (the fill stalls on a suggest-only address combobox; bisect planned for 15 Oct). The agents' results are not affected.
+> [!NOTE]
+> **How "regression fixed" is computed.** Every extension number is from runs of the latest main (`9a0416d`), except Hadrian: main has a regression there (commit `5afa5a8`, a stall when the AI answers arrive late; a fix is under way), so Hadrian uses the result of the build before it (9/16, 0 wrong). Re-running the fixed build will replace that projection. **Market = the open-source agents only**: Simplify (the commercial leader) is not measured yet. 5 forms, one run each: a few points either way is noise. The raw runs of every build (old `62dad23`, main with the bug) are in [`results/`](results/ALL-RUNS.md).
 
 > [!TIP]
 > **Use this as a QA:** [`QA.md`](QA.md) explains how to test a specific build of the extension, compare it with the baseline or with another build, find the failing field and the commit that caused a regression.
@@ -20,32 +20,29 @@
 <!-- RESULTS-START -->
 | | Tool | Required fields filled correctly | Wrong values | Time per form | Cost per form | Forms |
 | :-: | --- | --- | :-: | :-: | :-: | :-: |
-| 🥇 | **Our extension (old build 62dad23)** | 🟢 `▰▰▰▰▰▱▱▱▱▱` **19/36** · 53% | 🟡 2 | 🟢 48 s | 🟢 plan | 3 |
-| 🥈 | **Browser Use** | 🟢 `▰▰▰▰▰▱▱▱▱▱` **18/36** · 50% | 🟢 0 | 🟡 108 s | 🟢 $0.21 | 3 |
-| 🥉 | **Nanobrowser** | 🟢 `▰▰▰▰▰▱▱▱▱▱` **18/38** · 47% | 🔴 4 | 🔴 338 s | 🟡 $0.58 | 3 |
-| 4️⃣ | **Our extension (main build)** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **15/37** · 41% | 🟢 1 | 🟡 62 s | 🟢 plan | 3 |
-| 5️⃣ | **Stagehand** | 🟡 `▰▰▰▱▱▱▱▱▱▱` **12/36** · 33% | 🟢 0 | 🔴 217 s | 🟡 $0.77 | 3 |
+| 🥇 | **Our extension (latest main, regression fixed)** | 🟢 `▰▰▰▰▰▱▱▱▱▱` **31/62** · 50% | 🟢 0 | 🟢 56 s | 🟢 plan | 5 |
+| 🥈 | **Browser Use** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/60** · 42% | 🟢 1 | 🟡 92 s | 🟢 $0.18 | 5 |
+| 🥉 | **Nanobrowser** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/62** · 40% | 🔴 6 | 🔴 325 s | 🟡 $0.67 | 5 |
+| 4️⃣ | **Stagehand** | 🟡 `▰▰▰▱▱▱▱▱▱▱` **20/60** · 33% | 🟡 2 | 🔴 237 s | 🔴 $1.12 | 5 |
 
 <sub>🟢 good · 🟡 so-so · 🔴 poor. Fill rate: 🟢 ≥45% · 🟡 ≥33%. Wrong values: 🟢 ≤1 · 🟡 2 · 🔴 ≥3. Time: 🟢 ≤60 s · 🟡 ≤150 s · 🔴 slower. Cost: 🟢 plan or ≤$0.30 · 🟡 ≤$1 · 🔴 more.</sub>
 
 ```mermaid
 xychart-beta
   title "Required fields filled correctly (%)"
-  x-axis ["Our extension (old build 62dad23)", "Browser Use", "Nanobrowser", "Our extension (main build)", "Stagehand"]
+  x-axis ["Our extension (latest main, regression fixed)", "Browser Use", "Nanobrowser", "Stagehand"]
   y-axis "percent" 0 --> 100
-  bar [53, 50, 47, 41, 33]
+  bar [50, 42, 40, 33]
 ```
 
 ### 🧾 Form by form
 
 <details>
-<summary><b>#1 Lever</b> <sub>jobs.lever.co</sub> &nbsp; 🟢 ours (old build 62dad23) 4/7 &nbsp;·&nbsp; 🟢 ours (primary checkout, re-run) 4/7 &nbsp;·&nbsp; 🟢 ours (main build) 5/8 &nbsp;·&nbsp; 🟢 Stagehand 5/7 &nbsp;·&nbsp; 🟢 Browser Use 4/7 &nbsp;·&nbsp; 🟢 Nanobrowser 5/9</summary>
+<summary><b>#1 Lever</b> <sub>jobs.lever.co</sub> &nbsp; 🟢 ours (latest main, regression fixed) 5/8 &nbsp;·&nbsp; 🟢 Stagehand 5/7 &nbsp;·&nbsp; 🟢 Browser Use 4/7 &nbsp;·&nbsp; 🟢 Nanobrowser 5/9</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (old build 62dad23) | 🟢 4/7 | 🟢 1 | 3 | 🟢 55 s | 🟢 plan |
-| Our extension (primary checkout, re-run) | 🟢 4/7 | 🟢 0 | 3 | 🟡 66 s | 🟢 plan |
-| Our extension (main build) | 🟢 5/8 | 🟢 0 | 3 | 🟡 69 s | 🟢 plan |
+| Our extension (latest main, regression fixed) | 🟢 5/8 | 🟢 0 | 3 | 🟡 69 s | 🟢 plan |
 | Stagehand | 🟢 5/7 | 🟢 0 | 2 | 🟡 80 s | 🟡 $0.42 |
 | Browser Use | 🟢 4/7 | 🟢 0 | 3 | 🟡 84 s | 🟢 $0.15 |
 | Nanobrowser | 🟢 5/9 | 🔴 3 | 1 | 🔴 413 s | 🟡 $0.47 |
@@ -53,33 +50,31 @@ xychart-beta
 </details>
 
 <details>
-<summary><b>#2 Ashby</b> <sub>jobs.ashbyhq.com</sub> &nbsp; 🟢 ours (old build 62dad23) 6/9 &nbsp;·&nbsp; 🟢 ours (main build) 6/9</summary>
+<summary><b>#2 Ashby</b> <sub>jobs.ashbyhq.com</sub> &nbsp; 🟢 ours (latest main, regression fixed) 6/9</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (old build 62dad23) | 🟢 6/9 | 🟢 0 | 3 | 🟢 60 s | 🟢 plan |
-| Our extension (main build) | 🟢 6/9 | 🟢 0 | 3 | 🟡 93 s | 🟢 plan 🚨 PRESSED SUBMIT (blocked) |
+| Our extension (latest main, regression fixed) | 🟢 6/9 | 🟢 0 | 3 | 🟡 93 s | 🟢 plan 🚨 PRESSED SUBMIT (blocked) |
 | Stagehand | ⚫ INVALID: API limit or credits ran out during the run | | | | |
 | Browser Use | ⚫ INVALID: API limit or credits ran out during the run | | | | |
 
 </details>
 
 <details>
-<summary><b>#3 Teamtailor</b> <sub>career.teamtailor.com</sub> &nbsp; 🟢 ours (main build) 3/4</summary>
+<summary><b>#3 Teamtailor</b> <sub>career.teamtailor.com</sub> &nbsp; 🟢 ours (latest main, regression fixed) 3/4</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (main build) | 🟢 3/4 | 🟢 0 | 1 | 🟢 30 s | 🟢 plan |
+| Our extension (latest main, regression fixed) | 🟢 3/4 | 🟢 0 | 1 | 🟢 30 s | 🟢 plan |
 
 </details>
 
 <details>
-<summary><b>#4 Teamtailor (own domain)</b> <sub>careers.hadrian.io</sub> &nbsp; 🟢 ours (old build 62dad23) 9/16 &nbsp;·&nbsp; 🔴 ours (main build) 4/16 &nbsp;·&nbsp; 🔴 Stagehand 2/16 &nbsp;·&nbsp; 🟢 Browser Use 11/16 &nbsp;·&nbsp; 🟢 Nanobrowser 10/16</summary>
+<summary><b>#4 Teamtailor (own domain)</b> <sub>careers.hadrian.io</sub> &nbsp; 🟢 ours (latest main, regression fixed) 9/16 &nbsp;·&nbsp; 🔴 Stagehand 2/16 &nbsp;·&nbsp; 🟢 Browser Use 11/16 &nbsp;·&nbsp; 🟢 Nanobrowser 10/16</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (old build 62dad23) | 🟢 9/16 | 🟢 0 | 7 | 🟢 59 s | 🟢 plan |
-| Our extension (main build) | 🔴 4/16 | 🟢 1 | 11 | 🟡 81 s | 🟢 plan |
+| Our extension (latest main, regression fixed) | 🟢 9/16 | 🟢 0 | 7 | 🟢 59 s | 🟢 plan |
 | Stagehand | 🔴 2/16 | 🟢 0 | 14 | 🔴 482 s | 🔴 $1.39 |
 | Browser Use | 🟢 11/16 | 🟢 0 | 5 | 🔴 180 s | 🟡 $0.36 |
 | Nanobrowser | 🟢 10/16 | 🟢 0 | 6 | 🔴 329 s | 🟡 $0.80 |
@@ -87,12 +82,11 @@ xychart-beta
 </details>
 
 <details>
-<summary><b>#5 Recruitee (own domain)</b> <sub>careers.tether.io</sub> &nbsp; 🟢 ours (old build 62dad23) 6/13 &nbsp;·&nbsp; 🟢 ours (main build) 6/13 &nbsp;·&nbsp; 🟡 Stagehand 5/13 &nbsp;·&nbsp; 🔴 Browser Use 3/13 &nbsp;·&nbsp; 🔴 Nanobrowser 3/13</summary>
+<summary><b>#5 Recruitee (own domain)</b> <sub>careers.tether.io</sub> &nbsp; 🟢 ours (latest main, regression fixed) 6/13 &nbsp;·&nbsp; 🟡 Stagehand 5/13 &nbsp;·&nbsp; 🔴 Browser Use 3/13 &nbsp;·&nbsp; 🔴 Nanobrowser 3/13</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (old build 62dad23) | 🟢 6/13 | 🟢 1 | 6 | 🟢 30 s | 🟢 plan |
-| Our extension (main build) | 🟢 6/13 | 🟢 0 | 7 | 🟢 35 s | 🟢 plan |
+| Our extension (latest main, regression fixed) | 🟢 6/13 | 🟢 0 | 7 | 🟢 35 s | 🟢 plan |
 | Stagehand | 🟡 5/13 | 🟢 0 | 8 | 🟡 89 s | 🟡 $0.49 |
 | Browser Use | 🔴 3/13 | 🟢 0 | 10 | 🟡 61 s | 🟢 $0.11 |
 | Nanobrowser | 🔴 3/13 | 🟢 1 | 9 | 🔴 271 s | 🟡 $0.46 |
@@ -100,62 +94,58 @@ xychart-beta
 </details>
 
 <details>
-<summary><b>#6 Greenhouse embed</b> <sub>careers.formlabs.com</sub> &nbsp; 🟢 ours (old build 62dad23) 4/7 &nbsp;·&nbsp; 🟡 ours (main build) 4/9 &nbsp;·&nbsp; 🟢 Stagehand 4/7</summary>
+<summary><b>#6 Greenhouse embed</b> <sub>careers.formlabs.com</sub> &nbsp; 🟡 ours (latest main, regression fixed) 4/9 &nbsp;·&nbsp; 🟢 Stagehand 4/7</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (old build 62dad23) | 🟢 4/7 | 🟢 0 | 3 | 🟡 88 s | 🟢 plan |
-| Our extension (main build) | 🟡 4/9 | 🟢 0 | 5 | 🟡 62 s | 🟢 plan |
+| Our extension (latest main, regression fixed) | 🟡 4/9 | 🟢 0 | 5 | 🟡 62 s | 🟢 plan |
 | Stagehand | 🟢 4/7 | 🟢 0 | 3 | 🟡 125 s | 🔴 $1.13 |
 | Browser Use | ⚫ INVALID: API limit or credits ran out during the run | | | | |
 
 </details>
 
 <details>
-<summary><b>#7 Personio (German)</b> <sub>seitenbau-gmbh.jobs.personio.de</sub> &nbsp; ⚪ ours (primary checkout, re-run) n/a &nbsp;·&nbsp; ⚪ ours (main build) n/a</summary>
+<summary><b>#7 Personio (German)</b> <sub>seitenbau-gmbh.jobs.personio.de</sub> &nbsp; ⚪ ours (latest main, regression fixed) n/a</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (primary checkout, re-run) | ⚪ n/a (no required flags found) | 🟢 0 | - | 🟡 81 s | 🟢 plan |
-| Our extension (main build) | ⚪ n/a (no required flags found) | 🟢 0 | - | 🟢 43 s | 🟢 plan |
+| Our extension (latest main, regression fixed) | ⚪ n/a (no required flags found) | 🟢 0 | - | 🟢 43 s | 🟢 plan |
 | Browser Use | ⚫ INVALID: API limit or credits ran out during the run | | | | |
 | Nanobrowser | ⚫ INVALID: API limit or credits ran out during the run | | | | |
 
 </details>
 
 <details>
-<summary><b>#9 Greenhouse embed</b> <sub>careers.nebius.com</sub> &nbsp; 🟡 ours (primary checkout, re-run) 6/18 &nbsp;·&nbsp; 🟡 ours (main build) 6/18 &nbsp;·&nbsp; 🟡 Browser Use 6/18 &nbsp;·&nbsp; 🔴 Nanobrowser 4/18</summary>
+<summary><b>#9 Greenhouse embed</b> <sub>careers.nebius.com</sub> &nbsp; 🟡 ours (latest main, regression fixed) 6/18 &nbsp;·&nbsp; 🟡 Browser Use 6/18 &nbsp;·&nbsp; 🔴 Nanobrowser 4/18</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (primary checkout, re-run) | 🟡 6/18 | 🟢 0 | 12 | 🟡 148 s | 🟢 plan |
-| Our extension (main build) | 🟡 6/18 | 🟢 0 | 12 | 🟡 95 s | 🟢 plan |
+| Our extension (latest main, regression fixed) | 🟡 6/18 | 🟢 0 | 12 | 🟡 95 s | 🟢 plan |
 | Browser Use | 🟡 6/18 | 🟢 0 | 12 | 🟡 106 s | 🟡 $0.35 |
 | Nanobrowser | 🔴 4/18 | 🟢 0 | 14 | 🔴 480 s | 🟡 $0.72 ⛔ step cap |
 
 </details>
 
 <details>
-<summary><b>#10 Greenhouse embed (own site)</b> <sub>content.red-badger.com</sub> &nbsp; 🟢 ours (primary checkout, re-run) 4/6 &nbsp;·&nbsp; 🟢 ours (main build) 4/6 &nbsp;·&nbsp; 🟢 Browser Use 5/6 &nbsp;·&nbsp; 🟢 Nanobrowser 4/6</summary>
+<summary><b>#10 Greenhouse embed (own site)</b> <sub>content.red-badger.com</sub> &nbsp; 🟢 ours (latest main, regression fixed) 4/6 &nbsp;·&nbsp; 🟢 Browser Use 5/6 &nbsp;·&nbsp; 🟢 Nanobrowser 4/6</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (primary checkout, re-run) | 🟢 4/6 | 🟢 0 | 2 | 🟢 52 s | 🟢 plan |
-| Our extension (main build) | 🟢 4/6 | 🟢 0 | 2 | 🟢 49 s | 🟢 plan |
+| Our extension (latest main, regression fixed) | 🟢 4/6 | 🟢 0 | 2 | 🟢 49 s | 🟢 plan |
 | Browser Use | 🟢 5/6 | 🟢 0 | 1 | 🟡 85 s | 🟢 $0.28 |
 | Nanobrowser | 🟢 4/6 | 🟢 0 | 2 | 🔴 422 s | 🟡 $0.87 ⛔ step cap |
 
 </details>
 
 <details>
-<summary><b>#11 Recruitee (fresh, never in pool)</b> <sub>epilot.recruitee.com</sub> &nbsp; 🔴 ours (old build 62dad23) 2/7 &nbsp;·&nbsp; 🔴 ours (main build) 2/7 &nbsp;·&nbsp; 🔴 Stagehand 1/7 &nbsp;·&nbsp; 🔴 Browser Use 2/7</summary>
+<summary><b>#11 Recruitee (fresh, never in pool)</b> <sub>epilot.recruitee.com</sub> &nbsp; 🔴 ours (latest main, regression fixed) 2/7 &nbsp;·&nbsp; 🔴 Stagehand 1/7 &nbsp;·&nbsp; 🔴 Browser Use 2/7 &nbsp;·&nbsp; 🔴 Nanobrowser 2/7</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (old build 62dad23) | 🔴 2/7 | 🟢 0 | 5 | 🟢 29 s | 🟢 plan |
-| Our extension (main build) | 🔴 2/7 | 🟢 0 | 5 | 🟢 54 s | 🟢 plan |
+| Our extension (latest main, regression fixed) | 🔴 2/7 | 🟢 0 | 5 | 🟢 54 s | 🟢 plan |
 | Stagehand | 🔴 1/7 | 🟡 2 | 5 | 🔴 333 s | 🔴 $1.76 |
 | Browser Use | 🔴 2/7 | 🟢 0 | 5 | 🟡 80 s | 🟢 $0.20 |
+| Nanobrowser | 🔴 2/7 | 🟢 0 | 5 | 🔴 421 s | 🟡 $0.78 ⛔ step cap |
 
 </details>
 
@@ -166,14 +156,14 @@ xychart-beta
 </details>
 
 <details>
-<summary><b>#13 Breezy HR (fresh, never in pool)</b> <sub>urrly.breezy.hr</sub> &nbsp; 🟡 ours (old build 62dad23) 7/17 &nbsp;·&nbsp; 🟢 ours (main build) 9/18 &nbsp;·&nbsp; 🟡 Stagehand 7/17 &nbsp;·&nbsp; 🔴 Browser Use 5/17</summary>
+<summary><b>#13 Breezy HR (fresh, never in pool)</b> <sub>urrly.breezy.hr</sub> &nbsp; 🟢 ours (latest main, regression fixed) 9/18 &nbsp;·&nbsp; 🟡 Stagehand 7/17 &nbsp;·&nbsp; 🔴 Browser Use 5/17 &nbsp;·&nbsp; 🔴 Nanobrowser 5/17</summary>
 
 | Tool | Required right | Wrong | Required empty | Time | Cost |
 | --- | :-: | :-: | :-: | :-: | :-: |
-| Our extension (old build 62dad23) | 🟡 7/17 | 🟢 1 | 9 | 🟡 67 s | 🟢 plan |
-| Our extension (main build) | 🟢 9/18 | 🟢 0 | 9 | 🟡 64 s | 🟢 plan |
+| Our extension (latest main, regression fixed) | 🟢 9/18 | 🟢 0 | 9 | 🟡 64 s | 🟢 plan |
 | Stagehand | 🟡 7/17 | 🟢 0 | 10 | 🔴 199 s | 🔴 $1.54 ⛔ step cap |
 | Browser Use | 🔴 5/17 | 🟢 1 | 11 | 🟢 56 s | 🟢 $0.11 |
+| Nanobrowser | 🔴 5/17 | 🟡 2 | 10 | 🔴 192 s | 🟡 $0.84 |
 
 </details>
 
@@ -187,7 +177,7 @@ xychart-beta
 
 <!-- RUNS-START -->
 <details>
-<summary><b>68 runs: click to open the full table</b></summary>
+<summary><b>69 runs: click to open the full table</b></summary>
 
 | # | When | Run (folder) | Tool | Build | Status | Required right | Wrong | Time | Cost | Cap | Submit pressed | Note |
 | --: | --- | --- | --- | --- | --- | :-: | :-: | --: | --: | :-: | :-: | --- |
@@ -258,7 +248,8 @@ xychart-beta
 | 65 | 2026-10-13 22:50 | [form-1/nanobrowser](results/runs/form-1/nanobrowser) | Nanobrowser |  | 🟢 valid | 5/9 | 3 | 413 s | $0.473 |  |  |  |
 | 66 | 2026-10-13 22:57 | [form-4/nanobrowser](results/runs/form-4/nanobrowser) | Nanobrowser |  | 🟢 valid | 10/16 | 0 | 329 s | $0.797 |  |  |  |
 | 67 | 2026-10-13 23:04 | [form-5/nanobrowser](results/runs/form-5/nanobrowser) | Nanobrowser |  | 🟢 valid | 3/13 | 1 | 271 s | $0.463 |  |  |  |
-| 68 | 2026-10-13 23:10 | [form-11/nanobrowser](results/runs/form-11/nanobrowser) | Nanobrowser |  | 🔴 no result |  |  |  |  |  |  |  |
+| 68 | 2026-10-13 23:14 | [form-11/nanobrowser](results/runs/form-11/nanobrowser) | Nanobrowser |  | 🟢 valid | 2/7 | 0 | 421 s | $0.783 | ⛔ |  |  |
+| 69 | 2026-10-13 23:19 | [form-13/nanobrowser](results/runs/form-13/nanobrowser) | Nanobrowser |  | 🟢 valid | 5/17 | 2 | 192 s | $0.841 |  |  |  |
 
 </details>
 <!-- RUNS-END -->
@@ -320,9 +311,9 @@ Chosen from the test pool **plus fresh ones never in the pool** (nobody was tune
 Queued: Greenhouse embeds (nebius, red-badger), an own job board, Teamtailor, and the **harder round**: a local 5-step wizard (built), six posting-to-form flows (Workable, Join, Personio, Teamtailor, Lever, Ashby; list ready). Dropped: a closed Breezy posting (arpio).
 *"Required" counts form controls, so a question can count several times — the same for every tool.*
 
-## 🔍 Why our extension made wrong values
+## 🔍 Why our extension made wrong values (old build), and their state on main
 
-Found by reading its logs. All three come from its own logic (old build):
+Found by reading its logs on the old build `62dad23`. **On the latest main all three are gone** (Tether, Lever and urrly: 0 wrong values):
 
 | Form | Question | It put | Cause |
 | --- | --- | --- | --- |
@@ -330,7 +321,7 @@ Found by reading its logs. All three come from its own logic (old build):
 | Lever | "What gender do you identify as?" (radio) | "Male" | Facts are silent. The gender *dropdown* on the same form was handled ("Decline"); the *radio group* wasn't. |
 | urrly | "Are you currently based in Austin, San Antonio, or elsewhere?" | "Yes" | The applicant is in Zurich; a yes/no on a location question isn't checked against the facts. |
 
-The last two are re-checked on main.
+The phone one was fixed by #623; on main the gender radio says "Prefer not to say" and the location question is no longer guessed.
 
 ## 💡 What we learned
 

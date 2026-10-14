@@ -1,0 +1,215 @@
+{
+ "url": "https://urrly.breezy.hr/p/5378f623edd4-junior-mid-level-full-stack-platform-engineer/apply",
+ "title": "Junior / Mid-Level Full-Stack Platform Engineer",
+ "fields": [
+  {
+   "question": "Full Name*",
+   "type": "file",
+   "required": true,
+   "name": "cResume",
+   "value": ""
+  },
+  {
+   "question": "Full Name*",
+   "type": "text",
+   "required": true,
+   "name": "cName",
+   "value": "Ada Tester"
+  },
+  {
+   "question": "Full Name*",
+   "type": "email",
+   "required": true,
+   "name": "cEmail",
+   "value": ""
+  },
+  {
+   "question": "Full Name*",
+   "type": "text",
+   "required": true,
+   "name": "cPhoneNumber",
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "Full Name*",
+   "type": "checkbox",
+   "required": true,
+   "name": "smsConsent",
+   "value": "",
+   "options": [
+    "on"
+   ]
+  },
+  {
+   "question": "Desired Salary*",
+   "type": "select-one",
+   "required": true,
+   "name": "salaryCurrency",
+   "value": "US Dollar ($)",
+   "options": [
+    "US Dollar ($)",
+    "Canadian Dollar ($)",
+    "Euro (€)",
+    "United Arab Emirates Dirham (د.إ.‏)",
+    "Afghan Afghani (؋)",
+    "Albanian Lek (Lek)",
+    "Armenian Dram (դր.)",
+    "Argentine Peso ($)",
+    "Australian Dollar ($)",
+    "Azerbaijani Manat (ман.)",
+    "Bosnia-Herzegovina Convertible Mark (KM)",
+    "Bangladeshi Taka (৳)",
+    "Bulgarian Lev (лв.)",
+    "Bahraini Dinar (د.ب.‏)",
+    "Burundian Franc (FBu)",
+    "Brunei Dollar ($)",
+    "Bolivian Boliviano (Bs)",
+    "Brazilian Real (R$)",
+    "Botswanan Pula (P)",
+    "Belarusian Ruble (руб.)",
+    "Belize Dollar ($)",
+    "Congolese Franc (FrCD)",
+    "Swiss Franc (CHF)",
+    "Chilean Peso ($)",
+    "Chinese Yuan (CN¥)",
+    "Colombian Peso ($)",
+    "Costa Rican Colón (₡)",
+    "Cape Verdean Escudo (CV$)",
+    "Czech Republic Koruna (Kč)",
+    "Djiboutian Franc (Fdj)",
+    "Danish Krone (kr)",
+    "Dominican Peso (RD$)",
+    "Algerian Dinar (د.ج.‏)",
+    "Estonian Kroon (kr)",
+    "Egyptian Pound (ج.م.‏)",
+    "Eritrean Nakfa (Nfk)",
+    "Ethiopian Birr (Br)",
+    "British Pound Sterling (£)",
+    "Georgian Lari (GEL)",
+    "Ghanaian Cedi (GH₵)"
+   ]
+  },
+  {
+   "question": "Desired Salary*",
+   "type": "text",
+   "required": true,
+   "name": "cSalary",
+   "value": ""
+  },
+  {
+   "question": "Desired Salary*",
+   "type": "select-one",
+   "required": true,
+   "name": "",
+   "value": "Yearly",
+   "options": [
+    "Hourly",
+    "Weekly",
+    "Monthly",
+    "Yearly"
+   ]
+  },
+  {
+   "question": "Work History*",
+   "type": "textarea",
+   "required": true,
+   "name": "cSummary",
+   "value": ""
+  },
+  {
+   "question": "Cover Letter",
+   "type": "textarea",
+   "required": false,
+   "name": "cCoverLetter",
+   "value": ""
+  },
+  {
+   "question": "Full Name*",
+   "type": "text",
+   "required": true,
+   "name": "hp_7f2b",
+   "value": ""
+  },
+  {
+   "question": "Do you have hands-on full-stack software engineering experience that includes both frontend and backend work from a job, internship, startup, open-source contribution, or substantial shipped project?*A response is required",
+   "type": "radio",
+   "required": true,
+   "name": "section_1781300000001_question_0",
+   "value": "",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Do you have hands-on Python or Go experience?*A response is required",
+   "type": "radio",
+   "required": true,
+   "name": "section_1781300000001_question_1",
+   "value": "Yes",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Have you built backend services, APIs, SDKs, data pipelines, or similar platform/data systems?*A response is required",
+   "type": "radio",
+   "required": true,
+   "name": "section_1781300000001_question_2",
+   "value": "Yes",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Are you willing to complete a live coding assessment as part of the interview process?*A response is required",
+   "type": "radio",
+   "required": true,
+   "name": "section_1781300000001_question_3",
+   "value": "",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Are you available to work full-time during U.S. team hours?*A response is required",
+   "type": "radio",
+   "required": true,
+   "name": "section_1781300000001_question_4",
+   "value": "",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Do you have experience with both Python and Go, AI/ML, health tech, wearables, biometric data, IoT, HIPAA, SOC 2, GDPR, or another compliance-aware technical environment?*A response is required",
+   "type": "radio",
+   "required": true,
+   "name": "section_1781300000001_question_5",
+   "value": "",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Are you currently based in Austin, San Antonio, or elsewhere in Texas?*A response is required",
+   "type": "radio",
+   "required": true,
+   "name": "section_1781300000001_question_6",
+   "value": "No",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "https://urrly.breezy.hr/p/5378f623edd4-junior-mid-level-full-stack-platform-engineer/apply"
+ ]
+}
