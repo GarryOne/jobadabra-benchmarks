@@ -325,7 +325,7 @@ The phone one was fixed by #623; on main the gender radio says "Prefer not to sa
 
 ## 💡 What we learned
 
-- 🤝 **A tie on easy forms.** Generic agents with a one-line prompt match our specialised extension on single-page forms. Sobering, and the reason for the harder round.
+- 🥇 **Ahead, but not by much.** With the regression fixed our extension fills 50% of required fields right against the agents' 38% (best 42%), with no wrong values, faster and for free. Generic agents with a one-line prompt still get close on single-page forms: the lead has to come from the half of the fields nobody fills yet.
 - 💸 **Cost differs 8× for the same score.** Stagehand's long loops buy nothing here.
 - 🚨 **Agents press Submit** (one did, on a test form). The write guard is what makes this safe; instructions are not enough.
 - 🕳️ **Everyone leaves half the required fields empty.** Screening questions, work history and location widgets are the common misses.
