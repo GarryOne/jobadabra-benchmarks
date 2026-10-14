@@ -18,14 +18,14 @@
 ## 🏆 Scoreboard
 
 <!-- RESULTS-START -->
-| | Tool | Required fields filled correctly | Wrong values | Time per form | Cost per form | Forms |
-| :-: | --- | --- | :-: | :-: | :-: | :-: |
-| 🥇 | **Our extension (latest main, regression fixed)** | 🟢 `▰▰▰▰▰▱▱▱▱▱` **31/62** · 50% | 🟢 0 | 🟢 56 s | 🟢 plan | 5 |
-| 🥈 | **Browser Use** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/60** · 42% | 🟢 1 | 🟡 92 s | 🟢 $0.18 | 5 |
-| 🥉 | **Nanobrowser** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/62** · 40% | 🔴 6 | 🔴 325 s | 🟡 $0.67 | 5 |
-| 4️⃣ | **Stagehand** | 🟡 `▰▰▰▱▱▱▱▱▱▱` **20/60** · 33% | 🟡 2 | 🔴 237 s | 🔴 $1.12 | 5 |
+| | Tool | Required fields filled correctly | From facts | By guess | Wrong values | Time per form | Cost per form | Forms |
+| :-: | --- | --- | :-: | :-: | :-: | :-: | :-: | :-: |
+| 🥇 | **Our extension (latest main, regression fixed)** | 🟢 `▰▰▰▰▰▱▱▱▱▱` **31/62** · 50% | 30 | 1 | 🟢 0 | 🟢 56 s | 🟢 plan | 5 |
+| 🥈 | **Browser Use** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/60** · 42% | 25 | 0 | 🟢 1 | 🟡 92 s | 🟢 $0.18 | 5 |
+| 🥉 | **Nanobrowser** | 🟡 `▰▰▰▰▱▱▱▱▱▱` **25/62** · 40% | 25 | 0 | 🔴 6 | 🔴 325 s | 🟡 $0.67 | 5 |
+| 4️⃣ | **Stagehand** | 🟡 `▰▰▰▱▱▱▱▱▱▱` **20/60** · 33% | 20 | 0 | 🟡 2 | 🔴 237 s | 🔴 $1.12 | 5 |
 
-<sub>🟢 good · 🟡 so-so · 🔴 poor. Fill rate: 🟢 ≥45% · 🟡 ≥33%. Wrong values: 🟢 ≤1 · 🟡 2 · 🔴 ≥3. Time: 🟢 ≤60 s · 🟡 ≤150 s · 🔴 slower. Cost: 🟢 plan or ≤$0.30 · 🟡 ≤$1 · 🔴 more.</sub>
+<sub>From facts: right on a field the fake applicant's facts answer; by guess: right on one they do not (judged per field, majority of the tools). 🟢 good · 🟡 so-so · 🔴 poor. Fill rate: 🟢 ≥45% · 🟡 ≥33%. Wrong values: 🟢 ≤1 · 🟡 2 · 🔴 ≥3. Time: 🟢 ≤60 s · 🟡 ≤150 s · 🔴 slower. Cost: 🟢 plan or ≤$0.30 · 🟡 ≤$1 · 🔴 more.</sub>
 
 ```mermaid
 xychart-beta
