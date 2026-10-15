@@ -9,9 +9,9 @@ const NAME = {stagehand: 'Stagehand', 'browser-use': 'Browser Use', nanobrowser:
 const DIR_BUILD = {extension: '62dad23', 'extension-old2': '62dad23', 'extension-main': '9a0416d', 'extension-b935956c': '935956c'};
 const FRESH = new Set((() => { try { return JSON.parse(fs.readFileSync(path.join(here, 'forms-fresh.json'), 'utf8')).map(f => f.id); } catch { return []; } })());   // forms picked fresh, never in our pool: the page's "held out when picked"
 // Harness bugs fixed after some runs were scored (saved runs cannot be re-read): a run scored before a fix carries its key, the page names each. trail = a field the final page shows empty is empty (lib/trail.mjs);
-// select = a react-select's chosen value is found above its input (lib/extract-fields.js); upload = a required upload the harness's safety guard stopped counts as a hold, for every tool (lib/holds.mjs). Both hit every tool the same way.
+// select = a react-select's chosen value is found above its input (lib/extract-fields.js). The upload hold (lib/holds.mjs: a required upload the safety guard stopped) is not a key: it is recomputed from each run's saved guard log, so no run predates it. Both hit every tool the same way.
 const git = (...a) => { try { return execFileSync('git', ['-C', here, ...a], {encoding: 'utf8'}).trim(); } catch { return ''; } };
-const FIXES = [['trail', git('log', '-1', '--format=%aI', '--grep=Trail: a field the final page shows empty is empty')], ['select', git('log', '-1', '--format=%aI', 'f20f9eb')], ['upload', git('log', '-1', '--format=%aI', '--grep=Holds: a required upload the guard stopped')]];
+const FIXES = [['trail', git('log', '-1', '--format=%aI', '--grep=Trail: a field the final page shows empty is empty')], ['select', git('log', '-1', '--format=%aI', 'f20f9eb')]];
 // Is this build one that has the repair rung acting for every user (the commit "The repair rung acts for every user")? Keyed on the build, not on the harness flag alone.
 const JP = process.env.JP_MAIN_REPO || path.join(process.env.HOME, 'job-pilotto');
 const RUNG_USER = (() => { try { return execFileSync('git', ['-C', JP, 'log', 'origin/main', '-1', '--format=%H', '--grep=The repair rung acts for every user'], {encoding: 'utf8'}).trim(); } catch { return ''; } })();
