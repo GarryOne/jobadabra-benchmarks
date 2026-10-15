@@ -36,7 +36,7 @@ else if (mode === 'run') {
   const sha = flag('build'); if (!sha) { console.error('--build <sha>'); process.exit(2); }
   const wt = ensureWorktree(sha);
   const tool = `extension-b${wt.sha}`, ids = flag('forms', '1,4,5,11,13');
-  for (const file of ['forms.json', 'forms-fresh.json']) { const r = spawnSync('node', ['batch.mjs', file, ids, '1.0'], {cwd: here, stdio: 'inherit', env: {...process.env, JP_REPO: wt.e2e, BAKEOFF_TOOLS: tool, BAKEOFF_CAP: '100'}}); if (r.status) console.error(`batch ${file}: exit ${r.status}`); }
+  for (const file of ['forms.json', 'forms-fresh.json']) { const r = spawnSync('node', ['batch.mjs', file, ids, '1.0'], {cwd: here, stdio: 'inherit', env: {...process.env, JP_REPO: wt.e2e, BAKEOFF_TOOLS: tool, BAKEOFF_CAP: process.env.BAKEOFF_CAP || '100'}}); if (r.status) console.error(`batch ${file}: exit ${r.status}`); }
   compare(tool);
 } else if (mode === 'fields') {
   const [id, a, b] = rest, ja = rj(path.join(dirOf(Number(id)), a, 'judged.json')) || [], jb = rj(path.join(dirOf(Number(id)), b, 'judged.json')) || [], keyed = list => { const seen = {}; return list.map(f => { seen[f.question] = (seen[f.question] || 0) + 1; return [`${f.question}#${seen[f.question]}`, f]; }); }, mb = new Map(keyed(jb));   // older runs have no field name: the question text + its n-th occurrence pairs the fields

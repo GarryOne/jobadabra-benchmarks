@@ -13,6 +13,9 @@
 > [!TIP]
 > **Use this as a QA:** [`QA.md`](QA.md) explains how to test a specific build of the extension, compare it with the baseline or with another build, find the failing field and the commit that caused a regression.
 
+> [!NOTE]
+> **Re-run on main 935956c, 15 Oct 2026:** ours 35/78 required right (45%, 5 wrong) vs 32/80 (40%, 1 wrong) on 14 Oct; agents 33-40%. Hadrian 4 -> 10, but 3 new wrong yes/no guesses on one form. Full table: [`results/SCOREBOARD-2026-10-15.md`](results/SCOREBOARD-2026-10-15.md) (`node scoreboard.mjs <tool>` makes it). The scoreboard below is not regenerated yet.
+
 ---
 
 ## 🏆 Scoreboard

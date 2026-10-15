@@ -1,0 +1,167 @@
+[
+ {
+  "question": "Full name *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.name",
+  "value": "Ada Tester",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches full name"
+ },
+ {
+  "question": "Email address *",
+  "type": "email",
+  "required": true,
+  "name": "candidate.email",
+  "value": "ada.tester@example.test",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "CV or resume *",
+  "type": "file",
+  "required": true,
+  "name": "candidate.cv",
+  "value": "cv.pdf",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CV file name given"
+ },
+ {
+  "question": "Questions",
+  "type": "file",
+  "required": false,
+  "name": "",
+  "value": "",
+  "i": 3,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional extra upload, no file"
+ },
+ {
+  "question": "Upload a file",
+  "type": "file",
+  "required": false,
+  "name": "",
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Optional extra upload, no file"
+ },
+ {
+  "question": "Why are you interested in working at Tether? *",
+  "type": "text",
+  "required": true,
+  "name": "input-candidate.openQuestionAnswers.7486953.content-10",
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Facts give no motivation for this company"
+ },
+ {
+  "question": "Which CI/CD tools have you used most extensively? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7486860.content",
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Argo CD, Terraform in skills; missed"
+ },
+ {
+  "question": "How many years of experience do you have working with C++ build systems such as CMake or similar tools? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7486861.content",
+  "value": "",
+  "i": 7,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No C++ build system experience stated"
+ },
+ {
+  "question": "Have you managed multi-language build pipelines (e.g., JavaScript, TypeScript, and C++)? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7486862.content",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Multi-language pipelines not in facts"
+ },
+ {
+  "question": "Have you automated mobile (iOS/Android) or desktop build and publication workflows? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7486863.content",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No mobile/desktop build automation in facts"
+ },
+ {
+  "question": "How many years of experience do you have with Infrastructure as Code (IaC) tools such as Terraform, Ansible, AWS CDK, or CloudFormation? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7486864.content",
+  "value": "8",
+  "i": 10,
+  "verdict": "right",
+  "answerable": true,
+  "note": "8 years plausible; Terraform core skill"
+ },
+ {
+  "question": "Considering this is a remote role, from which country will you be working? *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7482740.content",
+  "value": "Switzerland",
+  "i": 11,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Based in Switzerland"
+ },
+ {
+  "question": "What's your expected annual salary for this role? (in USD) *",
+  "type": "number",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7482741.content",
+  "value": "",
+  "i": 12,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Salary target given in CHF; missed"
+ },
+ {
+  "question": "Linkedin profile *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7482742.content",
+  "value": "https://www.linkedin.com/in/ada-tester",
+  "i": 13,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches LinkedIn URL"
+ },
+ {
+  "question": "Useful links (e.g. GitHub) *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.7482743.content",
+  "value": "",
+  "i": 14,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No GitHub or other links in facts"
+ }
+]

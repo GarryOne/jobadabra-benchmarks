@@ -1,0 +1,148 @@
+[
+ {
+  "question": "Full name *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.name",
+  "value": "Ada Tester",
+  "i": 0,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches full name"
+ },
+ {
+  "question": "Email address *",
+  "type": "email",
+  "required": true,
+  "name": "candidate.email",
+  "value": "ada.tester@example.test",
+  "i": 1,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "Phone number",
+  "type": "tel",
+  "required": false,
+  "name": "candidate.phone",
+  "value": "+41 79 555 01 23",
+  "i": 2,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches phone"
+ },
+ {
+  "question": "CV or resume",
+  "type": "file",
+  "required": false,
+  "name": "candidate.cv",
+  "value": "cv.pdf",
+  "i": 3,
+  "verdict": "right",
+  "answerable": true,
+  "note": "CV file name provided"
+ },
+ {
+  "question": "Cover letter",
+  "type": "file",
+  "required": false,
+  "name": "candidate.coverLetterFile",
+  "value": "",
+  "i": 4,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No cover letter file in facts"
+ },
+ {
+  "question": "Please tell us your earliest possible date of availability. *",
+  "type": "text",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.2593511.content",
+  "value": "",
+  "i": 5,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Notice period/start date unknown"
+ },
+ {
+  "question": "Please let us know your salary expectations (in €).",
+  "type": "text",
+  "required": false,
+  "name": "candidate.openQuestionAnswers.2593512.content",
+  "value": "",
+  "i": 6,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CHF target range exists in facts"
+ },
+ {
+  "question": "Are you interested to relocate or remote work only?",
+  "type": "text",
+  "required": false,
+  "name": "candidate.openQuestionAnswers.2593513.content",
+  "value": "Remote work from Zurich; open to relocating within Europe for the right role.",
+  "i": 7,
+  "verdict": "right",
+  "answerable": true,
+  "note": "Consistent with Zurich base, open to relocate"
+ },
+ {
+  "question": "Where did you find us?",
+  "type": "text",
+  "required": false,
+  "name": "candidate.openQuestionAnswers.2593514.content",
+  "value": "",
+  "i": 8,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Source not in facts"
+ },
+ {
+  "question": "Why do you want to start at epilot? *",
+  "type": "textarea",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.3352052.content",
+  "value": "",
+  "i": 9,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Company motivation not in facts"
+ },
+ {
+  "question": "What achievement in your career are you particularly proud of? Why? *",
+  "type": "textarea",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.3352053.content",
+  "value": "",
+  "i": 10,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV achievements could answer this"
+ },
+ {
+  "question": "Which of our engineering principles appeals to you the most and why? *",
+  "type": "textarea",
+  "required": true,
+  "name": "candidate.openQuestionAnswers.4536168.content",
+  "value": "",
+  "i": 11,
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Company-specific principles not in facts"
+ },
+ {
+  "question": "Legal Agreements",
+  "type": "checkbox",
+  "required": true,
+  "name": "candidate.agreements.0.consent",
+  "value": "",
+  "options": [
+   "false"
+  ],
+  "i": 12,
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Consent checkbox left unchecked"
+ }
+]
