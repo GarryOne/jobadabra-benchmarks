@@ -7,6 +7,7 @@ const here = import.meta.dirname, args = process.argv.slice(2), dry = args.inclu
 const one = args.includes('--run') ? args[args.indexOf('--run') + 1] : null, roots = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--run');
 const NAME = {stagehand: 'Stagehand', 'browser-use': 'Browser Use', nanobrowser: 'Nanobrowser'};
 const DIR_BUILD = {extension: '62dad23', 'extension-old2': '62dad23', 'extension-main': '9a0416d', 'extension-b935956c': '935956c'};
+const FRESH = new Set((() => { try { return JSON.parse(fs.readFileSync(path.join(here, 'forms-fresh.json'), 'utf8')).map(f => f.id); } catch { return []; } })());   // forms picked fresh, never in our pool: the page's "held out when picked"
 const rj = f => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return null; } };
 const consent = f => f.verdict === 'empty' && (f.type === 'checkbox' || /consent|acknowledg|agree|privacy|legal/i.test(`${f.note} ${f.question}`));
 
@@ -19,7 +20,7 @@ export function rowOf(dir) {
   for (const f of req) { const key = `${f.question}|${f.type}`; if (seen.has(key)) { c.dups++; continue; } seen.add(key); if (!f.answerable) c.unans++; else if (consent(f)) c.holds++; }
   const at = manifest.finishedAt || fs.statSync(path.join(dir, 'result.json')).mtime.toISOString(), build = ours ? DIR_BUILD[tool] || manifest.extension?.commit || result.build || '' : '';   // the older folders are named for their build; a backfilled manifest of form 9 says otherwise
   const ladderAct = manifest.flags?.ladderAct ?? result.ladderAct ?? true;
-  return {id: `form-${id}/${tool}/${at}`, at, applicant: manifest.applicant || 'thin', mode: ours ? (ladderAct ? 'harness' : 'user') : 'any', tool: ours ? 'Our extension' : NAME[tool], ours, build, form: `Form ${id}`,
+  return {id: `form-${id}/${tool}/${at}`, at, applicant: manifest.applicant || 'thin', mode: ours ? (ladderAct ? 'harness' : 'user') : 'any', tool: ours ? 'Our extension' : NAME[tool], ours, build, form: `Form ${id}`, heldout: FRESH.has(id),
     required: req.length, right: req.filter(f => f.verdict === 'right').length, wrong: req.filter(f => f.verdict === 'wrong').length, empty: req.filter(f => f.verdict === 'empty').length, ...c};
 }
 const toolDirs = root => fs.readdirSync(root, {withFileTypes: true}).filter(d => d.isDirectory()).flatMap(f => fs.readdirSync(path.join(root, f.name), {withFileTypes: true}).filter(d => d.isDirectory() && fs.existsSync(path.join(root, f.name, d.name, 'judged.json'))).map(d => path.join(root, f.name, d.name)));
