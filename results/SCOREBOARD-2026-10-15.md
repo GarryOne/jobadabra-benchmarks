@@ -83,3 +83,10 @@ Our extension only, one live run per form, same 6 forms, fake applicant, no Subm
 - 🔴 **Lever (form 1): 1 wrong** (invents London as the office city in a free-text confirm); Hadrian 1 wrong (address box left as "Mus").
 - 🟡 Nebius (form 9) 6 -> 5 of 18, Tether and epilot unchanged.
 - Where we still lose: 39 required fields left empty over the 6 forms (Nebius 13 of 18), and we are the most wrong-prone since #688: 5 wrong vs 1 on 14 Oct. Ahead of the agents on count (45% vs 33-40%) but not on wrongs (Browser Use 1, Stagehand 2).
+
+## Corrections after the follow-up (15 Oct 2026, evening)
+- **Lever "London" is right, not invented:** the posting's location is London and the answer came from the saved relocation fact (owner decision: a knockout answered from a saved fact is typed). Judge false positive: ours today = **4 wrong, not 5**.
+- **urrly's 3 wrong are a test-only bug:** the harness turns the repair rung on (`ladderAct`), real users did not have it at the time; the repair clicked the unchosen option of three yes/no radios. Fixed in job-pilotto PR #866; offline replay of the same record: 7/17 + 3 wrong -> 11/18 + 0 wrong.
+- **Hadrian "Mus":** a real wrong value (the 3-letter probe typed into a suggest-only address box, left when the 15 s ceiling ends the wait). Open, with the typeahead fallback work.
+- **Mode:** every number here ran with the repair rung ON (harness). Owner decision 15 Oct 2026: repair for real users too (job-pilotto PR "The repair rung acts for every user"), so this is the user mode from then on. Repairs made on these 6 forms: 4 retypes (none held), 3 toggles (all harmful, now refused).
+- Same-form numbers with Lever corrected: ours today 35/78, 4 wrong; with the urrly replay fix 39/79 (49%), 1 wrong (Hadrian).
