@@ -122,7 +122,9 @@ if (!process.argv.includes('--no-judge') && fs.existsSync(path.join(out, 'fields
   fs.writeFileSync(path.join(out, 'judged.json'), JSON.stringify(j.judged, null, 1));
   Object.assign(result, {score: summarize(j.judged), judgeUsd: j.usd, fileChips: data.fileChips});
 }
+if (tool === 'extension') result.ladderAct = (() => { try { return /ladderAct:\s*true/.test(fs.readFileSync(path.join(REPO, 'lib', 'real-extension.mjs'), 'utf8')); } catch { return null; } })();   // the repair rung on (harness) or off (what users run): the benchmark page labels every run with it
 result.wallSeconds = Math.round((Date.now() - started) / 1000);
 fs.writeFileSync(path.join(out, 'result.json'), JSON.stringify(result, null, 1));
 writeManifest({tool, url, out, instructionText: instruction(applicant.text, url, process.env.BAKEOFF_FLOW === '1'), applicantText: applicant.text, repoE2e: REPO, result, startedAt: new Date(started).toISOString(), flow: process.env.BAKEOFF_FLOW === '1'});   // everything needed to repeat this run (lib/manifest.mjs)
 console.log(`RESULT ${tool}: ${JSON.stringify({score: result.score, seconds: result.seconds, steps: result.steps, usd: result.usd, submitPressed: result.submitPressed, aborted: result.guard.aborted.length})}`);
+if (!process.argv.includes('--no-judge') && !process.env.BAKEOFF_NO_PUBLISH) { try { console.log('benchmark page:', execFileSync('node', [path.join(import.meta.dirname, 'publish-site.mjs'), '--run', out], {encoding: 'utf8', timeout: 60000}).trim()); } catch (e) { console.log('benchmark page: not updated (' + String(e.message).slice(0, 80) + ')'); } }   // each scored run updates /admin/benchmark-form-filling; never fails the run
