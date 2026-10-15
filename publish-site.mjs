@@ -1,7 +1,7 @@
 // node publish-site.mjs [--dry] [--run <dir>] [root...]: sends one summary row per scored run to the owner-only page /admin/benchmark-form-filling (PUT /benchmark/data, Bearer = Keychain job-pilotto.site.selfheal_publish_key or $SELFHEAL_PUBLISH_KEY).
 // Reads <root>/<form>/<tool>/{judged.json,result.json,manifest.json} (roots: results/runs/form-N and out/<id>; --run <dir> = one tool dir right after a run). Counts are REQUIRED fields only, as in product-score.mjs:
 // right / wrong / empty, not answerable (the facts cannot answer), consent holds (an empty checkbox or consent line, held for the person) and reader duplicates (same question and type twice).
-// Forms go out as "Form N" (no hosts), tools by the names below; the site's code is public and holds none of them. Mode = our extension's repair rung: ladderAct on = harness, off = user; a run that did not record it is harness (before 15 Oct 2026 the rung acted in the harness only).
+// Forms go out as "Form N" (no hosts), tools by the names below; the site's code is public and holds none of them. Mode = our extension's repair rung: user = the build has it acting for every user (#873) or the harness had it off; harness = a build before #873 run with it on; a run that did not record it is harness (before 15 Oct 2026 the rung acted in the harness only).
 import fs from 'node:fs'; import path from 'node:path'; import {execFileSync} from 'node:child_process';
 const here = import.meta.dirname, args = process.argv.slice(2), dry = args.includes('--dry');
 const one = args.includes('--run') ? args[args.indexOf('--run') + 1] : null, roots = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--run');
@@ -12,6 +12,10 @@ const FRESH = new Set((() => { try { return JSON.parse(fs.readFileSync(path.join
 // select = a react-select's chosen value is found above its input (lib/extract-fields.js). Both hit every tool the same way.
 const git = (...a) => { try { return execFileSync('git', ['-C', here, ...a], {encoding: 'utf8'}).trim(); } catch { return ''; } };
 const FIXES = [['trail', git('log', '-1', '--format=%aI', '--grep=Trail: a field the final page shows empty is empty')], ['select', git('log', '-1', '--format=%aI', 'f20f9eb')]];
+// Is this build one that has the repair rung acting for every user (the commit "The repair rung acts for every user")? Keyed on the build, not on the harness flag alone.
+const JP = process.env.JP_MAIN_REPO || path.join(process.env.HOME, 'job-pilotto');
+const RUNG_USER = (() => { try { return execFileSync('git', ['-C', JP, 'log', 'origin/main', '-1', '--format=%H', '--grep=The repair rung acts for every user'], {encoding: 'utf8'}).trim(); } catch { return ''; } })();
+const userBuild = build => { if (!RUNG_USER) return false; try { execFileSync('git', ['-C', JP, 'merge-base', '--is-ancestor', RUNG_USER, build], {stdio: 'ignore'}); return true; } catch { return false; } };
 const rj = f => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return null; } };
 const consent = f => f.verdict === 'empty' && (f.type === 'checkbox' || /consent|acknowledg|agree|privacy|legal/i.test(`${f.note} ${f.question}`));
 
@@ -21,10 +25,12 @@ export function rowOf(dir) {
   if (!judged || !result || !id || !judged.some(f => f.required) || fs.existsSync(path.join(dir, 'INVALID.txt'))) return null;
   const ours = tool.startsWith('extension'); if (!ours && !NAME[tool]) return null;
   const req = judged.filter(f => f.required), seen = new Set(), c = {unans: 0, holds: 0, dups: 0};
-  for (const f of req) { const key = `${f.question}|${f.type}`; if (seen.has(key)) { c.dups++; continue; } seen.add(key); if (!f.answerable) c.unans++; else if (consent(f)) c.holds++; }
+  // a NAMELESS second row of a question is the widget's companion (react-select, phone prefix); two named controls are two controls
+  for (const f of req) { const key = `${f.question}|${f.type}`; if (seen.has(key) && !f.name) { c.dups++; continue; } seen.add(key); if (!f.answerable) c.unans++; else if (consent(f)) c.holds++; }
   const at = manifest.finishedAt || fs.statSync(path.join(dir, 'result.json')).mtime.toISOString(), build = ours ? DIR_BUILD[tool] || manifest.extension?.commit || result.build || '' : '';   // the older folders are named for their build; a backfilled manifest of form 9 says otherwise
   const ladderAct = manifest.flags?.ladderAct ?? result.ladderAct ?? true;
-  return {id: `form-${id}/${tool}/${at}`, at, applicant: manifest.applicant || 'thin', mode: ours ? (ladderAct ? 'harness' : 'user') : 'any', tool: ours ? 'Our extension' : NAME[tool], ours, build, form: `Form ${id}`, heldout: FRESH.has(id), fixes: FIXES.filter(([, date]) => !date || Date.parse(at) < Date.parse(date)).map(([key]) => key),
+  const user = !ladderAct || (build ? userBuild(build) : false);   // since the repair rung acts for every user (#873) a build that contains it is what users run
+  return {id: `form-${id}/${tool}/${at}`, at, applicant: manifest.applicant || 'thin', mode: ours ? (user ? 'user' : 'harness') : 'any', tool: ours ? 'Our extension' : NAME[tool], ours, build, form: `Form ${id}`, heldout: FRESH.has(id), fixes: FIXES.filter(([, date]) => !date || Date.parse(at) < Date.parse(date)).map(([key]) => key),
     required: req.length, right: req.filter(f => f.verdict === 'right').length, wrong: req.filter(f => f.verdict === 'wrong').length, empty: req.filter(f => f.verdict === 'empty').length, ...c};
 }
 const toolDirs = root => fs.readdirSync(root, {withFileTypes: true}).filter(d => d.isDirectory()).flatMap(f => fs.readdirSync(path.join(root, f.name), {withFileTypes: true}).filter(d => d.isDirectory() && fs.existsSync(path.join(root, f.name, d.name, 'judged.json'))).map(d => path.join(root, f.name, d.name)));
