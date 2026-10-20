@@ -26,7 +26,7 @@ jobs:
         with: {node-version: 22}
       - name: Install career-ops (no scripts)
         working-directory: career-ops
-        run: npm ci --ignore-scripts
+        run: npm install --ignore-scripts --no-audit --no-fund
       - name: Config for the persona
         run: |
           python3 search-bench/make-config.py search-bench/personas.json "${{ inputs.persona }}" career-ops/templates/portals.example.yml career-ops/portals.yml | tee config-rule.json
