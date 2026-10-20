@@ -1,0 +1,53 @@
+# search-bench: runs career-ops' zero-token scan (node scan.mjs, no AI, no secrets) for ONE persona of search-bench/personas.json; career-ops is pinned and never runs on a Mac.
+name: search-bench career-ops
+on:
+  workflow_dispatch:
+    inputs:
+      persona:
+        description: Persona number 1-10 (search-bench/personas.json)
+        required: true
+permissions:
+  contents: read
+env:
+  CAREER_OPS_TAG: career-ops-v1.37.0
+  CAREER_OPS_SHA: 373aba45c4c46f7fea933ecfa36a98d848812378
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/checkout@v4
+        with: {repository: career-ops-hq/career-ops, ref: "${{ env.CAREER_OPS_TAG }}", path: career-ops, persist-credentials: false}
+      - name: Pin check
+        run: test "$(git -C career-ops rev-parse HEAD)" = "$CAREER_OPS_SHA"
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - name: Install career-ops (no scripts)
+        working-directory: career-ops
+        run: npm ci --ignore-scripts
+      - name: Config for the persona
+        run: |
+          python3 search-bench/make-config.py search-bench/personas.json "${{ inputs.persona }}" career-ops/templates/portals.example.yml career-ops/portals.yml | tee config-rule.json
+          diff -u career-ops/templates/portals.example.yml career-ops/portals.yml > config.diff || true
+      - name: Scan
+        working-directory: career-ops
+        run: |
+          start=$(date +%s)
+          set +e
+          node scan.mjs --json --quiet > ../receipt.json 2> ../scan.log
+          echo "exit $?" >> ../scan.log
+          echo $(( $(date +%s) - start )) > ../seconds.txt
+          true
+      - name: Collect
+        run: |
+          mkdir out
+          cp config-rule.json config.diff receipt.json scan.log seconds.txt out/ || true
+          cp career-ops/portals.yml out/
+          cp career-ops/data/pipeline.md career-ops/data/scan-history.tsv out/ 2>/dev/null || true
+          date -u +%FT%TZ > out/finished-at.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: career-ops-persona-${{ inputs.persona }}
+          path: out
