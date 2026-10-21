@@ -9,7 +9,7 @@ import re
 import sys
 import urllib.request
 
-MODEL = 'claude-sonnet-5-5'
+MODEL = 'claude-sonnet-5-5' if os.environ.get('BENCH_JUDGE_ENGINE') != 'plan' else 'sonnet (Claude plan)'
 PRICE = (2.00, 10.00)   # $ per million input/output tokens (src/ai/cost.py, 2 Oct 2026)
 BATCH = 60
 SYSTEM = ('You check a job search for one job seeker. You get their short profile and a numbered list of jobs (title, employer, place). For EACH job decide two things on their own. '
@@ -18,7 +18,30 @@ SYSTEM = ('You check a job search for one job seeker. You get their short profil
           'Judge only from the title, employer and place shown; do not guess beyond them. Answer with JSON only: {"jobs":[{"n":1,"role":"yes|no","place":"yes|remote|no|unknown"}, ...]} covering every number.')
 
 
+def real_claude():
+    """The Claude Code install itself, never a shell-script wrapper (a wrapper carries a terminal session's settings and the owner's identity)."""
+    for folder in os.environ.get('PATH', '').split(os.pathsep):
+        path = os.path.join(folder, 'claude')
+        if os.access(path, os.X_OK) and not open(path, 'rb').read(120).startswith(b'#!'):
+            return path
+    raise SystemExit('no claude install found')
+
+
+def ask_plan(profile, jobs):
+    """The same question on the Claude plan ($0 API): no API key in the environment, no settings, no tools, an empty folder."""
+    import subprocess, tempfile
+    env = {k: v for k, v in os.environ.items() if not k.endswith('_API_KEY') and 'ANTHROPIC' not in k and k != 'BENCH_JUDGE_KEY'}
+    prompt = profile + '\n\nJOBS\n' + '\n'.join(f'{j["n"]}. {j["title"]} | {j["company"] or "?"} | {j["location"] or "(no place)"}' for j in jobs)
+    out = subprocess.run([real_claude(), '-p', '--model', 'sonnet', '--system-prompt', SYSTEM, '--tools', '', '--setting-sources', '', '--disable-slash-commands', '--strict-mcp-config', '--no-session-persistence',
+                          '--output-format', 'json'], input=prompt, capture_output=True, text=True, timeout=900, cwd=tempfile.mkdtemp(), env=env)
+    reply = json.loads(out.stdout)
+    data = json.loads(re.search(r'\{.*\}', reply['result'], re.S).group(0))
+    return {r['n']: r for r in data['jobs']}, {'input_tokens': 0, 'output_tokens': 0}
+
+
 def ask(key, profile, jobs):
+    if os.environ.get('BENCH_JUDGE_ENGINE') == 'plan':
+        return ask_plan(profile, jobs)
     body = {'model': MODEL, 'max_tokens': 8000, 'system': SYSTEM, 'messages': [{'role': 'user', 'content': profile + '\n\nJOBS\n' + '\n'.join(
         f'{j["n"]}. {j["title"]} | {j["company"] or "?"} | {j["location"] or "(no place)"}' for j in jobs)}]}
     req = urllib.request.Request('https://api.anthropic.com/v1/messages', json.dumps(body).encode(), {'x-api-key': key, 'anthropic-version': '2023-06-01', 'content-type': 'application/json'})
@@ -31,7 +54,7 @@ def ask(key, profile, jobs):
 def main():
     personas, index, pool_path, out_path = sys.argv[1:5]
     limit = int(sys.argv[sys.argv.index('--limit') + 1]) if '--limit' in sys.argv else None
-    key = os.environ['BENCH_JUDGE_KEY']
+    key = os.environ.get('BENCH_JUDGE_KEY', '')
     p = json.load(open(personas))['personas'][int(index) - 1]
     profile = f'Profile: {p["title"]}, 6 years of experience, living in {p["city"]}, {p["country"]}; on-site or hybrid; speaks {p["language"]} and English.'
     pool = json.load(open(pool_path))

@@ -8,11 +8,11 @@
   "language": "Estonian"
  },
  "seed": "bench-judge-1",
- "model": "claude-sonnet-5-5",
+ "model": "sonnet (Claude plan)",
  "judged_jobs": 130,
- "tokens_in": 8174,
- "tokens_out": 3934,
- "cost_usd": 0.0557,
+ "tokens_in": 0,
+ "tokens_out": 0,
+ "cost_usd": 0.0,
  "rows": [
   {
    "tool": "ours",

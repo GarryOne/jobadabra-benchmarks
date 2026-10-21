@@ -14,8 +14,10 @@ if kind == 'ours':
             for t, c, l, s in db.execute("SELECT j.title, co.name, j.location, s.name FROM jobs j LEFT JOIN companies co ON co.id = j.company_id LEFT JOIN sources s ON s.id = j.source_id WHERE j.state = 'open'")]
     json.dump(rows, open(out, 'w'), ensure_ascii=False, indent=1)
 else:
+    import os
+    # career-ops writes no scan-history.tsv when no posting matched the role keyword: that is an empty list, not an error
     allrows = [{'tool': 'career-ops', 'title': r['title'], 'company': r['company'], 'location': r['location'], 'provider': r['portal'], 'status': r['status']}
-               for r in csv.DictReader(open(src, encoding='utf-8'), delimiter='\t')]
+               for r in (csv.DictReader(open(src, encoding='utf-8'), delimiter='\t') if os.path.exists(src) else [])]
     json.dump(allrows, open(out.replace('.json', '.all.json'), 'w'), ensure_ascii=False, indent=1)
     rows = [r for r in allrows if not r['status'].startswith('skipped')]
     json.dump(rows, open(out, 'w'), ensure_ascii=False, indent=1)
