@@ -52,8 +52,9 @@ for (const f of files) {
   if (!/^\s+product_ref:/m.test(text)) continue;
   test(`${f}: every job runs one resolved product commit`, () => {
     assert.match(text, /^ {2}build:.*\n[\s\S]*?outputs:\n\s+sha:/m, 'a build job outputs the resolved commit');
+    assert.match(text, /gh api "repos\/GarryOne\/jobadabra\/commits\/\$REF"/, 'resolved by the commits API (actions/checkout refuses a short commit)');
     const refs = [...text.matchAll(/repository: GarryOne\/jobadabra,\s*ref: '([^']+)'/g)].map(m => m[1]);
-    assert.ok(refs.length >= 2, 'the build job and the matrix job check out the product');
-    assert.deepEqual(refs.slice(1).filter(r => r !== '${{ needs.build.outputs.sha }}'), [], 'jobs after the build use its commit, never the input ref');
+    assert.ok(refs.length >= 1, 'a job checks out the product');
+    assert.deepEqual(refs.filter(r => r !== '${{ needs.build.outputs.sha }}'), [], 'every checkout of our product uses the resolved commit, never the input ref');
   });
 }

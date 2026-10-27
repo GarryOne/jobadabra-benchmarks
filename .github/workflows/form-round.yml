@@ -33,10 +33,11 @@ jobs:
     outputs:
       sha: ${{ steps.sha.outputs.sha }}
     steps:
-      - uses: actions/checkout@v5
-        with: {repository: GarryOne/jobadabra, ref: '${{ inputs.product_ref }}', path: jp, persist-credentials: false, sparse-checkout: README.md}
-      - id: sha
-        run: echo "sha=$(git -C jp rev-parse HEAD)" | tee -a "$GITHUB_OUTPUT"
+      - id: sha   # the commits API takes a branch, tag, short or full commit (actions/checkout refuses a short one: 27 Oct 2026)
+        env: {GH_TOKEN: '${{ github.token }}', REF: '${{ inputs.product_ref }}'}
+        run: |
+          sha=$(gh api "repos/GarryOne/jobadabra/commits/$REF" --jq .sha) && test ${#sha} = 40
+          echo "sha=$sha" | tee -a "$GITHUB_OUTPUT"
   run:
     needs: build
     runs-on: ubuntu-24.04
