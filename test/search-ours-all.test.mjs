@@ -18,3 +18,20 @@ test('the note shows ours without the rivals, ours with everything and the relev
   assert.match(text, /Ours with every source 2 relevant of 2 shown; we add beyond .*EURES 1/);
   assert.doesNotMatch(text.split('\n')[2] || '', /ours-all/, 'the rivals line holds only rivals');
 });
+
+test('ours (rivals off) is never diffed against a reference that had every source on; ours with every source is', () => {
+  const note = noteOf({1: rows}, {round: 'r', rivalsOff: true});
+  const old = {tools: {ours: {relevant: 5}}, personas: {1: {relevant: 5}}};   // the 27 Oct baseline and notes before this change: every source on
+  const text = noteText(note, old, old);
+  assert.match(text, /^Ours \(rivals' sources off\) 1 relevant of 1 shown \(no earlier run with the rivals off yet\)$/m);
+  assert.match(text, /^Ours with every source 2 relevant of 2 shown \(▼3 vs the previous run 5\) \(▼3 vs baseline 5\);/m);
+  const next = {rivalsOff: true, tools: {ours: {relevant: 0}, 'ours-all': {relevant: 1}}, personas: {}};
+  assert.match(noteText(note, old, next), /^Ours \(rivals' sources off\) 1 relevant of 1 shown \(▲1 vs the previous run 0\)$/m);
+});
+
+test('a rival whose job failed is unknown, not a lead: nothing is counted as beyond it', () => {
+  const note = noteOf({1: rows}, {round: 'r', missing: ['eures p1', 'jobspy p1']});
+  assert.equal(note.beyond.eures, undefined);
+  assert.equal(note.beyond.jobspy, undefined);
+  assert.equal(note.beyond.adzuna, 2, 'a rival that ran with an empty list is a real "beyond"');
+});

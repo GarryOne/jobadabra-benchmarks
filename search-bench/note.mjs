@@ -13,19 +13,20 @@ const key = row => [row.title, row.company, row.location].map(part => (part || '
 const relevant = row => row.role === 'yes' && row.place === 'yes';
 
 /** rowsByPersona: {N: judged rows of persona N} (judge.py's rows) -> {round, build, tools: {tool: {relevant, found}}, personas: {N: {label, relevant, found}}} (personas: ours only) */
-export function noteOf(rowsByPersona, {round = '', build = '', labels = {}} = {}) {
+export function noteOf(rowsByPersona, {round = '', build = '', labels = {}, missing = [], rivalsOff = false} = {}) {
   const tools = {}, personas = {}, beyond = {};
   for (const [n, rows] of Object.entries(rowsByPersona)) {
     for (const rival of RIVALS) {   // our relevant jobs (every source on) that this rival did not show, summed over the personas
       const seen = new Set(rows.filter(row => row.tool === rival).map(key));
-      if (rows.some(row => row.tool === 'ours-all')) beyond[rival] = (beyond[rival] || 0) + rows.filter(row => row.tool === 'ours-all' && relevant(row) && !seen.has(key(row))).length;
+      // Why (27 Oct 2026, gitar-bot, #9): a rival whose job failed has no rows; counting every ours-all job as beyond it would show a made-up lead.
+      if (!missing.includes(`${rival} p${n}`) && rows.some(row => row.tool === 'ours-all')) beyond[rival] = (beyond[rival] || 0) + rows.filter(row => row.tool === 'ours-all' && relevant(row) && !seen.has(key(row))).length;
     }
     for (const row of rows) { const t = (tools[row.tool] ||= {relevant: 0, found: 0}); t.found++; if (relevant(row)) t.relevant++; }
     const ours = rows.filter(row => row.tool === 'ours');
     personas[n] = {label: labels[n] || `Persona ${n}`, relevant: ours.filter(relevant).length, found: ours.length};
   }
   tools.ours ||= {relevant: 0, found: 0};
-  return {round, build, tools, personas, ...(Object.keys(beyond).length ? {beyond} : {})};
+  return {round, build, tools, personas, ...(rivalsOff ? {rivalsOff} : {}), ...(Object.keys(beyond).length ? {beyond} : {})};
 }
 
 /** Reads judged<N>.json (a work dir) or persona-<N>.json (a results/<round> dir) into {N: rows}. */
@@ -40,16 +41,19 @@ const diff = (now, then) => (then == null ? '' : now > then ? ` ▲${now - then}
 /** note, baseline and last (notes or null), {missing: ["ours p3"], url} -> the message text */
 export function noteText(note, baseline, last, {missing = [], url = ''} = {}) {
   const ours = note.tools.ours, none = Object.values(note.personas).filter(p => p.relevant === 0).length;
-  const vs = (ref, label) => (ref ? ` (${diff(ours.relevant, ref.tools.ours?.relevant).trim()} vs ${label} ${ref.tools.ours?.relevant})` : '');
+  // Why (27 Oct 2026, gitar-bot, #9): "ours" now runs with the rivals' sources off; the baseline and the notes saved before ran with everything on. Each line is
+  // compared only with a reference that ran the same way: ours with a note that has rivalsOff, ours-all with a note's ours-all, or (an old note) its ours, which had every source on.
+  const same = (ref, tool) => (tool === 'ours' ? (ref?.rivalsOff ? ref.tools.ours : undefined) : ref?.tools['ours-all'] || (ref && !ref.rivalsOff ? ref.tools.ours : undefined));
+  const vs = (ref, label, tool = 'ours') => { const r = same(ref, tool)?.relevant; return r === undefined ? '' : ` (${diff(note.tools[tool].relevant, r).trim()} vs ${label} ${r})`; };
   const lines = [`🔎 Search round · ${note.round}${note.build ? ` · build ${note.build}` : ''}`,
-    `Ours (rivals' sources off) ${ours.relevant} relevant of ${ours.found} shown${vs(last, 'the previous run')}${vs(baseline, 'baseline')}`];
+    `Ours (rivals' sources off) ${ours.relevant} relevant of ${ours.found} shown${vs(last, 'the previous run')}${vs(baseline, 'baseline')}${last || baseline ? (same(last, 'ours') || same(baseline, 'ours') ? '' : ' (no earlier run with the rivals off yet)') : ''}`];
   const all = note.tools['ours-all'];
-  if (all) lines.push(`Ours with every source ${all.relevant} relevant of ${all.found} shown${note.beyond ? `; we add beyond ${Object.entries(note.beyond).map(([r, k]) => `${NAME[r] || r} ${k}`).join(' · ')}` : ''}`);
+  if (all) lines.push(`Ours with every source ${all.relevant} relevant of ${all.found} shown${vs(last, 'the previous run', 'ours-all')}${vs(baseline, 'baseline', 'ours-all')}${note.beyond ? `; we add beyond ${Object.entries(note.beyond).map(([r, k]) => `${NAME[r] || r} ${k}`).join(' · ')}` : ''}`);
   const rivals = Object.entries(note.tools).filter(([t]) => t !== 'ours' && t !== 'ours-all').sort((a, b) => b[1].relevant - a[1].relevant);
   if (rivals.length) lines.push(rivals.map(([t, s]) => `${NAME[t] || t} ${s.relevant}${diff(s.relevant, (last || baseline)?.tools[t]?.relevant)}`).join(' · '));
   lines.push(`Searches with none: ${none} of ${Object.keys(note.personas).length}`);
   for (const [n, p] of Object.entries(note.personas).sort((a, b) => a[0] - b[0])) {
-    const ref = (last || baseline)?.personas?.[n];
+    const ref = same(last || baseline, 'ours') ? (last || baseline)?.personas?.[n] : undefined;   // the same way of running, or no arrow
     lines.push(`${p.label}: ${p.relevant} of ${p.found} shown${diff(p.relevant, ref?.relevant)}`);
   }
   if (missing.length) lines.push(`⚠ Missing (a job failed, not a 0): ${missing.join(', ')}`);
@@ -61,12 +65,13 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const work = process.argv[2], arg = n => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : ''; };
   const personas = rj(path.join(import.meta.dirname, 'personas.json')).personas;
   const labels = Object.fromEntries(personas.map((p, i) => [i + 1, `${p.title} · ${p.city}`]));
-  const note = noteOf(readRound(work), {round: arg('round'), build: arg('build'), labels});
+  const missingNow = rj(path.join(work, 'missing.json')) || [];
+  const note = noteOf(readRound(work), {round: arg('round'), build: arg('build'), labels, missing: missingNow, rivalsOff: true});
   const baseline = arg('baseline') ? noteOf(readRound(arg('baseline')), {labels}) : null;
   const lastDir = arg('last'), lastFile = lastDir && fs.existsSync(lastDir) ? fs.readdirSync(lastDir).filter(f => f.endsWith('.json')).sort().at(-1) : '';
   const last = lastFile ? rj(path.join(lastDir, lastFile)) : null;
   const unjudged = personas.map((_, i) => i + 1).filter(n => !fs.existsSync(path.join(work, `judged${n}.json`))).map(n => `judge p${n}`);
-  const text = noteText(note, baseline, last, {missing: [...(rj(path.join(work, 'missing.json')) || []), ...unjudged], url: arg('url')});
+  const text = noteText(note, baseline, last, {missing: [...missingNow, ...unjudged], url: arg('url')});
   if (arg('out')) { fs.mkdirSync(path.dirname(arg('out')), {recursive: true}); fs.writeFileSync(arg('out'), JSON.stringify(note, null, 1) + '\n'); }
   console.log(text);
   const {BENCH_TELEGRAM_BOT_TOKEN: token, BENCH_TELEGRAM_CHAT_ID: chat} = process.env;

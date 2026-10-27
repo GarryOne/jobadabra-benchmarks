@@ -14,6 +14,7 @@ const personas = JSON.parse(fs.readFileSync(path.join(here, 'personas.json'), 'u
 const read = (file, fallback = '') => { try { return fs.readFileSync(file, 'utf8'); } catch { return fallback; } };
 const norm = row => [row.title, row.company, row.location].map(part => (part || '').trim().toLowerCase()).join('|');
 const rows = [];
+const missing = JSON.parse(read(path.join(work, 'missing.json'), '[]'));   // "ours p3"-style labels: a rival whose job failed has no rows (pool.mjs)
 fs.mkdirSync(path.join(here, 'results', round), {recursive: true});
 
 // every tool of the round, so a tool that found nothing on a persona still shows a 0 there
@@ -37,6 +38,7 @@ personas.forEach((persona, at) => {
     const mine = list.filter(row => row.tool === tool);
     const beyond = {};   // ours-all only: its relevant jobs each rival did not show (owner, 27 Oct 2026: "how many relevant jobs we add on top of each rival")
     if (tool === 'ours-all') for (const rival of roundTools.filter(t => !['ours', 'ours-all', 'career-ops', 'career-ops-docs'].includes(t))) {
+      if (missing.includes(`${rival} p${n}`)) continue;   // Why (gitar-bot, #9): a failed rival is unknown, not "everything is beyond it"
       const seen = new Set(list.filter(row => row.tool === rival).map(norm));
       beyond[NAME[rival] || rival] = mine.filter(relevant).filter(row => !seen.has(norm(row))).length;
     }
