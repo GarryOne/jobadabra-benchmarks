@@ -13,6 +13,8 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
     ours and theirs. If using Haiku then haiku ours and theirs"): both rounds on CI, every AI contestant on Haiku 5.5 (form round: the
     Benchmarks API key; search round: the owner's plan token). No extra "as shipped" row. A local run is a side note, never the scoreboard.
     Guarded by test/workflows.test.mjs.
+  - **A re-run is the whole round, same day** (27 Oct 2026): when ours must run again (a known bug fixed after the round), re-run
+    every contestant of that round the same day; never one contestant alone. The earlier result stays as a labelled "before" row.
 - **Safe:** never submit a live form (the guard in `lib/guard.mjs`), fake applicant only, no captcha or login wall. The Mac allows 3 visits
   a site a day (the product's site ledger): a full round runs on CI with its own one-day limit (owner's yes, 27 Oct 2026).
 - **Keys:** create the API keys a benchmark needs yourself, in Claude in Chrome (owner, 27 Oct 2026), inside an account the owner is already
