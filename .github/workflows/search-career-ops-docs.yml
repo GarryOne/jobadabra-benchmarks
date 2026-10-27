@@ -54,6 +54,8 @@ jobs:
       - name: career-ops' scripts run as another Linux user (the token stays with Claude Code)
         run: |
           sudo useradd -m scanner
+          sudo apt-get install -y -qq bubblewrap >/dev/null   # Claude Code's env scrub for its own subprocesses needs it
+          sudo sysctl -q -w kernel.apparmor_restrict_unprivileged_userns=0   # Ubuntu 24.04 blocks bubblewrap's namespaces otherwise
           sudo cp -r career-ops /srv/co && sudo chmod -R a+rwX /srv/co
           mkdir -p "$RUNNER_TEMP/shim"
           printf '#!/bin/sh\nexec sudo -n -u scanner -H -- env -i PATH=%s HOME=/home/scanner LANG=C.UTF-8 sh -c '"'"'umask 000; exec "$0" "$@"'"'"' %s "$@"\n' "$PATH" "$(command -v node)" > "$RUNNER_TEMP/shim/node"
@@ -86,7 +88,9 @@ jobs:
           start=$(date +%s); set +e; umask 000; export PATH="$RUNNER_TEMP/shim:$PATH"
           claude -p "$prompt" --model "$BENCH_MODEL" --max-turns 80 --output-format json --permission-mode acceptEdits \
             --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(node:*),Bash(npm run:*),Bash(ls:*),Bash(cat:*)" > $W/claude.json 2> $W/claude.err
-          echo "exit $?" >> $W/claude.err; echo $(( $(date +%s) - start )) > $W/seconds.txt; true
+          code=$?; echo "exit $code" >> $W/claude.err; echo $(( $(date +%s) - start )) > $W/seconds.txt
+          # A run that never started is a failure, never a quiet green (27 Oct smoke: Claude stopped at once, the job showed success).
+          [ "$code" = 0 ] || { tail -5 $W/claude.err; exit "$code"; }
       - name: Collect (no posting texts)
         if: always()
         run: |
