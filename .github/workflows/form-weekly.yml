@@ -1,7 +1,8 @@
-# Each Monday, two rounds (owner, 27 Oct 2026: "Both (Recommended)"); each ends with one Telegram note (weekly-note.mjs):
-# - `fixed`: ours alone on the 6 fixed forms x3, our regression check (owner, via 5b: "Weekly, ours only (Recommended)"), ~$0.08;
+# Two rounds (owner, 27 Oct 2026: "Both (Recommended)"); each ends with one Telegram note (weekly-note.mjs):
+# - `fixed`, every 3 days: ours alone on the 6 fixed forms x3, our regression check (owner, via 5b: "Weekly, ours only (Recommended)";
+#   Why (27 Oct 2026, owner via 5b): "I wan you to change CI job from weekly to every 3 days"), ~$0.08 a run, ~$0.82 a month;
 # - `draw`: the weekly new set (owner, via 6e: "Yes: fixed set + weekly new set (Recommended)"; shape: "All 4, 1 repeat (Recommended)",
-#   about $0.77 a week). The one workflow on a schedule (test/workflows). Each Monday it draws 6 forms nobody has seen: career-ops' list
+#   about $0.77 a week), on Mondays. Each Monday it draws 6 forms nobody has seen: career-ops' list
 # (pinned tag), minus every company in our product repo, this repo's form lists and runs, the fixed set and every earlier week
 # (tools/excluded.sh), seeded by the ISO week so anyone can redo it. Ids YYWW*100+1.. so a form id names one form in every round.
 # The draw goes to the branch weekly-picks (weekly/<week>.json; main is merged by hand), then the form round runs all four tools once on
@@ -9,7 +10,7 @@
 name: form weekly (fixed set + new set)
 on:
   schedule:
-    - cron: '0 6 * * 1'   # Monday 06:00 UTC
+    - cron: '0 6 * * *'   # 06:00 UTC daily; the `when` job picks the day's rounds
   workflow_dispatch:
 permissions:
   contents: write   # the weekly-picks branch
@@ -17,7 +18,21 @@ permissions:
 env:
   CAREER_OPS_TAG: career-ops-v1.38.0
 jobs:
+  when:   # Why (27 Oct 2026): cron's */3 restarts each month (31 -> 1); days since 1970 mod 3 keeps exactly 3 days apart. By hand: both rounds.
+    runs-on: ubuntu-24.04
+    outputs:
+      fixed: ${{ steps.day.outputs.fixed }}
+      draw: ${{ steps.day.outputs.draw }}
+    steps:
+      - id: day
+        env: {EVENT: '${{ github.event_name }}'}
+        run: |
+          hand=$([ "$EVENT" = workflow_dispatch ] && echo yes || echo no)
+          echo "fixed=$([ $hand = yes ] || [ $(( $(date -u +%s) / 86400 % 3 )) = 0 ] && echo yes || echo no)" | tee -a "$GITHUB_OUTPUT"
+          echo "draw=$([ $hand = yes ] || [ "$(date -u +%u)" = 1 ] && echo yes || echo no)" | tee -a "$GITHUB_OUTPUT"
   fixed:   # ours on the fixed set, judged in the frozen baseline, published as round fixed
+    needs: when
+    if: needs.when.outputs.fixed == 'yes'
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
@@ -26,6 +41,8 @@ jobs:
         run: |
           gh workflow run form-round.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" -f tools='["extension"]' -f runs='[1,2,3]' -f publish=fixed -f weekly=yes
   draw:
+    needs: when
+    if: needs.when.outputs.draw == 'yes'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:

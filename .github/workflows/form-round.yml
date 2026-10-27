@@ -182,11 +182,11 @@ jobs:
           BENCH_TELEGRAM_CHAT_ID: ${{ secrets.BENCH_TELEGRAM_CHAT_ID }}
           URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          kind=week; base=; [ "$ROUND" = fixed ] && { kind=fixed; base="--baseline rounds/fixed/baseline.json"; }
+          kind=week; base=; name=$(date -u +%G-W%V); [ "$ROUND" = fixed ] && { kind=fixed; base="--baseline rounds/fixed/baseline.json"; name=$(date -u +%F); }   # fixed runs every 3 days: one note per day
           git fetch -q origin weekly-picks && git worktree add -q picks FETCH_HEAD || git worktree add -q --orphan -b weekly-picks picks
           mkdir -p "picks/notes/$kind"
-          node weekly-note.mjs pool --round "$ROUND" $base --last "picks/notes/$kind" --out "picks/notes/$kind/$(date -u +%G-W%V).json" --url "$URL"
-          cd picks && git add notes && git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -q -m "Weekly note $ROUND $(date -u +%G-W%V)"
+          node weekly-note.mjs pool --round "$ROUND" $base --last "picks/notes/$kind" --out "picks/notes/$kind/$name.json" --url "$URL"
+          cd picks && git add notes && git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -q -m "Note $ROUND $name"
           for i in 1 2 3; do git pull -q --rebase origin weekly-picks 2>/dev/null; git push -q origin HEAD:weekly-picks && break; sleep 10; done
       - name: The judged round
         if: always()

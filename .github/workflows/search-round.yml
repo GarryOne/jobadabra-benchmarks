@@ -1,0 +1,97 @@
+# The job-search round on CI every 3 days (owner, 27 Oct 2026: "I want job search benchmarks to run on the CI and me getting telegram
+# notifications"; "not weekly, but every 3 days"): ours on main (search-ours.yml, 1 search per persona, Haiku 5.5 on the owner's plan) and the
+# free rivals JobSpy, EURES and Adzuna (search-rivals.yml, no AI), then the blind judge (judge.py, the Claude plan, $0), the page
+# /admin/job-search/benchmark (publish.mjs) and one Telegram note against the previous run and the 27 Oct baseline (note.mjs).
+# career-ops stays by hand (it found 0-1 relevant jobs and takes plan time). The plan token stays in the repo's secrets
+# (owner, 27 Oct 2026: "Keep it standing (Recommended)").
+name: search round (every 3 days)
+on:
+  schedule:
+    - cron: '0 7 * * *'   # 07:00 UTC daily, an hour after the form round; the `when` job keeps 1 day in 3
+  workflow_dispatch:
+    inputs:
+      product_ref:
+        description: The Jobadabra commit or branch (GarryOne/jobadabra)
+        default: main
+permissions:
+  contents: write   # the notes on the weekly-picks branch
+  actions: read
+jobs:
+  when:   # Why (27 Oct 2026): cron's */3 restarts each month (31 -> 1); days since 1970 mod 3 keeps exactly 3 days apart. By hand: always.
+    runs-on: ubuntu-24.04
+    outputs:
+      go: ${{ steps.day.outputs.go }}
+    steps:
+      - id: day
+        env: {EVENT: '${{ github.event_name }}'}
+        run: echo "go=$([ "$EVENT" = workflow_dispatch ] || [ $(( $(date -u +%s) / 86400 % 3 )) = 0 ] && echo yes || echo no)" | tee -a "$GITHUB_OUTPUT"
+  ours:
+    needs: when
+    if: needs.when.outputs.go == 'yes'
+    uses: ./.github/workflows/search-ours.yml
+    with:
+      product_ref: ${{ inputs.product_ref || 'main' }}
+      personas: '[1,2,3,4,5,6,7,8,9,10]'
+      presses: '[1]'
+    secrets: inherit
+  rivals:
+    needs: when
+    if: needs.when.outputs.go == 'yes'
+    uses: ./.github/workflows/search-rivals.yml
+    with:
+      rivals: '["jobspy","eures","adzuna"]'
+    secrets: inherit
+  judge:   # after both arms, even when one persona failed (pool.mjs names what is missing, the note says so)
+    needs: [when, ours, rivals]
+    if: ${{ !cancelled() && needs.when.outputs.go == 'yes' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      CLAUDE_CODE_VERSION: 2.1.311
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: {node-version: '22'}
+      - name: Claude Code (pinned), for the judge
+        run: npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
+      - uses: actions/download-artifact@v5
+        with: {path: art, pattern: 'search-*'}
+      - name: The pools (title, employer, place per job; no URLs)
+        run: node search-bench/pool.mjs art work
+      - name: Blind judge, on the Claude plan ($0)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          BENCH_JUDGE_ENGINE: plan
+        run: |
+          set -o pipefail
+          for n in 1 2 3 4 5 6 7 8 9 10; do
+            env -u ANTHROPIC_API_KEY python3 -I search-bench/judge.py search-bench/personas.json $n work/pool$n.json work/judged$n.json 2>&1 | tee -a judge.log
+          done
+      - name: Publish to /admin/job-search/benchmark
+        env:
+          SELFHEAL_PUBLISH_KEY: ${{ secrets.BENCHMARK_PUBLISH_KEY }}
+        run: node search-bench/publish.mjs work --round "$(date -u +%F)" --build "$(cat work/build.txt)"
+      - name: Telegram note, against the previous run and the 27 Oct baseline
+        if: ${{ !cancelled() }}
+        env:
+          BENCH_TELEGRAM_BOT_TOKEN: ${{ secrets.BENCH_TELEGRAM_BOT_TOKEN }}
+          BENCH_TELEGRAM_CHAT_ID: ${{ secrets.BENCH_TELEGRAM_CHAT_ID }}
+          URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          git fetch -q origin weekly-picks && git worktree add -q picks FETCH_HEAD || git worktree add -q --orphan -b weekly-picks picks
+          mkdir -p picks/notes/search; day=$(date -u +%F)
+          node search-bench/note.mjs work --round "$day" --build "$(cat work/build.txt)" --baseline search-bench/results/2026-10-27 \
+            --last picks/notes/search --out "picks/notes/search/$day.json" --url "$URL"
+          cd picks && git add notes && git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -q -m "Search note $day"
+          for i in 1 2 3; do git pull -q --rebase origin weekly-picks 2>/dev/null; git push -q origin HEAD:weekly-picks && break; sleep 10; done
+      - name: The judged round
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: search-round-judged
+          retention-days: 90
+          path: |
+            judge.log
+            work/judged*.json
+            work/missing.json
+            search-bench/results/
