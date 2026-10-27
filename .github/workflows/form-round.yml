@@ -23,6 +23,9 @@ on:
       only:
         description: Form ids to run, comma list (empty - all; a smoke uses a form outside the round)
         default: ''
+      tools:
+        description: Tools, JSON (a round runs all four; one tool alone is a side check, e.g. an older build of ours)
+        default: '["browser-use","stagehand","nanobrowser","extension"]'
 permissions:
   contents: read
 env:
@@ -45,7 +48,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        tool: [browser-use, stagehand, nanobrowser, extension]
+        tool: ${{ fromJSON(inputs.tools) }}
         run: ${{ fromJSON(inputs.runs) }}   # every tool on BENCH_MODEL; no extra "as shipped" run (owner, 27 Oct 2026: the same AI for all)
     env:
       BENCH_ANTHROPIC_KEY: ${{ secrets.BENCH_ANTHROPIC_KEY }}   # the Benchmarks workspace key ($5/month limit), held by the metering pass-through
