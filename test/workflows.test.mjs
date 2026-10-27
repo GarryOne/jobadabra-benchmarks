@@ -15,18 +15,27 @@ test('there are workflows to check', () => assert.ok(files.length > 0));
 // The one exception: the weekly rounds run on a schedule (owner via 6e, 27 Oct 2026: "Yes: fixed set + weekly new set (Recommended)"; via 5b:
 // "Weekly, ours only (Recommended)": ours on the fixed set "catches our regressions"; in 4e's window: "Both (Recommended)"). A full round with
 // every rival on the fixed set stays by hand.
-const SCHEDULED = {'form-weekly.yml': ['schedule', 'workflow_dispatch']};
+// The search round too, every 3 days (owner, 27 Oct 2026: "I want job search benchmarks to run on the CI and me getting telegram
+// notifications"; "not weekly, but every 3 days"); it calls the ours and rivals workflows, which also start by hand.
+const SCHEDULED = {'form-weekly.yml': ['schedule', 'workflow_dispatch'], 'search-round.yml': ['schedule', 'workflow_dispatch'],
+  'search-ours.yml': ['workflow_dispatch', 'workflow_call'], 'search-rivals.yml': ['workflow_dispatch', 'workflow_call']};
 // Unit tests are no benchmark: a workflow that holds no secret and runs only a test file may start on a PR or a push (search-bench-tests.yml,
 // 21 Oct 2026: the judge's spend-cap tests, no API call).
 const isUnitTests = text => !/secrets\./.test(text) && /^\s+- run: python3 -I search-bench\/test_\w+\.py$/m.test(text);
 for (const f of files) {
   const text = fs.readFileSync(path.join(dir, f), 'utf8');
   if (isUnitTests(text)) { test(`${f}: unit tests only, no secret`, () => assert.ok(triggersOf(text).every(t => ['pull_request', 'push', 'workflow_dispatch'].includes(t)))); continue; }
-  test(`${f} starts by hand only${SCHEDULED[f] ? ', or on its weekly schedule' : ''}`, () => assert.deepEqual(triggersOf(text), SCHEDULED[f] || ['workflow_dispatch']));
+  test(`${f} starts by hand only${SCHEDULED[f] ? `, or: ${SCHEDULED[f].join(', ')}` : ''}`, () => assert.deepEqual(triggersOf(text), SCHEDULED[f] || ['workflow_dispatch']));
 }
-test('form-weekly.yml: once a week, and it hands its draw to the form round to publish', () => {
+// Exactly 3 days apart: a daily cron and a `when` job on days since 1970 mod 3 (cron's */3 restarts each month).
+const every3Days = /\$\(\( \$\(date -u \+%s\) \/ 86400 % 3 \)\) = 0/;
+test('form-weekly.yml: the fixed set every 3 days, the new set on Mondays, and it hands its draw to the form round to publish', () => {
   const text = fs.readFileSync(path.join(dir, 'form-weekly.yml'), 'utf8');
-  assert.deepEqual([...text.matchAll(/cron: '([^']+)'/g)].map(m => m[1]), ['0 6 * * 1']);
+  assert.deepEqual([...text.matchAll(/cron: '([^']+)'/g)].map(m => m[1]), ['0 6 * * *']);
+  assert.match(text, new RegExp(`echo "fixed=.*${every3Days.source}`), 'fixed: every 3 days (owner via 5b, 27 Oct 2026)');
+  assert.match(text, /echo "draw=.*"\$\(date -u \+%u\)" = 1/, 'the new set: Mondays');
+  assert.match(text, /\n  fixed:[^\n]*\n    needs: when\n    if: needs\.when\.outputs\.fixed == 'yes'/);
+  assert.match(text, /\n  draw:\n    needs: when\n    if: needs\.when\.outputs\.draw == 'yes'/);
   assert.match(text, /gh workflow run form-round\.yml[\s\S]*-f runs='\[1\]'[\s\S]*-f publish="week-\$WEEK"/, 'all four tools, 1 repeat, published as the week');
   assert.match(text, /tools\/excluded\.sh jp \. picks\/weekly/, 'every company we know and every earlier week left out');
   const fixed = text.slice(text.indexOf('\n  fixed:'), text.indexOf('\n  draw:'));
@@ -73,9 +82,12 @@ for (const f of files) {
 // One AI for every contestant (owner, 27 Oct 2026: "why we don't use objectively, the same AI for all? ... If using Haiku then haiku ours
 // and theirs"): every workflow holding an AI secret pins the round's model, Haiku 5.5, through BENCH_MODEL or the app's override.
 const AI_SECRETS = /secrets\.(BENCH_ANTHROPIC_KEY|CLAUDE_CODE_OAUTH_TOKEN)/;
+// A judge is no contestant: search-round.yml holds the plan token for judge.py only (its test below checks that); the contestants it
+// calls pin Haiku in their own files.
+const JUDGE_ONLY = ['search-round.yml'];
 for (const f of files) {
   const text = fs.readFileSync(path.join(dir, f), 'utf8');
-  if (!AI_SECRETS.test(text)) continue;
+  if (!AI_SECRETS.test(text) || JUDGE_ONLY.includes(f)) continue;
   test(`${f}: every contestant on Haiku 5.5`, () => {
     assert.match(text, /^\s*(BENCH_MODEL|JOB_PILOTTO_MODEL_OVERRIDE): claude-haiku-5-5\b/m, 'the round model is pinned');
     assert.doesNotMatch(text, /extension-shipped|claude-sonnet|claude-opus/, 'no contestant on another model');
@@ -88,7 +100,7 @@ for (const f of files) {
 // `build` job, to a commit; every job that checks out our product checks out that commit.
 for (const f of files) {
   const text = fs.readFileSync(path.join(dir, f), 'utf8');
-  if (!/^\s+product_ref:/m.test(text)) continue;
+  if (!/^\s+product_ref:/m.test(text) || !/repository: GarryOne\/jobadabra,/.test(text)) continue;   // a caller passes it on (search-round.yml)
   test(`${f}: every job runs one resolved product commit`, () => {
     assert.match(text, /^ {2}build:.*\n[\s\S]*?outputs:\n\s+sha:/m, 'a build job outputs the resolved commit');
     assert.match(text, /gh api "repos\/GarryOne\/jobadabra\/commits\/\$REF"/, 'resolved by the commits API (actions/checkout refuses a short commit)');
@@ -102,3 +114,20 @@ for (const f of files) {
 // "Off for the form bench (Recommended)"; the round had it on, and ours filled only the contact details on North-America jobs).
 test('form-round.yml: our eligibility check is off', () =>
   assert.match(fs.readFileSync(path.join(dir, 'form-round.yml'), 'utf8'), /^\s+LIVE_ELIGIBILITY: 'off'/m));
+
+// The search round every 3 days (owner, 27 Oct 2026): ours (1 search per persona, every persona) and the three free rivals, judged blind
+// on the plan, published, then one Telegram note; the plan token reaches only the judge step.
+test('search-round.yml: every 3 days, ours + free rivals, judged on the plan, published, a Telegram note', () => {
+  const text = fs.readFileSync(path.join(dir, 'search-round.yml'), 'utf8');
+  assert.deepEqual([...text.matchAll(/cron: '([^']+)'/g)].map(m => m[1]), ['0 7 * * *']);
+  assert.match(text, every3Days);
+  assert.match(text, /uses: \.\/\.github\/workflows\/search-ours\.yml\n    with:\n      product_ref: [^\n]+\n      personas: '\[1,2,3,4,5,6,7,8,9,10\]'\n      presses: '\[1\]'/);
+  assert.match(text, /uses: \.\/\.github\/workflows\/search-rivals\.yml\n    with:\n      rivals: '\["jobspy","eures","adzuna"\]'/);
+  assert.doesNotMatch(text, /uses: \.\/\.github\/workflows\/search-(bench-)?career-ops/, 'career-ops stays by hand');
+  const judge = text.slice(text.indexOf('- name: Blind judge'), text.indexOf('- name: Publish'));
+  assert.match(judge, /BENCH_JUDGE_ENGINE: plan/); assert.match(judge, /search-bench\/judge\.py/);
+  assert.equal(text.split('secrets.CLAUDE_CODE_OAUTH_TOKEN').length - 1, 1, 'the token appears once'); assert.ok(judge.includes('secrets.CLAUDE_CODE_OAUTH_TOKEN'), 'in the judge step');
+  assert.match(text, /SELFHEAL_PUBLISH_KEY: \$\{\{ secrets\.BENCHMARK_PUBLISH_KEY \}\}\n {8}run: node search-bench\/publish\.mjs work --round/);
+  assert.match(text, /node search-bench\/note\.mjs work [^\n]*--baseline search-bench\/results\/2026-10-27/);
+  assert.match(text, /BENCH_TELEGRAM_BOT_TOKEN: \$\{\{ secrets\.BENCH_TELEGRAM_BOT_TOKEN \}\}/);
+});

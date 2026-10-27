@@ -45,4 +45,5 @@ personas.forEach((persona, at) => {
 if (dry || !rows.length) { console.log(JSON.stringify(rows, null, 1)); console.log(`${rows.length} rows${dry ? ' (dry)' : ''}`); process.exit(0); }
 const key = process.env.SELFHEAL_PUBLISH_KEY || execFileSync('security', ['find-generic-password', '-a', 'job-pilotto', '-s', 'job-pilotto.site.selfheal_publish_key', '-w'], {encoding: 'utf8'}).trim();
 const response = await fetch('https://www.jobpilotto.top/benchmark-search/data', {method: 'PUT', headers: {Authorization: `Bearer ${key}`, 'content-type': 'application/json'}, body: JSON.stringify({runs: rows})});
-console.log(response.status, await response.text());
+const answer = await response.text(); console.log(response.status, answer);
+if (!response.ok || !/"ok":true/.test(answer)) process.exit(1);   // Why (27 Oct 2026): on CI a refused publish must turn the round red

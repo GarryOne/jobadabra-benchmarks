@@ -1,5 +1,5 @@
 # The search round's simple rivals (owner, 27 Oct 2026): JobSpy, EURES and Adzuna, each searched for every persona of search-bench/personas.json
-# the way a person would (search-bench/rivals.py). BY HAND ONLY, about twice a year (test/workflows.test.mjs). $0: no AI here.
+# the way a person would (search-bench/rivals.py). By hand, or called by search-round.yml every 3 days (test/workflows.test.mjs). $0: no AI here.
 # JobSpy reads LinkedIn, Indeed, Glassdoor and Google as shipped, low volume (25 a site), no login or cookies; its reads stay in this benchmark.
 name: search rivals (by hand)
 on:
@@ -8,6 +8,9 @@ on:
       rivals:
         description: Rivals, JSON
         default: '["jobspy","eures","adzuna"]'
+  workflow_call:   # Why (27 Oct 2026, owner: "every 3 days"): search-round.yml runs the free rivals on its schedule
+    inputs:
+      rivals: {type: string, default: '["jobspy","eures","adzuna"]'}
 permissions:
   contents: read
 jobs:

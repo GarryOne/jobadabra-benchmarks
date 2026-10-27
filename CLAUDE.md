@@ -11,10 +11,12 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
   - **Weekly new set** (owner, 27 Oct 2026: "All 4, 1 repeat"): 6 unseen forms drawn each week on a CI schedule, all 4 tools, one run each
     (~$0.77, ~$3.30/month under the Benchmarks key's $5 limit); same rules (never a company we tested or fixed on, nor an earlier set).
     `form-weekly.yml` (Monday 06:00 UTC): `tools/excluded.sh` + earlier weeks on branch `weekly-picks`, ids YYWW*100+1.., then the form round.
-  - **Weekly regression check** (owner, 27 Oct 2026, via 5b: "Weekly, ours only (Recommended)"; in 4e's window: "Both (Recommended)"): the same
-    Monday, ours alone on the fixed set x3 (~$0.08), published as `fixed`. A full round with rivals on the fixed set stays by hand.
+  - **Regression check every 3 days** (owner, 27 Oct 2026, via 5b: "Weekly, ours only (Recommended)", then "I wan you to change CI job from
+    weekly to every 3 days"; in 4e's window: "Both (Recommended)"): ours alone on the fixed set x3 (~$0.08, ~$0.82 a month), published as `fixed`;
+    its note compares with "the previous run". A daily cron and a `when` job on days since 1970 mod 3 (cron's */3 restarts each month).
+    A full round with rivals on the fixed set stays by hand.
   - **Each weekly round ends with one Telegram note** (owner: "It should send to telegram, as notification the results, and compare with a
-    baseline"): ours per form vs `rounds/fixed/baseline.json` (the by-hand round of 27 Oct: ours 97%, Browser Use 87.3%) and last week's note
+    baseline"): ours per form vs `rounds/fixed/baseline.json` (the by-hand round of 27 Oct: ours 97%, Browser Use 87.3%) and the previous note
     (branch `weekly-picks`, notes/). Scores and counts only, never an answer or a fact. Bot: secrets BENCH_TELEGRAM_BOT_TOKEN / _CHAT_ID.
   - Every round publishes its own scores to /admin as its last step. One score line per run: right / wrong / empty-but-answerable /
     not reached (`score-round.mjs`). A page's leftover copy of a field (an empty file box beside the uploaded CV, an empty box named like a
@@ -23,6 +25,11 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
   - **The judge sees the job** (owner, 27 Oct 2026: "Show title + company"): each posting's title, company and place, the same for every
     tool (`--forms`); an answer may draw on the job, every claim about the applicant must be in the facts. A new judge rule applies to
     answers judged from then on: never re-judge old verdicts (it moved scores by judge noise, 27 Oct 2026).
+- **Search round every 3 days** (owner, 27 Oct 2026: "I want job search benchmarks to run on the CI and me getting telegram notifications";
+  "not weekly, but every 3 days"): `search-round.yml` (07:00 UTC) calls `search-ours.yml` (main, 1 search per persona) and `search-rivals.yml`
+  (JobSpy, EURES, Adzuna), judges on the plan (`judge.py`), publishes (`publish.mjs`) and sends one Telegram note (`search-bench/note.mjs`:
+  ours per persona vs the previous run and `search-bench/results/2026-10-27`). A failed job is named in the note, never shown as 0.
+  career-ops stays by hand. $0 (plan only).
 - **Otherwise by hand only, rarely** (owner, 27 Oct 2026: "trigger them manually, from time to time. Maybe once in a half a year"): every
   other workflow starts on `workflow_dispatch` (or is called by one) and nothing else. Guard: `test/workflows.test.mjs`.
 - **Cost:** a whole round (both benchmarks) costs at most ~$3, or $0 (owner, 27 Oct 2026). Every tool on one model (`BENCH_MODEL`,
@@ -46,7 +53,7 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
   - Which: the agents' API calls use the Benchmarks workspace key ($5/month limit; owner: "a separate API Key for the benchmarks");
     the search round (ours and career-ops' docs run) uses the owner's plan token; in career-ops' run only Claude Code sees it (its scripts
     run as another Linux user; test/workflows).
-    The plan token stays a GitHub secret for the weekly judge (owner, 27 Oct 2026: "Keep the plan token"); revoke it only if it leaks
+    The plan token stays a GitHub secret for the scheduled rounds (owner, 27 Oct 2026: "Keep the plan token", "Keep it standing"); revoke it only if it leaks
     (claude.ai → Settings → Claude Code). It expires 27 Oct 2027.
 - Tests: `node --test test/<file>.test.mjs`, one file at a time on the Mac.
 - Watch a round: Monitor on `tools/watch-runs.sh <run id>...` (ends, failed jobs and steps, gh errors). Pass `product_ref` as a
