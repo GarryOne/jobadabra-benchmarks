@@ -1,0 +1,118 @@
+{
+ "url": "https://job-boards.greenhouse.io/safariai/jobs/5233682007",
+ "title": "Job Application for Software Engineer, Cloud Infrastructure at Safari AI",
+ "fields": [
+  {
+   "question": "First Name*",
+   "type": "text",
+   "required": true,
+   "name": "first_name",
+   "value": "Ada"
+  },
+  {
+   "question": "Last Name*",
+   "type": "text",
+   "required": true,
+   "name": "last_name",
+   "value": ""
+  },
+  {
+   "question": "Email*",
+   "type": "text",
+   "required": true,
+   "name": "email",
+   "value": "Tda.tester@example.tesT"
+  },
+  {
+   "question": "Country",
+   "type": "text",
+   "required": false,
+   "name": "country",
+   "value": "+41"
+  },
+  {
+   "question": "Phone",
+   "type": "tel",
+   "required": false,
+   "name": "phone",
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "Attach",
+   "type": "file",
+   "required": false,
+   "name": "resume",
+   "value": ""
+  },
+  {
+   "question": "Attach",
+   "type": "file",
+   "required": false,
+   "name": "cover_letter",
+   "value": ""
+  },
+  {
+   "question": "School*",
+   "type": "text",
+   "required": true,
+   "name": "school--0",
+   "value": ""
+  },
+  {
+   "question": "Degree*",
+   "type": "text",
+   "required": true,
+   "name": "degree--0",
+   "value": ""
+  },
+  {
+   "question": "Discipline*",
+   "type": "text",
+   "required": true,
+   "name": "discipline--0",
+   "value": ""
+  },
+  {
+   "question": "Start date year*",
+   "type": "number",
+   "required": true,
+   "name": "start-year--0",
+   "value": ""
+  },
+  {
+   "question": "End date year*",
+   "type": "number",
+   "required": true,
+   "name": "end-year--0",
+   "value": ""
+  },
+  {
+   "question": "LinkedIn Profile",
+   "type": "text",
+   "required": false,
+   "name": "question_12859325007",
+   "value": "https://www.linkedin.com/in/ada-testerA"
+  },
+  {
+   "question": "Github Link",
+   "type": "text",
+   "required": false,
+   "name": "question_12859560007",
+   "value": ""
+  },
+  {
+   "question": "Any other links you'd like us to review & consider?",
+   "type": "text",
+   "required": false,
+   "name": "question_12859326007",
+   "value": ""
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "https://job-boards.greenhouse.io/safariai/jobs/5233682007",
+  "https://content.googleapis.com/static/proxy.html?usegapi=1&jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.etOqPKhAhvg.O%2Fd%3D1%2Frs%3DAHpOoo-l5JrVgGKVELwC844E6riBHX86-w%2Fm%3D__features__",
+  "https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LfmcbcpAAAAAChNTbhUShzUOAMj_wY9LQIvLFX0&co=aHR0cHM6Ly9qb2ItYm9hcmRzLmdyZWVuaG91c2UuaW86NDQz&hl=en&v=NhfdZHzre16wrc2m6BxEdu7J&size=invisible&anchor-ms=20000&execute-ms=30000&cb=6eqpnjmcjqvg",
+  "about:blank"
+ ]
+}

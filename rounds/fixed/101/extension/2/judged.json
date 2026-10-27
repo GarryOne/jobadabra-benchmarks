@@ -1,0 +1,112 @@
+[
+ {
+  "question": "First Name*",
+  "type": "text",
+  "required": true,
+  "name": "first_name",
+  "value": "Ada",
+  "k": "79f00b5ff313b8f3",
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches first name"
+ },
+ {
+  "question": "Last Name*",
+  "type": "text",
+  "required": true,
+  "name": "last_name",
+  "value": "Tester",
+  "k": "cabcac7c4314257f",
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches last name"
+ },
+ {
+  "question": "Email*",
+  "type": "text",
+  "required": true,
+  "name": "email",
+  "value": "ada.tester@example.test",
+  "k": "76bcf4d50dd390e2",
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches email"
+ },
+ {
+  "question": "Country",
+  "type": "text",
+  "required": false,
+  "name": "country",
+  "value": "+41",
+  "k": "90366aedbc5109bb",
+  "verdict": "right",
+  "answerable": true,
+  "note": "+41 matches Switzerland"
+ },
+ {
+  "question": "Phone",
+  "type": "tel",
+  "required": false,
+  "name": "phone",
+  "value": "795550123",
+  "k": "123744fec7986a96",
+  "verdict": "right",
+  "answerable": true,
+  "note": "Local number, country code separate"
+ },
+ {
+  "question": "Attach",
+  "type": "file",
+  "required": false,
+  "name": "resume",
+  "value": "",
+  "k": "c402889abebd5851",
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file not attached"
+ },
+ {
+  "question": "Location",
+  "type": "text",
+  "required": false,
+  "name": "question_11483394008",
+  "value": "Zurich, Switzerland",
+  "k": "096e506856d48d83",
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches location"
+ },
+ {
+  "question": "Why Hume?",
+  "type": "textarea",
+  "required": false,
+  "name": "question_11483395008",
+  "value": "I have run Kubernetes on AWS at scale for 8 years: 400 microservices on EKS at Acme Cloud, where I cut incident time by 40 percent with Datadog and OpenTelemetry. I built the Terraform platform used by 120 engineers and led an on-call rotation of 8 people. Before that, at Beta Systems, I migrated 60 services to Kubernetes and introduced SLOs and error budgets. What draws me to Hume is the infrastructure side of model work: distributed training, inference and benchmarking at industry scale, where reliability decides how fast research can move. I want to build that foundation for speech-language models. • Add: any model training, fine-tuning or evaluation work you have done with PyTorch or similar, with the data scale. • Add: publications or open-source contributions to language, audio or video models, if you have any.",
+  "k": "928e8f0cdb71a453",
+  "verdict": "wrong",
+  "answerable": true,
+  "note": "Placeholder notes; invented training/benchmarking claims"
+ },
+ {
+  "question": "Are you legally authorized to work in the United States without sponsorship?*",
+  "type": "text",
+  "required": true,
+  "name": "question_11483396008",
+  "value": "",
+  "k": "8d5757d1678ab27a",
+  "verdict": "empty",
+  "answerable": false,
+  "note": "US authorization not in facts"
+ },
+ {
+  "question": "Have you applied to any positions at Hume in the past 6 months?*",
+  "type": "text",
+  "required": true,
+  "name": "question_11483397008",
+  "value": "",
+  "k": "4b1a7f99fd5fb573",
+  "verdict": "empty",
+  "answerable": false,
+  "note": "Facts don't cover prior applications"
+ }
+]

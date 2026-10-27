@@ -1,0 +1,95 @@
+{
+ "url": "https://apply.workable.com/semios/j/0A6915AC27/apply/",
+ "title": "Product Delivery Lead - The Semios Group - Application",
+ "fields": [
+  {
+   "question": "First name",
+   "type": "text",
+   "required": true,
+   "name": "firstname",
+   "value": "daAda"
+  },
+  {
+   "question": "Last name",
+   "type": "text",
+   "required": true,
+   "name": "lastname",
+   "value": ""
+  },
+  {
+   "question": "Email",
+   "type": "email",
+   "required": true,
+   "name": "email",
+   "value": ""
+  },
+  {
+   "question": "Phone",
+   "type": "tel",
+   "required": true,
+   "name": "phone",
+   "value": "SVGs not supported by this browser.+1"
+  },
+  {
+   "question": "Address",
+   "type": "text",
+   "required": true,
+   "name": "address",
+   "value": ""
+  },
+  {
+   "question": "Summary",
+   "type": "textarea",
+   "required": false,
+   "name": "summary",
+   "value": ""
+  },
+  {
+   "question": "Resume Choose file",
+   "type": "file",
+   "required": true,
+   "name": "input_files_input_ZI6DmnR3TvWrmsqc",
+   "value": ""
+  },
+  {
+   "question": "Cover letter",
+   "type": "textarea",
+   "required": false,
+   "name": "cover_letter",
+   "value": ""
+  },
+  {
+   "question": "What are your salary expectations for this role? A range is fine.",
+   "type": "text",
+   "required": true,
+   "name": "CA_9741",
+   "value": ""
+  },
+  {
+   "question": "Describe a time you improved backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead.",
+   "type": "textarea",
+   "required": true,
+   "name": "QA_12543006",
+   "value": ""
+  },
+  {
+   "question": "Have you been referred to this position by a Semios employee? If so, please let us know their full name.",
+   "type": "text",
+   "required": true,
+   "name": "QA_12542843",
+   "value": ""
+  },
+  {
+   "question": "Resume Choose file",
+   "type": "file",
+   "required": true,
+   "name": "input_files_input_IWTZJMdLFZoGlug5",
+   "value": ""
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "https://apply.workable.com/semios/j/0A6915AC27/apply/",
+  "about:blank"
+ ]
+}

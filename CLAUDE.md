@@ -5,11 +5,16 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
 
 - **The fair round is the one score every filling fix is judged by** (owner via 6e, 27 Oct 2026: "Yes: fixed set + weekly new set"):
   - **Fixed set:** the 6 forms of run 40440347913 (`forms-objective.json`). A fix is measured before/after on it, by hand on CI
-    (ours alone, 3 runs, ~$0.08); it counts only if the fair score moves. Rivals' scores on it stay frozen from that day.
+    (ours alone, 3 runs, ~$0.08); it counts only if the fair score moves. Rivals' scores on it stay frozen from that day: `rounds/fixed/`
+    (their judged runs and verdicts); the judge reuses those verdicts and asks only for new answers (`lib/verdict-cache.mjs`).
+    `publish=fixed` puts the new runs in place of the same tool's; a side check of an OLDER build stays unpublished (the page shows ours' newest).
   - **Weekly new set** (owner, 27 Oct 2026: "All 4, 1 repeat"): 6 unseen forms drawn each week on a CI schedule, all 4 tools, one run each
     (~$0.77, ~$3.30/month under the Benchmarks key's $5 limit); same rules (never a company we tested or fixed on, nor an earlier set).
+    `form-weekly.yml` (Monday 06:00 UTC): `tools/excluded.sh` + earlier weeks on branch `weekly-picks`, ids YYWW*100+1.., then the form round.
   - Every round publishes its own scores to /admin as its last step. One score line per run: right / wrong / empty-but-answerable /
-    not reached (`score-round.mjs`).
+    not reached (`score-round.mjs`). A page's leftover copy of a field (an empty file box beside the uploaded CV, an empty box named like a
+    filled one) is no miss, for every tool (`markTwins`, lib/holds.mjs). Each run folder of ours keeps `fill.log`: why a box stayed empty,
+    the fill-summary lines only, never a value (lib/fill-log.mjs; the artifacts are public).
 - **Otherwise by hand only, rarely** (owner, 27 Oct 2026: "trigger them manually, from time to time. Maybe once in a half a year"): every
   other workflow starts on `workflow_dispatch` (or is called by one) and nothing else. Guard: `test/workflows.test.mjs`.
 - **Cost:** a whole round (both benchmarks) costs at most ~$3, or $0 (owner, 27 Oct 2026). Every tool on one model (`BENCH_MODEL`,

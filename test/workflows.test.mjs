@@ -12,7 +12,27 @@ const triggersOf = text => {   // the keys directly under `on:` (block form), or
 };
 const files = fs.readdirSync(dir).filter(f => /\.ya?ml$/.test(f));
 test('there are workflows to check', () => assert.ok(files.length > 0));
-for (const f of files) test(`${f} starts by hand only`, () => assert.deepEqual(triggersOf(fs.readFileSync(path.join(dir, f), 'utf8')), ['workflow_dispatch']));
+// The one exception: the weekly new set runs on a schedule (owner via 6e, 27 Oct 2026: "Yes: fixed set + weekly new set (Recommended)").
+const SCHEDULED = {'form-weekly.yml': ['schedule', 'workflow_dispatch']};
+for (const f of files) test(`${f} starts by hand only${SCHEDULED[f] ? ', or on its weekly schedule' : ''}`, () =>
+  assert.deepEqual(triggersOf(fs.readFileSync(path.join(dir, f), 'utf8')), SCHEDULED[f] || ['workflow_dispatch']));
+test('form-weekly.yml: once a week, and it hands its draw to the form round to publish', () => {
+  const text = fs.readFileSync(path.join(dir, 'form-weekly.yml'), 'utf8');
+  assert.deepEqual([...text.matchAll(/cron: '([^']+)'/g)].map(m => m[1]), ['0 6 * * 1']);
+  assert.match(text, /gh workflow run form-round\.yml[\s\S]*-f runs='\[1\]'[\s\S]*-f publish="week-\$WEEK"/, 'all four tools, 1 repeat, published as the week');
+  assert.match(text, /tools\/excluded\.sh jp \. picks\/weekly/, 'every company we know and every earlier week left out');
+});
+
+// Every round publishes itself as its last step (owner via 6e, 27 Oct 2026): a form round takes `publish` and its last job judges, scores
+// and sends the round with publish-fair.mjs; it runs after every contestant's job, on a fresh runner.
+test('form-round.yml: the last job judges, scores and publishes the round', () => {
+  const text = fs.readFileSync(path.join(dir, 'form-round.yml'), 'utf8'), last = text.slice(text.lastIndexOf('\n  publish:'));
+  assert.match(text, /^ {6}publish:\n {8}description:/m, 'a publish input');
+  assert.match(last, /needs: run\n/); assert.match(last, /if: \$\{\{ !cancelled\(\) && inputs\.publish != '' \}\}/);
+  for (const step of [/node judge-blind\.mjs pool/, /node score-round\.mjs pool/, /node publish-fair\.mjs pool --round "\$ROUND"/]) assert.match(last, step);
+  assert.match(last, /cp -R rounds\/fixed\/\. pool\//, 'the fixed set judges inside its frozen baseline');
+  assert.match(last, /BENCHMARK_PUBLISH_KEY: '\$\{\{ secrets\.BENCHMARK_PUBLISH_KEY \}\}'/);
+});
 
 // The owner's Claude plan token reaches Claude Code only, never a rival's own scripts (owner via 6e, 27 Oct 2026). Every workflow that
 // hands out the token secret AND checks out someone else's code must run that code's node as another user (the shim on PATH) and prove

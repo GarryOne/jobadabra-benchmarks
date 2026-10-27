@@ -1,0 +1,134 @@
+[
+ {
+  "question": "First name",
+  "type": "text",
+  "required": true,
+  "name": "firstname",
+  "value": "Ada",
+  "k": "40c7688628b792fa",
+  "verdict": "right",
+  "answerable": true,
+  "note": "First name correct"
+ },
+ {
+  "question": "Last name",
+  "type": "text",
+  "required": true,
+  "name": "lastname",
+  "value": "Tester",
+  "k": "2e7630c476cc8a91",
+  "verdict": "right",
+  "answerable": true,
+  "note": "Last name correct"
+ },
+ {
+  "question": "Email",
+  "type": "email",
+  "required": true,
+  "name": "email",
+  "value": "ada.tester@example.test",
+  "k": "5e0a559897d3cb4e",
+  "verdict": "right",
+  "answerable": true,
+  "note": "Email correct"
+ },
+ {
+  "question": "Phone",
+  "type": "tel",
+  "required": true,
+  "name": "phone",
+  "value": "79 555 01 23",
+  "k": "0f3bbc1ab3edbf5a",
+  "verdict": "right",
+  "answerable": true,
+  "note": "Phone without country code, plausible"
+ },
+ {
+  "question": "Address",
+  "type": "text",
+  "required": true,
+  "name": "address",
+  "value": "Des Moines, United States of America",
+  "k": "00c3ccb780d43207",
+  "verdict": "wrong",
+  "answerable": true,
+  "note": "Des Moines US contradicts Zurich"
+ },
+ {
+  "question": "Summary",
+  "type": "textarea",
+  "required": false,
+  "name": "summary",
+  "value": "Senior Site Reliability Engineer with 8 years running Kubernetes on AWS at scale, strong in observability and incident response.",
+  "k": "70e4fd99b65442a3",
+  "verdict": "right",
+  "answerable": true,
+  "note": "Matches summary"
+ },
+ {
+  "question": "Resume Choose file",
+  "type": "file",
+  "required": true,
+  "name": "input_files_input_b9GnHlV8K3RmOYkD",
+  "value": "",
+  "k": "ef0b1facbd88a361",
+  "verdict": "empty",
+  "answerable": true,
+  "note": "CV file available"
+ },
+ {
+  "question": "Cover letter",
+  "type": "textarea",
+  "required": false,
+  "name": "cover_letter",
+  "value": "",
+  "k": "4efb56034c3c8601",
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Cover letter style given; optional"
+ },
+ {
+  "question": "What are your salary expectations for this role? A range is fine.",
+  "type": "text",
+  "required": true,
+  "name": "CA_9741",
+  "value": "",
+  "k": "969abbded77c8eb0",
+  "verdict": "empty",
+  "answerable": true,
+  "note": "Salary known"
+ },
+ {
+  "question": "Describe a time you improved backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead.",
+  "type": "textarea",
+  "required": true,
+  "name": "QA_12543006",
+  "value": "At Acme Cloud I ran 400 microservices on Kubernetes on AWS EKS and cut incident time by 40 percent with Datadog and OpenTelemetry. I also built the Terraform platform used by 120 engineers and led an on-call rotation of 8 people. I keep structure simple and add process only where it cuts risk or time. • Add: how you cleaned up a backlog and Jira structure across several teams, how many teams and tickets were involved, and the result.",
+  "k": "054cf2b98e2e8da2",
+  "verdict": "wrong",
+  "answerable": false,
+  "note": "Invents answer, has placeholder text"
+ },
+ {
+  "question": "Have you been referred to this position by a Semios employee? If so, please let us know their full name.",
+  "type": "text",
+  "required": true,
+  "name": "QA_12542843",
+  "value": "",
+  "k": "d375bfa2d41d7fa4",
+  "verdict": "empty",
+  "answerable": false,
+  "note": "No referral info"
+ },
+ {
+  "question": "Resume Replace file",
+  "type": "file",
+  "required": false,
+  "name": "input_files_input_b9GnHlV8K3RmOYkD",
+  "value": "cv.pdf",
+  "k": "df1b0dcb90cb6838",
+  "verdict": "right",
+  "answerable": true,
+  "note": "CV filename provided"
+ }
+]

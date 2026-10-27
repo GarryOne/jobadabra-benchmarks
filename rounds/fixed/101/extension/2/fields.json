@@ -1,0 +1,86 @@
+{
+ "url": "https://job-boards.greenhouse.io/humeai/jobs/4775962008#jobpilotto-fill=527cd685",
+ "title": "Job Application for AI Researcher at Hume AI",
+ "fields": [
+  {
+   "question": "First Name*",
+   "type": "text",
+   "required": true,
+   "name": "first_name",
+   "value": "Ada"
+  },
+  {
+   "question": "Last Name*",
+   "type": "text",
+   "required": true,
+   "name": "last_name",
+   "value": "Tester"
+  },
+  {
+   "question": "Email*",
+   "type": "text",
+   "required": true,
+   "name": "email",
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Country",
+   "type": "text",
+   "required": false,
+   "name": "country",
+   "value": "+41"
+  },
+  {
+   "question": "Phone",
+   "type": "tel",
+   "required": false,
+   "name": "phone",
+   "value": "795550123"
+  },
+  {
+   "question": "Attach",
+   "type": "file",
+   "required": false,
+   "name": "resume",
+   "value": ""
+  },
+  {
+   "question": "Location",
+   "type": "text",
+   "required": false,
+   "name": "question_11483394008",
+   "value": "Zurich, Switzerland"
+  },
+  {
+   "question": "Why Hume?",
+   "type": "textarea",
+   "required": false,
+   "name": "question_11483395008",
+   "value": "I have run Kubernetes on AWS at scale for 8 years: 400 microservices on EKS at Acme Cloud, where I cut incident time by 40 percent with Datadog and OpenTelemetry. I built the Terraform platform used by 120 engineers and led an on-call rotation of 8 people. Before that, at Beta Systems, I migrated 60 services to Kubernetes and introduced SLOs and error budgets. What draws me to Hume is the infrastructure side of model work: distributed training, inference and benchmarking at industry scale, where reliability decides how fast research can move. I want to build that foundation for speech-language models. • Add: any model training, fine-tuning or evaluation work you have done with PyTorch or similar, with the data scale. • Add: publications or open-source contributions to language, audio or video models, if you have any."
+  },
+  {
+   "question": "Are you legally authorized to work in the United States without sponsorship?*",
+   "type": "text",
+   "required": true,
+   "name": "question_11483396008",
+   "value": ""
+  },
+  {
+   "question": "Have you applied to any positions at Hume in the past 6 months?*",
+   "type": "text",
+   "required": true,
+   "name": "question_11483397008",
+   "value": ""
+  }
+ ],
+ "fileChips": [
+  "Resume/CV*cv.pdf",
+  "cv.pdf"
+ ],
+ "trailUrls": [
+  "https://job-boards.greenhouse.io/humeai/jobs/4775962008",
+  "https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LfmcbcpAAAAAChNTbhUShzUOAMj_wY9LQIvLFX0&co=aHR0cHM6Ly9qb2ItYm9hcmRzLmdyZWVuaG91c2UuaW86NDQz&hl=en&v=NhfdZHzre16wrc2m6BxEdu7J&size=invisible&anchor-ms=20000&execute-ms=30000&cb=q5fat0d911jn",
+  "https://content.googleapis.com/static/proxy.html?usegapi=1&jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.etOqPKhAhvg.O%2Fd%3D1%2Frs%3DAHpOoo-l5JrVgGKVELwC844E6riBHX86-w%2Fm%3D__features__",
+  "about:blank"
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "url": "https://apply.workable.com/semios/j/0A6915AC27/apply/#jobpilotto-fill=92376ee5",
+ "title": "Product Delivery Lead - The Semios Group - Application",
+ "fields": [
+  {
+   "question": "First name",
+   "type": "text",
+   "required": true,
+   "name": "firstname",
+   "value": "Ada"
+  },
+  {
+   "question": "Last name",
+   "type": "text",
+   "required": true,
+   "name": "lastname",
+   "value": "Tester"
+  },
+  {
+   "question": "Email",
+   "type": "email",
+   "required": true,
+   "name": "email",
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Phone",
+   "type": "tel",
+   "required": true,
+   "name": "phone",
+   "value": "79 555 01 23"
+  },
+  {
+   "question": "Address",
+   "type": "text",
+   "required": true,
+   "name": "address",
+   "value": "Boydton, United States of America"
+  },
+  {
+   "question": "Summary",
+   "type": "textarea",
+   "required": false,
+   "name": "summary",
+   "value": "Senior Site Reliability Engineer with 8 years running Kubernetes on AWS at scale. I ran 400 microservices on Kubernetes (AWS EKS) and cut incident time by 40 percent with Datadog and OpenTelemetry. I also built the Terraform platform used by 120 engineers."
+  },
+  {
+   "question": "Resume Choose file",
+   "type": "file",
+   "required": true,
+   "name": "input_files_input_DadIZLoQDsmoR1dB",
+   "value": ""
+  },
+  {
+   "question": "Cover letter",
+   "type": "textarea",
+   "required": false,
+   "name": "cover_letter",
+   "value": ""
+  },
+  {
+   "question": "What are your salary expectations for this role? A range is fine.",
+   "type": "text",
+   "required": true,
+   "name": "CA_9741",
+   "value": ""
+  },
+  {
+   "question": "Describe a time you improved backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead.",
+   "type": "textarea",
+   "required": true,
+   "name": "QA_12543006",
+   "value": "• Add: the size of the teams and the backlog you worked across, and what you changed in Jira (workflow, fields or cleanup rules). • Add: the result, such as a measurable drop in stale tickets or faster planning. • Add: how you kept the process light, for example by avoiding new meetings or approval steps."
+  },
+  {
+   "question": "Have you been referred to this position by a Semios employee? If so, please let us know their full name.",
+   "type": "text",
+   "required": true,
+   "name": "QA_12542843",
+   "value": ""
+  },
+  {
+   "question": "Resume Replace file",
+   "type": "file",
+   "required": false,
+   "name": "input_files_input_DadIZLoQDsmoR1dB",
+   "value": "cv.pdf"
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "https://apply.workable.com/semios/j/0A6915AC27/apply/",
+  "about:blank"
+ ]
+}
