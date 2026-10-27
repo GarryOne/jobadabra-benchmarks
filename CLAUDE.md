@@ -3,12 +3,19 @@
 Two benchmarks in one repo (owner, 27 Oct 2026): form filling at the root (`run.mjs`, `judge-blind.mjs`), job search in `search-bench/`.
 Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs stay on /admin.
 
-- **By hand only, rarely** (owner, 27 Oct 2026: "trigger them manually, from time to time. Maybe once in a half a year"): every workflow
-  starts on `workflow_dispatch` and nothing else. Guard: `test/workflows.test.mjs`.
+- **The fair round is the one score every filling fix is judged by** (owner via 6e, 27 Oct 2026: "Yes: fixed set + weekly new set"):
+  - **Fixed set:** the 6 forms of run 40440347913 (`forms-objective.json`). A fix is measured before/after on it, by hand on CI
+    (ours alone, 3 runs, ~$0.08); it counts only if the fair score moves. Rivals' scores on it stay frozen from that day.
+  - **Weekly new set** (owner, 27 Oct 2026: "All 4, 1 repeat"): 6 unseen forms drawn each week on a CI schedule, all 4 tools, one run each
+    (~$0.77, ~$3.30/month under the Benchmarks key's $5 limit); same rules (never a company we tested or fixed on, nor an earlier set).
+  - Every round publishes its own scores to /admin as its last step. One score line per run: right / wrong / empty-but-answerable /
+    not reached (`score-round.mjs`).
+- **Otherwise by hand only, rarely** (owner, 27 Oct 2026: "trigger them manually, from time to time. Maybe once in a half a year"): every
+  other workflow starts on `workflow_dispatch` (or is called by one) and nothing else. Guard: `test/workflows.test.mjs`.
 - **Cost:** a whole round (both benchmarks) costs at most ~$3, or $0 (owner, 27 Oct 2026). Every tool on one model (`BENCH_MODEL`,
   Haiku 5.5 in the objective round); judges on the Claude plan. Measure a one-form trial before a full round.
 - **Fair:** forms drawn by seed (`pick-forms.mjs`) from a list we did not make, minus every company we tested or fixed on; all tools the
-  same day, 3 runs each; the judge never sees the tool (`judge-blind.mjs`), a correction applies to the same answer for every tool.
+  same day, 3 runs each (the weekly set: 1); the judge never sees the tool (`judge-blind.mjs`), a correction applies to the same answer for every tool.
   - **Same place, same AI for every contestant** (owner, 27 Oct 2026: "If using locally, then locally ours and theirs. If using CI, then CI
     ours and theirs. If using Haiku then haiku ours and theirs"): both rounds on CI, every AI contestant on Haiku 5.5 (form round: the
     Benchmarks API key; search round: the owner's plan token). No extra "as shipped" row. A local run is a side note, never the scoreboard.
@@ -26,7 +33,8 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
   - Which: the agents' API calls use the Benchmarks workspace key ($5/month limit; owner: "a separate API Key for the benchmarks");
     the search round (ours and career-ops' docs run) uses the owner's plan token; in career-ops' run only Claude Code sees it (its scripts
     run as another Linux user; test/workflows).
-    Revoke the plan token after each round (claude.ai → Settings → Claude Code).
+    The plan token stays a GitHub secret for the weekly judge (owner, 27 Oct 2026: "Keep the plan token"); revoke it only if it leaks
+    (claude.ai → Settings → Claude Code). It expires 27 Oct 2027.
 - Tests: `node --test test/<file>.test.mjs`, one file at a time on the Mac.
 - Watch a round: Monitor on `tools/watch-runs.sh <run id>...` (ends, failed jobs and steps, gh errors). Pass `product_ref` as a
   commit or a branch: the workflow resolves it once (`build` job), so a merge mid-round cannot break or split it.
