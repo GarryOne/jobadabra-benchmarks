@@ -25,7 +25,7 @@ jobs:
       - id: day
         env: {EVENT: '${{ github.event_name }}'}
         run: echo "go=$([ "$EVENT" = workflow_dispatch ] || [ $(( $(date -u +%s) / 86400 % 3 )) = 0 ] && echo yes || echo no)" | tee -a "$GITHUB_OUTPUT"
-  ours:
+  ours:   # the fair arm: every rival's source off (search-ours.yml reads search-bench/rivals.json)
     needs: when
     if: needs.when.outputs.go == 'yes'
     uses: ./.github/workflows/search-ours.yml
@@ -33,16 +33,27 @@ jobs:
       product_ref: ${{ inputs.product_ref || 'main' }}
       personas: '[1,2,3,4,5,6,7,8,9,10]'
       presses: '[1]'
+      arm: ours
+    secrets: inherit
+  ours_all:   # the second line: as a user has it, EURES and the rest on (owner, 27 Oct 2026)
+    needs: [when, ours]   # one after the other: the owner's plan runs two sessions at a time
+    if: ${{ !cancelled() && needs.when.outputs.go == 'yes' }}
+    uses: ./.github/workflows/search-ours.yml
+    with:
+      product_ref: ${{ inputs.product_ref || 'main' }}
+      personas: '[1,2,3,4,5,6,7,8,9,10]'
+      presses: '[1]'
+      arm: ours-all
     secrets: inherit
   rivals:
     needs: when
     if: needs.when.outputs.go == 'yes'
     uses: ./.github/workflows/search-rivals.yml
     with:
-      rivals: '["jobspy","eures","adzuna"]'
+      rivals: '["jobspy","eures","adzuna"]'   # the same list as search-bench/rivals.json (test/workflows.test.mjs)
     secrets: inherit
   judge:   # after both arms, even when one persona failed (pool.mjs names what is missing, the note says so)
-    needs: [when, ours, rivals]
+    needs: [when, ours, ours_all, rivals]
     if: ${{ !cancelled() && needs.when.outputs.go == 'yes' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 90

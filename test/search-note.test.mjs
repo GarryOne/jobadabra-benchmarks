@@ -12,7 +12,7 @@ test('ours against the previous run and the baseline, rivals ranked, a line per 
   const last = {tools: {ours: {relevant: 3}, eures: {relevant: 2}}, personas: {1: {relevant: 3}}}, baseline = {tools: {ours: {relevant: 1}}, personas: {}};
   const text = noteText(note, baseline, last, {missing: ['ours p2'], url: 'https://x/run'});
   assert.match(text, /^🔎 Search round · 2026-10-30 · build abc1234$/m);
-  assert.match(text, /^Ours 1 relevant of 2 shown \(▼2 vs the previous run 3\) \(= vs baseline 1\)$/m);
+  assert.match(text, /^Ours \(rivals' sources off\) 1 relevant of 2 shown \(▼2 vs the previous run 3\) \(= vs baseline 1\)$/m);
   assert.match(text, /^EURES 2 = · JobSpy 1$/m);
   assert.match(text, /^Searches with none: 1 of 2$/m);
   assert.match(text, /^Nurse · Townville: 1 of 2 shown ▼2$/m);
@@ -23,6 +23,6 @@ test('ours against the previous run and the baseline, rivals ranked, a line per 
 test('the first run has no previous note: it compares with the baseline only', () => {
   const note = noteOf({1: [job('ours', 'yes', 'yes')]}, {round: 'r'});
   const text = noteText(note, {tools: {ours: {relevant: 0}}, personas: {1: {relevant: 0}}}, null);
-  assert.match(text, /^Ours 1 relevant of 1 shown \(▲1 vs baseline 0\)$/m);
+  assert.match(text, /^Ours \(rivals' sources off\) 1 relevant of 1 shown \(▲1 vs baseline 0\)$/m);
   assert.match(text, /^Persona 1: 1 of 1 shown ▲1$/m);
 });

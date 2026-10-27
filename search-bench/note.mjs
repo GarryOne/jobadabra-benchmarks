@@ -6,20 +6,26 @@
 // Telegram: $BENCH_TELEGRAM_BOT_TOKEN and $BENCH_TELEGRAM_CHAT_ID (the benchmarks bot); unset: printed only. Guard: test/search-note.test.mjs.
 import fs from 'node:fs'; import path from 'node:path'; import {fileURLToPath} from 'node:url';
 import {NAME} from './tools.mjs';
+import {RIVALS} from './pool.mjs';
 
 const rj = f => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return null; } };
+const key = row => [row.title, row.company, row.location].map(part => (part || '').trim().toLowerCase()).join('|');
 const relevant = row => row.role === 'yes' && row.place === 'yes';
 
 /** rowsByPersona: {N: judged rows of persona N} (judge.py's rows) -> {round, build, tools: {tool: {relevant, found}}, personas: {N: {label, relevant, found}}} (personas: ours only) */
 export function noteOf(rowsByPersona, {round = '', build = '', labels = {}} = {}) {
-  const tools = {}, personas = {};
+  const tools = {}, personas = {}, beyond = {};
   for (const [n, rows] of Object.entries(rowsByPersona)) {
+    for (const rival of RIVALS) {   // our relevant jobs (every source on) that this rival did not show, summed over the personas
+      const seen = new Set(rows.filter(row => row.tool === rival).map(key));
+      if (rows.some(row => row.tool === 'ours-all')) beyond[rival] = (beyond[rival] || 0) + rows.filter(row => row.tool === 'ours-all' && relevant(row) && !seen.has(key(row))).length;
+    }
     for (const row of rows) { const t = (tools[row.tool] ||= {relevant: 0, found: 0}); t.found++; if (relevant(row)) t.relevant++; }
     const ours = rows.filter(row => row.tool === 'ours');
     personas[n] = {label: labels[n] || `Persona ${n}`, relevant: ours.filter(relevant).length, found: ours.length};
   }
   tools.ours ||= {relevant: 0, found: 0};
-  return {round, build, tools, personas};
+  return {round, build, tools, personas, ...(Object.keys(beyond).length ? {beyond} : {})};
 }
 
 /** Reads judged<N>.json (a work dir) or persona-<N>.json (a results/<round> dir) into {N: rows}. */
@@ -36,8 +42,10 @@ export function noteText(note, baseline, last, {missing = [], url = ''} = {}) {
   const ours = note.tools.ours, none = Object.values(note.personas).filter(p => p.relevant === 0).length;
   const vs = (ref, label) => (ref ? ` (${diff(ours.relevant, ref.tools.ours?.relevant).trim()} vs ${label} ${ref.tools.ours?.relevant})` : '');
   const lines = [`🔎 Search round · ${note.round}${note.build ? ` · build ${note.build}` : ''}`,
-    `Ours ${ours.relevant} relevant of ${ours.found} shown${vs(last, 'the previous run')}${vs(baseline, 'baseline')}`];
-  const rivals = Object.entries(note.tools).filter(([t]) => t !== 'ours').sort((a, b) => b[1].relevant - a[1].relevant);
+    `Ours (rivals' sources off) ${ours.relevant} relevant of ${ours.found} shown${vs(last, 'the previous run')}${vs(baseline, 'baseline')}`];
+  const all = note.tools['ours-all'];
+  if (all) lines.push(`Ours with every source ${all.relevant} relevant of ${all.found} shown${note.beyond ? `; we add beyond ${Object.entries(note.beyond).map(([r, k]) => `${NAME[r] || r} ${k}`).join(' · ')}` : ''}`);
+  const rivals = Object.entries(note.tools).filter(([t]) => t !== 'ours' && t !== 'ours-all').sort((a, b) => b[1].relevant - a[1].relevant);
   if (rivals.length) lines.push(rivals.map(([t, s]) => `${NAME[t] || t} ${s.relevant}${diff(s.relevant, (last || baseline)?.tools[t]?.relevant)}`).join(' · '));
   lines.push(`Searches with none: ${none} of ${Object.keys(note.personas).length}`);
   for (const [n, p] of Object.entries(note.personas).sort((a, b) => a[0] - b[0])) {
