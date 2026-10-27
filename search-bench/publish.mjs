@@ -18,7 +18,7 @@ const missing = JSON.parse(read(path.join(work, 'missing.json'), '[]'));   // "o
 fs.mkdirSync(path.join(here, 'results', round), {recursive: true});
 
 // every tool of the round, so a tool that found nothing on a persona still shows a 0 there
-const roundTools = toolsOf(personas.flatMap((_, at) => { try { return JSON.parse(fs.readFileSync(path.join(work, `judged${at + 1}.json`), 'utf8')).rows; } catch { return []; } }));
+const roundTools = toolsOf([...missing.map(label => ({tool: label.replace(/ p\d+$/, '')})), ...personas.flatMap((_, at) => { try { return JSON.parse(fs.readFileSync(path.join(work, `judged${at + 1}.json`), 'utf8')).rows; } catch { return []; } })]);
 personas.forEach((persona, at) => {
   const n = at + 1, judged = path.join(work, `judged${n}.json`);
   if (!fs.existsSync(judged)) return;
@@ -34,11 +34,12 @@ personas.forEach((persona, at) => {
   const relevant = row => row.role === 'yes' && row.place === 'yes';
   const oursKeys = new Set(list.filter(row => row.tool === 'ours').map(norm));
   for (const tool of roundTools) {
+    if (missing.includes(`${tool} p${n}`)) continue;   // Why (27 Oct 2026, owner): a failed search has no score, never a found-zero row.
     const name = NAME[tool] || tool;
     const mine = list.filter(row => row.tool === tool);
     const beyond = {};   // ours-all only: its relevant jobs each rival did not show (owner, 27 Oct 2026: "how many relevant jobs we add on top of each rival")
     if (tool === 'ours-all') for (const rival of roundTools.filter(t => !['ours', 'ours-all', 'career-ops', 'career-ops-docs'].includes(t))) {
-      if (missing.includes(`${rival} p${n}`)) continue;   // Why (gitar-bot, #9): a failed rival is unknown, not "everything is beyond it"
+      if (missing.includes(`${rival} p${n}`)) { beyond[NAME[rival] || rival] = null; continue; }   // Why (27 Oct 2026, owner): keep a failed rival visible as unknown, even when every search failed.
       const seen = new Set(list.filter(row => row.tool === rival).map(norm));
       beyond[NAME[rival] || rival] = mine.filter(relevant).filter(row => !seen.has(norm(row))).length;
     }
