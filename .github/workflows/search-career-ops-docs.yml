@@ -98,7 +98,11 @@ jobs:
           python3 -c "import json;d=json.load(open('claude.json'));json.dump({**{k:d.get(k) for k in ('num_turns','duration_ms','total_cost_usd','is_error','subtype')},'models':list((d.get('modelUsage') or {}).keys()),'result':str(d.get('result') or '')[:2000]},open('out/claude-summary.json','w'),indent=1)" 2>/dev/null || true
           cp /srv/co/portals.yml out/ 2>/dev/null || true
           ls -la /srv/co/data > out/data-listing.txt 2>&1 || true
-          cp /srv/co/data/scan-history.tsv /srv/co/data/pipeline.md out/ 2>/dev/null || true
+          # Its scripts ran as scanner and write private files (mode 600): copy them as root, then hand them to the runner user.
+          for f in scan-history.tsv scan-runs.tsv pipeline.md; do sudo cp /srv/co/data/$f out/ 2>/dev/null || true; done
+          sudo chown -R "$(id -u):$(id -g)" out
+          python3 search-bench/extract.py career-ops out/scan-history.tsv out/jobs.json || echo '[]' > out/jobs.json
+          rm -f out/scan-history.tsv out/jobs*.all.json   # the raw scan (every posting seen) stays on the runner
       - uses: actions/upload-artifact@v6
         if: always()
         with:
