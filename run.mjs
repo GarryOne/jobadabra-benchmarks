@@ -2,7 +2,7 @@
 // Safety: every tool's browser has the Submit guard (lib/guard.mjs); live visits go through the repo's per-site ledger (guardLiveVisit); never Submit, no login. Prints only result lines, never a key.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'; import {spawn, execFileSync} from 'node:child_process';
 import {startAgentBrowser} from './lib/browser.mjs'; import {installGuard} from './lib/guard.mjs';
-import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {writeManifest} from './lib/manifest.mjs'; import {startTrail} from './lib/trail.mjs'; import {startNanobrowser} from './lib/nanobrowser.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize} from './lib/score.mjs'; import {AGENT_MODEL} from './lib/models.mjs';
+import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {writeManifest} from './lib/manifest.mjs'; import {startTrail} from './lib/trail.mjs'; import {startNanobrowser} from './lib/nanobrowser.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize} from './lib/score.mjs'; import {AGENT_MODEL, anthropicKey} from './lib/models.mjs';
 
 // A crash inside a tool (an uncaught error in its own library) is that tool's result, not a lost run: the end page is still read and the metered tokens still counted.
 let fatal = '';
@@ -17,7 +17,7 @@ const [tool, url, out] = process.argv.slice(2);
 if (!['stagehand', 'browser-use', 'extension', 'nanobrowser'].includes(tool) || !url || !out) { console.error('usage: run.mjs <stagehand|browser-use|extension> <url> <out dir>'); process.exit(2); }
 fs.mkdirSync(out, {recursive: true});
 const guardLog = path.join(out, 'guard.jsonl'); fs.writeFileSync(guardLog, '');
-const key = () => execFileSync('security', ['find-generic-password', '-a', 'job-pilotto', '-s', 'job-pilotto.anthropic.e2e_key', '-w'], {encoding: 'utf8'}).trim();
+const key = anthropicKey;
 const applicant = await buildApplicant(path.dirname(out));   // the same file for every tool of this form
 const started = Date.now(), result = {tool, url, model: tool === 'extension' ? (process.env.BENCH_MODEL && process.env.BENCH_OURS_AS_SHIPPED !== '1' ? `${AGENT_MODEL} (JOB_PILOTTO_MODEL_OVERRIDE, claude -p on the plan)` : 'as shipped: claude-sonnet-5-5 for answers (claude -p on the plan)') : AGENT_MODEL};
 // The same model for ours as for the agents (objective round): the app's e2e-only switch puts every AI step on it. BENCH_OURS_AS_SHIPPED=1 keeps the shipped models.

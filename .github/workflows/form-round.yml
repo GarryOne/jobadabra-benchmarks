@@ -1,0 +1,107 @@
+# The objective form-filling round (owner, 27 Oct 2026; plan https://claude.ai/artifact/XUfZSmYU2oai83HvW5LBnx). BY HAND ONLY, about twice a
+# year (owner: "trigger them manually, from time to time"; test/workflows.test.mjs). One job per (tool, run), all started together, each on a
+# fresh runner: every tool on the same day and the same model (BENCH_MODEL), every form visited once per job (at most 2 visits per hiring-system
+# host per job; the round's own one-day limit, owner's yes 27 Oct 2026). Never Submit (lib/guard.mjs), fake applicant only.
+# Cost: each job stops between forms at its cap; the caps add up to about $3 at most (trial: $0.017-0.042 an agent run on Haiku 5.5).
+# The judge does NOT run here: download the artifacts and run judge-blind.mjs on the Mac (the Claude plan, $0).
+name: form round (by hand)
+on:
+  workflow_dispatch:
+    inputs:
+      forms:
+        description: The forms file (pick-forms.mjs output)
+        default: forms-objective.json
+      product_ref:
+        description: The Jobadabra commit or branch our leg runs (GarryOne/jobadabra)
+        default: main
+      agent_cap:
+        description: USD cap per agent job (9 jobs)
+        default: '0.30'
+      runs:
+        description: Run numbers, JSON (a smoke before a round - '[1]')
+        default: '[1,2,3]'
+      only:
+        description: Form ids to run, comma list (empty - all; a smoke uses a form outside the round)
+        default: ''
+permissions:
+  contents: read
+env:
+  BENCH_MODEL: claude-haiku-5-5
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        tool: [browser-use, stagehand, nanobrowser, extension]
+        run: ${{ fromJSON(inputs.runs) }}
+        include:
+          - tool: extension-shipped
+            run: 1
+    env:
+      BENCH_ANTHROPIC_KEY: ${{ secrets.BENCH_ANTHROPIC_KEY }}   # the agents' key (the Tests workspace), held by the metering pass-through
+      E2E_ANTHROPIC_KEY: ${{ secrets.BENCH_ANTHROPIC_KEY }}     # our leg: the app's API engine on CI reads this name (desktop/e2e/lib/engine.mjs)
+      JP_REPO: ${{ github.workspace }}/jp/desktop/e2e
+      JOB_PILOTTO_HEAVY: '0'
+      JOB_PILOTTO_SESSION: form round ${{ github.run_id }} ${{ matrix.tool }} ${{ matrix.run }}
+      JOB_PILOTTO_VISIT_KIND: hand
+      JOB_PILOTTO_SITE_LEDGER_DIR: ${{ github.workspace }}/ledger
+      JP_NO_REPORT: '1'
+      ANONYMIZED_TELEMETRY: 'false'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: {node-version: '22'}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: The harness, a browser and a virtual display
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium chromium-headless-shell
+          sudo apt-get install -y -qq xvfb >/dev/null
+      - name: Browser Use (pinned, requirements.txt)
+        if: matrix.tool == 'browser-use'
+        run: python -m venv venv && venv/bin/pip install -q -r requirements.txt
+      - name: Nanobrowser (release v0.2.0)
+        if: matrix.tool == 'nanobrowser'
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          gh release download v0.2.0 -R nanobrowser/nanobrowser -p 'nanobrowser-v0.2.0.zip' -D "$RUNNER_TEMP"
+          mkdir -p "$RUNNER_TEMP/nb-0.2.0" && unzip -q "$RUNNER_TEMP/nanobrowser-v0.2.0.zip" -d "$RUNNER_TEMP/nb-0.2.0"
+          echo "NANOBROWSER_DIR=$RUNNER_TEMP/nb-0.2.0" >> "$GITHUB_ENV"
+      - name: Jobadabra (public repo) at the asked commit (every tool reads its fake applicant, CV file and site ledger)
+        uses: actions/checkout@v5
+        with: {repository: GarryOne/jobadabra, ref: '${{ inputs.product_ref }}', path: jp, persist-credentials: false}
+      - name: Jobadabra's test harness
+        run: |
+          (cd jp/desktop/e2e && (npm ci || npm install))
+          echo "our build: $(git -C jp rev-parse --short HEAD)"
+      - name: Jobadabra's app (our leg)
+        if: startsWith(matrix.tool, 'extension')
+        run: |
+          (cd jp/desktop && npm ci)
+          (cd jp/desktop/e2e && npx playwright-core install --with-deps chromium)
+          pip install --quiet -r jp/requirements.txt
+      - name: The round's forms, this tool, this run
+        run: |
+          set -o pipefail
+          case "${{ matrix.tool }}" in extension) cap=0.05;; extension-shipped) cap=0.20;; *) cap="${{ inputs.agent_cap }}";; esac
+          xvfb-run -a --server-args='-screen 0 1440x900x24' node round-job.mjs --tool "${{ matrix.tool }}" --run "${{ matrix.run }}" \
+            --forms "${{ inputs.forms }}" --only "${{ inputs.only }}" --out round-out --cap "$cap" 2>&1 | tee round.log
+      - name: This job's runs (no network records, no captured pages)
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: form-round-${{ matrix.tool }}-${{ matrix.run }}
+          retention-days: 30
+          path: |
+            round.log
+            round-out/**/result.json
+            round-out/**/fields.json
+            round-out/**/manifest.json
+            round-out/**/guard.jsonl
+            round-out/**/run.log
+            round-out/**/start.png
+            round-out/**/end.png
+            round-out/job-*.json

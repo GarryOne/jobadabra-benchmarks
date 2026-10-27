@@ -1,4 +1,4 @@
-# 🥊 Job Pilotto bake-off
+# 🥊 Jobadabra benchmarks (form filling here, job search in `search-bench/`)
 
 **Our job-application extension vs. the open-source browser agents** — same forms, same applicant, same scorer, same safety net.
 
