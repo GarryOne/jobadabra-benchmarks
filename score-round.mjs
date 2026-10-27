@@ -9,6 +9,7 @@ import {markTwins} from './lib/holds.mjs'; import {markChipUploads} from './lib/
 const dirs = p => fs.readdirSync(p, {withFileTypes: true}).filter(d => d.isDirectory()).map(d => d.name).sort();
 // A run saw a field when it read the same question OR the same name: a label's text can change while a tool types (a place box's label held its suggestion list,
 // 27 Oct 2026, form 105: one box read under 3 texts, the texts only rivals saw counted "not reached"), and some pages name a field anew on each load (Ashby), so neither alone.
+const fold = s => String(s || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '');
 const nameKey = f => (f.name ? `${f.type}|${f.name}` : '');
 const chipsOf = dir => { try { return JSON.parse(fs.readFileSync(path.join(dir, 'fields.json'), 'utf8')).fileChips || []; } catch { return []; } };
 
@@ -24,7 +25,9 @@ export function scoreRound(round, {rows: wantRows = false} = {}) {
   const rows = [];   // one per tool, form and run: what a publish step sends
   for (const r of runs) {
     const seen = new Set(r.judged.flatMap(f => [f.question, nameKey(f)]).filter(Boolean)), others = Object.entries(rightBy[r.form] || {}).filter(([t]) => t !== r.tool);
-    const notReached = new Set(others.flatMap(([, fs]) => fs).filter(f => !seen.has(f.question) && !seen.has(nameKey(f))).map(f => f.question)).size;
+    const fileNames = r.judged.filter(f => f.type === 'file' && fold(f.name).length >= 3).map(f => fold(f.name));
+    const sawSlot = f => f.type === 'file' && !f.name && fileNames.some(n => fold(f.question).includes(n));   // a chip row ("Resume/CV*") is the slot this run read by name ("resume")
+    const notReached = new Set(others.flatMap(([, fs]) => fs).filter(f => !seen.has(f.question) && !seen.has(nameKey(f)) && !sawSlot(f)).map(f => f.question)).size;
     const c = ((lines[r.tool] ||= {})[r.run] ||= {right: 0, wrong: 0, emptyAnswerable: 0, notReached: 0, forms: 0});
     const one = {form: r.form, tool: r.tool, run: r.run, right: 0, wrong: 0, emptyAnswerable: 0, notReached, unanswerable: 0};
     for (const f of r.judged) { if (f.verdict === 'right') one.right++; else if (f.verdict === 'wrong') one.wrong++; else if (f.verdict === 'empty' && f.answerable) one.emptyAnswerable++; else one.unanswerable++; }

@@ -24,3 +24,14 @@ test('one field is one field: a label that changed while a tool typed is not "no
   assert.deepEqual(s.a.runs[0], {run: '1', right: 2, wrong: 0, emptyAnswerable: 0, notReached: 0, forms: 2, score: 100});   // CV from its chip; the cover letter box is its twin
   assert.deepEqual(s.b.runs[0], {run: '1', right: 1, wrong: 0, emptyAnswerable: 1, notReached: 0, forms: 2, score: 50});    // no file named in b's chips: still a miss
 });
+test('one slot, one file: a chip the reader already read as a filled row is not counted again on its emptied box', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'score-round-'));
+  // form 102 after PR #4's reader: the chip row "Resume/CV*" cv.pdf, and the emptied "resume" box under the same words
+  put(root, '1', 'a', '1', [{type: 'file', name: 'resume', question: 'Resume/CV*', verdict: 'empty', answerable: false, twin: true},
+    {type: 'file', name: '', question: 'Resume/CV*', value: 'cv.pdf', verdict: 'right', answerable: true}], ['Resume/CV*cv.pdf', 'cv.pdf']);
+  // b, read by the older reader, saw the same slot as "Attach" named resume: the chip row is no question b never reached
+  put(root, '1', 'b', '1', [{type: 'file', name: 'resume', question: 'Attach', verdict: 'empty', answerable: true}], ['Resume/CV*cv.pdf']);
+  const s = scoreRound(root);
+  assert.deepEqual(s.a.runs[0], {run: '1', right: 1, wrong: 0, emptyAnswerable: 0, notReached: 0, forms: 1, score: 100});
+  assert.deepEqual(s.b.runs[0], {run: '1', right: 1, wrong: 0, emptyAnswerable: 0, notReached: 0, forms: 1, score: 100});
+});
