@@ -1,10 +1,12 @@
-# The weekly new set (owner, 27 Oct 2026, via 6e: "Yes: fixed set + weekly new set (Recommended)"; shape: "All 4, 1 repeat (Recommended)",
-# about $0.77 a week). The one workflow on a schedule (test/workflows). Each Monday it draws 6 forms nobody has seen: career-ops' list
+# Each Monday, two rounds (owner, 27 Oct 2026: "Both (Recommended)"); each ends with one Telegram note (weekly-note.mjs):
+# - `fixed`: ours alone on the 6 fixed forms x3, our regression check (owner, via 5b: "Weekly, ours only (Recommended)"), ~$0.08;
+# - `draw`: the weekly new set (owner, via 6e: "Yes: fixed set + weekly new set (Recommended)"; shape: "All 4, 1 repeat (Recommended)",
+#   about $0.77 a week). The one workflow on a schedule (test/workflows). Each Monday it draws 6 forms nobody has seen: career-ops' list
 # (pinned tag), minus every company in our product repo, this repo's form lists and runs, the fixed set and every earlier week
 # (tools/excluded.sh), seeded by the ISO week so anyone can redo it. Ids YYWW*100+1.. so a form id names one form in every round.
 # The draw goes to the branch weekly-picks (weekly/<week>.json; main is merged by hand), then the form round runs all four tools once on
 # it and publishes itself as week-YYYY-Www. Never Submit (lib/guard.mjs), fake applicant only, as in every round.
-name: form weekly new set
+name: form weekly (fixed set + new set)
 on:
   schedule:
     - cron: '0 6 * * 1'   # Monday 06:00 UTC
@@ -15,6 +17,14 @@ permissions:
 env:
   CAREER_OPS_TAG: career-ops-v1.38.0
 jobs:
+  fixed:   # ours on the fixed set, judged in the frozen baseline, published as round fixed
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: The form round, ours alone on the fixed set (3 repeats), publishing as fixed
+        env: {GH_TOKEN: '${{ github.token }}'}
+        run: |
+          gh workflow run form-round.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" -f tools='["extension"]' -f runs='[1,2,3]' -f publish=fixed -f weekly=yes
   draw:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
@@ -51,4 +61,4 @@ jobs:
         env: {GH_TOKEN: '${{ github.token }}', WEEK: '${{ steps.draw.outputs.week }}'}
         run: |
           gh workflow run form-round.yml --ref "$GITHUB_REF_NAME" -f forms=forms-week.json -f forms_from="weekly-picks:weekly/$WEEK.json" \
-            -f runs='[1]' -f publish="week-$WEEK"
+            -f runs='[1]' -f publish="week-$WEEK" -f weekly=yes
