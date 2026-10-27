@@ -1,5 +1,5 @@
 """Browser Use side of the bake-off: attaches to the shared guarded browser over CDP and fills the form with Sonnet 5.5. Args: cdp_url instruction_file cv_pdf out_json. Key in env ANTHROPIC_API_KEY (never printed)."""
-import asyncio, json, sys, time
+import asyncio, json, os, sys, time
 from browser_use import Agent, Browser, ChatAnthropic
 
 
@@ -16,7 +16,7 @@ allowed = sys.argv[5].split(',') if len(sys.argv) > 5 else None
 async def main():
     task = open(instr_file).read()
     browser = Browser(cdp_url=cdp, keep_alive=True, allowed_domains=allowed)
-    agent = Agent(task=task, llm=SonnetFiveChat(model='claude-sonnet-5-5'), browser=browser, available_file_paths=[cv], calculate_cost=True)
+    agent = Agent(task=task, llm=SonnetFiveChat(model=os.environ.get('BENCH_MODEL', 'claude-sonnet-5-5'), **({'base_url': os.environ['BENCH_BASE_URL']} if os.environ.get('BENCH_BASE_URL') else {})), browser=browser, available_file_paths=[cv], calculate_cost=True)
     started = time.time()
     result = {'tool': 'browser-use', 'error': ''}
     try:

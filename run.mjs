@@ -2,12 +2,15 @@
 // Safety: every tool's browser has the Submit guard (lib/guard.mjs); live visits go through the repo's per-site ledger (guardLiveVisit); never Submit, no login. Prints only result lines, never a key.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'; import {spawn, execFileSync} from 'node:child_process';
 import {startAgentBrowser} from './lib/browser.mjs'; import {installGuard} from './lib/guard.mjs';
-import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {writeManifest} from './lib/manifest.mjs'; import {startTrail} from './lib/trail.mjs'; import {startNanobrowser} from './lib/nanobrowser.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize, MODEL, PRICE} from './lib/score.mjs';
+import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {writeManifest} from './lib/manifest.mjs'; import {startTrail} from './lib/trail.mjs'; import {startNanobrowser} from './lib/nanobrowser.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize} from './lib/score.mjs'; import {AGENT_MODEL} from './lib/models.mjs';
 
 // A crash inside a tool (an uncaught error in its own library) is that tool's result, not a lost run: the end page is still read and the metered tokens still counted.
 let fatal = '';
 process.on('uncaughtException', e => { fatal = String(e?.message || e).slice(0, 300); console.error('FATAL (uncaught):', e?.stack || e); });   // never silent: a tool crash is a result, and its stack goes to the run log
 process.on('unhandledRejection', e => { fatal = String(e?.message || e).slice(0, 300); console.error('FATAL (unhandled rejection):', e?.stack || e); });
+// Our leg awaits the harness at the top level: a crash there would leave the app holding the process open (27 Oct 2026, a missing browser). Its result says so and the run ends.
+const endOursOnCrash = () => { if (process.argv[2] !== 'extension' || !fatal) return; try { fs.writeFileSync(path.join(process.argv[4], 'result.json'), JSON.stringify({tool: 'extension', url: process.argv[3], error: fatal, crashed: true}, null, 1)); } catch { /* the out dir may not exist yet */ } setTimeout(() => process.exit(1), 3000).unref(); };
+process.on('uncaughtException', endOursOnCrash); process.on('unhandledRejection', endOursOnCrash);
 const watchFatal = () => new Promise((_, reject) => { const t = setInterval(() => { if (fatal) { clearInterval(t); reject(new Error(fatal)); } }, 500); setTimeout(() => { clearInterval(t); reject(new Error('timeout: 8 minutes')); }, 8 * 60 * 1000).unref(); });
 const REPO = process.env.JP_REPO || path.join(process.env.HOME, 'job-pilotto', 'desktop', 'e2e');   // the Job Pilotto checkout: fake applicant, site ledger, the extension harness (use a worktree on main, never the owner's live checkout)
 const [tool, url, out] = process.argv.slice(2);
@@ -16,7 +19,9 @@ fs.mkdirSync(out, {recursive: true});
 const guardLog = path.join(out, 'guard.jsonl'); fs.writeFileSync(guardLog, '');
 const key = () => execFileSync('security', ['find-generic-password', '-a', 'job-pilotto', '-s', 'job-pilotto.anthropic.e2e_key', '-w'], {encoding: 'utf8'}).trim();
 const applicant = await buildApplicant(path.dirname(out));   // the same file for every tool of this form
-const started = Date.now(), result = {tool, url, model: tool === 'extension' ? 'the extension\'s own (app models via claude -p)' : MODEL};
+const started = Date.now(), result = {tool, url, model: tool === 'extension' ? (process.env.BENCH_MODEL && process.env.BENCH_OURS_AS_SHIPPED !== '1' ? `${AGENT_MODEL} (JOB_PILOTTO_MODEL_OVERRIDE, claude -p on the plan)` : 'as shipped: claude-sonnet-5-5 for answers (claude -p on the plan)') : AGENT_MODEL};
+// The same model for ours as for the agents (objective round): the app's e2e-only switch puts every AI step on it. BENCH_OURS_AS_SHIPPED=1 keeps the shipped models.
+if (tool === 'extension' && process.env.BENCH_MODEL && process.env.BENCH_OURS_AS_SHIPPED !== '1') process.env.JOB_PILOTTO_MODEL_OVERRIDE = AGENT_MODEL;
 const {guardLiveVisit} = await import(path.join(REPO, 'lib/site-ledger.mjs'));
 let guard = null;
 // Where a top-level navigation may go: the form's own site (registrable domain) plus the hiring systems forms are embedded from. Anything else is aborted and logged.
@@ -83,11 +88,11 @@ if (tool === 'extension') {
       fs.writeFileSync(path.join(out, 'events.json'), JSON.stringify(res.events || [])); const last = [...(res.events || [])].reverse().find(e => String(e.state).startsWith('task.')) || {}, steps = (res.events || []).filter(e => e.state === 'step.start').length, u = b.proxy.usage;
       const tokens = {in: u.in, out: u.out, cacheRead: u.cacheRead, cacheWrite: u.cacheWrite, calls: u.calls};
       Object.assign(result, {capped: last.state === 'task.fail' && /max.?steps|maximum/i.test(JSON.stringify(last.data || '')) || !!res.timedOut || (!last.state && !res.error) || /timeout/.test(res.error || ''), steps, final: String(res.error || JSON.stringify(last.data || last.state || 'no final event')).slice(0, 400), completed: last.state === 'task.ok', tokens,
-        usd: tokens.in * PRICE.in + tokens.out * PRICE.out + tokens.cacheRead * PRICE.in * 0.1 + tokens.cacheWrite * PRICE.in * 1.25, usdNote: 'tokens counted at the API (local pass-through) x Sonnet 5.5 price'});
+        usd: u.usd, longCalls: u.longCalls, maxCallIn: u.maxIn, usdNote: `tokens counted at the API (local pass-through), priced per call for ${u.model}`});
     } else if (tool === 'stagehand') {
       const {Stagehand} = await import('@browserbasehq/stagehand'); const {tool: aiTool} = await import('ai'); const {z} = await import('zod');
       const proxy = await startAnthropicProxy(key());   // thinking off + exact token metering (lib/anthropic-proxy.mjs)
-      const model = {modelName: `anthropic/${MODEL}`, apiKey: 'proxy-held', baseURL: proxy.url};
+      const model = {modelName: `anthropic/${AGENT_MODEL}`, apiKey: 'proxy-held', baseURL: proxy.url};
       const sh = new Stagehand({env: 'LOCAL', model, localBrowserLaunchOptions: {cdpUrl: (await (await fetch(`${b.cdpUrl}/json/version`)).json()).webSocketDebuggerUrl}, verbose: 0, disablePino: true, experimental: true, disableAPI: true});
       await sh.init();   // (cdpUrl is the browser's websocket address, read from /json/version)
       // Stagehand's agent has no file-upload tool; this glue (bake-off only, said in the report) gives it the same reach as Browser Use's built-in upload.
@@ -97,15 +102,15 @@ if (tool === 'extension') {
       const agent = sh.agent({tools: {uploadCv}, model});
       let res = {}; try { res = await Promise.race([agent.execute({instruction: task, maxSteps: 40}), watchFatal()]); } catch (error) { res = {error: String(error).slice(0, 300)}; }
       const u = proxy.usage, tokens = {in: u.in, out: u.out, cacheRead: u.cacheRead, cacheWrite: u.cacheWrite, calls: u.calls}; proxy.close();
-      Object.assign(result, {capped: !res.completed && !res.error, steps: res.actions?.length ?? null, final: String(res.message || res.error || '').slice(0, 400), completed: !!res.completed, tokens, usd: tokens.in * PRICE.in + tokens.out * PRICE.out + tokens.cacheRead * PRICE.in * 0.1 + tokens.cacheWrite * PRICE.in * 1.25, usdNote: 'tokens counted at the API (local pass-through) x Sonnet 5.5 price'});
+      Object.assign(result, {capped: !res.completed && !res.error, steps: res.actions?.length ?? null, final: String(res.message || res.error || '').slice(0, 400), completed: !!res.completed, tokens, usd: u.usd, longCalls: u.longCalls, maxCallIn: u.maxIn, usdNote: `tokens counted at the API (local pass-through), priced per call for ${u.model}`});
       await sh.close().catch(() => {});
     } else {
       const instrFile = path.join(out, 'instruction.txt'); fs.writeFileSync(instrFile, task);
-      const outJson = path.join(out, 'bu.json');
-      await new Promise(resolve => { const p = spawn(path.join(import.meta.dirname, 'venv/bin/python'), [path.join(import.meta.dirname, 'lib/bu_agent.py'), b.cdpUrl, instrFile, CV_PDF, outJson, navAllow.join(',')], {env: {...process.env, ANTHROPIC_API_KEY: key(), ANONYMIZED_TELEMETRY: 'false'}, stdio: ['ignore', fs.openSync(path.join(out, 'bu.log'), 'w'), fs.openSync(path.join(out, 'bu.err'), 'w')]}); p.on('close', resolve); });
+      const outJson = path.join(out, 'bu.json'), proxy = await startAnthropicProxy(key(), {passThrough: true});   // metered and priced like the others (27 Oct 2026)
+      await new Promise(resolve => { const p = spawn(path.join(import.meta.dirname, 'venv/bin/python'), [path.join(import.meta.dirname, 'lib/bu_agent.py'), b.cdpUrl, instrFile, CV_PDF, outJson, navAllow.join(',')], {env: {...process.env, ANTHROPIC_API_KEY: 'held-by-the-pass-through', BENCH_BASE_URL: proxy.url.replace(/\/v1$/, ''), BENCH_MODEL: AGENT_MODEL, ANONYMIZED_TELEMETRY: 'false'}, stdio: ['ignore', fs.openSync(path.join(out, 'bu.log'), 'w'), fs.openSync(path.join(out, 'bu.err'), 'w')]}); p.on('close', resolve); });
       const bu = fs.existsSync(outJson) ? JSON.parse(fs.readFileSync(outJson, 'utf8')) : {error: 'no result file; see bu.log'};
-      const tokens = bu.usage ? {in: bu.usage.in, out: bu.usage.out} : null;
-      Object.assign(result, {capped: !bu.done && (bu.steps ?? 0) >= 40, steps: bu.steps ?? null, final: bu.final || bu.error || '', completed: !!bu.done, tokens, usd: tokens ? tokens.in * PRICE.in + tokens.out * PRICE.out : null, usdReportedByTool: bu.usage?.usd_reported ?? null});
+      const u = proxy.usage, tokens = {in: u.in, out: u.out, cacheRead: u.cacheRead, cacheWrite: u.cacheWrite, calls: u.calls}; proxy.close();
+      Object.assign(result, {capped: !bu.done && (bu.steps ?? 0) >= 40, steps: bu.steps ?? null, final: bu.final || bu.error || '', completed: !!bu.done, tokens, usd: u.usd, longCalls: u.longCalls, maxCallIn: u.maxIn, usdReportedByTool: bu.usage?.usd_reported ?? null});
     }
     result.seconds = Math.round((Date.now() - t0) / 100) / 10;
     await collectEnd(b.context, out, trail);
@@ -128,3 +133,4 @@ fs.writeFileSync(path.join(out, 'result.json'), JSON.stringify(result, null, 1))
 writeManifest({tool, url, out, instructionText: instruction(applicant.text, url, process.env.BAKEOFF_FLOW === '1'), applicantText: applicant.text, repoE2e: REPO, result, startedAt: new Date(started).toISOString(), flow: process.env.BAKEOFF_FLOW === '1'});   // everything needed to repeat this run (lib/manifest.mjs)
 console.log(`RESULT ${tool}: ${JSON.stringify({score: result.score, seconds: result.seconds, steps: result.steps, usd: result.usd, submitPressed: result.submitPressed, aborted: result.guard.aborted.length})}`);
 if (!process.argv.includes('--no-judge') && !process.env.BAKEOFF_NO_PUBLISH) { try { console.log('benchmark page:', execFileSync('node', [path.join(import.meta.dirname, 'publish-site.mjs'), '--run', out], {encoding: 'utf8', timeout: 60000}).trim()); } catch (e) { console.log('benchmark page: not updated (' + String(e.message).slice(0, 80) + ')'); } }   // each scored run updates /admin/benchmark-form-filling; never fails the run
+process.exit(0);   // everything is written: a tool's open handles (Stagehand after an API error, 27 Oct 2026) must not keep the run alive
