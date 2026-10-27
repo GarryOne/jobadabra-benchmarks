@@ -14,6 +14,7 @@ const personas = JSON.parse(fs.readFileSync(path.join(here, 'personas.json'), 'u
 const read = (file, fallback = '') => { try { return fs.readFileSync(file, 'utf8'); } catch { return fallback; } };
 const norm = row => [row.title, row.company, row.location].map(part => (part || '').trim().toLowerCase()).join('|');
 const rows = [];
+const missing = JSON.parse(read(path.join(work, 'missing.json'), '[]'));   // "ours p3"-style labels: a rival whose job failed has no rows (pool.mjs)
 fs.mkdirSync(path.join(here, 'results', round), {recursive: true});
 
 // every tool of the round, so a tool that found nothing on a persona still shows a 0 there
@@ -25,6 +26,7 @@ personas.forEach((persona, at) => {
   fs.copyFileSync(judged, path.join(here, 'results', round, `persona-${n}.json`));
   const label = `${persona.title} · ${persona.city}`;
   const seconds = {
+    'ours-all': Number((read(path.join(work, 'ours-all', `p${n}.log`)).match(/^PRESS .*\((\d+) s/m) || [])[1] || 0),
     ours: Number((read(path.join(work, 'ours', `p${n}.log`)).match(/^PRESS .*\((\d+) s/m) || [])[1] || 0),
     'career-ops': Number(read(path.join(work, 'co', `p${n}`, `career-ops-persona-${n}`, 'seconds.txt'), '0').trim()) || 0,
     'career-ops-docs': Number(read(path.join(work, 'co-docs', `p${n}`, 'seconds.txt'), '0').trim()) || 0,
@@ -34,11 +36,17 @@ personas.forEach((persona, at) => {
   for (const tool of roundTools) {
     const name = NAME[tool] || tool;
     const mine = list.filter(row => row.tool === tool);
+    const beyond = {};   // ours-all only: its relevant jobs each rival did not show (owner, 27 Oct 2026: "how many relevant jobs we add on top of each rival")
+    if (tool === 'ours-all') for (const rival of roundTools.filter(t => !['ours', 'ours-all', 'career-ops', 'career-ops-docs'].includes(t))) {
+      if (missing.includes(`${rival} p${n}`)) continue;   // Why (gitar-bot, #9): a failed rival is unknown, not "everything is beyond it"
+      const seen = new Set(list.filter(row => row.tool === rival).map(norm));
+      beyond[NAME[rival] || rival] = mine.filter(relevant).filter(row => !seen.has(norm(row))).length;
+    }
     const missed = {};   // the job systems of this tool's relevant jobs the other tool did not show
-    if (tool !== 'ours') for (const row of mine.filter(relevant)) if (!oursKeys.has(norm(row))) missed[row.provider || 'unknown'] = (missed[row.provider || 'unknown'] || 0) + 1;
-    rows.push({id: `${round}/p${n}/${tool}`, at: new Date().toISOString(), round, persona: label, kind: persona.kind, country: persona.country, tool: name, ours: tool === 'ours', build: tool === 'ours' ? build : '',
+    if (tool !== 'ours' && tool !== 'ours-all') for (const row of mine.filter(relevant)) if (!oursKeys.has(norm(row))) missed[row.provider || 'unknown'] = (missed[row.provider || 'unknown'] || 0) + 1;
+    rows.push({id: `${round}/p${n}/${tool}`, at: new Date().toISOString(), round, persona: label, kind: persona.kind, country: persona.country, tool: name, ours: tool === 'ours', build: tool === 'ours' || tool === 'ours-all' ? build : '',
       found: mine.length, place: mine.filter(row => row.place === 'yes').length, role: mine.filter(row => row.role === 'yes').length, relevant: mine.filter(relevant).length,
-      employers: new Set(mine.map(row => (row.company || '').toLowerCase()).filter(Boolean)).size, seconds: seconds[tool] || 0, cents: 0, missed});
+      employers: new Set(mine.map(row => (row.company || '').toLowerCase()).filter(Boolean)).size, seconds: seconds[tool] || 0, cents: 0, missed, ...(tool === 'ours-all' ? {beyond} : {})});
   }
 });
 

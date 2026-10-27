@@ -9,14 +9,23 @@ test('ours and the rivals land in one pool; the missing ones are named; the buil
   put(path.join(art, 'search-ours-p1-x1', 'build.txt'), 'our build: abc1234\n');
   put(path.join(art, 'search-ours-p1-x1', 'out', 'jobs.json'), [{tool: 'ours', title: 'Nurse', company: 'Clinic', location: 'Town', provider: 'greenhouse', url: 'https://x.test/1'}]);
   put(path.join(art, 'search-ours-p1-x1', 'out', 'run.log'), 'PRESS 1 (120 s)\n');
+  put(path.join(art, 'search-ours-all-p1-x1', 'out', 'jobs.json'), [{tool: 'ours', title: 'Nurse', company: 'Clinic', location: 'Town'}, {tool: 'ours', title: 'Aide', company: 'EURES Co', location: 'Town', provider: 'EURES'}]);
   put(path.join(art, 'search-jobspy-p1', 'jobspy-p1.json'), [{tool: 'jobspy', title: 'Nurse', company: 'Ward', location: 'Town', job_url: 'https://y.test'}]);
   put(path.join(art, 'search-eures-p1', 'out', 'eures-p1.json'), []);
   const {missing, build} = layOut(art, work, {personas: 2});
   assert.equal(build, 'abc1234');
-  assert.deepEqual(missing, ['adzuna p1', 'ours p2', 'jobspy p2', 'eures p2', 'adzuna p2']);
+  assert.deepEqual(missing, ['adzuna p1', 'ours p2', 'ours-all p2', 'jobspy p2', 'eures p2', 'adzuna p2']);
   const pool = JSON.parse(fs.readFileSync(path.join(work, 'pool1.json'), 'utf8'));
-  assert.deepEqual(pool.map(r => r.tool), ['ours', 'jobspy']);
+  assert.deepEqual(pool.map(r => r.tool), ['ours', 'ours-all', 'ours-all', 'jobspy']);
   assert.deepEqual(Object.keys(pool[0]), ['tool', 'title', 'company', 'location', 'provider'], 'no URL reaches the judge');
   assert.equal(fs.readFileSync(path.join(work, 'ours', 'p1.log'), 'utf8'), 'PRESS 1 (120 s)\n');
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(work, 'missing.json'), 'utf8')), missing);
+});
+
+test('the rivals are listed once (rivals.json): the rivals workflow, the round and the fair ours arm read the same names', () => {
+  const rivals = JSON.parse(fs.readFileSync(path.join(import.meta.dirname, '..', 'search-bench', 'rivals.json'), 'utf8')), flows = path.join(import.meta.dirname, '..', '.github', 'workflows');
+  for (const f of ['search-rivals.yml', 'search-round.yml']) assert.ok(fs.readFileSync(path.join(flows, f), 'utf8').includes(JSON.stringify(rivals).replace(/","/g, '","')), `${f} lists ${rivals}`);
+  const ours = fs.readFileSync(path.join(flows, 'search-ours.yml'), 'utf8');
+  assert.match(ours, /rivals\.json/, 'the fair arm reads the list');
+  assert.match(ours, /JOB_PILOTTO_DISABLE="\$off"/);
 });
