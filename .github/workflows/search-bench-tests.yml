@@ -1,0 +1,17 @@
+# search-bench: the judge's spend-cap tests (no API call, no secret); they fail if a run could exceed the approved cap.
+name: search-bench tests
+on:
+  pull_request:
+    paths: ['search-bench/**']
+  push:
+    branches: [main]
+    paths: ['search-bench/**']
+permissions:
+  contents: read
+jobs:
+  judge-cap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - run: python3 -I search-bench/test_judge_cap.py

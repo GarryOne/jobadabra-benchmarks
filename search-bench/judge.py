@@ -51,26 +51,56 @@ def ask(key, profile, jobs):
     return {r['n']: r for r in data['jobs']}, reply['usage']
 
 
-def main():
-    personas, index, pool_path, out_path = sys.argv[1:5]
-    limit = int(sys.argv[sys.argv.index('--limit') + 1]) if '--limit' in sys.argv else None
-    key = os.environ.get('BENCH_JUDGE_KEY', '')
-    p = json.load(open(personas))['personas'][int(index) - 1]
+class BudgetExceeded(Exception):
+    """The next API call would take the round's judge spend past its approved cap; nothing is sent."""
+
+
+CAP_USD = float(os.environ.get('BENCH_JUDGE_CAP_USD', '1.00'))   # the owner's approved cap for a round; change it only with his yes
+MAX_JOBS = int(os.environ.get('BENCH_JUDGE_MAX_JOBS', '400'))   # a persona's pooled list above this is refused before any call (persona 5 of round 2026-10-20: 1,393 jobs, $0.72)
+
+
+def estimate_usd(profile, jobs):
+    """An upper estimate of one call's cost: characters / 3 as input tokens, 60 output tokens per job (measured 44)."""
+    chars = len(SYSTEM) + len(profile) + sum(len(f'{j["n"]}. {j["title"]} | {j["company"] or "?"} | {j["location"] or "(no place)"}') + 1 for j in jobs)
+    return chars / 3 / 1e6 * PRICE[0] + 60 * len(jobs) / 1e6 * PRICE[1]
+
+
+def spent_usd(ledger):
+    try:
+        return float(json.load(open(ledger))['spent_usd'])
+    except (OSError, ValueError, KeyError):
+        return 0.0
+
+
+def judge(p, index, pool, ledger, ask_fn, limit=None, plan=False, cap=None, max_jobs=None, key=''):
+    """Judges the pool's distinct jobs and returns (rows, jobs judged, tokens, cost). On the API the round's spend (the ledger file) is counted before every call:
+    a list over max_jobs, a persona whose estimate does not fit the rest of the cap, or a batch that would cross it raises BudgetExceeded before that call is sent."""
+    cap = CAP_USD if cap is None else cap
+    max_jobs = MAX_JOBS if max_jobs is None else max_jobs
     profile = f'Profile: {p["title"]}, 6 years of experience, living in {p["city"]}, {p["country"]}; on-site or hybrid; speaks {p["language"]} and English.'
-    pool = json.load(open(pool_path))
     unique = {}   # one verdict per distinct job; every tool that found it gets it
     for row in pool:
         unique.setdefault((row['title'].strip().lower(), (row['company'] or '').strip().lower(), (row['location'] or '').strip().lower()), row)
     jobs = list(unique.values())
-    seed = f'bench-judge-{index}'
-    random.Random(seed).shuffle(jobs)
+    random.Random(f'bench-judge-{index}').shuffle(jobs)
     if limit:
         jobs = jobs[:limit]
+    numbered = lambda chunk: [{'n': i + 1, **{k: j[k] for k in ('title', 'company', 'location')}} for i, j in enumerate(chunk)]
+    if not plan:
+        if len(jobs) > max_jobs:
+            raise BudgetExceeded(f'{len(jobs)} distinct jobs is over the {max_jobs} a persona may have on the API (use --limit N for a seeded sample, or the plan engine); nothing was sent')
+        whole = sum(estimate_usd(profile, numbered(jobs[start:start + BATCH])) for start in range(0, len(jobs), BATCH))
+        if spent_usd(ledger) + whole > cap:
+            raise BudgetExceeded(f'estimated ${whole:.2f} for this persona plus ${spent_usd(ledger):.2f} already spent is over the ${cap:.2f} cap; nothing was sent')
     tokens = [0, 0]
     for start in range(0, len(jobs), BATCH):
-        chunk = [{'n': i + 1, **{k: j[k] for k in ('title', 'company', 'location')}} for i, j in enumerate(jobs[start:start + BATCH])]
-        verdicts, usage = ask(key, profile, chunk)
+        chunk = numbered(jobs[start:start + BATCH])
+        if not plan and spent_usd(ledger) + estimate_usd(profile, chunk) > cap:
+            raise BudgetExceeded(f'the next batch would take the round past the ${cap:.2f} cap (${spent_usd(ledger):.2f} spent); stopped before sending it')
+        verdicts, usage = ask_fn(key, profile, chunk)
         tokens[0] += usage['input_tokens']; tokens[1] += usage['output_tokens']
+        if not plan:
+            json.dump({'spent_usd': round(spent_usd(ledger) + usage['input_tokens'] / 1e6 * PRICE[0] + usage['output_tokens'] / 1e6 * PRICE[1], 6)}, open(ledger, 'w'))
         for i, j in enumerate(jobs[start:start + BATCH]):
             v = verdicts.get(i + 1, {})
             j['role'], j['place'] = v.get('role', 'missing'), v.get('place', 'missing')
@@ -78,9 +108,22 @@ def main():
     for row in pool:
         v = verdict.get((row['title'].strip().lower(), (row['company'] or '').strip().lower(), (row['location'] or '').strip().lower()))
         row['role'], row['place'] = (v['role'], v['place']) if v else ('not-judged', 'not-judged')
-    cost = tokens[0] / 1e6 * PRICE[0] + tokens[1] / 1e6 * PRICE[1]
-    json.dump({'persona': p, 'seed': seed, 'model': MODEL, 'judged_jobs': len(jobs), 'tokens_in': tokens[0], 'tokens_out': tokens[1], 'cost_usd': round(cost, 4), 'rows': pool}, open(out_path, 'w'), ensure_ascii=False, indent=1)
-    print(f'judged {len(jobs)} distinct jobs, {tokens[0]} in / {tokens[1]} out tokens, ${cost:.4f}')
+    return pool, len(jobs), tokens, tokens[0] / 1e6 * PRICE[0] + tokens[1] / 1e6 * PRICE[1]
+
+
+def main():
+    personas, index, pool_path, out_path = sys.argv[1:5]
+    limit = int(sys.argv[sys.argv.index('--limit') + 1]) if '--limit' in sys.argv else None
+    plan = os.environ.get('BENCH_JUDGE_ENGINE') == 'plan'
+    ledger = os.environ.get('BENCH_JUDGE_LEDGER') or os.path.join(os.path.dirname(os.path.abspath(out_path)), 'judge-spend.json')
+    p = json.load(open(personas))['personas'][int(index) - 1]
+    try:
+        rows, count, tokens, cost = judge(p, index, json.load(open(pool_path)), ledger, ask, limit=limit, plan=plan, key=os.environ.get('BENCH_JUDGE_KEY', ''))
+    except BudgetExceeded as error:
+        print(f'judge: {error}', file=sys.stderr)
+        sys.exit(3)
+    json.dump({'persona': p, 'seed': f'bench-judge-{index}', 'model': MODEL, 'judged_jobs': count, 'tokens_in': tokens[0], 'tokens_out': tokens[1], 'cost_usd': round(cost, 4), 'rows': rows}, open(out_path, 'w'), ensure_ascii=False, indent=1)
+    print(f'judged {count} distinct jobs, {tokens[0]} in / {tokens[1]} out tokens, ${cost:.4f}' + ('' if plan else f' (round total ${spent_usd(ledger):.2f} of ${CAP_USD:.2f})'))
 
 
 if __name__ == '__main__':

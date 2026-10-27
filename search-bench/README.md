@@ -12,4 +12,4 @@ Same random role × city searches for both tools, a blind judge, one page: `/adm
 | Rows to the admin page + judged lists to `results/<round>/` | `node publish.mjs <WORK> --round YYYY-MM-DD --build <sha>` (`--dry` first) |
 
 Rules: career-ops never runs on a Mac; its job gets no secrets. Only the role keyword and the place change in its config, by script. Compare discovery (jobs found in places) so neither tool's scoring is in it.
-Results hold titles, employers, places and job systems only, never posting texts. Judge cost is about $0.06 a persona.
+Results hold titles, employers, places and job systems only, never posting texts. Judge cost is about $0.06 a persona on the API, but it scales with the pooled list: the judge refuses a list over 400 jobs and counts the round's spend in `judge-spend.json`, stopping at the approved cap (`BENCH_JUDGE_CAP_USD`, default $1.00, change it only with the owner's yes); `BENCH_JUDGE_ENGINE=plan` judges on the Claude plan at $0 (tests: `search-bench/test_judge_cap.py`).
