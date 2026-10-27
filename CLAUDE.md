@@ -28,3 +28,5 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
     run as another Linux user; test/workflows).
     Revoke the plan token after each round (claude.ai → Settings → Claude Code).
 - Tests: `node --test test/<file>.test.mjs`, one file at a time on the Mac.
+- Watch a round: Monitor on `tools/watch-runs.sh <run id>...` (ends, failed jobs and steps, gh errors). Pass `product_ref` as a
+  commit or a branch: the workflow resolves it once (`build` job), so a merge mid-round cannot break or split it.
