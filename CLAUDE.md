@@ -14,4 +14,10 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
 - **Keys:** create the API keys a benchmark needs yourself, in Claude in Chrome (owner, 27 Oct 2026), inside an account the owner is already
   signed into; a new sign-up, a password or a payment stays his. The value goes straight to the Keychain and a GitHub secret here, never
   into a message, log, file or PR.
+  - How (27 Oct 2026): a key's own Copy button (or a hidden selected textarea + cmd+c) → `pbpaste` → Keychain + `gh secret set` from stdin,
+    then clear the clipboard. A CLI that prints a token (`claude setup-token`) runs in a pty writing to a 600 file; read back only status
+    lines, never the lines around the token: terminals wrap it, and a mask on one line printed its tail once. Wipe the file after.
+  - Which: the agents' API calls use the Benchmarks workspace key ($5/month limit; owner: "a separate API Key for the benchmarks");
+    career-ops' docs run uses the owner's plan token, which only Claude Code sees (its scripts run as another Linux user; test/workflows).
+    Revoke the plan token after each round (claude.ai → Settings → Claude Code).
 - Tests: `node --test test/<file>.test.mjs`, one file at a time on the Mac.
