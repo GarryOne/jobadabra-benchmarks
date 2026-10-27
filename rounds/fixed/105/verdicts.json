@@ -184,7 +184,8 @@
   ],
   "verdict": "right",
   "answerable": false,
-  "note": "Decline is sensible choice"
+  "note": "Decline is a sensible fixed choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "81205bb812fe7c32",
@@ -227,7 +228,8 @@
   ],
   "verdict": "right",
   "answerable": false,
-  "note": "Decline is sensible choice"
+  "note": "Decline is a sensible fixed choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "6df96423a2636396",
@@ -350,7 +352,8 @@
   ],
   "verdict": "right",
   "answerable": false,
-  "note": "Decline is sensible choice"
+  "note": "Decline is a sensible fixed choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "26fefad4abbaa1f6",

@@ -7,8 +7,9 @@
   "value": "",
   "k": "1a1e3d8570765017",
   "verdict": "empty",
-  "answerable": true,
-  "note": "CV available, not uploaded"
+  "answerable": false,
+  "note": "CV available, not uploaded; twin of the uploaded CV box",
+  "twin": true
  },
  {
   "question": "Name",
@@ -460,6 +461,7 @@
   "k": "8c7351c8719ad61a",
   "verdict": "wrong",
   "answerable": false,
-  "note": "Invents protected veteran status"
+  "note": "Claims veteran status; facts don't state it",
+  "rule": "honest-draft-2026-10-27.3"
  }
 ]

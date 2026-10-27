@@ -7,8 +7,9 @@
   "value": "",
   "k": "1a1e3d8570765017",
   "verdict": "empty",
-  "answerable": true,
-  "note": "CV available, not uploaded"
+  "answerable": false,
+  "note": "CV available, not uploaded; twin of the uploaded CV box",
+  "twin": true
  },
  {
   "question": "Name",
@@ -104,7 +105,8 @@
   "k": "d8ab172b3d9df452",
   "verdict": "right",
   "answerable": false,
-  "note": "Prefer not to answer is safe"
+  "note": "Decline option; facts don't state age",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "What is your gender identity?",
@@ -122,7 +124,8 @@
   "k": "9a4e1af18c7e0efa",
   "verdict": "right",
   "answerable": false,
-  "note": "Prefer not to answer is safe"
+  "note": "Decline option; gender not stated",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Do you identify as transgender?",
@@ -138,7 +141,8 @@
   "k": "7fc76308738d3b08",
   "verdict": "right",
   "answerable": false,
-  "note": "Prefer not to answer is safe"
+  "note": "Decline option; not stated in facts",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Bisexual",
@@ -239,7 +243,8 @@
   "k": "04b46f7095c221f2",
   "verdict": "right",
   "answerable": false,
-  "note": "Prefer not to answer is safe"
+  "note": "Decline to answer is a sensible choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Asian or Asian American",
@@ -423,7 +428,8 @@
   "k": "fa830dc2dee87484",
   "verdict": "right",
   "answerable": false,
-  "note": "Decline is a safe choice"
+  "note": "Decline option; gender not stated",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Race - A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race. - A person having origins in any of the original peoples of Europe, the Middle East, or North Africa. - A person having origins in any of the Black racial groups of Afri",
@@ -444,7 +450,8 @@
   "k": "80889d4b015e86bb",
   "verdict": "right",
   "answerable": false,
-  "note": "Decline is a safe choice"
+  "note": "Decline option; ethnicity not stated",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Veteran Status",
@@ -460,6 +467,7 @@
   "k": "9ef5347f07118bc2",
   "verdict": "right",
   "answerable": false,
-  "note": "Decline is a safe choice"
+  "note": "Decline option; veteran status not stated",
+  "rule": "honest-draft-2026-10-27.3"
  }
 ]

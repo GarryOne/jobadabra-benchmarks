@@ -99,8 +99,8 @@
   "fields": 12,
   "right": 6,
   "wrong": 2,
-  "emptyShouldFill": 3,
-  "emptyOk": 1,
+  "emptyShouldFill": 2,
+  "emptyOk": 2,
   "emptyRequired": 3,
   "requiredTotal": 9
  },

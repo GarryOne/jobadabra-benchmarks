@@ -247,7 +247,8 @@
   "value": "At Acme Cloud I ran 400 microservices on Kubernetes on AWS EKS and cut incident time by 40 percent with Datadog and OpenTelemetry. I also built the Terraform platform used by 120 engineers and led an on-call rotation of 8 people. I keep structure simple and add process only where it cuts risk or time. • Add: how you cleaned up a backlog and Jira structure across several teams, how many teams and tickets were involved, and the result.",
   "verdict": "wrong",
   "answerable": false,
-  "note": "Invents answer, has placeholder text"
+  "note": "Contains 'Add:' drafting note placeholder",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "170b84ac35c2510d",
@@ -307,7 +308,8 @@
   "value": "In my Acme Cloud role I built the Terraform platform used by 120 engineers and led an on-call rotation of 8 people. • Add: the teams and Jira projects you worked across and the backlog or board structure you changed • Add: the result, such as how many tickets or workflow steps you removed and what it cut",
   "verdict": "wrong",
   "answerable": false,
-  "note": "Placeholder text, no real answer"
+  "note": "Contains 'Add:' drafting instructions, not an answer",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "fa5f71f97ec73370",
@@ -317,7 +319,8 @@
   "value": "• Add: the size of the teams and the backlog you worked across, and what you changed in Jira (workflow, fields or cleanup rules). • Add: the result, such as a measurable drop in stale tickets or faster planning. • Add: how you kept the process light, for example by avoiding new meetings or approval steps.",
   "verdict": "wrong",
   "answerable": false,
-  "note": "Only placeholder prompts"
+  "note": "Only 'Add:' drafting notes, no answer",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "f0dc30486b7f6352",

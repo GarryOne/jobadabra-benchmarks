@@ -40,8 +40,8 @@
   "fields": 33,
   "right": 3,
   "wrong": 1,
-  "emptyShouldFill": 3,
-  "emptyOk": 26,
+  "emptyShouldFill": 2,
+  "emptyOk": 27,
   "emptyRequired": 1,
   "requiredTotal": 4
  },
