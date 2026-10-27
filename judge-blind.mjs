@@ -5,7 +5,7 @@
 // Usage: node judge-blind.mjs <round dir> [--seed s] [--dry]   (round dir/<form id>/<tool>/<run n>/fields.json + manifest.json)
 // Writes judged.json next to each fields.json and verdicts.json (the pooled list) per form.
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import os from 'node:os'; import {execFileSync} from 'node:child_process';
-import {summarize} from './lib/score.mjs'; import {factsOf} from './lib/facts.mjs';
+import {summarize} from './lib/score.mjs'; import {factsOf} from './lib/facts.mjs'; import {markFileTwins} from './lib/holds.mjs';
 
 const [round] = process.argv.slice(2), SEED = process.argv.includes('--seed') ? process.argv[process.argv.indexOf('--seed') + 1] : 'blind-2026-10-27', DRY = process.argv.includes('--dry');
 const keyOf = f => crypto.createHash('sha256').update(JSON.stringify([f.question, f.type, (f.options || []).slice(0, 12), String(f.value ?? '')])).digest('hex').slice(0, 16);
@@ -46,7 +46,7 @@ for (const formId of fs.readdirSync(round).filter(n => fs.statSync(path.join(rou
   for (const [k, c] of Object.entries(corrections[formId] || {})) verdicts.set(k, {...verdicts.get(k), ...c, corrected: true});
   fs.writeFileSync(path.join(form, 'verdicts.json'), JSON.stringify(list.map(item => ({...item, ...(verdicts.get(item.k) || {verdict: 'empty', answerable: true, note: 'not judged'})})), null, 1));
   for (const dir of runs) {
-    const judged = (JSON.parse(fs.readFileSync(path.join(dir, 'fields.json'), 'utf8')).fields || []).map(f => ({...f, ...(verdicts.get(keyOf(f)) || {verdict: 'empty', answerable: true, note: 'not judged'})}));
+    const judged = markFileTwins((JSON.parse(fs.readFileSync(path.join(dir, 'fields.json'), 'utf8')).fields || []).map(f => ({...f, ...(verdicts.get(keyOf(f)) || {verdict: 'empty', answerable: true, note: 'not judged'})}));
     fs.writeFileSync(path.join(dir, 'judged.json'), JSON.stringify(judged, null, 1));
     const rf = path.join(dir, 'result.json'), r = JSON.parse(fs.readFileSync(rf, 'utf8'));
     fs.writeFileSync(rf, JSON.stringify({...r, score: summarize(judged), judge: 'blind, pooled per form, Claude plan (sonnet), $0'}, null, 1));
