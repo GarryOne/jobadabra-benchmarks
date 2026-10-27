@@ -43,7 +43,7 @@ jobs:
       - name: Jobadabra's engine, app libraries, a browser and Claude Code (pinned)
         run: |
           pip install --quiet -r jp/requirements.txt
-          (cd jp/desktop && npm ci)
+          (cd jp/desktop && npm ci && node scripts/stage.mjs --files-only)   # the app's shared files, as the product's own CI stages them
           (cd jp/desktop/e2e && (npm ci || npm install) && npx playwright-core install --with-deps chromium)
           npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
           echo "our build: $(git -C jp rev-parse --short HEAD)" | tee build.txt

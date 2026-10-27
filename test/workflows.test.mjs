@@ -24,7 +24,7 @@ for (const f of files) {
   test(`${f}: the plan token stays with Claude Code`, () => {
     const check = text.indexOf('- name: Isolation check'), use = text.indexOf('secrets.CLAUDE_CODE_OAUTH_TOKEN');
     assert.ok(check > 0 && check < use, 'an isolation check runs before the token is used');
-    assert.match(text, /sudo -n -u scanner -H -- env PATH=/, 'node runs as another user, with a clean environment');
+    assert.match(text, /sudo -n -u scanner -H -- env -i PATH=/, 'node runs as another user with an emptied environment (sudo on the runner keeps it: 27 Oct smoke)');
     assert.match(text.slice(use), /export PATH="\$RUNNER_TEMP\/shim:\$PATH"/, 'the step with the token puts the shim first');
     assert.match(text.slice(check, use), /EACCES/, 'the check proves /proc is denied');
   });
