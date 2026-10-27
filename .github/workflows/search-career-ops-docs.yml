@@ -1,6 +1,6 @@
 # career-ops set up the way its own docs say (owner, 27 Oct 2026: "set up as its docs recommend"): its first-launch chat in Claude Code
 # (CV, target role, place, its scanner's companies; it may add employers with its discover mode), then its scan mode, for ONE persona.
-# Claude Code runs on the owner's Claude plan through a long-lived token (secret CLAUDE_CODE_OAUTH_TOKEN, made with `claude setup-token`): $0
+# Claude Code runs on Haiku 5.5, like our arm, on the owner's Claude plan through a long-lived token (secret CLAUDE_CODE_OAUTH_TOKEN, made with `claude setup-token`): $0
 # (owner's choice, 27 Oct 2026; career-ops' own docs recommend this for `claude -p`). career-ops is pinned (tag + commit). BY HAND ONLY
 # (test/workflows.test.mjs). Never applies, never submits.
 # The token reaches Claude Code only (owner via 6e, 27 Oct 2026: "never to career-ops' own scripts"): every `node` Claude starts (career-ops'
@@ -20,6 +20,7 @@ env:
   CAREER_OPS_TAG: career-ops-v1.38.0
   CAREER_OPS_SHA: 115bc9873e3d43e23883f3c8f16436617facc62c
   CLAUDE_CODE_VERSION: 2.1.311
+  BENCH_MODEL: claude-haiku-5-5   # the same model as ours (search-ours.yml) and the plan; owner, 27 Oct 2026: "If using Haiku then haiku ours and theirs"
 jobs:
   setup-and-scan:
     runs-on: ubuntu-24.04
@@ -83,7 +84,7 @@ jobs:
           Set up the scanner the way the onboarding does for this candidate (portals.yml, adding employers that hire this role in $city if the docs say so, e.g. with its discover mode).
           Then run the career-ops scan mode and leave its results in data/ as it does. Never apply, submit or email anything. Do not ask me anything: decide as the onboarding suggests."
           start=$(date +%s); set +e; umask 000; export PATH="$RUNNER_TEMP/shim:$PATH"
-          claude -p "$prompt" --max-turns 80 --output-format json --permission-mode acceptEdits \
+          claude -p "$prompt" --model "$BENCH_MODEL" --max-turns 80 --output-format json --permission-mode acceptEdits \
             --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(node:*),Bash(npm run:*),Bash(ls:*),Bash(cat:*)" > $W/claude.json 2> $W/claude.err
           echo "exit $?" >> $W/claude.err; echo $(( $(date +%s) - start )) > $W/seconds.txt; true
       - name: Collect (no posting texts)

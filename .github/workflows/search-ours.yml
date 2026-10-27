@@ -1,0 +1,75 @@
+# Our arm of the search round on CI, beside the rivals (owner, 27 Oct 2026: "If using CI, then CI ours and theirs. If using Haiku then haiku
+# ours and theirs"): every AI step on Haiku 5.5 (JOB_PILOTTO_MODEL_OVERRIDE), on the owner's Claude plan through the token ($0, his choice),
+# the same model and plan career-ops' docs run uses (search-career-ops-docs.yml). BY HAND ONLY (test/workflows.test.mjs).
+# One fresh install per persona and press count: "first search" (1 press) and "after 3 searches" (3 presses), each press with the product's own
+# 3-minute cap. Writes the jobs found (title, company, place: search-bench/extract.py) and the per-press numbers; never applies.
+name: search ours (by hand)
+on:
+  workflow_dispatch:
+    inputs:
+      product_ref:
+        description: The Jobadabra commit or branch (GarryOne/jobadabra); the page names the build
+        default: main
+      personas:
+        description: Persona numbers, JSON
+        default: '[1,2,3,4,5,6,7,8,9,10]'
+      presses:
+        description: Press counts, JSON (1 = first search, 3 = after 3 searches)
+        default: '[1,3]'
+permissions:
+  contents: read
+env:
+  CLAUDE_CODE_VERSION: 2.1.311
+  JOB_PILOTTO_MODEL_OVERRIDE: claude-haiku-5-5
+jobs:
+  search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 2   # the owner's plan: two sessions at a time (with career-ops' docs run, do not start both together)
+      matrix:
+        persona: ${{ fromJSON(inputs.personas) }}
+        presses: ${{ fromJSON(inputs.presses) }}
+    steps:
+      - uses: actions/checkout@v5
+        with: {persist-credentials: false}
+      - uses: actions/checkout@v5
+        with: {repository: GarryOne/jobadabra, ref: '${{ inputs.product_ref }}', path: jp, persist-credentials: false}
+      - uses: actions/setup-node@v5
+        with: {node-version: '22'}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Jobadabra's engine, app libraries, a browser and Claude Code (pinned)
+        run: |
+          pip install --quiet -r jp/requirements.txt
+          (cd jp/desktop && npm ci)
+          (cd jp/desktop/e2e && (npm ci || npm install) && npx playwright-core install --with-deps chromium)
+          npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
+          echo "our build: $(git -C jp rev-parse --short HEAD)" | tee build.txt
+      - name: The persona's fake CV, then Find jobs (Haiku 5.5 for every step, the owner's plan)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          set -o pipefail; mkdir -p out
+          JP=$PWD/jp python3 search-bench/make-cv.py search-bench/personas.json "${{ matrix.persona }}" out | tee out/persona.json
+          start=$(date +%s)
+          (cd jp && env -u ANTHROPIC_API_KEY JOB_PILOTTO_NO_DOTENV=1 node tools/persona-search/run.mjs draw "$GITHUB_WORKSPACE/out" \
+            --presses "${{ matrix.presses }}" --fresh --tag bench) 2>&1 | tee out/run.log
+          echo $(( $(date +%s) - start )) > out/seconds.txt
+          grep -h 'with claude-' out/draw/run-*.log | grep -v -c 'claude-haiku-5-5' > out/non-haiku-steps.txt || true
+          python3 search-bench/extract.py ours "$(node -p 'require("os").tmpdir()')/jp-persona-draw-bench/data/jobs.sqlite" out/jobs.json
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: search-ours-p${{ matrix.persona }}-x${{ matrix.presses }}
+          retention-days: 30
+          path: |
+            build.txt
+            out/persona.json
+            out/seconds.txt
+            out/non-haiku-steps.txt
+            out/jobs.json
+            out/run.log
+            out/draw/presses.jsonl
+            out/draw/run-*.log
