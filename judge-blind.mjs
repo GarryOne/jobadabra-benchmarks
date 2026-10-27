@@ -5,7 +5,8 @@
 // Usage: node judge-blind.mjs <round dir> [--seed s] [--dry] [--fresh]   (round dir/<form id>/<tool>/<run n>/fields.json + manifest.json)
 // Writes judged.json next to each fields.json and verdicts.json (the pooled list) per form.
 // A verdicts.json already in a form's dir is reused (27 Oct 2026: a fixed-set before/after judges only the answers it has not seen, so a rival's
-// unchanged answer keeps its verdict and the round costs one small judge call); --fresh judges every answer anew. Guard: test/verdict-cache.test.mjs.
+// unchanged answer keeps its verdict and the round costs one small judge call); --fresh judges every answer anew. A new rule applies to answers
+// judged from then on: re-judging old ones moved verdicts by judge noise (27 Oct 2026: 3 unrelated flips, a "[EMAIL]" placeholder judged right). Guard: test/verdict-cache.test.mjs.
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import os from 'node:os'; import {execFileSync} from 'node:child_process';
 import {summarize} from './lib/score.mjs'; import {factsOf} from './lib/facts.mjs'; import {markTwins} from './lib/holds.mjs'; import {cachedVerdicts} from './lib/verdict-cache.mjs';
 
@@ -20,7 +21,7 @@ function realClaude() {   // the install itself, never a wrapper script (a wrapp
   throw new Error('no claude install found');
 }
 
-export const PROMPT = (facts, list) => `You score answers typed into a job application form. The applicant's facts are below. Each item is one field's question and a value some tool typed (the same field can appear several times with different values). For EACH item decide:\n- verdict: "right" (the value correctly reflects the facts, or a sensible fixed choice such as consent), "wrong" (the value contradicts the facts, or invents what the facts do not say), "empty" (no value).\n- answerable: true when the facts do answer this question (so empty means a miss), false when they do not (then an empty field is correct).\nA CV file name counts as a value for the CV/resume upload field. Return ONLY JSON: {"items":[{"k":"<k>","verdict":"right|wrong|empty","answerable":true,"note":"max 8 words"}]}.\n\nFACTS:\n${facts}\n\nITEMS:\n${JSON.stringify(list)}`;
+export const PROMPT = (facts, list) => `You score answers typed into a job application form. The applicant's facts are below. Each item is one field's question and a value some tool typed (the same field can appear several times with different values). For EACH item decide:\n- verdict: "right" (the value correctly reflects the facts, or a sensible fixed choice such as consent), "wrong" (the value contradicts the facts, or invents what the facts do not say), "empty" (no value).\n- answerable: true when the facts do answer this question (so empty means a miss), false when they do not (then an empty field is correct).\nA CV file name counts as a value for the CV/resume upload field. A place a fact covers is not invented: when the facts say the applicant is open to relocating within a region (e.g. within Europe), naming a city in that region (e.g. the job's city, London) follows from that fact. Return ONLY JSON: {"items":[{"k":"<k>","verdict":"right|wrong|empty","answerable":true,"note":"max 8 words"}]}.\n\nFACTS:\n${facts}\n\nITEMS:\n${JSON.stringify(list)}`;
 
 function askPlan(prompt) {
   const env = Object.fromEntries(Object.entries(process.env).filter(([k]) => !k.endsWith('_API_KEY') && !k.includes('ANTHROPIC')));
