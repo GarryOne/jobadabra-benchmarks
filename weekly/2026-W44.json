@@ -1,0 +1,68 @@
+{
+ "seed": "week-2026-W44",
+ "source": "career-ops templates/portals.example.yml (career-ops-v1.38.0)",
+ "pickedAt": "2026-10-27T12:49:28.591Z",
+ "per": {
+  "greenhouse": 2,
+  "ashby": 2,
+  "lever": 1,
+  "workable": 1
+ },
+ "picks": [
+  {
+   "id": 264401,
+   "platform": "greenhouse",
+   "company": "ebanx",
+   "host": "job-boards.greenhouse.io",
+   "title": "Product Manager | South Cone",
+   "location": "Buenos Aires | Remote ",
+   "url": "https://job-boards.greenhouse.io/ebanx/jobs/7566225003"
+  },
+  {
+   "id": 264402,
+   "platform": "greenhouse",
+   "company": "stabilityai",
+   "host": "stability.ai",
+   "title": " Product Design Engineer - Audio",
+   "location": "United States",
+   "url": "http://stability.ai/careers?gh_jid=4932950101"
+  },
+  {
+   "id": 264403,
+   "platform": "ashby",
+   "company": "perplexity",
+   "host": "jobs.ashbyhq.com",
+   "title": "Member of Technical Staff (Secure Intelligence Institute)",
+   "location": "San Francisco",
+   "url": "https://jobs.ashbyhq.com/perplexity/32a36cae-ad73-4198-9354-a72b141ff055/application"
+  },
+  {
+   "id": 264404,
+   "platform": "ashby",
+   "company": "resend",
+   "host": "jobs.ashbyhq.com",
+   "title": "Software Engineer, Trust & Safety ",
+   "location": "Americas",
+   "url": "https://jobs.ashbyhq.com/resend/729ad3fa-10a2-4a07-ba9c-13b6eec6adb1/application"
+  },
+  {
+   "id": 264405,
+   "platform": "lever",
+   "company": "yuno",
+   "host": "jobs.lever.co",
+   "title": "Technical Account Manager",
+   "location": "Brazil",
+   "url": "https://jobs.lever.co/yuno/c59fa4ff-62f0-4ea1-96c6-a0828dc017f7/apply"
+  },
+  {
+   "id": 264406,
+   "platform": "workable",
+   "company": "platzi",
+   "host": "apply.workable.com",
+   "title": "Senior Software Engineer (Growth Marketing)",
+   "location": "Mexico City, Mexico",
+   "url": "https://apply.workable.com/platzi/j/680E47041B/apply/"
+  }
+ ],
+ "skipped": []
+}
