@@ -4,7 +4,7 @@
 # (owner's choice, 27 Oct 2026; career-ops' own docs recommend this for `claude -p`). career-ops is pinned (tag + commit). BY HAND ONLY
 # (test/workflows.test.mjs). Never applies, never submits.
 # The token reaches Claude Code only (owner via 6e, 27 Oct 2026: "never to career-ops' own scripts"): every `node` Claude starts (career-ops'
-# scripts, npm) runs as the Linux user `scanner` through a shim, with sudo's clean environment, so it can neither see the token in its own
+# scripts, npm) runs as the Linux user `scanner` through a shim with an emptied environment (env -i: the runner's sudo keeps the caller's), so it can neither see the token in its own
 # environment nor read Claude's from /proc (another user's). The isolation check proves both with a dummy token before the real one is used.
 # The out-of-the-box row (no chat, its zero-token scan) is search-bench-career-ops.yml.
 name: search career-ops docs setup (by hand)
@@ -56,7 +56,7 @@ jobs:
           sudo useradd -m scanner
           sudo cp -r career-ops /srv/co && sudo chmod -R a+rwX /srv/co
           mkdir -p "$RUNNER_TEMP/shim"
-          printf '#!/bin/sh\nexec sudo -n -u scanner -H -- env PATH=%s sh -c '"'"'umask 000; exec "$0" "$@"'"'"' %s "$@"\n' "$PATH" "$(command -v node)" > "$RUNNER_TEMP/shim/node"
+          printf '#!/bin/sh\nexec sudo -n -u scanner -H -- env -i PATH=%s HOME=/home/scanner LANG=C.UTF-8 sh -c '"'"'umask 000; exec "$0" "$@"'"'"' %s "$@"\n' "$PATH" "$(command -v node)" > "$RUNNER_TEMP/shim/node"
           chmod 755 "$RUNNER_TEMP/shim/node"
       - name: Isolation check (a dummy token; stops the job if career-ops' side could read it)
         env:
@@ -75,7 +75,8 @@ jobs:
         working-directory: /srv/co
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          CLAUDE_CODE_SUBPROCESS_ENV_SCRUB: '1'
+          # No CLAUDE_CODE_SUBPROCESS_ENV_SCRUB: it forces the permission mode to default, so career-ops' edits were refused (27 Oct smoke:
+          # 5 turns, no files). The scanner user above is what keeps the token from career-ops' scripts.
         run: |
           W=$GITHUB_WORKSPACE; p=$(cat $W/persona.json)
           title=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['title'])" "$p"); city=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['city'])" "$p"); country=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['country'])" "$p")
@@ -85,16 +86,23 @@ jobs:
           Then run the career-ops scan mode and leave its results in data/ as it does. Never apply, submit or email anything. Do not ask me anything: decide as the onboarding suggests."
           start=$(date +%s); set +e; umask 000; export PATH="$RUNNER_TEMP/shim:$PATH"
           claude -p "$prompt" --model "$BENCH_MODEL" --max-turns 80 --output-format json --permission-mode acceptEdits \
-            --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(node:*),Bash(npm run:*),Bash(ls:*),Bash(cat:*)" > $W/claude.json 2> $W/claude.err
-          echo "exit $?" >> $W/claude.err; echo $(( $(date +%s) - start )) > $W/seconds.txt; true
+            --allowedTools "Task,Agent,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(node:*),Bash(npm run:*),Bash(ls:*),Bash(cat:*)" > $W/claude.json 2> $W/claude.err
+          code=$?; echo "exit $code" >> $W/claude.err; echo $(( $(date +%s) - start )) > $W/seconds.txt
+          # A run that never started is a failure, never a quiet green (27 Oct smoke: Claude stopped at once, the job showed success).
+          [ "$code" = 0 ] || { tail -5 $W/claude.err; exit "$code"; }
       - name: Collect (no posting texts)
         if: always()
         run: |
           mkdir -p out
           cp persona.json claude.err seconds.txt out/ 2>/dev/null || true
-          python3 -c "import json;d=json.load(open('claude.json'));json.dump({k:d.get(k) for k in ('num_turns','duration_ms','total_cost_usd','is_error','subtype')},open('out/claude-summary.json','w'))" 2>/dev/null || true
+          python3 -c "import json;d=json.load(open('claude.json'));json.dump({**{k:d.get(k) for k in ('num_turns','duration_ms','total_cost_usd','is_error','subtype')},'models':list((d.get('modelUsage') or {}).keys()),'result':str(d.get('result') or '')[:2000]},open('out/claude-summary.json','w'),indent=1)" 2>/dev/null || true
           cp /srv/co/portals.yml out/ 2>/dev/null || true
-          cp /srv/co/data/scan-history.tsv /srv/co/data/pipeline.md out/ 2>/dev/null || true
+          ls -la /srv/co/data > out/data-listing.txt 2>&1 || true
+          # Its scripts ran as scanner and write private files (mode 600): copy them as root, then hand them to the runner user.
+          for f in scan-history.tsv scan-runs.tsv pipeline.md; do sudo cp /srv/co/data/$f out/ 2>/dev/null || true; done
+          sudo chown -R "$(id -u):$(id -g)" out
+          python3 search-bench/extract.py career-ops out/scan-history.tsv out/jobs.json || echo '[]' > out/jobs.json
+          rm -f out/scan-history.tsv out/jobs*.all.json   # the raw scan (every posting seen) stays on the runner
       - uses: actions/upload-artifact@v6
         if: always()
         with:

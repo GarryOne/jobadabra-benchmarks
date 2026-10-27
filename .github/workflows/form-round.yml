@@ -3,7 +3,9 @@
 # fresh runner: every tool on the same day and the same model (BENCH_MODEL), every form visited once per job (at most 2 visits per hiring-system
 # host per job; the round's own one-day limit, owner's yes 27 Oct 2026). Never Submit (lib/guard.mjs), fake applicant only.
 # Cost: each job stops between forms at its cap; the caps add up to about $3 at most (trial: $0.017-0.042 an agent run on Haiku 5.5).
-# The judge does NOT run here: download the artifacts and run judge-blind.mjs on the Mac (the Claude plan, $0).
+# With `publish` set, a last job judges the round blind (judge-blind.mjs, the Claude plan, $0), scores it (score-round.mjs) and sends it to
+# /admin/form-filling/benchmark (publish-fair.mjs): every round publishes itself (owner via 6e, 27 Oct 2026; test/workflows). 'fixed' judges
+# the new runs inside the frozen fixed set (rounds/fixed/: rivals and verdicts of 27 Oct), in place of the same tool's runs; a week judges alone.
 name: form round (by hand)
 on:
   workflow_dispatch:
@@ -11,6 +13,12 @@ on:
       forms:
         description: The forms file (pick-forms.mjs output)
         default: forms-objective.json
+      forms_from:
+        description: Take the forms file from another branch, branch:path (the weekly draw - weekly-picks:weekly/2026-W45.json); empty - this ref
+        default: ''
+      publish:
+        description: Judge, score and publish as round fixed or week-YYYY-Www (empty - only the runs; a side check of an older build stays unpublished)
+        default: ''
       product_ref:
         description: The Jobadabra commit or branch our leg runs (GarryOne/jobadabra)
         default: main
@@ -23,18 +31,32 @@ on:
       only:
         description: Form ids to run, comma list (empty - all; a smoke uses a form outside the round)
         default: ''
+      tools:
+        description: Tools, JSON (a round runs all four; one tool alone is a side check, e.g. an older build of ours)
+        default: '["browser-use","stagehand","nanobrowser","extension"]'
 permissions:
   contents: read
 env:
   BENCH_MODEL: claude-haiku-5-5
 jobs:
+  build:   # resolves product_ref ONCE: a branch can move or be deleted mid-round (27 Oct 2026, all jobs failed at checkout); test/workflows
+    runs-on: ubuntu-24.04
+    outputs:
+      sha: ${{ steps.sha.outputs.sha }}
+    steps:
+      - id: sha   # the commits API takes a branch, tag, short or full commit (actions/checkout refuses a short one: 27 Oct 2026)
+        env: {GH_TOKEN: '${{ github.token }}', REF: '${{ inputs.product_ref }}'}
+        run: |
+          sha=$(gh api "repos/GarryOne/jobadabra/commits/$REF" --jq .sha) && test ${#sha} = 40
+          echo "sha=$sha" | tee -a "$GITHUB_OUTPUT"
   run:
+    needs: build
     runs-on: ubuntu-24.04
     timeout-minutes: 75
     strategy:
       fail-fast: false
       matrix:
-        tool: [browser-use, stagehand, nanobrowser, extension]
+        tool: ${{ fromJSON(inputs.tools) }}
         run: ${{ fromJSON(inputs.runs) }}   # every tool on BENCH_MODEL; no extra "as shipped" run (owner, 27 Oct 2026: the same AI for all)
     env:
       BENCH_ANTHROPIC_KEY: ${{ secrets.BENCH_ANTHROPIC_KEY }}   # the Benchmarks workspace key ($5/month limit), held by the metering pass-through
@@ -44,6 +66,7 @@ jobs:
       JOB_PILOTTO_SESSION: form round ${{ github.run_id }} ${{ matrix.tool }} ${{ matrix.run }}
       JOB_PILOTTO_VISIT_KIND: hand
       JOB_PILOTTO_SITE_LEDGER_DIR: ${{ github.workspace }}/ledger
+      LIVE_ELIGIBILITY: 'off'   # ours fills like every tool: the bench asks each to fill the application (owner via 6e, 27 Oct 2026); the page says so
       JP_NO_REPORT: '1'
       ANONYMIZED_TELEMETRY: 'false'
     steps:
@@ -69,7 +92,7 @@ jobs:
           echo "NANOBROWSER_DIR=$RUNNER_TEMP/nb-0.2.0" >> "$GITHUB_ENV"
       - name: Jobadabra (public repo) at the asked commit (every tool reads its fake applicant, CV file and site ledger)
         uses: actions/checkout@v5
-        with: {repository: GarryOne/jobadabra, ref: '${{ inputs.product_ref }}', path: jp, persist-credentials: false}
+        with: {repository: GarryOne/jobadabra, ref: '${{ needs.build.outputs.sha }}', path: jp, persist-credentials: false}
       - name: Jobadabra's test harness
         run: |
           (cd jp/desktop/e2e && (npm ci || npm install))
@@ -80,6 +103,10 @@ jobs:
           (cd jp/desktop && npm ci)
           (cd jp/desktop/e2e && npx playwright-core install --with-deps chromium)
           pip install --quiet -r jp/requirements.txt
+      - name: The forms file from the weekly-picks branch
+        if: inputs.forms_from != ''
+        env: {FROM: '${{ inputs.forms_from }}', FORMS: '${{ inputs.forms }}'}
+        run: git fetch -q --depth 1 origin "${FROM%%:*}" && git show "FETCH_HEAD:${FROM#*:}" > "$FORMS"
       - name: The round's forms, this tool, this run
         run: |
           set -o pipefail
@@ -99,6 +126,57 @@ jobs:
             round-out/**/manifest.json
             round-out/**/guard.jsonl
             round-out/**/run.log
+            round-out/**/fill.log
             round-out/**/start.png
             round-out/**/end.png
             round-out/job-*.json
+  publish:   # every round publishes itself as its last step (owner via 6e, 27 Oct 2026); test/workflows. A fresh runner: no contestant's code runs here
+    needs: run
+    if: ${{ !cancelled() && inputs.publish != '' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      ROUND: ${{ inputs.publish }}
+      CLAUDE_CODE_VERSION: 2.1.311
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: {node-version: '22'}
+      - uses: actions/download-artifact@v5
+        with: {pattern: form-round-*, path: arts}
+      - name: The pool (fixed - the frozen set, the new runs in place of the same tool's; a week - the new runs alone)
+        run: |
+          echo "$ROUND" | grep -qE '^(fixed|week-[0-9]{4}-W[0-9]{2})$'
+          mkdir -p pool; [ "$ROUND" = fixed ] && cp -R rounds/fixed/. pool/
+          for a in arts/form-round-*; do t=${a#arts/form-round-}; rm -rf pool/*/"${t%-*}"; done
+          for a in arts/form-round-*; do cp -R "$a"/round-out/. pool/; done
+          find pool -name '*.png' -delete; ls pool
+      - name: The forms file from the weekly-picks branch (the judge sees each posting's title and company)
+        if: inputs.forms_from != ''
+        env: {FROM: '${{ inputs.forms_from }}', FORMS: '${{ inputs.forms }}'}
+        run: git fetch -q --depth 1 origin "${FROM%%:*}" && git show "FETCH_HEAD:${FROM#*:}" > "$FORMS"
+      - name: Blind judge (the Claude plan; earlier verdicts reused)
+        env: {CLAUDE_CODE_OAUTH_TOKEN: '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}', FORMS: '${{ inputs.forms }}'}
+        run: |
+          set -o pipefail
+          npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
+          node judge-blind.mjs pool --forms "$FORMS" 2>&1 | tee judge.log
+      - name: Score and publish
+        env: {BENCHMARK_PUBLISH_KEY: '${{ secrets.BENCHMARK_PUBLISH_KEY }}'}
+        run: |
+          set -o pipefail
+          node score-round.mjs pool --json score.json | tee -a "$GITHUB_STEP_SUMMARY"
+          node publish-fair.mjs pool --round "$ROUND"
+      - name: The judged round
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: form-round-judged-${{ inputs.publish }}
+          retention-days: 90
+          path: |
+            judge.log
+            score.json
+            pool/**/judged.json
+            pool/**/verdicts.json
+            pool/**/manifest.json
+            pool/**/result.json

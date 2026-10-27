@@ -1,0 +1,95 @@
+{
+ "url": "https://apply.workable.com/semios/j/0A6915AC27/apply/#jobpilotto-fill=69a33371",
+ "title": "Product Delivery Lead - The Semios Group - Application",
+ "fields": [
+  {
+   "question": "First name",
+   "type": "text",
+   "required": true,
+   "name": "firstname",
+   "value": "Ada"
+  },
+  {
+   "question": "Last name",
+   "type": "text",
+   "required": true,
+   "name": "lastname",
+   "value": "Tester"
+  },
+  {
+   "question": "Email",
+   "type": "email",
+   "required": true,
+   "name": "email",
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Phone",
+   "type": "tel",
+   "required": true,
+   "name": "phone",
+   "value": "79 555 01 23"
+  },
+  {
+   "question": "Address",
+   "type": "text",
+   "required": true,
+   "name": "address",
+   "value": "Moses Lake, United States of America"
+  },
+  {
+   "question": "Summary",
+   "type": "textarea",
+   "required": false,
+   "name": "summary",
+   "value": "Senior Site Reliability Engineer with 8 years running Kubernetes on AWS at scale, strong in observability and incident response."
+  },
+  {
+   "question": "Resume Choose file",
+   "type": "file",
+   "required": true,
+   "name": "input_files_input_aSu32A3bNv0tNKCV",
+   "value": ""
+  },
+  {
+   "question": "Cover letter",
+   "type": "textarea",
+   "required": false,
+   "name": "cover_letter",
+   "value": ""
+  },
+  {
+   "question": "What are your salary expectations for this role? A range is fine.",
+   "type": "text",
+   "required": true,
+   "name": "CA_9741",
+   "value": ""
+  },
+  {
+   "question": "Describe a time you improved backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead.",
+   "type": "textarea",
+   "required": true,
+   "name": "QA_12543006",
+   "value": "In my Acme Cloud role I built the Terraform platform used by 120 engineers and led an on-call rotation of 8 people. • Add: the teams and Jira projects you worked across and the backlog or board structure you changed • Add: the result, such as how many tickets or workflow steps you removed and what it cut"
+  },
+  {
+   "question": "Have you been referred to this position by a Semios employee? If so, please let us know their full name.",
+   "type": "text",
+   "required": true,
+   "name": "QA_12542843",
+   "value": ""
+  },
+  {
+   "question": "Resume Replace file",
+   "type": "file",
+   "required": false,
+   "name": "input_files_input_aSu32A3bNv0tNKCV",
+   "value": "cv.pdf"
+  }
+ ],
+ "fileChips": [],
+ "trailUrls": [
+  "https://apply.workable.com/semios/j/0A6915AC27/apply/",
+  "about:blank"
+ ]
+}

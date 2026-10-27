@@ -1,7 +1,7 @@
 // node run.mjs <stagehand|browser-use|extension> <form url> <out dir> [--no-judge]: one tool on one form, same start state, same guard, same scorer. Writes <out>/{start.png,end.png,fields.json,guard.jsonl,result.json,judged.json}.
 // Safety: every tool's browser has the Submit guard (lib/guard.mjs); live visits go through the repo's per-site ledger (guardLiveVisit); never Submit, no login. Prints only result lines, never a key.
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path'; import {spawn, execFileSync} from 'node:child_process';
-import {startAgentBrowser} from './lib/browser.mjs'; import {installGuard} from './lib/guard.mjs';
+import {startAgentBrowser} from './lib/browser.mjs'; import {installGuard} from './lib/guard.mjs'; import {fillLog, postLines} from './lib/fill-log.mjs';
 import {startAnthropicProxy} from './lib/anthropic-proxy.mjs'; import {writeManifest} from './lib/manifest.mjs'; import {startTrail} from './lib/trail.mjs'; import {startNanobrowser} from './lib/nanobrowser.mjs'; import {buildApplicant, instruction, CV_PDF} from './lib/applicant.mjs'; import {collectEnd, judge, summarize} from './lib/score.mjs'; import {AGENT_MODEL, anthropicKey} from './lib/models.mjs';
 
 // A crash inside a tool (an uncaught error in its own library) is that tool's result, not a lost run: the end page is still read and the metered tokens still counted.
@@ -62,7 +62,9 @@ if (tool === 'extension') {
       return run;
     }
     const run = await startRealExtension(options);
-    guard = await installGuard(run.context, {log: guardLog, localPorts: [options.appPort], navAllow: [...navAllow, '127.0.0.1']});
+    const fillFile = path.join(out, 'fill.log');   // why a box stayed empty: the fill-summary lines only (lib/fill-log.mjs; 1a, 27 Oct 2026)
+    guard = await installGuard(run.context, {log: guardLog, localPorts: [options.appPort], navAllow: [...navAllow, '127.0.0.1'],
+      onLocalPost: (p, body) => { if (p === '/extension/log') { const kept = fillLog(postLines(body).join('\n')); if (kept) fs.appendFileSync(fillFile, kept + '\n'); } }});
     run.page.once('domcontentloaded', () => run.page.screenshot({path: path.join(out, 'start.png'), fullPage: true}).catch(() => {}));
     const trail = startTrail(run.context); const close = run.close; run.close = async () => { await collectEnd(run.context, out, trail).catch(error => fs.writeFileSync(path.join(out, 'collect-error.txt'), String(error))); await close(); };
     return run;

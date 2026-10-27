@@ -1,0 +1,368 @@
+{
+ "url": "https://jobs.ashbyhq.com/sierra/9dc1651d-43e9-4970-a757-a5223cef1c4d/application",
+ "title": "Product Manager, Agent Development (Arabic speaking) @ Sierra",
+ "fields": [
+  {
+   "question": "Autofill from resume",
+   "type": "file",
+   "required": false,
+   "name": "",
+   "value": ""
+  },
+  {
+   "question": "Legal First Name",
+   "type": "text",
+   "required": true,
+   "name": "dd856c04-2a92-4fc5-8bd9-cc273166f71d",
+   "value": "Ada"
+  },
+  {
+   "question": "Legal Last Name",
+   "type": "text",
+   "required": true,
+   "name": "e84542a7-10ca-4bbe-b0b2-683455e5aafa",
+   "value": "Tester"
+  },
+  {
+   "question": "Preferred First & Last Name",
+   "type": "text",
+   "required": true,
+   "name": "_systemfield_name",
+   "value": "Ada Tester"
+  },
+  {
+   "question": "Email",
+   "type": "email",
+   "required": true,
+   "name": "_systemfield_email",
+   "value": "ada.tester@example.test"
+  },
+  {
+   "question": "Phone",
+   "type": "tel",
+   "required": true,
+   "name": "493acef8-1825-4df3-9758-170fb4db5153",
+   "value": "+41 79 555 01 23"
+  },
+  {
+   "question": "LinkedIn",
+   "type": "text",
+   "required": true,
+   "name": "e154a801-3592-44fb-bb52-bcd2d1f97539",
+   "value": "https://www.linkedin.com/in/ada-tester"
+  },
+  {
+   "question": "Resume",
+   "type": "file",
+   "required": false,
+   "name": "_systemfield_resume",
+   "value": "cv.pdf"
+  },
+  {
+   "question": "What's your favorite junk food?",
+   "type": "text",
+   "required": false,
+   "name": "e663a1df-f766-4dc4-bdbf-fc7a706cd869",
+   "value": ""
+  },
+  {
+   "question": "Are you legally authorized to work in the United Kingdom?",
+   "type": "radio",
+   "required": false,
+   "name": "26a234d1-12fe-426e-8f69-5c3dd5a8033c_382c29fd-9cb2-4c67-850f-2972437b4d88",
+   "value": "",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Will you now or in the future require visa sponsorship to work in the United Kingdom?",
+   "type": "radio",
+   "required": false,
+   "name": "26a234d1-12fe-426e-8f69-5c3dd5a8033c_8b7d545e-21e1-42b5-8b05-b936be20afdd",
+   "value": "",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "Are you able to work from London?Sierra believes working alongside one another as a team is an important part of building great products and a great culture. We are primarily an in-person company. Does that work for you?",
+   "type": "radio",
+   "required": false,
+   "name": "26a234d1-12fe-426e-8f69-5c3dd5a8033c_923d33ee-238d-4b7a-95f3-c99cd426cb2b",
+   "value": "Yes, and while I do not currently live in the London area, I am open to relocation.",
+   "options": [
+    "Yes, and I currently live in the London area.",
+    "Yes, and while I do not currently live in the London area, I am open to relocation.",
+    "No or Other. Please add more details in the \"Anything else\" section below."
+   ]
+  },
+  {
+   "question": "We use Metaview, an AI notetaking tool, to streamline interviews by recording and summarizing discussions, enabling interviewers to be fully present without manual notetaking. With your approval, it silently records notes during interviews. Can Metaview transcribe all your interviews?",
+   "type": "radio",
+   "required": false,
+   "name": "26a234d1-12fe-426e-8f69-5c3dd5a8033c_a81a45d4-4813-4d85-a54d-2564ef19a179",
+   "value": "",
+   "options": [
+    "Yes",
+    "No"
+   ]
+  },
+  {
+   "question": "How did you hear about this opportunity?",
+   "type": "radio",
+   "required": false,
+   "name": "26a234d1-12fe-426e-8f69-5c3dd5a8033c_c1cdd30e-64d9-4c70-b28e-16fa7a96821c",
+   "value": "",
+   "options": [
+    "Blog or news article",
+    "Company website",
+    "Current employee",
+    "Event",
+    "LinkedIn",
+    "Other",
+    "Podcast",
+    "Search engine"
+   ]
+  },
+  {
+   "question": "Anything else? (Optional)",
+   "type": "textarea",
+   "required": false,
+   "name": "feaa92b1-1afa-4393-8bdb-608b5483eb5a",
+   "value": ""
+  },
+  {
+   "question": "By submitting, I acknowledge my personal data will be processed in accordance with Sierra’s Privacy Policy.",
+   "type": "checkbox",
+   "required": false,
+   "name": "",
+   "value": "",
+   "options": [
+    "on"
+   ]
+  },
+  {
+   "question": "What is your current age?",
+   "type": "radio",
+   "required": false,
+   "name": "c09c2b5f-1b99-4cd2-ae3f-292e3114c295_cf0f1bc7-7ce6-4eb3-aebc-b6562141cb68",
+   "value": "",
+   "options": [
+    "Under 30",
+    "30-39",
+    "40-49",
+    "50-59",
+    "60 or older",
+    "I prefer not to answer"
+   ]
+  },
+  {
+   "question": "What is your gender identity?",
+   "type": "radio",
+   "required": false,
+   "name": "c09c2b5f-1b99-4cd2-ae3f-292e3114c295_8d7dcc65-3a0b-476a-b679-574b869780bb",
+   "value": "",
+   "options": [
+    "Man",
+    "Woman",
+    "I prefer not to answer"
+   ]
+  },
+  {
+   "question": "Do you identify as transgender?",
+   "type": "radio",
+   "required": false,
+   "name": "c09c2b5f-1b99-4cd2-ae3f-292e3114c295_0a90dc7e-908c-449f-9151-95612d844b10",
+   "value": "",
+   "options": [
+    "Yes",
+    "No",
+    "I prefer not to answer"
+   ]
+  },
+  {
+   "question": "Bisexual",
+   "type": "checkbox",
+   "required": false,
+   "name": "Bisexual",
+   "value": "",
+   "options": [
+    "Bisexual"
+   ]
+  },
+  {
+   "question": "Lesbian",
+   "type": "checkbox",
+   "required": false,
+   "name": "Lesbian",
+   "value": "",
+   "options": [
+    "Lesbian"
+   ]
+  },
+  {
+   "question": "Gay",
+   "type": "checkbox",
+   "required": false,
+   "name": "Gay",
+   "value": "",
+   "options": [
+    "Gay"
+   ]
+  },
+  {
+   "question": "Queer",
+   "type": "checkbox",
+   "required": false,
+   "name": "Queer",
+   "value": "",
+   "options": [
+    "Queer"
+   ]
+  },
+  {
+   "question": "Heterosexual / straight",
+   "type": "checkbox",
+   "required": false,
+   "name": "Heterosexual / straight",
+   "value": "",
+   "options": [
+    "Heterosexual / straight"
+   ]
+  },
+  {
+   "question": "Other",
+   "type": "checkbox",
+   "required": false,
+   "name": "Other",
+   "value": "",
+   "options": [
+    "Other"
+   ]
+  },
+  {
+   "question": "Diversity SurveyThis optional survey is collected by Sierra Technologies, Inc. to help us evaluate our diversity and inclusion efforts. Participation is voluntary and refusal to submit the survey will not affect your job application. If you submit the survey, your responses will not be used to asses",
+   "type": "checkbox",
+   "required": false,
+   "name": "I prefer not to answer",
+   "value": "",
+   "options": [
+    "I prefer not to answer",
+    "I prefer not to answer",
+    "I prefer not to answer"
+   ]
+  },
+  {
+   "question": "Asian or Asian British",
+   "type": "checkbox",
+   "required": false,
+   "name": "Asian or Asian British",
+   "value": "",
+   "options": [
+    "Asian or Asian British"
+   ]
+  },
+  {
+   "question": "Black or Black British",
+   "type": "checkbox",
+   "required": false,
+   "name": "Black or Black British",
+   "value": "",
+   "options": [
+    "Black or Black British"
+   ]
+  },
+  {
+   "question": "Mixed or Multiple Ethnic Groups",
+   "type": "checkbox",
+   "required": false,
+   "name": "Mixed or Multiple Ethnic Groups",
+   "value": "",
+   "options": [
+    "Mixed or Multiple Ethnic Groups"
+   ]
+  },
+  {
+   "question": "White",
+   "type": "checkbox",
+   "required": false,
+   "name": "White",
+   "value": "",
+   "options": [
+    "White"
+   ]
+  },
+  {
+   "question": "Person with disability",
+   "type": "checkbox",
+   "required": false,
+   "name": "Person with disability",
+   "value": "",
+   "options": [
+    "Person with disability"
+   ]
+  },
+  {
+   "question": "Neurodiverse",
+   "type": "checkbox",
+   "required": false,
+   "name": "Neurodiverse",
+   "value": "",
+   "options": [
+    "Neurodiverse"
+   ]
+  },
+  {
+   "question": "Veteran",
+   "type": "checkbox",
+   "required": false,
+   "name": "Veteran",
+   "value": "",
+   "options": [
+    "Veteran"
+   ]
+  },
+  {
+   "question": "Parent",
+   "type": "checkbox",
+   "required": false,
+   "name": "Parent",
+   "value": "",
+   "options": [
+    "Parent"
+   ]
+  },
+  {
+   "question": "Refugee or immigrant",
+   "type": "checkbox",
+   "required": false,
+   "name": "Refugee or immigrant",
+   "value": "",
+   "options": [
+    "Refugee or immigrant"
+   ]
+  },
+  {
+   "question": "None of the above",
+   "type": "checkbox",
+   "required": false,
+   "name": "None of the above",
+   "value": "",
+   "options": [
+    "None of the above"
+   ]
+  }
+ ],
+ "fileChips": [
+  "cv.pdf"
+ ],
+ "trailUrls": [
+  "https://jobs.ashbyhq.com/sierra/9dc1651d-43e9-4970-a757-a5223cef1c4d/application",
+  "https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LezdY0tAAAAAEnollNLCAI0z1VDGwM7AzGrU4XZ&co=aHR0cHM6Ly9qb2JzLmFzaGJ5aHEuY29tOjQ0Mw..&hl=en&v=bSuJ2xBC8cFy7pM4Z3Hu9boH&size=invisible&anchor-ms=20000&execute-ms=30000&cb=rig7r6skk4pv",
+  "about:blank",
+  "https://www.recaptcha.net/recaptcha/enterprise/bframe?hl=en&v=bSuJ2xBC8cFy7pM4Z3Hu9boH&k=6LezdY0tAAAAAEnollNLCAI0z1VDGwM7AzGrU4XZ&bft=0dAFcWeA7u2UNV_uf0W-cTZQGUN3Er2QEtfK6xeQi6m57kUs8BDUfMNSDlzS2c2C3EZzcxPEZqJNuVmrBP9PI1nm22DnbhUVqD2Q"
+ ]
+}

@@ -22,7 +22,18 @@ env:
   CLAUDE_CODE_VERSION: 2.1.311
   JOB_PILOTTO_MODEL_OVERRIDE: claude-haiku-5-5
 jobs:
+  build:   # resolves product_ref ONCE: a branch can move or be deleted mid-round (27 Oct 2026, all jobs failed at checkout); test/workflows
+    runs-on: ubuntu-24.04
+    outputs:
+      sha: ${{ steps.sha.outputs.sha }}
+    steps:
+      - id: sha   # the commits API takes a branch, tag, short or full commit (actions/checkout refuses a short one: 27 Oct 2026)
+        env: {GH_TOKEN: '${{ github.token }}', REF: '${{ inputs.product_ref }}'}
+        run: |
+          sha=$(gh api "repos/GarryOne/jobadabra/commits/$REF" --jq .sha) && test ${#sha} = 40
+          echo "sha=$sha" | tee -a "$GITHUB_OUTPUT"
   search:
+    needs: build
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     strategy:
@@ -35,7 +46,7 @@ jobs:
       - uses: actions/checkout@v5
         with: {persist-credentials: false}
       - uses: actions/checkout@v5
-        with: {repository: GarryOne/jobadabra, ref: '${{ inputs.product_ref }}', path: jp, persist-credentials: false}
+        with: {repository: GarryOne/jobadabra, ref: '${{ needs.build.outputs.sha }}', path: jp, persist-credentials: false}
       - uses: actions/setup-node@v5
         with: {node-version: '22'}
       - uses: actions/setup-python@v6
@@ -43,10 +54,18 @@ jobs:
       - name: Jobadabra's engine, app libraries, a browser and Claude Code (pinned)
         run: |
           pip install --quiet -r jp/requirements.txt
-          (cd jp/desktop && npm ci)
+          (cd jp/desktop && npm ci && node scripts/stage.mjs --files-only)   # the app's shared files, as the product's own CI stages them
           (cd jp/desktop/e2e && (npm ci || npm install) && npx playwright-core install --with-deps chromium)
           npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
           echo "our build: $(git -C jp rev-parse --short HEAD)" | tee build.txt
+      - name: Claude answers on this runner (the app's call shape; stops the job if not, so a dead AI is never a quiet 0)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          cd "$RUNNER_TEMP" && echo "Reply with just: ok" | env -u ANTHROPIC_API_KEY MAX_THINKING_TOKENS=0 claude -p --output-format json --model "$JOB_PILOTTO_MODEL_OVERRIDE" \
+            --tools '' --permission-mode dontAsk --max-turns 1 > probe.json 2> probe.err; echo "exit $?"
+          python3 -c "import json;d=json.load(open('probe.json'));print({k:d.get(k) for k in ('is_error','subtype','result')});exit(0 if d.get('result','').strip()=='ok' else 1)" \
+            || { head -c 600 probe.json; echo; tail -5 probe.err; exit 1; }
       - name: The persona's fake CV, then Find jobs (Haiku 5.5 for every step, the owner's plan)
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}

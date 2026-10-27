@@ -2,13 +2,15 @@
 // templates/portals.example.yml (pinned tag), on the four ATS whose apply forms open without a login.
 // Any company we ever tested or fixed on is left out (bake-off forms, the product repo's e2e cases and fixtures).
 // The seed and every skip are written next to the picks, so anyone can redo the draw.
-// Usage: node pick-forms.mjs <portals.example.yml> <excluded.txt> <out.json> [--seed objective-2026-10-27] [--per greenhouse=2,ashby=2,lever=1,workable=1]
+// Usage: node pick-forms.mjs <portals.example.yml> <excluded.txt> <out.json> [--seed objective-2026-10-27] [--per greenhouse=2,ashby=2,lever=1,workable=1] [--first-id 101]
+// --first-id: a weekly set numbers its forms from its own range (YYWW × 100 + 1, e.g. 264501 for 2026-W45), so a form id names one form across all rounds.
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 
 const [portalsFile, excludedFile, outFile] = process.argv.slice(2);
 const arg = (name, dflt) => { const i = process.argv.indexOf(`--${name}`); return i > 0 ? process.argv[i + 1] : dflt; };
 const SEED = arg('seed', 'objective-2026-10-27');
+const FIRST = Number(arg('first-id', '101'));
 const PER = Object.fromEntries(arg('per', 'greenhouse=2,ashby=2,lever=1,workable=1').split(',').map(s => s.split('=')).map(([k, v]) => [k, +v]));
 
 // A seeded shuffle: the same seed gives the same order on any machine.
@@ -51,7 +53,7 @@ for (const [ats, n] of Object.entries(PER)) {
     try { posts = await FEEDS[ats](c.slug); } catch (e) { skipped.push({...c, why: `feed: ${e.message}`}); continue; }
     if (!posts.length) { skipped.push({...c, why: 'no open postings'}); continue; }
     const post = shuffled(posts.map(p => ({...p, key: p.url})))[0];
-    picks.push({id: 100 + picks.length + 1, platform: ats, company: c.slug, host: new URL(post.url).host, title: post.title, location: post.location, url: post.url});
+    picks.push({id: FIRST + picks.length, platform: ats, company: c.slug, host: new URL(post.url).host, title: post.title, location: post.location, url: post.url});
     got++;
   }
 }
