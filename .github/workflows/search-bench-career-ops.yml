@@ -9,7 +9,7 @@ on:
 permissions:
   contents: read
 env:
-  CAREER_OPS_TAG: career-ops-v1.37.0
+  CAREER_OPS_TAG: career-ops-v1.38.0
   CAREER_OPS_SHA: 373aba45c4c46f7fea933ecfa36a98d848812378
 jobs:
   scan:
