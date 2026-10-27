@@ -5,7 +5,7 @@
 // Usage: node judge-blind.mjs <round dir> [--seed s] [--dry]   (round dir/<form id>/<tool>/<run n>/fields.json + manifest.json)
 // Writes judged.json next to each fields.json and verdicts.json (the pooled list) per form.
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import os from 'node:os'; import {execFileSync} from 'node:child_process';
-import {summarize} from './lib/score.mjs';
+import {summarize} from './lib/score.mjs'; import {factsOf} from './lib/facts.mjs';
 
 const [round] = process.argv.slice(2), SEED = process.argv.includes('--seed') ? process.argv[process.argv.indexOf('--seed') + 1] : 'blind-2026-10-27', DRY = process.argv.includes('--dry');
 const keyOf = f => crypto.createHash('sha256').update(JSON.stringify([f.question, f.type, (f.options || []).slice(0, 12), String(f.value ?? '')])).digest('hex').slice(0, 16);
@@ -33,8 +33,7 @@ const runsOf = form => fs.readdirSync(form, {withFileTypes: true}).filter(d => d
 
 for (const formId of fs.readdirSync(round).filter(n => fs.statSync(path.join(round, n)).isDirectory()).sort()) {
   const form = path.join(round, formId), runs = runsOf(form); if (!runs.length) continue;
-  const facts = JSON.parse(fs.readFileSync(path.join(runs[0], 'manifest.json'), 'utf8')).applicantText
-    ?? fs.readFileSync(path.join(round, 'applicant.txt'), 'utf8');
+  const facts = factsOf(runs.map(dir => JSON.parse(fs.readFileSync(path.join(dir, 'manifest.json'), 'utf8'))));
   const pool = new Map();
   for (const dir of runs) for (const f of JSON.parse(fs.readFileSync(path.join(dir, 'fields.json'), 'utf8')).fields || []) {
     const k = keyOf(f); if (!pool.has(k)) pool.set(k, {k, question: f.question, type: f.type, required: !!f.required, value: f.value, ...(f.options ? {options: f.options.slice(0, 12)} : {})});
