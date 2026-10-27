@@ -1,5 +1,8 @@
-# The objective form-filling round (owner, 27 Oct 2026; plan https://claude.ai/artifact/XUfZSmYU2oai83HvW5LBnx). BY HAND ONLY, about twice a
-# year (owner: "trigger them manually, from time to time"; test/workflows.test.mjs). One job per (tool, run), all started together, each on a
+# The objective form-filling round (owner, 27 Oct 2026; plan https://claude.ai/artifact/XUfZSmYU2oai83HvW5LBnx). Started by hand, or each
+# Monday by form-weekly.yml: ours alone on the fixed set (owner, 27 Oct 2026, via 5b: "Weekly, ours only (Recommended)": "catches our
+# regressions") and the new set (owner: "Both (Recommended)"). A full round with every rival on the fixed set stays by hand
+# (test/workflows.test.mjs). A weekly run (`weekly=yes`) ends with one Telegram message against the baseline and last week
+# (weekly-note.mjs; owner: "It should send to telegram, as notification the results, and compare with a baseline"). One job per (tool, run), all started together, each on a
 # fresh runner: every tool on the same day and the same model (BENCH_MODEL), every form visited once per job (at most 2 visits per hiring-system
 # host per job; the round's own one-day limit, owner's yes 27 Oct 2026). Never Submit (lib/guard.mjs), fake applicant only.
 # Cost: each job stops between forms at its cap; the caps add up to about $3 at most (trial: $0.017-0.042 an agent run on Haiku 5.5).
@@ -18,6 +21,9 @@ on:
         default: ''
       publish:
         description: Judge, score and publish as round fixed or week-YYYY-Www (empty - only the runs; a side check of an older build stays unpublished)
+        default: ''
+      weekly:
+        description: yes - a weekly run (form-weekly.yml) - ends with the Telegram note and keeps it on weekly-picks
         default: ''
       product_ref:
         description: The Jobadabra commit or branch our leg runs (GarryOne/jobadabra)
@@ -135,6 +141,8 @@ jobs:
     if: ${{ !cancelled() && inputs.publish != '' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    permissions:
+      contents: write   # the weekly note on branch weekly-picks
     env:
       ROUND: ${{ inputs.publish }}
       CLAUDE_CODE_VERSION: 2.1.311
@@ -167,6 +175,19 @@ jobs:
           set -o pipefail
           node score-round.mjs pool --json score.json | tee -a "$GITHUB_STEP_SUMMARY"
           node publish-fair.mjs pool --round "$ROUND"
+      - name: The weekly note (Telegram, against the baseline and last week; kept on weekly-picks)
+        if: inputs.weekly == 'yes'
+        env:
+          BENCH_TELEGRAM_BOT_TOKEN: ${{ secrets.BENCH_TELEGRAM_BOT_TOKEN }}
+          BENCH_TELEGRAM_CHAT_ID: ${{ secrets.BENCH_TELEGRAM_CHAT_ID }}
+          URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          kind=week; base=; [ "$ROUND" = fixed ] && { kind=fixed; base="--baseline rounds/fixed/baseline.json"; }
+          git fetch -q origin weekly-picks && git worktree add -q picks FETCH_HEAD || git worktree add -q --orphan -b weekly-picks picks
+          mkdir -p "picks/notes/$kind"
+          node weekly-note.mjs pool --round "$ROUND" $base --last "picks/notes/$kind" --out "picks/notes/$kind/$(date -u +%G-W%V).json" --url "$URL"
+          cd picks && git add notes && git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -q -m "Weekly note $ROUND $(date -u +%G-W%V)"
+          for i in 1 2 3; do git pull -q --rebase origin weekly-picks 2>/dev/null; git push -q origin HEAD:weekly-picks && break; sleep 10; done
       - name: The judged round
         if: always()
         uses: actions/upload-artifact@v6

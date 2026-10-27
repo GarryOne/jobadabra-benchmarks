@@ -11,6 +11,11 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
   - **Weekly new set** (owner, 27 Oct 2026: "All 4, 1 repeat"): 6 unseen forms drawn each week on a CI schedule, all 4 tools, one run each
     (~$0.77, ~$3.30/month under the Benchmarks key's $5 limit); same rules (never a company we tested or fixed on, nor an earlier set).
     `form-weekly.yml` (Monday 06:00 UTC): `tools/excluded.sh` + earlier weeks on branch `weekly-picks`, ids YYWW*100+1.., then the form round.
+  - **Weekly regression check** (owner, 27 Oct 2026, via 5b: "Weekly, ours only (Recommended)"; in 4e's window: "Both (Recommended)"): the same
+    Monday, ours alone on the fixed set x3 (~$0.08), published as `fixed`. A full round with rivals on the fixed set stays by hand.
+  - **Each weekly round ends with one Telegram note** (owner: "It should send to telegram, as notification the results, and compare with a
+    baseline"): ours per form vs `rounds/fixed/baseline.json` (the by-hand round of 27 Oct: ours 97%, Browser Use 87.3%) and last week's note
+    (branch `weekly-picks`, notes/). Scores and counts only, never an answer or a fact. Bot: secrets BENCH_TELEGRAM_BOT_TOKEN / _CHAT_ID.
   - Every round publishes its own scores to /admin as its last step. One score line per run: right / wrong / empty-but-answerable /
     not reached (`score-round.mjs`). A page's leftover copy of a field (an empty file box beside the uploaded CV, an empty box named like a
     filled one) is no miss, for every tool (`markTwins`, lib/holds.mjs). Each run folder of ours keeps `fill.log`: why a box stayed empty,

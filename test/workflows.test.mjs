@@ -12,15 +12,34 @@ const triggersOf = text => {   // the keys directly under `on:` (block form), or
 };
 const files = fs.readdirSync(dir).filter(f => /\.ya?ml$/.test(f));
 test('there are workflows to check', () => assert.ok(files.length > 0));
-// The one exception: the weekly new set runs on a schedule (owner via 6e, 27 Oct 2026: "Yes: fixed set + weekly new set (Recommended)").
+// The one exception: the weekly rounds run on a schedule (owner via 6e, 27 Oct 2026: "Yes: fixed set + weekly new set (Recommended)"; via 5b:
+// "Weekly, ours only (Recommended)": ours on the fixed set "catches our regressions"; in 4e's window: "Both (Recommended)"). A full round with
+// every rival on the fixed set stays by hand.
 const SCHEDULED = {'form-weekly.yml': ['schedule', 'workflow_dispatch']};
-for (const f of files) test(`${f} starts by hand only${SCHEDULED[f] ? ', or on its weekly schedule' : ''}`, () =>
-  assert.deepEqual(triggersOf(fs.readFileSync(path.join(dir, f), 'utf8')), SCHEDULED[f] || ['workflow_dispatch']));
+// Unit tests are no benchmark: a workflow that holds no secret and runs only a test file may start on a PR or a push (search-bench-tests.yml,
+// 21 Oct 2026: the judge's spend-cap tests, no API call).
+const isUnitTests = text => !/secrets\./.test(text) && /^\s+- run: python3 -I search-bench\/test_\w+\.py$/m.test(text);
+for (const f of files) {
+  const text = fs.readFileSync(path.join(dir, f), 'utf8');
+  if (isUnitTests(text)) { test(`${f}: unit tests only, no secret`, () => assert.ok(triggersOf(text).every(t => ['pull_request', 'push', 'workflow_dispatch'].includes(t)))); continue; }
+  test(`${f} starts by hand only${SCHEDULED[f] ? ', or on its weekly schedule' : ''}`, () => assert.deepEqual(triggersOf(text), SCHEDULED[f] || ['workflow_dispatch']));
+}
 test('form-weekly.yml: once a week, and it hands its draw to the form round to publish', () => {
   const text = fs.readFileSync(path.join(dir, 'form-weekly.yml'), 'utf8');
   assert.deepEqual([...text.matchAll(/cron: '([^']+)'/g)].map(m => m[1]), ['0 6 * * 1']);
   assert.match(text, /gh workflow run form-round\.yml[\s\S]*-f runs='\[1\]'[\s\S]*-f publish="week-\$WEEK"/, 'all four tools, 1 repeat, published as the week');
   assert.match(text, /tools\/excluded\.sh jp \. picks\/weekly/, 'every company we know and every earlier week left out');
+  const fixed = text.slice(text.indexOf('\n  fixed:'), text.indexOf('\n  draw:'));
+  assert.match(fixed, /gh workflow run form-round\.yml[^\n]*-f tools='\["extension"\]' -f runs='\[1,2,3\]' -f publish=fixed -f weekly=yes/, 'ours alone on the fixed set, x3');
+  assert.match(text, /-f publish="week-\$WEEK" -f weekly=yes/, 'the new set ends with the weekly note too');
+  for (const [, tools] of text.matchAll(/-f tools='([^']+)'/g)) assert.deepEqual(JSON.parse(tools), ['extension'], 'no scheduled full round with rivals on the fixed set');
+});
+test('form-round.yml: a weekly run ends with one Telegram note against the baseline and last week', () => {
+  const text = fs.readFileSync(path.join(dir, 'form-round.yml'), 'utf8');
+  assert.match(text, /if: inputs\.weekly == 'yes'\n/);
+  assert.match(text, /node weekly-note\.mjs pool --round "\$ROUND" \$base --last "picks\/notes\/\$kind"/);
+  assert.match(text, /base="--baseline rounds\/fixed\/baseline\.json"/);
+  assert.match(text, /BENCH_TELEGRAM_BOT_TOKEN: \$\{\{ secrets\.BENCH_TELEGRAM_BOT_TOKEN \}\}/);
 });
 
 // Every round publishes itself as its last step (owner via 6e, 27 Oct 2026): a form round takes `publish` and its last job judges, scores
