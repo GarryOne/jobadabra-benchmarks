@@ -45,9 +45,9 @@ test('form-weekly.yml: the fixed set every 3 days, the new set on Mondays, and i
 });
 test('form-round.yml: a weekly run ends with one Telegram note against the baseline and last week', () => {
   const text = fs.readFileSync(path.join(dir, 'form-round.yml'), 'utf8');
-  assert.match(text, /if: inputs\.weekly == 'yes'\n/);
-  assert.match(text, /node weekly-note\.mjs pool --round "\$ROUND" \$base --last "picks\/notes\/\$kind"/);
-  assert.match(text, /base="--baseline rounds\/fixed\/baseline\.json"/);
+  assert.match(text, /if: \$\{\{ !inputs\.judge_only && inputs\.weekly == 'yes' \}\}/);
+  assert.match(text, /node weekly-note\.mjs pool --round "\$ROUND" "\$\{base\[@\]\}" --last "picks\/notes\/\$kind"/);
+  assert.match(text, /base=\(--baseline rounds\/fixed\/baseline\.json\)/);
   assert.match(text, /BENCH_TELEGRAM_BOT_TOKEN: \$\{\{ secrets\.BENCH_TELEGRAM_BOT_TOKEN \}\}/);
 });
 
@@ -56,7 +56,7 @@ test('form-round.yml: a weekly run ends with one Telegram note against the basel
 test('form-round.yml: the last job judges, scores and publishes the round', () => {
   const text = fs.readFileSync(path.join(dir, 'form-round.yml'), 'utf8'), last = text.slice(text.lastIndexOf('\n  publish:'));
   assert.match(text, /^ {6}publish:\n {8}description:/m, 'a publish input');
-  assert.match(last, /needs: run\n/); assert.match(last, /if: \$\{\{ !cancelled\(\) && inputs\.publish != '' \}\}/);
+  assert.match(last, /needs: run\n/); assert.match(last, /if: \$\{\{ !cancelled\(\) && \(inputs\.judge_only \|\| inputs\.publish != ''\) \}\}/);
   for (const step of [/node judge-blind\.mjs pool --forms "\$FORMS"/, /node score-round\.mjs pool/, /node publish-fair\.mjs pool --round "\$ROUND"/]) assert.match(last, step);
   assert.match(last, /cp -R rounds\/fixed\/\. pool\//, 'the fixed set judges inside its frozen baseline');
   assert.match(last, /BENCHMARK_PUBLISH_KEY: '\$\{\{ secrets\.BENCHMARK_PUBLISH_KEY \}\}'/);
@@ -130,4 +130,34 @@ test('search-round.yml: every 3 days, ours + free rivals, judged on the plan, pu
   assert.match(text, /SELFHEAL_PUBLISH_KEY: \$\{\{ secrets\.BENCHMARK_PUBLISH_KEY \}\}\n {8}run: node search-bench\/publish\.mjs work --round/);
   assert.match(text, /node search-bench\/note\.mjs work [^\n]*--baseline search-bench\/results\/2026-10-27/);
   assert.match(text, /BENCH_TELEGRAM_BOT_TOKEN: \$\{\{ secrets\.BENCH_TELEGRAM_BOT_TOKEN \}\}/);
+});
+
+
+test('judge-only round pools only its new artifacts; normal fixed and weekly pools retain their contracts', async () => {
+  const os = await import('node:os'), {execFileSync} = await import('node:child_process');
+  const text = fs.readFileSync(path.join(dir, 'form-round.yml'), 'utf8');
+  const poolStep = text.match(/- name: The pool[^\n]*\n        run: \|\n([\s\S]*?)(?=      - name:)/)?.[1];
+  assert.ok(poolStep);
+  const script = poolStep.replace(/^ {10}/gm, '');
+  for (const [judgeOnly, round, frozen] of [['true', '', false], ['true', 'fixed', false], ['false', 'fixed', true], ['false', 'week-2026-W44', false]]) {
+    const cwd = fs.mkdtempSync(path.join(os.tmpdir(), 'judge-only-pool-'));
+    try {
+      const write = (file, marker) => { fs.mkdirSync(path.dirname(path.join(cwd, file)), {recursive: true}); fs.writeFileSync(path.join(cwd, file), marker); };
+      write('rounds/fixed/1/browser-use/1/result.json', 'frozen-rival');
+      write('rounds/fixed/1/extension/1/result.json', 'old-ours');
+      write('arts/form-round-extension-1/round-out/1/extension/1/result.json', 'new-ours');
+      execFileSync('bash', ['-e', '-o', 'pipefail', '-c', script], {cwd, env: {...process.env, ROUND: round, JUDGE_ONLY: judgeOnly}, stdio: 'pipe'});
+      assert.equal(fs.existsSync(path.join(cwd, 'pool/1/browser-use/1/result.json')), frozen, `${judgeOnly}/${round}`);
+      assert.equal(fs.readFileSync(path.join(cwd, 'pool/1/extension/1/result.json'), 'utf8'), 'new-ours');
+    } finally { fs.rmSync(cwd, {recursive: true, force: true}); }
+  }
+});
+
+test('judge-only mode scores and saves a run-specific artifact without publishing or Telegram', () => {
+  const text = fs.readFileSync(path.join(dir, 'form-round.yml'), 'utf8');
+  assert.match(text, /judge_only:\n\s+description:[^\n]*\n\s+type: boolean\n\s+default: false/);
+  assert.match(text, /- name: Score the round\n\s+run: \|[\s\S]*?node score-round\.mjs pool --json score\.json/);
+  assert.match(text, /- name: Publish the round\n\s+if: \$\{\{ !inputs\.judge_only \}\}/);
+  assert.match(text, /- name: The weekly note[^\n]*\n\s+if: \$\{\{ !inputs\.judge_only && inputs\.weekly == 'yes' \}\}/);
+  assert.match(text, /name: form-round-judged-\$\{\{ inputs\.judge_only && 'judge-only' \|\| inputs\.publish \}\}-\$\{\{ github\.run_id \}\}/);
 });

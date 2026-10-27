@@ -9,6 +9,7 @@
 # With `publish` set, a last job judges the round blind (judge-blind.mjs, the Claude plan, $0), scores it (score-round.mjs) and sends it to
 # /admin/form-filling/benchmark (publish-fair.mjs): every round publishes itself (owner via 6e, 27 Oct 2026; test/workflows). 'fixed' judges
 # the new runs inside the frozen fixed set (rounds/fixed/: rivals and verdicts of 27 Oct), in place of the same tool's runs; a week judges alone.
+# judge_only keeps the fresh run isolated: judge and score its new artifacts, with no admin publication or Telegram (owner via 6b, 27 Oct 2026).
 name: form round (by hand)
 on:
   workflow_dispatch:
@@ -22,6 +23,10 @@ on:
       publish:
         description: Judge, score and publish as round fixed or week-YYYY-Www (empty - only the runs; a side check of an older build stays unpublished)
         default: ''
+      judge_only:
+        description: Judge and score only this run's new artifacts; do not publish or send Telegram
+        type: boolean
+        default: false
       weekly:
         description: yes - a weekly run (form-weekly.yml) - ends with the Telegram note and keeps it on weekly-picks
         default: ''
@@ -138,13 +143,14 @@ jobs:
             round-out/job-*.json
   publish:   # every round publishes itself as its last step (owner via 6e, 27 Oct 2026); test/workflows. A fresh runner: no contestant's code runs here
     needs: run
-    if: ${{ !cancelled() && inputs.publish != '' }}
+    if: ${{ !cancelled() && (inputs.judge_only || inputs.publish != '') }}
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     permissions:
       contents: write   # the weekly note on branch weekly-picks
     env:
       ROUND: ${{ inputs.publish }}
+      JUDGE_ONLY: ${{ inputs.judge_only }}
       CLAUDE_CODE_VERSION: 2.1.311
     steps:
       - uses: actions/checkout@v5
@@ -154,9 +160,12 @@ jobs:
         with: {pattern: form-round-*, path: arts}
       - name: The pool (fixed - the frozen set, the new runs in place of the same tool's; a week - the new runs alone)
         run: |
-          echo "$ROUND" | grep -qE '^(fixed|week-[0-9]{4}-W[0-9]{2})$'
-          mkdir -p pool; [ "$ROUND" = fixed ] && cp -R rounds/fixed/. pool/
-          for a in arts/form-round-*; do t=${a#arts/form-round-}; rm -rf pool/*/"${t%-*}"; done
+          mkdir -p pool
+          if [ "$JUDGE_ONLY" != true ]; then
+            echo "$ROUND" | grep -qE '^(fixed|week-[0-9]{4}-W[0-9]{2})$'
+            if [ "$ROUND" = fixed ]; then cp -R rounds/fixed/. pool/; fi
+            for a in arts/form-round-*; do t=${a#arts/form-round-}; rm -rf pool/*/"${t%-*}"; done
+          fi
           for a in arts/form-round-*; do cp -R "$a"/round-out/. pool/; done
           find pool -name '*.png' -delete; ls pool
       - name: The forms file from the weekly-picks branch (the judge sees each posting's title and company)
@@ -169,30 +178,32 @@ jobs:
           set -o pipefail
           npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
           node judge-blind.mjs pool --forms "$FORMS" 2>&1 | tee judge.log
-      - name: Score and publish
-        env: {BENCHMARK_PUBLISH_KEY: '${{ secrets.BENCHMARK_PUBLISH_KEY }}'}
+      - name: Score the round
         run: |
           set -o pipefail
           node score-round.mjs pool --json score.json | tee -a "$GITHUB_STEP_SUMMARY"
-          node publish-fair.mjs pool --round "$ROUND"
+      - name: Publish the round
+        if: ${{ !inputs.judge_only }}
+        env: {BENCHMARK_PUBLISH_KEY: '${{ secrets.BENCHMARK_PUBLISH_KEY }}'}
+        run: node publish-fair.mjs pool --round "$ROUND"
       - name: The weekly note (Telegram, against the baseline and last week; kept on weekly-picks)
-        if: inputs.weekly == 'yes'
+        if: ${{ !inputs.judge_only && inputs.weekly == 'yes' }}
         env:
           BENCH_TELEGRAM_BOT_TOKEN: ${{ secrets.BENCH_TELEGRAM_BOT_TOKEN }}
           BENCH_TELEGRAM_CHAT_ID: ${{ secrets.BENCH_TELEGRAM_CHAT_ID }}
           URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          kind=week; base=; name=$(date -u +%G-W%V); [ "$ROUND" = fixed ] && { kind=fixed; base="--baseline rounds/fixed/baseline.json"; name=$(date -u +%F); }   # fixed runs every 3 days: one note per day
-          git fetch -q origin weekly-picks && git worktree add -q picks FETCH_HEAD || git worktree add -q --orphan -b weekly-picks picks
+          kind=week; base=(); name=$(date -u +%G-W%V); [ "$ROUND" = fixed ] && { kind=fixed; base=(--baseline rounds/fixed/baseline.json); name=$(date -u +%F); }   # fixed runs every 3 days: one note per day
+          if git fetch -q origin weekly-picks && git worktree add -q picks FETCH_HEAD; then :; else git worktree add -q --orphan -b weekly-picks picks; fi
           mkdir -p "picks/notes/$kind"
-          node weekly-note.mjs pool --round "$ROUND" $base --last "picks/notes/$kind" --out "picks/notes/$kind/$name.json" --url "$URL"
+          node weekly-note.mjs pool --round "$ROUND" "${base[@]}" --last "picks/notes/$kind" --out "picks/notes/$kind/$name.json" --url "$URL"
           cd picks && git add notes && git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -q -m "Note $ROUND $name"
-          for i in 1 2 3; do git pull -q --rebase origin weekly-picks 2>/dev/null; git push -q origin HEAD:weekly-picks && break; sleep 10; done
+          for _ in 1 2 3; do git pull -q --rebase origin weekly-picks 2>/dev/null; git push -q origin HEAD:weekly-picks && break; sleep 10; done
       - name: The judged round
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: form-round-judged-${{ inputs.publish }}
+          name: form-round-judged-${{ inputs.judge_only && 'judge-only' || inputs.publish }}-${{ github.run_id }}
           retention-days: 90
           path: |
             judge.log

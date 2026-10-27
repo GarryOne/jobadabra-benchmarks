@@ -1,0 +1,96 @@
+{
+ "seed": "fair-after-query-fix-2026-10-27",
+ "source": "career-ops templates/portals.example.yml (career-ops-v1.38.0)",
+ "pickedAt": "2026-10-27T16:42:53.282Z",
+ "per": {
+  "greenhouse": 2,
+  "ashby": 2,
+  "lever": 1,
+  "workable": 1
+ },
+ "picks": [
+  {
+   "id": 264491,
+   "platform": "greenhouse",
+   "company": "bishopfox",
+   "host": "www.bishopfox.com",
+   "title": "Penetration Tester - Contract",
+   "location": "U.S. Remote",
+   "url": "http://www.bishopfox.com/jobs?gh_jid=7902114"
+  },
+  {
+   "id": 264492,
+   "platform": "greenhouse",
+   "company": "hootsuite",
+   "host": "job-boards.greenhouse.io",
+   "title": "Account Executive, Enterprise Sales (Spanish and Portuguese Speaking)",
+   "location": "Mexico City ",
+   "url": "https://job-boards.greenhouse.io/hootsuite/jobs/8221711"
+  },
+  {
+   "id": 264493,
+   "platform": "ashby",
+   "company": "deepgram",
+   "host": "jobs.ashbyhq.com",
+   "title": "Director, GTM Engineering",
+   "location": "USA - Remote",
+   "url": "https://jobs.ashbyhq.com/deepgram/e8b2cd20-bd98-4977-b9a9-cfa6868cc122/application"
+  },
+  {
+   "id": 264494,
+   "platform": "ashby",
+   "company": "supabase",
+   "host": "jobs.ashbyhq.com",
+   "title": "Growth Marketer, Creators & Channels",
+   "location": "Remote, AMER",
+   "url": "https://jobs.ashbyhq.com/supabase/d6af503b-acc4-40c9-83d8-d4fe0dcc2dd5/application"
+  },
+  {
+   "id": 264495,
+   "platform": "lever",
+   "company": "coalfire",
+   "host": "jobs.lever.co",
+   "title": "Account Executive - Google SecOps and Wiz Sales",
+   "location": "United States",
+   "url": "https://jobs.lever.co/coalfire/913b4d02-79ce-4036-8b04-e8cd3f21f175/apply"
+  },
+  {
+   "id": 264496,
+   "platform": "workable",
+   "company": "huggingface",
+   "host": "apply.workable.com",
+   "title": "Senior Open-Source Python Engineer, ML Developer Tools - US Remote",
+   "location": "United States",
+   "url": "https://apply.workable.com/huggingface/j/F88446C814/apply/"
+  }
+ ],
+ "skipped": [
+  {
+   "ats": "lever",
+   "slug": "getir",
+   "why": "feed: HTTP 404"
+  },
+  {
+   "ats": "workable",
+   "slug": "semios",
+   "why": "tested or fixed on before"
+  },
+  {
+   "ats": "workable",
+   "slug": "platzi",
+   "why": "tested or fixed on before"
+  },
+  {
+   "ats": "workable",
+   "slug": "toggl",
+   "why": "tested or fixed on before"
+  },
+  {
+   "ats": "workable",
+   "slug": "doist",
+   "why": "no open postings"
+  }
+ ],
+ "excludedSnapshotSha256": "7f756593c6f804cbd946f366bbd546efc96dabf431f5d0965aabfb9b9980124e",
+ "excludedEntries": 2200
+}
