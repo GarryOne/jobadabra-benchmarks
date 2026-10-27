@@ -58,6 +58,7 @@ jobs:
       JOB_PILOTTO_SESSION: form round ${{ github.run_id }} ${{ matrix.tool }} ${{ matrix.run }}
       JOB_PILOTTO_VISIT_KIND: hand
       JOB_PILOTTO_SITE_LEDGER_DIR: ${{ github.workspace }}/ledger
+      LIVE_ELIGIBILITY: 'off'   # ours fills like every tool: the bench asks each to fill the application (owner via 6e, 27 Oct 2026); the page says so
       JP_NO_REPORT: '1'
       ANONYMIZED_TELEMETRY: 'false'
     steps:

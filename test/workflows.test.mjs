@@ -58,3 +58,8 @@ for (const f of files) {
     assert.deepEqual(refs.filter(r => r !== '${{ needs.build.outputs.sha }}'), [], 'every checkout of our product uses the resolved commit, never the input ref');
   });
 }
+
+// The form bench asks every tool to fill the application, so ours fills it too: our eligibility stop is off (owner via 6e, 27 Oct 2026:
+// "Off for the form bench (Recommended)"; the round had it on, and ours filled only the contact details on North-America jobs).
+test('form-round.yml: our eligibility check is off', () =>
+  assert.match(fs.readFileSync(path.join(dir, 'form-round.yml'), 'utf8'), /^\s+LIVE_ELIGIBILITY: 'off'/m));
