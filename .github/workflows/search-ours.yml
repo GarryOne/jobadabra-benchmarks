@@ -22,7 +22,17 @@ env:
   CLAUDE_CODE_VERSION: 2.1.311
   JOB_PILOTTO_MODEL_OVERRIDE: claude-haiku-5-5
 jobs:
+  build:   # resolves product_ref ONCE: a branch can move or be deleted mid-round (27 Oct 2026, all jobs failed at checkout); test/workflows
+    runs-on: ubuntu-24.04
+    outputs:
+      sha: ${{ steps.sha.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v5
+        with: {repository: GarryOne/jobadabra, ref: '${{ inputs.product_ref }}', path: jp, persist-credentials: false, sparse-checkout: README.md}
+      - id: sha
+        run: echo "sha=$(git -C jp rev-parse HEAD)" | tee -a "$GITHUB_OUTPUT"
   search:
+    needs: build
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     strategy:
@@ -35,7 +45,7 @@ jobs:
       - uses: actions/checkout@v5
         with: {persist-credentials: false}
       - uses: actions/checkout@v5
-        with: {repository: GarryOne/jobadabra, ref: '${{ inputs.product_ref }}', path: jp, persist-credentials: false}
+        with: {repository: GarryOne/jobadabra, ref: '${{ needs.build.outputs.sha }}', path: jp, persist-credentials: false}
       - uses: actions/setup-node@v5
         with: {node-version: '22'}
       - uses: actions/setup-python@v6

@@ -28,7 +28,17 @@ permissions:
 env:
   BENCH_MODEL: claude-haiku-5-5
 jobs:
+  build:   # resolves product_ref ONCE: a branch can move or be deleted mid-round (27 Oct 2026, all jobs failed at checkout); test/workflows
+    runs-on: ubuntu-24.04
+    outputs:
+      sha: ${{ steps.sha.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v5
+        with: {repository: GarryOne/jobadabra, ref: '${{ inputs.product_ref }}', path: jp, persist-credentials: false, sparse-checkout: README.md}
+      - id: sha
+        run: echo "sha=$(git -C jp rev-parse HEAD)" | tee -a "$GITHUB_OUTPUT"
   run:
+    needs: build
     runs-on: ubuntu-24.04
     timeout-minutes: 75
     strategy:
@@ -69,7 +79,7 @@ jobs:
           echo "NANOBROWSER_DIR=$RUNNER_TEMP/nb-0.2.0" >> "$GITHUB_ENV"
       - name: Jobadabra (public repo) at the asked commit (every tool reads its fake applicant, CV file and site ledger)
         uses: actions/checkout@v5
-        with: {repository: GarryOne/jobadabra, ref: '${{ inputs.product_ref }}', path: jp, persist-credentials: false}
+        with: {repository: GarryOne/jobadabra, ref: '${{ needs.build.outputs.sha }}', path: jp, persist-credentials: false}
       - name: Jobadabra's test harness
         run: |
           (cd jp/desktop/e2e && (npm ci || npm install))

@@ -43,3 +43,17 @@ for (const f of files) {
     if (/claude -p/.test(text)) assert.match(text, /claude -p [^\n]*--model "\$(BENCH_MODEL|JOB_PILOTTO_MODEL_OVERRIDE)"/, 'Claude Code is told the model');
   });
 }
+
+// One build for the whole round (27 Oct 2026: the round passed a branch, the branch was deleted on merge, every job failed at checkout;
+// a branch that moves mid-round would also hand jobs different builds). A workflow that takes product_ref resolves it ONCE, in a
+// `build` job, to a commit; every job that checks out our product checks out that commit.
+for (const f of files) {
+  const text = fs.readFileSync(path.join(dir, f), 'utf8');
+  if (!/^\s+product_ref:/m.test(text)) continue;
+  test(`${f}: every job runs one resolved product commit`, () => {
+    assert.match(text, /^ {2}build:.*\n[\s\S]*?outputs:\n\s+sha:/m, 'a build job outputs the resolved commit');
+    const refs = [...text.matchAll(/repository: GarryOne\/jobadabra,\s*ref: '([^']+)'/g)].map(m => m[1]);
+    assert.ok(refs.length >= 2, 'the build job and the matrix job check out the product');
+    assert.deepEqual(refs.slice(1).filter(r => r !== '${{ needs.build.outputs.sha }}'), [], 'jobs after the build use its commit, never the input ref');
+  });
+}
