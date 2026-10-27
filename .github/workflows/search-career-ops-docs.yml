@@ -1,0 +1,77 @@
+# career-ops set up the way its own docs say (owner, 27 Oct 2026: "set up as its docs recommend"): its first-launch chat in Claude Code
+# (CV, target role, place, its scanner's companies; it may add employers with its discover mode), then its scan mode, for ONE persona.
+# Claude Code runs on the owner's Claude plan through a long-lived token (secret CLAUDE_CODE_OAUTH_TOKEN, made with `claude setup-token`): $0
+# (owner's choice, 27 Oct 2026). career-ops is pinned (tag + commit). BY HAND ONLY (test/workflows.test.mjs). Never applies, never submits.
+# The out-of-the-box row (no chat, its zero-token scan) is search-bench-career-ops.yml.
+name: search career-ops docs setup (by hand)
+on:
+  workflow_dispatch:
+    inputs:
+      personas:
+        description: Persona numbers, JSON
+        default: '[1,2,3,4,5,6,7,8,9,10]'
+permissions:
+  contents: read
+env:
+  CAREER_OPS_TAG: career-ops-v1.38.0
+  CAREER_OPS_SHA: 115bc9873e3d43e23883f3c8f16436617facc62c
+  CLAUDE_CODE_VERSION: 2.1.311
+jobs:
+  setup-and-scan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 2   # the owner's plan: two sessions at a time
+      matrix:
+        persona: ${{ fromJSON(inputs.personas) }}
+    steps:
+      - uses: actions/checkout@v5
+        with: {persist-credentials: false}
+      - uses: actions/checkout@v5
+        with: {repository: career-ops-hq/career-ops, ref: '${{ env.CAREER_OPS_TAG }}', path: career-ops, persist-credentials: false}
+      - name: Pin check
+        run: test "$(git -C career-ops rev-parse HEAD)" = "$CAREER_OPS_SHA"
+      - uses: actions/checkout@v5
+        with: {repository: GarryOne/jobadabra, path: jp, persist-credentials: false, sparse-checkout: tools/persona-search}
+      - uses: actions/setup-node@v5
+        with: {node-version: '22'}
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Install career-ops (no scripts) and Claude Code (pinned)
+        run: |
+          (cd career-ops && npm install --ignore-scripts --no-audit --no-fund)
+          npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
+      - name: The persona's CV (the same fake CV our arm gets)
+        run: |
+          JP=$PWD/jp python3 search-bench/make-cv.py search-bench/personas.json "${{ matrix.persona }}" cv-out | tee persona.json
+          cp cv-out/draw/cv.md career-ops/cv.md
+      - name: First-launch chat, then scan mode (its own instructions; answers from the persona)
+        working-directory: career-ops
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          p=$(cat ../persona.json)
+          title=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['title'])" "$p"); city=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['city'])" "$p"); country=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['country'])" "$p")
+          prompt="This is career-ops' first launch for a new candidate. Follow its own onboarding as written in this repo, answering its questions yourself from these facts, then run its scan mode.
+          Candidate: the CV is cv.md. Target role: $title. Place: $city, $country (jobs there, or remote in $country). No salary preference, no other preferences.
+          Set up the scanner the way the onboarding does for this candidate (portals.yml, adding employers that hire this role in $city if the docs say so, e.g. with its discover mode).
+          Then run the career-ops scan mode and leave its results in data/ as it does. Never apply, submit or email anything. Do not ask me anything: decide as the onboarding suggests."
+          start=$(date +%s); set +e
+          claude -p "$prompt" --max-turns 80 --output-format json --permission-mode acceptEdits \
+            --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(node:*),Bash(npm run:*),Bash(ls:*),Bash(cat:*)" > ../claude.json 2> ../claude.err
+          echo "exit $?" >> ../claude.err; echo $(( $(date +%s) - start )) > ../seconds.txt; true
+      - name: Collect (no posting texts)
+        if: always()
+        run: |
+          mkdir -p out
+          cp persona.json claude.err seconds.txt out/ 2>/dev/null || true
+          python3 -c "import json;d=json.load(open('claude.json'));json.dump({k:d.get(k) for k in ('num_turns','duration_ms','total_cost_usd','is_error','subtype')},open('out/claude-summary.json','w'))" 2>/dev/null || true
+          cp career-ops/portals.yml out/ 2>/dev/null || true
+          cp career-ops/data/scan-history.tsv career-ops/data/pipeline.md out/ 2>/dev/null || true
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: career-ops-docs-p${{ matrix.persona }}
+          path: out/
+          retention-days: 30

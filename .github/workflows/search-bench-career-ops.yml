@@ -10,7 +10,7 @@ permissions:
   contents: read
 env:
   CAREER_OPS_TAG: career-ops-v1.38.0
-  CAREER_OPS_SHA: 373aba45c4c46f7fea933ecfa36a98d848812378
+  CAREER_OPS_SHA: 115bc9873e3d43e23883f3c8f16436617facc62c
 jobs:
   scan:
     runs-on: ubuntu-latest
