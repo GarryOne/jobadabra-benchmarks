@@ -54,8 +54,6 @@ jobs:
       - name: career-ops' scripts run as another Linux user (the token stays with Claude Code)
         run: |
           sudo useradd -m scanner
-          sudo apt-get install -y -qq bubblewrap >/dev/null   # Claude Code's env scrub for its own subprocesses needs it
-          sudo sysctl -q -w kernel.apparmor_restrict_unprivileged_userns=0   # Ubuntu 24.04 blocks bubblewrap's namespaces otherwise
           sudo cp -r career-ops /srv/co && sudo chmod -R a+rwX /srv/co
           mkdir -p "$RUNNER_TEMP/shim"
           printf '#!/bin/sh\nexec sudo -n -u scanner -H -- env -i PATH=%s HOME=/home/scanner LANG=C.UTF-8 sh -c '"'"'umask 000; exec "$0" "$@"'"'"' %s "$@"\n' "$PATH" "$(command -v node)" > "$RUNNER_TEMP/shim/node"
@@ -77,7 +75,8 @@ jobs:
         working-directory: /srv/co
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          CLAUDE_CODE_SUBPROCESS_ENV_SCRUB: '1'
+          # No CLAUDE_CODE_SUBPROCESS_ENV_SCRUB: it forces the permission mode to default, so career-ops' edits were refused (27 Oct smoke:
+          # 5 turns, no files). The scanner user above is what keeps the token from career-ops' scripts.
         run: |
           W=$GITHUB_WORKSPACE; p=$(cat $W/persona.json)
           title=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['title'])" "$p"); city=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['city'])" "$p"); country=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['country'])" "$p")

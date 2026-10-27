@@ -47,6 +47,14 @@ jobs:
           (cd jp/desktop/e2e && (npm ci || npm install) && npx playwright-core install --with-deps chromium)
           npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
           echo "our build: $(git -C jp rev-parse --short HEAD)" | tee build.txt
+      - name: Claude answers on this runner (the app's call shape; stops the job if not, so a dead AI is never a quiet 0)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          cd "$RUNNER_TEMP" && echo "Reply with just: ok" | env -u ANTHROPIC_API_KEY MAX_THINKING_TOKENS=0 claude -p --output-format json --model "$JOB_PILOTTO_MODEL_OVERRIDE" \
+            --tools '' --permission-mode dontAsk --max-turns 1 > probe.json 2> probe.err; echo "exit $?"
+          python3 -c "import json;d=json.load(open('probe.json'));print({k:d.get(k) for k in ('is_error','subtype','result')});exit(0 if d.get('result','').strip()=='ok' else 1)" \
+            || { head -c 600 probe.json; echo; tail -5 probe.err; exit 1; }
       - name: The persona's fake CV, then Find jobs (Haiku 5.5 for every step, the owner's plan)
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
