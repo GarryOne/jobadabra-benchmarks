@@ -86,7 +86,7 @@ jobs:
           Then run the career-ops scan mode and leave its results in data/ as it does. Never apply, submit or email anything. Do not ask me anything: decide as the onboarding suggests."
           start=$(date +%s); set +e; umask 000; export PATH="$RUNNER_TEMP/shim:$PATH"
           claude -p "$prompt" --model "$BENCH_MODEL" --max-turns 80 --output-format json --permission-mode acceptEdits \
-            --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(node:*),Bash(npm run:*),Bash(ls:*),Bash(cat:*)" > $W/claude.json 2> $W/claude.err
+            --allowedTools "Task,Agent,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(node:*),Bash(npm run:*),Bash(ls:*),Bash(cat:*)" > $W/claude.json 2> $W/claude.err
           code=$?; echo "exit $code" >> $W/claude.err; echo $(( $(date +%s) - start )) > $W/seconds.txt
           # A run that never started is a failure, never a quiet green (27 Oct smoke: Claude stopped at once, the job showed success).
           [ "$code" = 0 ] || { tail -5 $W/claude.err; exit "$code"; }
@@ -95,8 +95,9 @@ jobs:
         run: |
           mkdir -p out
           cp persona.json claude.err seconds.txt out/ 2>/dev/null || true
-          python3 -c "import json;d=json.load(open('claude.json'));json.dump({k:d.get(k) for k in ('num_turns','duration_ms','total_cost_usd','is_error','subtype')},open('out/claude-summary.json','w'))" 2>/dev/null || true
+          python3 -c "import json;d=json.load(open('claude.json'));json.dump({**{k:d.get(k) for k in ('num_turns','duration_ms','total_cost_usd','is_error','subtype')},'models':list((d.get('modelUsage') or {}).keys()),'result':str(d.get('result') or '')[:2000]},open('out/claude-summary.json','w'),indent=1)" 2>/dev/null || true
           cp /srv/co/portals.yml out/ 2>/dev/null || true
+          ls -la /srv/co/data > out/data-listing.txt 2>&1 || true
           cp /srv/co/data/scan-history.tsv /srv/co/data/pipeline.md out/ 2>/dev/null || true
       - uses: actions/upload-artifact@v6
         if: always()
