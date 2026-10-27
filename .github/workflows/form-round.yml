@@ -40,7 +40,7 @@ jobs:
           - tool: extension-shipped
             run: 1
     env:
-      BENCH_ANTHROPIC_KEY: ${{ secrets.BENCH_ANTHROPIC_KEY }}   # the agents' key (the Tests workspace), held by the metering pass-through
+      BENCH_ANTHROPIC_KEY: ${{ secrets.BENCH_ANTHROPIC_KEY }}   # the Benchmarks workspace key ($5/month limit), held by the metering pass-through
       E2E_ANTHROPIC_KEY: ${{ secrets.BENCH_ANTHROPIC_KEY }}     # our leg: the app's API engine on CI reads this name (desktop/e2e/lib/engine.mjs)
       JP_REPO: ${{ github.workspace }}/jp/desktop/e2e
       JOB_PILOTTO_HEAVY: '0'

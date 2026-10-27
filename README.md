@@ -380,7 +380,7 @@ Reruns hit the live site (which changes and has a 3-a-day limit). For an **exact
 
 ```bash
 npm i && python3 -m venv venv && ./venv/bin/pip install -r requirements.txt && npx playwright install chromium
-# needs the Job Pilotto checkout (JP_REPO: a WORKTREE on main, never the owner's live checkout) and Keychain job-pilotto.anthropic.e2e_key
+# needs the Job Pilotto checkout (JP_REPO: a WORKTREE on main, never the owner's live checkout) and Keychain jobadabra-benchmarks.anthropic.api_key (the Benchmarks workspace, $5/month limit)
 node run.mjs <extension|stagehand|browser-use|nanobrowser> <form url> out/<id>/<tool>
 node batch.mjs forms.json 2,3,4 3.0                         # forms by id, budget in USD
 BAKEOFF_TOOLS=extension-main,nanobrowser node batch.mjs …   # the main-build extension / a later-day tool
