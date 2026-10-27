@@ -151,14 +151,20 @@ jobs:
           for a in arts/form-round-*; do t=${a#arts/form-round-}; rm -rf pool/*/"${t%-*}"; done
           for a in arts/form-round-*; do cp -R "$a"/round-out/. pool/; done
           find pool -name '*.png' -delete; ls pool
+      - name: The forms file from the weekly-picks branch (the judge sees each posting's title and company)
+        if: inputs.forms_from != ''
+        env: {FROM: '${{ inputs.forms_from }}', FORMS: '${{ inputs.forms }}'}
+        run: git fetch -q --depth 1 origin "${FROM%%:*}" && git show "FETCH_HEAD:${FROM#*:}" > "$FORMS"
       - name: Blind judge (the Claude plan; earlier verdicts reused)
-        env: {CLAUDE_CODE_OAUTH_TOKEN: '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}'}
+        env: {CLAUDE_CODE_OAUTH_TOKEN: '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}', FORMS: '${{ inputs.forms }}'}
         run: |
+          set -o pipefail
           npm install -g "@anthropic-ai/claude-code@$CLAUDE_CODE_VERSION"
-          node judge-blind.mjs pool 2>&1 | tee judge.log
+          node judge-blind.mjs pool --forms "$FORMS" 2>&1 | tee judge.log
       - name: Score and publish
         env: {BENCHMARK_PUBLISH_KEY: '${{ secrets.BENCHMARK_PUBLISH_KEY }}'}
         run: |
+          set -o pipefail
           node score-round.mjs pool --json score.json | tee -a "$GITHUB_STEP_SUMMARY"
           node publish-fair.mjs pool --round "$ROUND"
       - name: The judged round

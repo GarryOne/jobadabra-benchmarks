@@ -29,7 +29,7 @@ test('form-round.yml: the last job judges, scores and publishes the round', () =
   const text = fs.readFileSync(path.join(dir, 'form-round.yml'), 'utf8'), last = text.slice(text.lastIndexOf('\n  publish:'));
   assert.match(text, /^ {6}publish:\n {8}description:/m, 'a publish input');
   assert.match(last, /needs: run\n/); assert.match(last, /if: \$\{\{ !cancelled\(\) && inputs\.publish != '' \}\}/);
-  for (const step of [/node judge-blind\.mjs pool/, /node score-round\.mjs pool/, /node publish-fair\.mjs pool --round "\$ROUND"/]) assert.match(last, step);
+  for (const step of [/node judge-blind\.mjs pool --forms "\$FORMS"/, /node score-round\.mjs pool/, /node publish-fair\.mjs pool --round "\$ROUND"/]) assert.match(last, step);
   assert.match(last, /cp -R rounds\/fixed\/\. pool\//, 'the fixed set judges inside its frozen baseline');
   assert.match(last, /BENCHMARK_PUBLISH_KEY: '\$\{\{ secrets\.BENCHMARK_PUBLISH_KEY \}\}'/);
 });

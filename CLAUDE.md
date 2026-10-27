@@ -15,6 +15,9 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
     not reached (`score-round.mjs`). A page's leftover copy of a field (an empty file box beside the uploaded CV, an empty box named like a
     filled one) is no miss, for every tool (`markTwins`, lib/holds.mjs). Each run folder of ours keeps `fill.log`: why a box stayed empty,
     the fill-summary lines only, never a value (lib/fill-log.mjs; the artifacts are public).
+  - **The judge sees the job** (owner, 27 Oct 2026: "Show title + company"): each posting's title, company and place, the same for every
+    tool (`--forms`); an answer may draw on the job, every claim about the applicant must be in the facts. A new judge rule applies to
+    answers judged from then on: never re-judge old verdicts (it moved scores by judge noise, 27 Oct 2026).
 - **Otherwise by hand only, rarely** (owner, 27 Oct 2026: "trigger them manually, from time to time. Maybe once in a half a year"): every
   other workflow starts on `workflow_dispatch` (or is called by one) and nothing else. Guard: `test/workflows.test.mjs`.
 - **Cost:** a whole round (both benchmarks) costs at most ~$3, or $0 (owner, 27 Oct 2026). Every tool on one model (`BENCH_MODEL`,

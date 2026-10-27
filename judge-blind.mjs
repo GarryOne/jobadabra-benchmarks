@@ -2,7 +2,9 @@
 // (question, type, options, value) and shuffled, then judged once: the judge never sees which tool typed a value, and the same
 // answer gets the same verdict whichever tool gave it. A correction (corrections.json, keyed the same way) applies to every tool.
 // Engine: the Claude plan (claude -p, $0, no API key in its environment), as search-bench/judge.py does.
-// Usage: node judge-blind.mjs <round dir> [--seed s] [--dry] [--fresh]   (round dir/<form id>/<tool>/<run n>/fields.json + manifest.json)
+// Usage: node judge-blind.mjs <round dir> [--forms forms.json] [--seed s] [--dry] [--fresh]
+// --forms: the round's forms file; the judge then sees each posting's title, company and place, the same for every tool (owner, 27 Oct 2026:
+// "Show title + company": a "Why Hume?" answer tying CV facts to the job read as invented when the judge knew only the applicant).   (round dir/<form id>/<tool>/<run n>/fields.json + manifest.json)
 // Writes judged.json next to each fields.json and verdicts.json (the pooled list) per form.
 // A verdicts.json already in a form's dir is reused (27 Oct 2026: a fixed-set before/after judges only the answers it has not seen, so a rival's
 // unchanged answer keeps its verdict and the round costs one small judge call); --fresh judges every answer anew. A new rule applies to answers
@@ -21,7 +23,11 @@ function realClaude() {   // the install itself, never a wrapper script (a wrapp
   throw new Error('no claude install found');
 }
 
-export const PROMPT = (facts, list) => `You score answers typed into a job application form. The applicant's facts are below. Each item is one field's question and a value some tool typed (the same field can appear several times with different values). For EACH item decide:\n- verdict: "right" (the value correctly reflects the facts, or a sensible fixed choice such as consent), "wrong" (the value contradicts the facts, or invents what the facts do not say), "empty" (no value).\n- answerable: true when the facts do answer this question (so empty means a miss), false when they do not (then an empty field is correct).\nA CV file name counts as a value for the CV/resume upload field. A place a fact covers is not invented: when the facts say the applicant is open to relocating within a region (e.g. within Europe), naming a city in that region (e.g. the job's city, London) follows from that fact. Return ONLY JSON: {"items":[{"k":"<k>","verdict":"right|wrong|empty","answerable":true,"note":"max 8 words"}]}.\n\nFACTS:\n${facts}\n\nITEMS:\n${JSON.stringify(list)}`;
+export const PROMPT = (facts, list, job = '') => `You score answers typed into a job application form. The applicant's facts are below. Each item is one field's question and a value some tool typed (the same field can appear several times with different values). For EACH item decide:\n- verdict: "right" (the value correctly reflects the facts, or a sensible fixed choice such as consent), "wrong" (the value contradicts the facts, or invents what the facts do not say), "empty" (no value).\n- answerable: true when the facts do answer this question (so empty means a miss), false when they do not (then an empty field is correct).\nA CV file name counts as a value for the CV/resume upload field. When the job is given, an answer may draw on it (why this company or role, what the work involves): that is not invented, as long as every claim about the applicant is in the facts. A place a fact covers is not invented: when the facts say the applicant is open to relocating within a region (e.g. within Europe), naming a city in that region (e.g. the job's city, London) follows from that fact. Return ONLY JSON: {"items":[{"k":"<k>","verdict":"right|wrong|empty","answerable":true,"note":"max 8 words"}]}.${job ? `\n\nJOB:\n${job}` : ''}\n\nFACTS:\n${facts}\n\nITEMS:\n${JSON.stringify(list)}`;
+
+const formsAt = process.argv.indexOf('--forms');
+const FORMS = formsAt > 0 ? (j => j.picks || j)(JSON.parse(fs.readFileSync(process.argv[formsAt + 1], 'utf8'))) : [];
+export const jobOf = id => { const f = FORMS.find(x => String(x.id) === String(id)); return f ? `${f.title} at ${f.company}${f.location ? ` (${f.location})` : ''}` : ''; };
 
 function askPlan(prompt) {
   const env = Object.fromEntries(Object.entries(process.env).filter(([k]) => !k.endsWith('_API_KEY') && !k.includes('ANTHROPIC')));
@@ -45,7 +51,7 @@ for (const formId of fs.readdirSync(round).filter(n => fs.statSync(path.join(rou
   const verdicts = new Map(FRESH ? [] : cachedVerdicts(form)), todo = list.filter(item => !verdicts.has(item.k));
   console.log(`judge: form ${formId}: ${runs.length} runs, ${list.length} distinct answers, ${todo.length} to judge (${list.length - todo.length} already judged)`);
   if (DRY) continue;
-  for (let i = 0; i < todo.length; i += 120) for (const v of askPlan(PROMPT(facts, todo.slice(i, i + 120)))) verdicts.set(v.k, v);
+  for (let i = 0; i < todo.length; i += 120) for (const v of askPlan(PROMPT(facts, todo.slice(i, i + 120), jobOf(formId)))) verdicts.set(v.k, v);
   for (const [k, c] of Object.entries(corrections[formId] || {})) verdicts.set(k, {...verdicts.get(k), ...c, corrected: true});
   fs.writeFileSync(path.join(form, 'verdicts.json'), JSON.stringify(list.map(item => ({...item, ...(verdicts.get(item.k) || {verdict: 'empty', answerable: true, note: 'not judged'})})), null, 1));
   for (const dir of runs) {
