@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
+import {NAME, toolsOf} from './tools.mjs';
 
 const [work] = process.argv.slice(2).filter(arg => !arg.startsWith('--'));
 const flag = (name, fallback) => { const at = process.argv.indexOf(name); return at > 0 ? process.argv[at + 1] : fallback; };
@@ -15,6 +16,8 @@ const norm = row => [row.title, row.company, row.location].map(part => (part || 
 const rows = [];
 fs.mkdirSync(path.join(here, 'results', round), {recursive: true});
 
+// every tool of the round, so a tool that found nothing on a persona still shows a 0 there
+const roundTools = toolsOf(personas.flatMap((_, at) => { try { return JSON.parse(fs.readFileSync(path.join(work, `judged${at + 1}.json`), 'utf8')).rows; } catch { return []; } }));
 personas.forEach((persona, at) => {
   const n = at + 1, judged = path.join(work, `judged${n}.json`);
   if (!fs.existsSync(judged)) return;
@@ -24,16 +27,18 @@ personas.forEach((persona, at) => {
   const seconds = {
     ours: Number((read(path.join(work, 'ours', `p${n}.log`)).match(/^PRESS .*\((\d+) s/m) || [])[1] || 0),
     'career-ops': Number(read(path.join(work, 'co', `p${n}`, `career-ops-persona-${n}`, 'seconds.txt'), '0').trim()) || 0,
+    'career-ops-docs': Number(read(path.join(work, 'co-docs', `p${n}`, 'seconds.txt'), '0').trim()) || 0,
   };
   const relevant = row => row.role === 'yes' && row.place === 'yes';
   const oursKeys = new Set(list.filter(row => row.tool === 'ours').map(norm));
-  for (const [tool, name] of [['ours', 'Jobadabra'], ['career-ops', 'career-ops']]) {
+  for (const tool of roundTools) {
+    const name = NAME[tool] || tool;
     const mine = list.filter(row => row.tool === tool);
     const missed = {};   // the job systems of this tool's relevant jobs the other tool did not show
     if (tool !== 'ours') for (const row of mine.filter(relevant)) if (!oursKeys.has(norm(row))) missed[row.provider || 'unknown'] = (missed[row.provider || 'unknown'] || 0) + 1;
     rows.push({id: `${round}/p${n}/${tool}`, at: new Date().toISOString(), round, persona: label, kind: persona.kind, country: persona.country, tool: name, ours: tool === 'ours', build: tool === 'ours' ? build : '',
       found: mine.length, place: mine.filter(row => row.place === 'yes').length, role: mine.filter(row => row.role === 'yes').length, relevant: mine.filter(relevant).length,
-      employers: new Set(mine.map(row => (row.company || '').toLowerCase()).filter(Boolean)).size, seconds: seconds[tool], cents: 0, missed});
+      employers: new Set(mine.map(row => (row.company || '').toLowerCase()).filter(Boolean)).size, seconds: seconds[tool] || 0, cents: 0, missed});
   }
 });
 
