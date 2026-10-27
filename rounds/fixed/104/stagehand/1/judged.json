@@ -7,8 +7,9 @@
   "value": "",
   "k": "1a1e3d8570765017",
   "verdict": "empty",
-  "answerable": true,
-  "note": "CV available, not uploaded"
+  "answerable": false,
+  "note": "CV available, not uploaded; twin of the uploaded CV box",
+  "twin": true
  },
  {
   "question": "Name",

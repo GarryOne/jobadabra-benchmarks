@@ -1,0 +1,86 @@
+{
+ "_why": "The blind judge's fixed case set (owner, 27 Oct 2026: a prompt change adds its case, and every prompt change replays the whole set). Replay: node judge-blind.mjs --cases judge-cases.json ($0, the Claude plan). Fake applicant only.",
+ "factsFrom": "rounds/fixed/106/extension/1/manifest.json",
+ "forms": "forms-objective.json",
+ "form": 106,
+ "cases": [
+  {
+   "case": "owner's right example (27 Oct 2026): hedge + one stated fact",
+   "question": "Describe a time you improved backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead.",
+   "required": true,
+   "expect": "right",
+   "value": "The closest I can point to for improving backlog cleanliness and Jira structure across multiple teams is the Terraform platform I built at Acme Cloud, used by 120 engineers."
+  },
+  {
+   "case": "owner's wrong example: adds \"so I know how to...\"",
+   "question": "Describe a time you improved backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead.",
+   "required": true,
+   "expect": "wrong",
+   "value": "The closest I can point to for improving backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead is my platform work at Acme Cloud: I built the Terraform platform used by 120 engineers and led the on-call rotation of 8 people, so I know how to standardise shared tooling across many teams without slowing them down."
+  },
+  {
+   "case": "106 run 3 on 43bb769: invents a way of working",
+   "question": "Describe a time you improved backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead.",
+   "required": true,
+   "expect": "wrong",
+   "value": "The closest I can point to for improving backlog cleanliness and Jira structure across multiple teams is leading the 8-person on-call rotation and building the Terraform platform used by 120 engineers at Acme Cloud: I kept coordination lightweight by working from shared structures rather than extra meetings."
+  },
+  {
+   "case": "drafting notes only, typed into the form (01a0d7c)",
+   "question": "Describe a time you improved backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead.",
+   "required": true,
+   "expect": "wrong",
+   "value": "• Add: the size of the teams and the backlog you worked across, and what you changed in Jira (workflow, fields or cleanup rules). • Add: the result, such as fewer stale tickets."
+  },
+  {
+   "case": "stated facts plus a leftover drafting note (01a0d7c)",
+   "question": "Describe a time you improved backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead.",
+   "required": true,
+   "expect": "wrong",
+   "value": "In my Acme Cloud role I built the Terraform platform used by 120 engineers and led an on-call rotation of 8 people. • Add: the teams and Jira projects you cleaned up."
+  },
+  {
+   "case": "left empty: the facts don't answer it",
+   "question": "Describe a time you improved backlog cleanliness and Jira structure across multiple teams without adding unnecessary process overhead.",
+   "required": true,
+   "expect": "empty",
+   "value": ""
+  },
+  {
+   "case": "optional demographic declined",
+   "question": "What is your current age?",
+   "type": "select",
+   "expect": "right",
+   "value": "I prefer not to answer"
+  },
+  {
+   "case": "invented veteran status",
+   "question": "Veteran Status",
+   "type": "select",
+   "expect": "wrong",
+   "value": "I identify as one or more of the classifications of protected veteran listed above"
+  },
+  {
+   "case": "a placeholder instead of the email (27 Oct 2026: once judged right)",
+   "question": "Email",
+   "type": "email",
+   "required": true,
+   "expect": "wrong",
+   "value": "[EMAIL]"
+  },
+  {
+   "case": "the email from the facts",
+   "question": "Email",
+   "type": "email",
+   "required": true,
+   "expect": "right",
+   "value": "ada.tester@example.test"
+  },
+  {
+   "case": "103 (01a0d7c): a long true answer with leftover \"Add:\" notes (re-judge 27 Oct 2026 called it right)",
+   "question": "Anything else? (Optional)",
+   "expect": "wrong",
+   "value": "I am a Senior Site Reliability Engineer with 8 years running Kubernetes on AWS at scale. At Acme Cloud I run 400 microservices on EKS and cut incident time by 40 percent with Datadog and OpenTelemetry. I built the Terraform platform used by 120 engineers and led an on-call rotation of 8 people. Before that, at Beta Systems, I migrated 60 services to Kubernetes and introduced SLOs and error budgets. • Add: any product management experience, such as owning a roadmap or prioritising features with users. • Add: your Arabic level, since this role is Arabic speaking; your profile lists English and Spanish only."
+  }
+ ]
+}

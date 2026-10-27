@@ -73,8 +73,9 @@
   "value": "",
   "k": "ef0b1facbd88a361",
   "verdict": "empty",
-  "answerable": true,
-  "note": "CV file available"
+  "answerable": false,
+  "note": "CV file available; twin of the uploaded CV box",
+  "twin": true
  },
  {
   "question": "Cover letter",
@@ -107,7 +108,8 @@
   "k": "054cf2b98e2e8da2",
   "verdict": "wrong",
   "answerable": false,
-  "note": "Invents answer, has placeholder text"
+  "note": "Contains 'Add:' drafting note placeholder",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Have you been referred to this position by a Semios employee? If so, please let us know their full name.",

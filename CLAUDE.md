@@ -36,6 +36,11 @@ Public page: jobadabra.top/benchmark (site repo `jobadabra-web`); the full runs 
   Haiku 5.5 in the objective round); judges on the Claude plan. Measure a one-form trial before a full round.
 - **Fair:** forms drawn by seed (`pick-forms.mjs`) from a list we did not make, minus every company we tested or fixed on; all tools the
   same day, 3 runs each (the weekly set: 1); the judge never sees the tool (`judge-blind.mjs`), a correction applies to the same answer for every tool.
+  - **Honest draft = right** (owner via 5b, 27 Oct 2026: "Honest draft = right (Recommended)"): for a question the facts don't answer, a value
+    is right when every claim is a stated fact (an openly hedged "the closest I can point to is <fact>" counts), wrong when it claims more or
+    holds a drafting note ("Add: ..."); empty stays right. Each answer judged on its own, never against the pool.
+  - **Judge prompt: a fixed case set** (`judge-cases.json`): a PROMPT change adds its case and replays all of them,
+    `node judge-blind.mjs --cases judge-cases.json` ($0), before its PR. A verdict the big batch gets wrong goes to `rounds/fixed/corrections.json`.
   - **Same place, same AI for every contestant** (owner, 27 Oct 2026: "If using locally, then locally ours and theirs. If using CI, then CI
     ours and theirs. If using Haiku then haiku ours and theirs"): both rounds on CI, every AI contestant on Haiku 5.5 (form round: the
     Benchmarks API key; search round: the owner's plan token). No extra "as shipped" row. A local run is a side note, never the scoreboard.

@@ -73,8 +73,9 @@
   "value": "",
   "k": "ef0b1facbd88a361",
   "verdict": "empty",
-  "answerable": true,
-  "note": "CV file available"
+  "answerable": false,
+  "note": "CV file available; twin of the uploaded CV box",
+  "twin": true
  },
  {
   "question": "Cover letter",

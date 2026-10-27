@@ -25,8 +25,9 @@
   "value": "",
   "k": "7be872b3943d4194",
   "verdict": "empty",
-  "answerable": true,
-  "note": "CV file should be uploaded"
+  "answerable": false,
+  "note": "CV file should be uploaded; twin of the uploaded CV box",
+  "twin": true
  },
  {
   "question": "Full name✱",

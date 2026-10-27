@@ -25,8 +25,9 @@
   "value": "",
   "k": "7be872b3943d4194",
   "verdict": "empty",
-  "answerable": true,
-  "note": "CV file should be uploaded"
+  "answerable": false,
+  "note": "CV file should be uploaded; twin of the uploaded CV box",
+  "twin": true
  },
  {
   "question": "Full name✱",
@@ -164,7 +165,8 @@
   "k": "5403752e41f8bbc0",
   "verdict": "right",
   "answerable": false,
-  "note": "Decline is sensible choice"
+  "note": "Decline is a sensible fixed choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "RaceSelect ...Hispanic or LatinoWhite (Not Hispanic or Latino)Black or African American (Not Hispanic or Latino)Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)Asian (Not Hispanic or Latino)American Indian or Alaska Native (Not Hispanic or Latino)Two or More Races (Not Hispanic or Latino)Decline to self-identifyHispanic or LatinoA person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin regardless of race.White (Not Hispanic or Latino)A person having origins in any of the original peoples of Europe, the Middle East, or North Africa.Black or African American (Not Hispanic or Latino)A person having origins in any of the black racial groups of Africa.Native Hawaiian or Other Pacific Islander (Not Hispanic or Latino)A person having origins in any of the peoples of Hawaii, Guam, Samoa, or other Pacific Islands.Asian (Not Hispanic or Latino)A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian Subcontinent, including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.American Indian or Alaska Native (Not Hispanic or Latino)A person having origins in any of the original peoples of North and South America (including Central America), and who maintain tribal affiliation or community attachment.Two or More Races (Not Hispanic or Latino)All persons who identify with more than one of the above five races.",
@@ -186,7 +188,8 @@
   "k": "4eeb47d81d4d484f",
   "verdict": "right",
   "answerable": false,
-  "note": "Decline is sensible choice"
+  "note": "Decline is a sensible fixed choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Veteran statusSelect ...I am a veteranI am not a veteranDecline to self-identify",
@@ -203,7 +206,8 @@
   "k": "430547fc4ad43a37",
   "verdict": "right",
   "answerable": false,
-  "note": "Decline is sensible choice"
+  "note": "Decline is a sensible fixed choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Resume/CV ✱cv.pdfATTACH RESUME/CVCouldn't auto-read resume.Analyzing resume...Success!",

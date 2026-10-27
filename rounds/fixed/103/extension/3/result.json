@@ -182,8 +182,8 @@
   "fields": 36,
   "right": 12,
   "wrong": 2,
-  "emptyShouldFill": 1,
-  "emptyOk": 21,
+  "emptyShouldFill": 0,
+  "emptyOk": 22,
   "emptyRequired": 0,
   "requiredTotal": 6
  },

@@ -109,7 +109,9 @@
   "value": "I am a Senior Site Reliability Engineer with 8 years running Kubernetes on AWS at scale. At Acme Cloud I run 400 microservices on EKS and cut incident time by 40 percent with Datadog and OpenTelemetry. I built the Terraform platform used by 120 engineers and led an on-call rotation of 8 people. Before that, at Beta Systems, I migrated 60 services to Kubernetes and introduced SLOs and error budgets. • Add: any product management experience, such as owning a roadmap or prioritising features with users. • Add: your Arabic level, since this role is Arabic speaking; your profile lists English and Spanish only.",
   "verdict": "wrong",
   "answerable": false,
-  "note": "placeholder text, invented Datadog/CV mix"
+  "note": "leftover 'Add:' drafting notes",
+  "why": "27 Oct 2026: the honest-draft re-judge called it right in a 58-answer batch while its note named the notes; alone it is wrong (judge-cases.json c11)",
+  "corrected": true
  },
  {
   "k": "edc42d85301029a7",
@@ -230,7 +232,8 @@
   "value": "• Add: why Sierra and agent product management, and how your Kubernetes, observability and incident work relates to shipping product.",
   "verdict": "wrong",
   "answerable": false,
-  "note": "contains '• Add:' placeholder"
+  "note": "Placeholder 'Add:' drafting note, not an answer",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "40fcc7e120410cc4",
@@ -258,7 +261,8 @@
   ],
   "verdict": "right",
   "answerable": false,
-  "note": "prefer not to answer"
+  "note": "Sensible prefer-not-to-answer choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "32867a53e365e679",
@@ -442,7 +446,8 @@
   ],
   "verdict": "right",
   "answerable": false,
-  "note": "prefer not to answer"
+  "note": "Sensible prefer-not-to-answer choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "c0ddf7e75a61972e",
@@ -536,7 +541,8 @@
   "value": "I am an EU citizen based in Zurich and open to relocating within Europe for the right role. I work on-site, hybrid or remote. • Add: whether I can take on a role that is primarily Arabic-speaking, since I do not speak Arabic, and how my product experience relates to this role.",
   "verdict": "wrong",
   "answerable": false,
-  "note": "placeholder text, meta commentary"
+  "note": "Contains 'Add:' drafting note instruction",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "5e0a559897d3cb4e",
@@ -636,7 +642,8 @@
   ],
   "verdict": "right",
   "answerable": false,
-  "note": "prefer not to answer"
+  "note": "Sensible prefer-not-to-answer choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "748899ac334665ed",
@@ -674,7 +681,8 @@
   ],
   "verdict": "right",
   "answerable": false,
-  "note": "prefer not to answer"
+  "note": "Prefer-not-to-answer on optional survey",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "k": "da969c736161835d",

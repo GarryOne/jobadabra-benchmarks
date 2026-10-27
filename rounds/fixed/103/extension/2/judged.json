@@ -7,8 +7,9 @@
   "value": "",
   "k": "1a1e3d8570765017",
   "verdict": "empty",
-  "answerable": true,
-  "note": "CV not uploaded"
+  "answerable": false,
+  "note": "CV not uploaded; twin of the uploaded CV box",
+  "twin": true
  },
  {
   "question": "Legal First Name",
@@ -189,7 +190,9 @@
   "k": "b856d11645ed00d0",
   "verdict": "wrong",
   "answerable": false,
-  "note": "placeholder text, invented Datadog/CV mix"
+  "note": "leftover 'Add:' drafting notes",
+  "why": "27 Oct 2026: the honest-draft re-judge called it right in a 58-answer batch while its note named the notes; alone it is wrong (judge-cases.json c11)",
+  "corrected": true
  },
  {
   "question": "By submitting, I acknowledge my personal data will be processed in accordance with Sierra’s Privacy Policy.",
@@ -222,7 +225,8 @@
   "k": "d8ab172b3d9df452",
   "verdict": "right",
   "answerable": false,
-  "note": "prefer not to answer"
+  "note": "Sensible prefer-not-to-answer choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "What is your gender identity?",
@@ -238,7 +242,8 @@
   "k": "f49f28d3a2d042d3",
   "verdict": "right",
   "answerable": false,
-  "note": "prefer not to answer"
+  "note": "Sensible prefer-not-to-answer choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Do you identify as transgender?",
@@ -254,7 +259,8 @@
   "k": "7fc76308738d3b08",
   "verdict": "right",
   "answerable": false,
-  "note": "prefer not to answer"
+  "note": "Sensible prefer-not-to-answer choice",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Bisexual",
@@ -354,7 +360,8 @@
   "k": "c6072f166098e09d",
   "verdict": "right",
   "answerable": false,
-  "note": "prefer not to answer"
+  "note": "Prefer-not-to-answer on optional survey",
+  "rule": "honest-draft-2026-10-27.3"
  },
  {
   "question": "Asian or Asian British",
