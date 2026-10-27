@@ -14,7 +14,7 @@ PRICE = (2.00, 10.00)   # $ per million input/output tokens (src/ai/cost.py, 2 O
 BATCH = 60
 SYSTEM = ('You check a job search for one job seeker. You get their short profile and a numbered list of jobs (title, employer, place). For EACH job decide two things on their own. '
           'role: would a person with this profile see it as their kind of job? yes = same occupation (any seniority, any employer, any language of the title); no = a different occupation. '
-          'place: yes = in their city or a short commute from it, or remote and the text names their country; remote = says remote and names no country; no = another city or country (including remote limited to another country); unknown = no place given. '
+          'place: yes = in their city or a short commute from it, or remote and the text names their country; remote = says remote and names no country, or names many countries (a list such as "Remote - Moldova; Remote - Canada; ..." is worldwide remote, never yes); no = another city or country (including remote limited to another country); unknown = no place given. '
           'Judge only from the title, employer and place shown; do not guess beyond them. Answer with JSON only: {"jobs":[{"n":1,"role":"yes|no","place":"yes|remote|no|unknown"}, ...]} covering every number.')
 
 

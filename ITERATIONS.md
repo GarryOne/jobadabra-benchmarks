@@ -34,3 +34,13 @@ Every step, including the ones that failed. Raw data for each run is in [`result
 | 28 | **Local look-alike + commit hunt** ($0, no site visits) | `fixture/combo.html` reproduces it; the bug is timing-dependent (answers arriving after the fill starts, under load). 3 runs per build: `76b6a32` 0/3, `7e5bc0f` 0/3, **`5afa5a8` 1/3** lost the answers with the Hadrian signature. | First bad commit: **`5afa5a8` "Extension: a Stop button that freezes everything"**; a fixer session takes it (cc's call). |
 
 *Budget:* the owner approved $9, then $10 more, then replaced it with **$5 from 23:25** (code stop at $4.60). *Safety:* 0 live submits in all runs; the guard stopped the only real Submit attempt (on a local test form).
+
+## The objective round (27 Oct 2026)
+
+| # | Step | What happened | What we changed |
+| --: | --- | --- | --- |
+| 29 | **Forms drawn** | Seed `objective-2026-10-27` over career-ops' own company list (v1.38.0): 6 forms on Greenhouse, Ashby, Lever, Workable; 3 skipped (feed gone, no openings). | `pick-forms.mjs`, `forms-objective.json` |
+| 30 | **One model for all** | Ours ships Sonnet 5.5 for answers; the app's test-only switch puts it on Haiku 5.5 like the agents (its answer call logged `claude-haiku-5-5`). | `BENCH_MODEL`, `lib/models.mjs` (priced per call) |
+| 31 | **Trial on the Mac**, one form per tool (3 visits a site a day) | Browser Use $0.017/76 s, Stagehand $0.042/101 s, Nanobrowser $0.040/131 s, ours $0 plan/67 s. Stagehand first failed in 1 s: Haiku refuses Sonnet's thinking setting, then hung. | Proxy sends no thinking to Haiku (`test/proxy.test.mjs`); a run exits once its result is written |
+| 32 | **"Pressed Submit" on Ashby** | Browser Use flagged: 13 blocked writes, all `ApiSetFormValue` (Ashby's autosave as you type), nothing sent. Likely October's "ours pressed Submit" on Ashby too. | The guard no longer counts autosaves (`test/guard.test.mjs`) |
+| 33 | **The round moves to CI** | 12 visits per form in a day can't come from the owner's home network. Owner: its own one-day limit, by hand only, about twice a year. | `.github/workflows/form-round.yml`, `round-job.mjs`, `test/workflows.test.mjs` |

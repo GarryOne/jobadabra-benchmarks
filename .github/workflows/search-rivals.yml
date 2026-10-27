@@ -1,0 +1,42 @@
+# The search round's simple rivals (owner, 27 Oct 2026): JobSpy, EURES and Adzuna, each searched for every persona of search-bench/personas.json
+# the way a person would (search-bench/rivals.py). BY HAND ONLY, about twice a year (test/workflows.test.mjs). $0: no AI here.
+# JobSpy reads LinkedIn, Indeed, Glassdoor and Google as shipped, low volume (25 a site), no login or cookies; its reads stay in this benchmark.
+name: search rivals (by hand)
+on:
+  workflow_dispatch:
+    inputs:
+      rivals:
+        description: Rivals, JSON
+        default: '["jobspy","eures","adzuna"]'
+permissions:
+  contents: read
+jobs:
+  search:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        rival: ${{ fromJSON(inputs.rivals) }}
+        persona: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: JobSpy (pinned)
+        if: matrix.rival == 'jobspy'
+        run: pip install --quiet python-jobspy==1.4.1
+      - name: Search
+        env:
+          ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
+        run: |
+          mkdir -p out
+          python3 search-bench/rivals.py "${{ matrix.rival }}" search-bench/personas.json "${{ matrix.persona }}" "out/${{ matrix.rival }}-p${{ matrix.persona }}.json"
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: search-${{ matrix.rival }}-p${{ matrix.persona }}
+          path: out/
+          retention-days: 30

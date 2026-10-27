@@ -1,11 +1,12 @@
 {
-  "name": "job-pilotto-bakeoff",
+  "name": "jobadabra-benchmarks",
   "version": "1.0.0",
-  "description": "Benchmark: Job Pilotto extension vs Stagehand vs Browser Use on live job application forms",
+  "description": "Benchmarks: Jobadabra vs other tools on live application forms (root) and on job search (search-bench/)",
   "main": "index.js",
   "scripts": {
     "prove-guard": "node fixture/prove-guard.mjs",
-    "test-collect": "node fixture/serve.mjs"
+    "test-collect": "node fixture/serve.mjs",
+    "test": "node --test test/*.test.mjs"
   },
   "keywords": [],
   "author": "",

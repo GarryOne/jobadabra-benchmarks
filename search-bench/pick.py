@@ -1,7 +1,7 @@
 """Seeded pick of the 10 benchmark personas: 5 non-tech + 5 tech/office, distinct countries."""
-import hashlib, json, random, sys
+import hashlib, json, os, random, sys
 seed = sys.argv[1]
-d = json.load(open('/Users/mac/job-pilotto/tools/persona-search/draws.json'))
+d = json.load(open(os.path.join(os.environ.get('JP', os.path.expanduser('~/jobadabra')), 'tools/persona-search/draws.json')))   # the product's draw list
 TECH = {'software', 'data-analyst', 'designer', 'marketing', 'support'}
 rnd = random.Random(int(hashlib.sha256(seed.encode()).hexdigest(), 16))
 fam = [f for f in d['families']]

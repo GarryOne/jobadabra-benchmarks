@@ -1,0 +1,84 @@
+{
+ "seed": "objective-2026-10-27",
+ "source": "career-ops templates/portals.example.yml (career-ops-v1.38.0)",
+ "pickedAt": "2026-10-26T23:58:31.833Z",
+ "per": {
+  "greenhouse": 2,
+  "ashby": 2,
+  "lever": 1,
+  "workable": 1
+ },
+ "picks": [
+  {
+   "id": 101,
+   "platform": "greenhouse",
+   "company": "humeai",
+   "host": "job-boards.greenhouse.io",
+   "title": "AI Researcher",
+   "location": "NYC, San Jose, or Remote",
+   "url": "https://job-boards.greenhouse.io/humeai/jobs/4775962008"
+  },
+  {
+   "id": 102,
+   "platform": "greenhouse",
+   "company": "safariai",
+   "host": "job-boards.greenhouse.io",
+   "title": "Software Engineer, Cloud Infrastructure",
+   "location": "North America",
+   "url": "https://job-boards.greenhouse.io/safariai/jobs/5233682007"
+  },
+  {
+   "id": 103,
+   "platform": "ashby",
+   "company": "sierra",
+   "host": "jobs.ashbyhq.com",
+   "title": "Product Manager, Agent Development (Arabic speaking)",
+   "location": "London",
+   "url": "https://jobs.ashbyhq.com/sierra/9dc1651d-43e9-4970-a757-a5223cef1c4d/application"
+  },
+  {
+   "id": 104,
+   "platform": "ashby",
+   "company": "semgrep",
+   "host": "jobs.ashbyhq.com",
+   "title": "Sales Solutions Engineer - Digital Native",
+   "location": "Remote - US",
+   "url": "https://jobs.ashbyhq.com/semgrep/b75ac9b5-1c27-4f5c-94d7-0eceba74de83/application"
+  },
+  {
+   "id": 105,
+   "platform": "lever",
+   "company": "tinybird",
+   "host": "jobs.lever.co",
+   "title": "Open Application",
+   "location": "Spain",
+   "url": "https://jobs.lever.co/tinybird/22cbcc27-89c4-4f87-87bc-6937712e7b10/apply"
+  },
+  {
+   "id": 106,
+   "platform": "workable",
+   "company": "semios",
+   "host": "apply.workable.com",
+   "title": "Product Delivery Lead",
+   "location": "Minneapolis, United States",
+   "url": "https://apply.workable.com/semios/j/0A6915AC27/apply/"
+  }
+ ],
+ "skipped": [
+  {
+   "ats": "greenhouse",
+   "slug": "templafy",
+   "why": "feed: HTTP 404"
+  },
+  {
+   "ats": "workable",
+   "slug": "toggl",
+   "why": "no open postings"
+  },
+  {
+   "ats": "workable",
+   "slug": "doist",
+   "why": "no open postings"
+  }
+ ]
+}

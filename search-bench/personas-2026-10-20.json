@@ -1,0 +1,85 @@
+{
+ "seed": "jobadabra-vs-career-ops-2026-10-20",
+ "personas": [
+  {
+   "family": "pharmacist",
+   "title": "Pharmacist",
+   "kind": "non-tech",
+   "city": "Tallinn",
+   "country": "Estonia",
+   "language": "Estonian"
+  },
+  {
+   "family": "electrician",
+   "title": "Electrician",
+   "kind": "non-tech",
+   "city": "Cluj-Napoca",
+   "country": "Romania",
+   "language": "Romanian"
+  },
+  {
+   "family": "warehouse",
+   "title": "Warehouse Operator",
+   "kind": "non-tech",
+   "city": "Krakow",
+   "country": "Poland",
+   "language": "Polish"
+  },
+  {
+   "family": "hr",
+   "title": "HR Generalist",
+   "kind": "non-tech",
+   "city": "Dublin",
+   "country": "Ireland",
+   "language": "English"
+  },
+  {
+   "family": "sales",
+   "title": "Sales Representative",
+   "kind": "non-tech",
+   "city": "Paris",
+   "country": "France",
+   "language": "French"
+  },
+  {
+   "family": "data-analyst",
+   "title": "Data Analyst",
+   "kind": "tech",
+   "city": "Valencia",
+   "country": "Spain",
+   "language": "Spanish"
+  },
+  {
+   "family": "marketing",
+   "title": "Digital Marketing Manager",
+   "kind": "tech",
+   "city": "Graz",
+   "country": "Austria",
+   "language": "German"
+  },
+  {
+   "family": "designer",
+   "title": "UX Designer",
+   "kind": "tech",
+   "city": "Brno",
+   "country": "Czechia",
+   "language": "Czech"
+  },
+  {
+   "family": "support",
+   "title": "Customer Support Agent",
+   "kind": "tech",
+   "city": "Sofia",
+   "country": "Bulgaria",
+   "language": "Bulgarian"
+  },
+  {
+   "family": "software",
+   "title": "Software Engineer",
+   "kind": "tech",
+   "city": "Amsterdam",
+   "country": "Netherlands",
+   "language": "Dutch"
+  }
+ ]
+}
