@@ -1,0 +1,37 @@
+{
+ "at": "2026-10-27T13:10:52.285Z",
+ "round": "fixed",
+ "build": "ffb105d",
+ "tools": {
+  "browser-use": 87.3,
+  "extension": 96.5,
+  "nanobrowser": 46.4,
+  "stagehand": 44
+ },
+ "forms": {
+  "101": {
+   "score": 100,
+   "wrong": 0
+  },
+  "102": {
+   "score": 97.2,
+   "wrong": 0
+  },
+  "103": {
+   "score": 92.9,
+   "wrong": 2
+  },
+  "104": {
+   "score": 100,
+   "wrong": 0
+  },
+  "105": {
+   "score": 100,
+   "wrong": 0
+  },
+  "106": {
+   "score": 90,
+   "wrong": 0
+  }
+ }
+}
